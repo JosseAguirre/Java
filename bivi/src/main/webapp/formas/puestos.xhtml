@@ -1,0 +1,205 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+<body>
+	<ui:composition template="/templates/menuT.xhtml">
+		<ui:define name="contenido">
+
+	         <h:form id="frmPuesto">
+
+				<p:growl id="growl" showDetail="true" life="3000" rendered="#{not facesContext.validationFailed}" />
+				
+				<!-- general form elements -->        
+	             <div class="box box-primary">
+	          		 <div class="box-header with-border">
+	              		<h3 class="box-title">Puestos</h3>
+	            	</div>			
+	                    
+	              <div class="box-body">
+	              
+	              <!-- CONTENIDO DE LA TABLA MOTIVOS DE NO GESTION -->
+	              <p:dataTable id="tbl"
+	              	value="#{admPuestoBean.listaPuesto}"
+					var="item" 
+					paginator="true"
+					rows="10" 
+					paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+					paginatorPosition="bottom" 
+					selection="#{admPuestoBean.puestoSeleccionado}"
+					tableStyle="white-space: nowrap" 
+					widgetVar="tablaPuesto"
+					filteredValue="#{admPuestoBean.puestoFiltrado}"
+					emptyMessage="No existen registros con ese criterio"
+					styleClass="table"
+					reflow="true"
+					selectionMode="single"
+				    rowKey="#{item.idPuesto}">
+				    
+				    <f:facet name="header">
+								<div class="row row-nomargin">
+									<div class="col-lg-3">
+										<p:inputText id="globalFilter"
+											onkeyup="PF('tablaPuesto').filter()" class="pull-left"
+											style="width: 100%" placeholder="Buscar...." />
+									</div>
+									<div class="col-lg-6">
+										<p:outputLabel value="Lista de Puestos" />
+									</div>
+
+								</div>
+							</f:facet>
+							
+							<p:column headerText="Codigo" filterBy="#{item.idPuesto}"
+							filterStyle="display:none">
+							<h:outputText value="#{item.idPuesto}" />
+							</p:column>
+							<p:column headerText="Puesto" filterBy="#{item.nombrePuesto}"
+							filterStyle="display:none">
+							<h:outputText value="#{item.nombrePuesto}" />
+							</p:column>
+							<p:column headerText="Ubicacion" filterBy="#{item.ubicacion}"
+							filterStyle="display:none">
+							<h:outputText value="#{item.ubicacion}" />
+							</p:column>
+							<p:column headerText="Codigo de barras" filterBy="#{item.codigoBarras}" filterStyle="display:none">
+								<h:outputText value="#{item.codigoBarras}" />
+							</p:column>
+							<p:column headerText="Puesto"
+								filterBy="#{item.idTipoPuestoCatalogo.descripcion}" filterStyle="display:none">
+								<h:outputText value="#{item.idTipoPuestoCatalogo.descripcion}" />
+							</p:column>
+							<p:column headerText="Agencia"
+								filterBy="#{item.idAgencia.nombre}" filterStyle="display:none">
+								<h:outputText value="#{item.idAgencia.nombre}" />
+							</p:column>
+							<p:column headerText="N° Guardias" filterBy="#{item.numeroGuardias}" filterStyle="display:none">
+								<h:outputText value="#{item.numeroGuardias}" />
+							</p:column>
+	              
+	              </p:dataTable>
+	              
+	              	<div id= "footer" class="box-footer">
+
+						<p:commandButton id="btnNuevo"
+								actionListener="#{admPuestoBean.nuevo()}" value="Nuevo"
+								 styleClass="my-button" icon="fa fa-plus"
+								update=":frmPuesto:growl :frmCrear"/>
+
+						<p:commandButton id="btnModificar"
+							actionListener="#{admPuestoBean.modificar()}"
+							value="Modificar"  styleClass="my-button"
+							icon="fa fa-pencil" update=":frmPuesto:growl :frmCrear"/>
+						
+						<p:commandButton id="btnEliminar"
+								actionListener="#{admPuestoBean.eliminar()}"
+								value="Eliminar" styleClass="my-button" icon="fa fa-trash"
+								update=":frmPuesto:tbl :frmPuesto:growl">
+						</p:commandButton>
+					</div>	
+					<br />
+					</div>
+				</div>
+			</h:form>
+			
+			<!-- DIALOGO NUEVO CLIENTE -->
+
+			<p:dialog id="dlgDatosPuesto" widgetVar="dlgDatosPuesto"
+				responsive="true" modal="true" width="50%" closable="true" styleClass="my-dialogs"
+				closeOnEscape="true" appendTo="@(body)">
+
+				<h:form id="frmCrear">
+
+					<p:messages id="mensaje" autoUpdate="false" />
+					<p:focus context="@form" />
+					
+
+							<p:panelGrid id="pnl" columns="3"
+								columnClasses="ui-grid-col-2,ui-grid-col-4" layout="grid"
+								styleClass="ui-panelgrid-blank">
+
+								<p:outputLabel value="Tipo de puesto" for="idTipoPuestoCatalogo" />
+								<p:selectOneMenu id="idTipoPuestoCatalogo" value="#{admPuestoBean.idTipoPuestoCatalogo}"
+									required="true" requiredMessage="Requerido">
+									<f:selectItem itemLabel="Seleccionar" itemValue="#{null}" />
+									<f:selectItems value="#{admPuestoBean.listaTipoPuesto}" var="item"
+										itemLabel="#{item.descripcion}"
+										itemValue="#{item.idDetalleCatalogo}">
+									</f:selectItems>
+								</p:selectOneMenu>
+								<p:message for="idTipoPuestoCatalogo" />
+
+								<p:outputLabel value="Agencia" for="idAgencia" />
+								<p:selectOneMenu id="idAgencia" value="#{admPuestoBean.idAgencia}"
+									required="true" requiredMessage="Requerido">
+									<f:selectItem itemLabel="Seleccionar" itemValue="#{null}" />
+									<f:selectItems value="#{admPuestoBean.listaAgencia}" var="item"
+										itemLabel="#{item.nombre}"
+										itemValue="#{item.idAgencia}">
+									</f:selectItems>
+								</p:selectOneMenu>
+								<p:message for="idAgencia" />
+
+								<p:outputLabel value="Nombre Puesto" for="nombrePuesto" />
+								<p:inputText id="nombrePuesto"
+									value="#{admPuestoBean.puesto.nombrePuesto}"
+									required="true" requiredMessage="Requerido"
+									onkeyup="this.value = this.value.toUpperCase();">
+								</p:inputText>
+								<p:message for="nombrePuesto" />
+
+								<p:outputLabel value="Ubicacion" for="ubicacion" />
+								<p:inputText id="ubicacion"
+									value="#{admPuestoBean.puesto.ubicacion}" required="true"
+									requiredMessage="Requerido"
+									onkeyup="this.value = this.value.toUpperCase();">
+								</p:inputText>
+								<p:message for="ubicacion" />
+								
+								<p:outputLabel value="Codigo de barras" for="codigoBarras" />
+								<p:inputText id="codigoBarras"
+									value="#{admPuestoBean.puesto.codigoBarras}" required="true"
+									requiredMessage="Requerido"
+									onkeyup="this.value = this.value.toUpperCase();">
+								</p:inputText>
+								<p:message for="codigoBarras" />
+
+								<p:outputLabel value="Numero de Guardias" for="numeroGuardias" />
+								<p:inputText id="numeroGuardias"
+									value="#{admPuestoBean.puesto.numeroGuardias}" required="true"
+									requiredMessage="Requerido"
+									onkeyup="this.value = this.value.toUpperCase();">
+								</p:inputText>
+								<p:message for="numeroGuardias" />
+
+							</p:panelGrid>
+
+							<br />
+
+					
+
+							<p:commandButton value="Guardar"
+								action="#{admPuestoBean.persistir()}" styleClass="my-button"
+								oncomplete="if (args &amp;&amp; !args.validationFailed) PF('dlgDatosPuesto').hide(); "
+								update = ":frmPuesto:tbl :frmCrear :frmPuesto:growl" 		
+								icon="fa fa-save" >
+								</p:commandButton>
+								
+							<p:commandButton value="Cancelar"
+								actionListener="#{admPuestoBean.cancelar()}"
+								 icon="fa fa-close" styleClass="my-button"
+								oncomplete="PF('dlgDatosPuesto').hide();">
+							</p:commandButton>
+
+
+
+				</h:form>
+			</p:dialog>      
+                      
+		</ui:define>
+
+	</ui:composition>
+</body>
+</html>

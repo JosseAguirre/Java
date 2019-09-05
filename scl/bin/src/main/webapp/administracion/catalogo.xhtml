@@ -1,0 +1,326 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+<ui:composition template="/templates/menuT.xhtml">
+	<ui:define name="panel"></ui:define>
+
+	<!-- #####CAMPO CREAR TIPO CATALOGO######## -->
+	<ui:define name="content">
+		<p:messages id="mensaje" autoUpdate="false" />fff
+		<center>
+			<p:panel header="Crear Tipo Catalogo" style="width: 50%;">
+				<h:panelGrid id="pnl" columns="3" border="0" style="width: 50%; ">
+					<p:outputLabel value="Nombre" for="nombre" />
+					<p:inputText id="nombre"
+						value="#{admGestionCatalogoBean.admtipocatalogo.nombre}"
+						required="true" requiredMessage="nombre">
+					</p:inputText>
+					<p:message for="nombre" />
+				</h:panelGrid>
+				<br />
+				<p:commandButton value="Guardar"
+					action="#{admGestionCatalogoBean.persitir()}" icon="ui-icon-disk"
+					update=":frm:pnl :frm:tbl :frm:growl" />
+			</p:panel>
+		</center>
+		<br />
+
+		<!-- #####LISTA TIPO CATALOGO######## -->
+		<p:panel>
+			<p:dataTable id="tbl"
+				value="#{admGestionCatalogoBean.listatipocatalogo}" var="item"
+				paginator="true" rows="10"
+				paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+				paginatorPosition="bottom" editable="true"
+				tableStyle="white-space: nowrap" widgetVar="tablatipocatalogo"
+				filteredValue="#{admGestionCatalogoBean.tipocatalogofiltro}"
+				emptyMessage="No existen registros con ese criterio"
+				styleClass="table" reflow="true" selectionMode="single"
+				rowKey="#{item.idtipocatalogo}">
+
+				<f:facet name="header">
+					<div class="row row-nomargin">
+						<div class="col-lg-3">
+							<p:inputText id="globalFilter"
+								onkeyup="PF('tablatipocatalogo').filter()" class="pull-left"
+								style="width: 100%" placeholder="xxxxxxxx" />
+						</div>
+						<div class="col-lg-6">
+							<h:outputText value="Lista de Tipo Catálogo" />
+						</div>
+						<div class="col-lg-3">
+							<div class="pull-right">
+								<p:commandButton
+									action="#{admGestionCatalogoBean.eliminartipocatalogo()}"
+									update=":frm:tbl :frm:pnl :frm:growl" title="Eliminar" value="Eliminar"
+									class="btn-primary" icon="fa fa-list">
+									<p:confirm header="Confirmacion"
+										message="Desea eliminar el Registro..?" icon="ui-icon-alert" />
+								</p:commandButton>
+							</div>
+						</div>
+					</div>
+				</f:facet>
+
+				<p:ajax event="rowSelect"
+					listener="#{admGestionCatalogoBean.onRowSelect}" update=":frm:pnl" />
+
+				<p:column headerText="Codigo">
+					<h:outputText value="#{item.idtipocatalogo}" />
+				</p:column>
+
+				<p:column headerText="Nombre" filterBy="#{item.nombre}"
+					filterStyle="display:none">
+					<h:outputText value="#{item.nombre}" />
+				</p:column>
+			</p:dataTable>
+		</p:panel>
+	</ui:define>
+
+	<!-- #####CAMPO CREAR CATALOGO######## -->
+	<ui:define name="content2">
+		<center>
+			<p:panel header="Crear Catálogo" style="width: 50%;">
+				<h:panelGrid id="pnl2" columns="3">
+					<p:outputLabel value="Nombre" for="nombre" />
+					<p:inputText id="nombre"
+						value="#{admGestionCatalogoBean.admcatalogo.nombre}"
+						required="true" requiredMessage="nombre">
+					</p:inputText>
+					<p:message for="nombre" />
+
+					<p:outputLabel value="Tipo Catalogo" for="tipocatalogo" />
+					<p:selectOneMenu id="tipocatalogo"
+						value="#{admGestionCatalogoBean.idtipocatalogo}">
+						<f:selectItem itemLabel="Seleccionar" itemValue="#{null}" />
+						<f:selectItems value="#{admGestionCatalogoBean.listatipocatalogo}"
+							var="item" itemLabel="#{item.nombre}"
+							itemValue="#{item.idtipocatalogo}">
+						</f:selectItems>
+					</p:selectOneMenu>
+					<p:message for="tipocatalogo" />
+
+					<p:outputLabel value="Catalogo Padre" for="catalogopadre" />
+					<p:selectOneMenu id="catalogopadre"
+						value="#{admGestionCatalogoBean.idpadrecatalogo}">
+						<f:selectItem itemLabel="Seleccionar"
+							itemValue="#{admGestionCatalogoBean.padrecatalogos}" />
+						<f:selectItems
+							value="#{admGestionCatalogoBean.listacatalogopadre}" var="item"
+							itemLabel="#{item.nombre}" itemValue="#{item.idcatalogo}">
+						</f:selectItems>
+					</p:selectOneMenu>
+					<p:message for="catalogopadre" />
+
+					<p:outputLabel value="Descripción" for="descripcion" />
+					<p:inputTextarea id="descripcion" rows="5" cols="40"
+						completeMethod="#{admGestionCatalogoBean.admcatalogo.descripcion}"
+						queryDelay="750" minQueryLength="4"
+						value="#{admGestionCatalogoBean.admcatalogo.descripcion}"
+						required="true" requiredMessage="descripcion" />
+					<p:message for="descripcion" />
+				</h:panelGrid>
+				<br />
+				<p:commandButton value="Guardar"
+					action="#{admGestionCatalogoBean.persitir1()}" icon="ui-icon-disk"
+					update=":frm2:pnl2 :frm2:tbl2 :frm2:growl" />
+
+			</p:panel>
+		</center>
+		<br />
+
+		<!-- #####CAMPO LISTA CATALOGO######## -->
+		<p:panel>
+			<h:panelGrid id="pnlbase">
+				<p:dataTable id="tbl2"
+					value="#{admGestionCatalogoBean.listacatalogo}" var="item1"
+					paginator="true" rows="10"
+					paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+					paginatorPosition="bottom" editable="true"
+					tableStyle="white-space: nowrap" widgetVar="tablacatalogo"
+					filteredValue="#{admGestionCatalogoBean.catalogofiltro}"
+					emptyMessage="No existen registros con ese criterio"
+					styleClass="table" reflow="true" selectionMode="single"
+					rowKey="#{item1.idcatalogo}">
+
+					<f:facet name="header">
+						<div class="row row-nomargin">
+							<div class="col-lg-3">
+								<p:inputText id="globalFilter"
+									onkeyup="PF('tablacatalogo').filter()" class="pull-left"
+									style="width: 100%" placeholder="xxxxxxxx" />
+							</div>
+							<div class="col-lg-6">
+								<h:outputText value="Lista de Catalogo" />
+							</div>
+							<div class="col-lg-3">
+								<div class="pull-right">
+									<p:commandButton
+										action="#{admGestionCatalogoBean.eliminarcatalogo()}"
+										update=":frm2:tbl2 :frm2:growl :frm2:pnl2" title="Eliminar"
+										value="Eliminar" class="btn-primary" icon="fa fa-list">
+										<p:confirm header="Confirmacion"
+											message="Desea eliminar el Registro..?" icon="ui-icon-alert" />
+									</p:commandButton>
+								</div>
+							</div>
+						</div>
+					</f:facet>
+
+					<p:ajax event="rowSelect"
+						listener="#{admGestionCatalogoBean.onRowSelectCatalogo}"
+						update=":frm2:pnl2" />
+
+					<p:column headerText="Codigo">
+						<h:outputText value="#{item1.idcatalogo}" />
+					</p:column>
+					<p:column headerText="Tipo Catalogo">
+						<h:outputText value="#{item1.idtipocatalogo.nombre}"/>
+					</p:column>
+					<p:column headerText="Catalogo Padre"
+						filterBy="#{item1.idpadrecatalogo}" filterStyle="display:none">
+						<h:outputText value="#{item1.idpadrecatalogo.nombre}" />
+					</p:column>
+					<p:column headerText="Nombre" filterBy="#{item1.nombre}"
+						filterStyle="display:none">
+						<h:outputText value="#{item1.nombre}" />
+					</p:column>
+
+
+					<p:column headerText="Descripción" filterBy="#{item1.descripcion}"
+						filterStyle="display:none">
+						<h:outputText value="#{item1.descripcion}" />
+					</p:column>
+				</p:dataTable>
+			</h:panelGrid>
+		</p:panel>
+	</ui:define>
+
+	<!-- #####CAMPO CREAR DETALLE CATALOGO######## -->
+	<ui:define name="content3">
+		<center>
+			<p:panel header="Crear Detalle Catálogo" style="width: 50%;">
+				<h:panelGrid id="pnl3" columns="3" border="0" style="width: 50%; ">
+					<p:outputLabel value="Nombre" for="nombre" />
+					<p:inputText id="nombre"
+						value="#{admGestionCatalogoBean.admdetallecatalogo.nombre}"
+						required="true" requiredMessage="nombre">
+					</p:inputText>
+					<p:message for="nombre" />
+
+					<p:outputLabel value="Catalogo" for="catalogo" />
+					<p:selectOneMenu id="catalogo"
+						value="#{admGestionCatalogoBean.idcatalogo}" required="true"
+						requiredMessage="Requerido">
+						<f:selectItem itemLabel="Seleccionar" itemValue="#{null}" />
+						<f:selectItems value="#{admGestionCatalogoBean.listacatalogo}"
+							var="item" itemLabel="#{item.nombre}"
+							itemValue="#{item.idcatalogo}">
+						</f:selectItems>
+					</p:selectOneMenu>
+					<p:message for="catalogo" />
+
+					<p:outputLabel value="Detalle Catalogo Padre" for="detallecatpadre" />
+					<p:selectOneMenu id="detallecatpadre"
+						value="#{admGestionCatalogoBean.iddetallecatalogopadre}"
+						required="false" requiredMessage="Requerido">
+						<f:selectItem itemLabel="Seleccionar"
+							itemValue="#{admGestionCatalogoBean.padredetallecatalogos}" />
+						<f:selectItems
+							value="#{admGestionCatalogoBean.listadetallecatalogopadre}"
+							var="item" itemLabel="#{item.nombre}"
+							itemValue="#{item.iddetallecatalogo}">
+						</f:selectItems>
+					</p:selectOneMenu>
+					<p:message for="detallecatpadre" />
+
+					<p:outputLabel value="Descripción" for="descripcion" />
+					<p:inputTextarea id="descripcion" rows="5" cols="40"
+						completeMethod="#{admGestionCatalogoBean.admdetallecatalogo.descripcion}"
+						queryDelay="750" minQueryLength="4"
+						value="#{admGestionCatalogoBean.admdetallecatalogo.descripcion}"
+						required="true" requiredMessage="descripcion" />
+					<p:message for="descripcion" />
+				</h:panelGrid>
+				<br />
+				<p:commandButton value="Guardar"
+					action="#{admGestionCatalogoBean.persitir2()}" icon="ui-icon-disk"
+					update=":frm3:pnl3 :frm3:tbl3 :frm3:growl" />
+			</p:panel>
+		</center>
+		<br />
+		<!-- #####CAMPO LISTA DETALLE CATALOGO######## -->
+		<p:panel>
+			<p:dataTable id="tbl3"
+				value="#{admGestionCatalogoBean.listadetallecatalogo}" var="item2"
+				paginator="true" rows="10"
+				paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+				paginatorPosition="bottom" editable="true"
+				tableStyle="white-space: nowrap" widgetVar="tabladetallecatalogo"
+				filteredValue="#{admGestionCatalogoBean.detallecatalogofiltro}"
+				emptyMessage="No existen registros con ese criterio"
+				styleClass="table" reflow="true" selectionMode="single"
+				rowKey="#{item2.iddetallecatalogo}">
+
+				<f:facet name="header">
+					<div class="row row-nomargin">
+						<div class="col-lg-3">
+							<p:inputText id="globalFilter"
+								onkeyup="PF('tabladetallecatalogo').filter()" class="pull-left"
+								style="width: 100%" placeholder="xxxxxxxx" />
+						</div>
+						<div class="col-lg-6">
+							<h:outputText value="Lista Detalle Catálogo" />
+						</div>
+						<div class="col-lg-3">
+							<div class="pull-right">
+								<p:commandButton
+									action="#{admGestionCatalogoBean.eliminardetallecatalogo()}"
+									update=":frm3:tbl3 :frm3:growl" title="Eliminar"
+									value="Eliminar" class="btn-primary" icon="fa fa-list">
+									<p:confirm header="Confirmacion"
+										message="Desea eliminar el Registro..?" icon="ui-icon-alert" />
+								</p:commandButton>
+							</div>
+						</div>
+					</div>
+				</f:facet>
+
+				<p:ajax event="rowSelect"
+					listener="#{admGestionCatalogoBean.onRowSelectdetallecatalogo}"
+					update=":frm3:pnl3" />
+
+				<p:column headerText="Codigo">
+					<h:outputText value="#{item2.iddetallecatalogo}" />
+				</p:column>
+				<p:column headerText="Nombre" filterBy="#{item2.nombre}"
+					filterStyle="display:none">
+					<h:outputText value="#{item2.nombre}" />
+				</p:column>
+				<p:column headerText="Detallecatalogo Padre"
+					filterBy="#{item2.iddetallecatalogopadre.nombre}"
+					filterStyle="display:none">
+					<h:outputText value="#{item2.iddetallecatalogopadre.nombre}" />
+				</p:column>
+				<p:column headerText="Catalogo"
+					filterBy="#{item2.idcatalogo.nombre}" filterStyle="display:none">
+					<h:outputText value="#{item2.idcatalogo.nombre}" />
+				</p:column>
+				<p:column headerText="Descripción" filterBy="#{item2.nombre}"
+					filterStyle="display:none">
+					<h:outputText value="#{item2.descripcion}" />
+				</p:column>
+			</p:dataTable>
+		</p:panel>
+	</ui:define>
+
+
+</ui:composition>
+</html>
+
+
+

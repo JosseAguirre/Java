@@ -1,0 +1,332 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	>
+<body>
+<ui:composition template="/templates/admin.xhtml">
+		<ui:define name="content">
+		<h:form id="frmAgencia" >
+   
+   		<p:growl id="growl" showDetail="true" life="3000"  rendered="#{not facesContext.validationFailed}"/> 
+         
+           <!-- general form elements -->        
+             <div class="box box-primary">
+          		 <div class="box-header with-border">
+              		<h3 class="box-title">Agencias</h3>
+            	</div>			
+                      
+              <div class="box-body">
+              
+              <p:panelGrid id="pnl" columns = "3"  styleClass="ui-panelgrid-blank">
+
+							<p:outputLabel value="Cliente Padre" for="clientepadre" />
+							<p:selectOneMenu id="clientepadre" filter="true" filterMatchMode="contains"
+								value="#{agenciaBean.idClientePadre}" required="true"
+							requiredMessage="Requerido">
+								<p:ajax update=":frmAgencia:pnl" listener="#{agenciaBean.consultaListaClientePadre()}"  />
+								<f:selectItem itemLabel="Seleccionar" itemValue="#{null}" />
+								<f:selectItems value="#{agenciaBean.listaClientePadre}"
+									var="item" itemLabel="#{item.razonSocial}"
+									itemValue="#{item.idCliente}">
+								</f:selectItems>
+							</p:selectOneMenu>
+							<p:message for="clientepadre" display="icon" />
+
+
+							<p:outputLabel value="Cliente" for="cliente" />
+							<p:selectOneMenu id="cliente" filter="true" filterMatchMode="contains"
+								value="#{agenciaBean.idCliente}" required="true"
+							requiredMessage="Requerido">
+								<p:ajax update=":frmAgencia:pnl :frmAgencia:tblAgencia" 
+									listener="#{agenciaBean.consultaListaAgencia()}" />
+									<f:selectItem itemLabel="Seleccionar" itemValue="#{null}" />
+
+								<f:selectItems value="#{agenciaBean.listaCliente}"
+									var="item" itemLabel="#{item.razonSocial}"
+									itemValue="#{item.idCliente}">
+								</f:selectItems>
+							</p:selectOneMenu>
+							<p:message for="cliente" display="icon" />
+
+
+						</p:panelGrid>
+                 
+			<!-- CONTENIDO DE LA TABLA AGENCIAS -->
+			<p:dataTable id="tblAgencia" 
+			    value="#{agenciaBean.listaAgencia}"
+				var="item" 
+				paginator="true" 
+				rows="10"
+				paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+				paginatorPosition="bottom" 
+				selection="#{agenciaBean.agenciaSeleccionada}"
+				tableStyle="white-space: nowrap" 
+				widgetVar="tablaAgencia"
+				filteredValue="#{agenciaBean.agenciaFiltrada}"
+				emptyMessage="No existen registros con ese criterio"
+				styleClass="table"
+				reflow="true"
+				selectionMode="single"
+				rowsPerPageTemplate="5,10,15"
+			    rowKey="#{item.idAgencia}">
+				
+			<f:facet name="header">
+								<div class="row row-nomargin">
+									<div class="col-lg-3">
+										<p:inputText id="globalFilter"
+											onkeyup="PF('tablaAgencia').filter()" class="pull-left"
+											style="width: 100%" placeholder="Buscar...." />
+									</div>
+									<div class="col-lg-6">
+										<p:outputLabel value="Lista de Agencias" />
+									</div>
+
+									<div class="col-lg-3">
+										<div class="pull-right">
+											<h:commandLink >
+												<p:graphicImage name="/images/excel.png" width="24" title="Exportar Excel" />
+												<p:dataExporter type="xls" target="tblAgencia" fileName="cars"
+													options="#{responsableAgenciaBean.excelOpt}" />
+											</h:commandLink>
+
+											<h:commandLink>
+												<p:graphicImage name="/images/pdf.png" width="24" title = "Exportar PDF" />
+												<p:dataExporter type="pdf" target="tblAgencia" fileName="cars"
+													options="#{responsableAgenciaBean.pdfOpt}" />
+											</h:commandLink>
+
+										</div>
+									</div>
+
+
+								</div>
+							</f:facet>
+			
+			
+
+			
+				
+				
+
+				<p:column headerText="Nombre" filterBy="#{item.nombre}"
+					filterStyle="display:none">
+					<h:outputText value="#{item.nombre}" />
+				</p:column>
+
+				<p:column headerText="Direccion" filterBy="#{item.direccion}"
+					filterStyle="display:none">
+					<h:outputText value="#{item.direccion}" />
+					</p:column>
+					
+				<p:column headerText="Telefono" filterBy="#{item.telefono}" filterStyle="display:none">
+					<h:outputText value="#{item.telefono}" />
+				</p:column>
+				
+				<p:column headerText="Codigo Barra" filterBy="#{item.codigoBarra}" filterStyle="display:none">
+					<h:outputText value="#{item.codigoBarra}" />
+				</p:column>
+				
+				<p:column headerText="Latitud" filterBy="#{item.latitud}" filterStyle="display:none">
+					<h:outputText value="#{item.latitud}" />
+				</p:column>
+				
+				<p:column headerText="longitud" filterBy="#{item.longitud}" filterStyle="display:none">
+					<h:outputText value="#{item.longitud}" />
+				</p:column>
+				
+				<p:column headerText="Cliente" filterBy="#{item.idCliente.razonSocial}" filterStyle="display:none">
+					<h:outputText value="#{item.idCliente.razonSocial}" />
+				</p:column>
+				
+							
+				<p:column headerText="Agencia Padre" filterBy="#{item.idAgenciaPadre.nombre}" filterStyle="display:none">
+					<h:outputText value="#{item.idAgenciaPadre.nombre}" />
+				</p:column>
+				
+				<p:column headerText="Ciudad" filterBy="#{item.idCiudadDc.nombre}" filterStyle="display:none">
+					<h:outputText value="#{item.idCiudadDc.nombre}" />
+				</p:column>
+				
+				<p:column headerText="Estado" filterBy="#{item.idEstadoDc.nombre}" filterStyle="display:none">
+					<h:outputText value="#{item.idEstadoDc.nombre}" />
+				</p:column>
+				
+				
+
+							
+					
+				
+				
+
+				
+			</p:dataTable>
+			
+				<div id= "footer" class="box-footer">
+
+							<p:commandButton id="btnNuevo"
+								actionListener="#{agenciaBean.nuevo()}" value="Nuevo"
+								styleClass="my-button" icon="fa fa-plus"
+								update=":frmAgencia:pnl :frmAgencia:growl :frmCrear" />
+
+							<p:commandButton id="btnModificar"
+								actionListener="#{agenciaBean.modificar()}"
+								value="Modificar" styleClass="my-button"
+								icon="fa fa-pencil" update=":frmAgencia:growl :frmCrear" />
+
+							
+
+						</div>
+						
+			<br />
+			
+          </div>          
+     </div>
+</h:form>
+
+
+			
+				 <!-- DIALOGO NUEVO AGENCIA -->
+
+		<p:dialog id="dlgDatosAgencia" widgetVar="dlgDatosAgencia"
+			 responsive="true" modal="true"
+			width="50%"  closable="true"
+			closeOnEscape="true"
+			  appendTo="@(body)">
+		
+ 
+			<!-- general form elements -->
+			<h:form id="frmCrear">
+			
+			<p:messages id="mensaje" autoUpdate="false"/>
+			<p:focus context="@form"/>
+			
+				
+				
+				
+					<p:panelGrid id = "pnl" columns = "3" columnClasses="ui-grid-col-5" layout="grid" styleClass="ui-panelgrid-blank">
+						
+
+				<p:outputLabel value="Nombre" for="nombre" />
+				<p:inputText id="nombre"
+					value="#{agenciaBean.agencia.nombre}" required="true"
+					requiredMessage="Requerido"
+					onkeyup="this.value = this.value.toUpperCase();">
+				</p:inputText>
+				<p:message for="nombre" display="icon"/>
+
+				<p:outputLabel value="Direccion" for="direccion" />
+				<p:inputText id="direccion"
+					value="#{agenciaBean.agencia.direccion}" required="true"
+					requiredMessage="Requerido"
+					onkeyup="this.value = this.value.toUpperCase();">
+				</p:inputText>
+				<p:message for="direccion" display="icon"/>
+				
+				<p:outputLabel value="Telefono" for="telefono" />
+				<p:inputText id="telefono"
+					value="#{agenciaBean.agencia.telefono}" required="true"
+					requiredMessage="Requerido"
+					>
+				</p:inputText>
+				<p:message for="telefono" display="icon"/>
+				
+				<p:outputLabel value="Codigo Barra" for="codbarra" />
+				<p:inputText id="codbarra"
+					value="#{agenciaBean.agencia.codigoBarra}" required="true"
+					requiredMessage="Requerido"
+					onkeyup="this.value = this.value.toUpperCase();">
+				</p:inputText>
+				<p:message for="codbarra" display="icon"/>
+				
+				<p:outputLabel value="Latitud" for="latitud" />
+				<p:inputText id="latitud"
+					value="#{agenciaBean.agencia.latitud}" required="true"
+					requiredMessage="Requerido"
+					>
+				</p:inputText>
+				<p:message for="latitud" display="icon"/>
+				
+				<p:outputLabel value="Longitd" for="longitud" />
+				<p:inputText id="longitud"
+					value="#{agenciaBean.agencia.longitud}" required="true"
+					requiredMessage="Requerido"
+					>
+				</p:inputText>
+				<p:message for="longitud" display="icon"/>
+				
+				<p:outputLabel value="Nominativo" for="nominativo" />
+				<p:inputText id="nominativo"
+					value="#{agenciaBean.agencia.nominativo}" required="true"
+					requiredMessage="Requerido"
+					onkeyup="this.value = this.value.toUpperCase();">
+				</p:inputText>
+				<p:message for="nominativo" display="icon"/>
+				
+						
+	
+							<p:outputLabel value="Ciudad" for="ciudad" />
+							<p:selectOneMenu id="ciudad" filter="true" filterMatchMode="contains"
+								value="#{agenciaBean.idCiudad}">
+								<p:ajax update=":frmCrear:agenciaPadre" listener="#{agenciaBean.consultaListaAgenciaPadre()}"  />
+								<f:selectItem itemLabel="Seleccionar" itemValue="#{null}" />
+								<f:selectItems value="#{agenciaBean.listaCiudad}"
+									var="item" itemLabel="#{item.nombre}"
+									itemValue="#{item.idDetalleCatalogo}">
+								</f:selectItems>
+							</p:selectOneMenu>
+							<p:message for="ciudad" />
+							
+							
+							<p:outputLabel value="Agencia Padre" for="agenciaPadre" />
+							<p:selectOneMenu id="agenciaPadre" filter="true" filterMatchMode="contains"
+								value="#{agenciaBean.idAgencia}">
+								<f:selectItem itemLabel="Seleccionar" itemValue="#{null}" />
+								<f:selectItems value="#{agenciaBean.listaAgenciaPadre}"
+									var="item" itemLabel="#{item.nombre}"
+									itemValue="#{item.idAgencia}">
+								</f:selectItems>
+							</p:selectOneMenu>
+							<p:message for="agenciaPadre" />
+							
+							
+							<p:outputLabel value="Estado" for="estado" />
+							<p:selectOneMenu id="estado" filter="true" filterMatchMode="contains"
+								value="#{agenciaBean.idEstado}">
+								<f:selectItem itemLabel="Seleccionar" itemValue="#{null}" />
+								<f:selectItems value="#{agenciaBean.listaEstado}"
+									var="item" itemLabel="#{item.nombre}"
+									itemValue="#{item.idDetalleCatalogo}">
+								</f:selectItems>
+							</p:selectOneMenu>
+							<p:message for="estado" />
+				
+
+
+				 
+				
+				</p:panelGrid>	
+					
+					
+					<br />
+				
+					<p:commandButton value="Guardar"
+						action="#{agenciaBean.persistir()}" styleClass="my-button"
+						update = ":frmAgencia:tblAgencia :frmCrear:pnl :frmAgencia:growl" 	icon="fa fa-save"					
+						oncomplete="if (args &amp;&amp; !args.validationFailed) PF('dlgDatosAgencia').hide(); " />
+						
+					<p:commandButton value="Cancelar"
+						actionListener="#{agenciaBean.cancelar()}" styleClass="my-button"		icon="fa fa-close"			 
+						oncomplete="PF('dlgDatosAgencia').hide();" />
+				
+			</h:form>
+		</p:dialog>	
+				
+
+	</ui:define>
+
+</ui:composition>
+</body>
+</html>

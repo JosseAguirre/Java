@@ -1,0 +1,373 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+<ui:composition template="/templates/menuT.xhtml">
+	<ui:define name="panel"></ui:define>
+
+	<!-- #####CONTENIDO CREAR AGENCIA######## -->
+	<ui:define name="content">
+		<p:messages id="mensaje" autoUpdate="false" />
+		<center>
+		<p:panel header="Crear Agencia" style="width: 40%;">
+			<h:panelGrid id="pnl" columns="3" border="0" style="width: 50%; ">
+				<p:outputLabel value="Cliente" for="cliente" />
+				<p:selectOneMenu id="cliente" value="#{admAgenciaBean.idcliente}"
+					required="false" requiredMessage="Requerido">
+					<f:selectItem itemLabel="Seleccionar" itemValue="#{null}" />
+					<f:selectItems value="#{admAgenciaBean.listacliente}" var="item"
+						itemLabel="#{item.razonsocial}" itemValue="#{item.idcliente}">
+					</f:selectItems>
+				</p:selectOneMenu>
+				<p:message for="cliente" />
+
+				<p:outputLabel value="Agenciapadre" for="agenciapadre" />
+				<p:selectOneMenu id="agenciapadre"
+					value="#{admAgenciaBean.idagenciapadre}"> 
+					<f:selectItem itemLabel="Seleccionar"
+						itemValue="#{admAgenciaBean.padreagencia}" />
+					<f:selectItems value="#{admAgenciaBean.listaagenciapadre}"
+						var="item" itemLabel="#{item.nombre}"
+						itemValue="#{item.idagencia}">
+					</f:selectItems>
+				</p:selectOneMenu>
+				<p:message for="agenciapadre" />
+
+				<p:outputLabel value="Nombre" for="nombre" />
+				<p:inputText id="nombre" value="#{admAgenciaBean.admagencia.nombre}"
+					required="true" requiredMessage="Requerido">
+				</p:inputText>
+				<p:message for="nombre" />
+
+				<p:outputLabel value="Ciudad" for="ciudad" />
+				<p:selectOneMenu id="ciudad" value="#{admAgenciaBean.idciudad}"
+					required="true" requiredMessage="Requerido">
+					<f:selectItem itemLabel="Seleccionar" itemValue="#{null}" />
+					<f:selectItems value="#{admAgenciaBean.listaciudad}" var="item"
+						itemLabel="#{item.nombre}" itemValue="#{item.iddetallecatalogo}"> 
+					</f:selectItems>
+				</p:selectOneMenu>
+				<p:message for="ciudad" />
+
+				<p:outputLabel value="Dirección" for="direccion" />
+				<p:inputText id="direccion"
+					value="#{admAgenciaBean.admagencia.direccion}" required="true"
+					requiredMessage="direccion">
+				</p:inputText>
+				<p:message for="direccion" />
+
+				<p:outputLabel value="Teléfono" for="telefono" />
+				<p:inputText id="telefono"
+					value="#{admAgenciaBean.admagencia.telefono}" required="true"
+					requiredMessage="telefono">
+				</p:inputText>
+				<p:message for="telefono" />
+
+				<p:outputLabel value="Nominatvo" for="nominativo" />
+				<p:inputText id="nominativo"
+					value="#{admAgenciaBean.admagencia.nominativo}" required="true"
+					requiredMessage="nominativo">
+				</p:inputText>
+				<p:message for="nominativo" />
+
+				<p:outputLabel value="Estado" for="estado" />
+				<p:selectOneMenu id="estado" value="#{admAgenciaBean.idestado}"
+					required="true" requiredMessage="Requerido">
+					<f:selectItem itemLabel="Seleccionar" itemValue="#{null}" />
+					<f:selectItems value="#{admAgenciaBean.listaestado}" var="item"
+						itemLabel="#{item.nombre}" itemValue="#{item.iddetallecatalogo}">
+					</f:selectItems>
+				</p:selectOneMenu>
+				<p:message for="estado" />
+
+				<!--<br />
+
+				<div id="floating-panel">
+
+	  				<input id="address" type="text" value="Sydney, NSW" /> <input
+						id="submit" type="button" value="Geocode" />
+				</div>
+				<div id="map"></div>
+
+				<script>
+      function initMap() {
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 8,
+          center: {lat: -34.397, lng: 150.644}
+        });
+        var geocoder = new google.maps.Geocoder();
+
+        document.getElementById('submit').addEventListener('click', function() {
+          geocodeAddress(geocoder, map);
+        });
+      }
+
+      function geocodeAddress(geocoder, resultsMap) {
+        var address = document.getElementById('address').value;
+        geocoder.geocode({'address': address}, function(results, status) {
+          if (status === 'OK') {
+            resultsMap.setCenter(results[0].geometry.location);
+            var marker = new google.maps.Marker({
+              map: resultsMap,
+              position: results[0].geometry.location
+            });
+          } else {
+            alert('Geocode was not successful for the following reason: ' + status);
+          }
+        });
+      }
+
+src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBsKMyNKYlv24IHsPINwQ5yr4U9p2M1Jis&callback;initMap">
+</script>-->
+
+			</h:panelGrid>
+			<p:commandButton value="Guardar"
+				action="#{admAgenciaBean.persitir()}"
+				update=":frm:pnl :frm:tbl :frm:growl" />
+		</p:panel>
+		</center>
+		<br />
+		<!-- #####CONTENIDO LISTA AGENCIA######## -->
+		<p:panel >
+			<p:dataTable id="tbl" value="#{admAgenciaBean.listaagencia}"
+				var="item1" paginator="true" rows="10"
+				paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+				paginatorPosition="bottom" editable="true"
+				tableStyle="white-space: nowrap" widgetVar="tablaagencia"
+				filteredValue="#{admAgenciaBean.agenciafiltrado}"
+				emptyMessage="No existen registros con ese criterio"
+				styleClass="table" reflow="true" selectionMode="single"
+				rowKey="#{item1.idagencia}">
+
+				<f:facet name="header">
+					<div class="row row-nomargin">
+						<div class="col-lg-3">
+							<p:inputText id="globalFilter"
+								onkeyup="PF('tablaagencia').filter()" class="pull-left"
+								style="width: 100%" placeholder="xxxxxxxx" />
+						</div>
+						<div class="col-lg-6">
+							<h:outputText value="Lista de Agencias" />
+						</div>
+						<div class="col-lg-3">
+							<div class="pull-right">
+								<p:commandButton action="#{admAgenciaBean.eliminar}"
+									update=":frm:tbl :frm:growl" title="Eliminar" value="Eliminar"
+									class="btn-primary" icon="fa fa-list">
+									<p:confirm header="Confirmacion"
+										message="Desea eliminar el Registro..?" icon="ui-icon-alert" />
+								</p:commandButton>
+							</div>
+						</div>
+					</div>
+				</f:facet>
+
+				<p:ajax event="rowSelect" listener="#{admAgenciaBean.onRowSelect}"
+					update=":frm:pnl" />
+
+				<p:column headerText="Codigo">
+					<h:outputText value="#{item1.idagencia}" />
+				</p:column>
+
+
+				<p:column headerText="Cliente" filterBy="#{item1.nombre}"
+					filterStyle="display:none">
+					<h:outputText value="#{item1.nombre}" />
+				</p:column>
+
+				<p:column headerText="Cliente Razón Social"
+					filterBy="#{item1.idcliente.razonsocial}"
+					filterStyle="display:none">
+					<h:outputText value="#{item1.idcliente.razonsocial}" />
+				</p:column>
+
+				<p:column headerText="Agenciapadre"
+					filterBy="#{item1.idagenciapadre.nombre}"
+					filterStyle="display:none">
+					<h:outputText value="#{item1.idagenciapadre.nombre}" />
+				</p:column>
+
+
+
+				<p:column headerText="Agencia" filterBy="#{item1.nombre}"
+					filterStyle="display:none">
+					<h:outputText value="#{item1.nombre}" />
+				</p:column>
+
+				<p:column headerText="Nominativo" filterBy="#{item1.nominativo}"
+					filterStyle="display:none">
+					<h:outputText value="#{item1.nominativo}" />
+				</p:column>
+
+				<p:column headerText="Ciudad" filterBy="#{item1.idciudaddc}"
+					filterStyle="display:none">
+					<h:outputText value="#{item1.idciudaddc.nombre}" />
+				</p:column>
+
+
+				<p:column headerText="Dirección" filterBy="#{item1.direccion}"
+					filterStyle="display:none">
+					<h:outputText value="#{item1.direccion}" />
+				</p:column>
+
+				<p:column headerText="Estado" filterBy="#{item1.idestadodc}"
+					filterStyle="display:none">
+					<h:outputText value="#{item1.idestadodc.nombre}" />
+				</p:column>
+			</p:dataTable>
+		</p:panel>
+	</ui:define>
+	<!-- #####CONTENIDO CREAR CODIGO AGENCIA######## -->
+	<ui:define name="content2">
+	<center>
+		<p:panel header="Crear Código Agencia" style="width: 40%;">
+			<h:panelGrid id="pnl2" columns="3" border="0" style="width: 50%; ">
+				<p:outputLabel value="Agencia" for="agencia" />
+				<p:selectOneMenu id="agencia"
+					value="#{admClienteAgenciaSistemaBean.idagencia}" required="true"
+					requiredMessage="Requerido">
+					<f:selectItem itemLabel="Seleccionar" itemValue="#{null}" />
+					<f:selectItems value="#{admClienteAgenciaSistemaBean.listaagencia}"
+						var="item" itemLabel="#{item.nombre}"
+						itemValue="#{item.idagencia}">
+					</f:selectItems>
+				</p:selectOneMenu>
+				<p:message for="agencia" />
+
+				<p:outputLabel value="Sistema" for="sistema" />
+				<p:selectOneMenu id="sistema"
+					value="#{admClienteAgenciaSistemaBean.idsistema}" required="true"
+					requiredMessage="Requerido">
+					<f:selectItem itemLabel="Seleccionar" itemValue="#{null}" />
+					<f:selectItems value="#{admClienteAgenciaSistemaBean.listasistema}"
+						var="item" itemLabel="#{item.nombre}"
+						itemValue="#{item.idsistemas}">
+					</f:selectItems>
+				</p:selectOneMenu>
+				<p:message for="agencia" />
+
+				<p:outputLabel value="Codigo" for="codigo" />
+				<p:inputText id="codigo"
+					value="#{admClienteAgenciaSistemaBean.admclienteagenciasistema.valor}"
+					required="true" requiredMessage="codigo">
+				</p:inputText>
+				<p:message for="codigo" />
+
+				<p:commandButton value="Guardar"
+					action="#{admClienteAgenciaSistemaBean.persitir()}"
+					icon="ui-icon-disk" update=":frm2:pnl2 :frm2:tbl2 :frm2:growl">
+				</p:commandButton>
+			</h:panelGrid>
+		</p:panel>
+		</center>
+		<br></br>
+		<!-- #####CONTENIDO LISTA CODIGO AGENCIA######## -->
+		<p:panel>
+			<h:panelGrid id="pnlbase">
+
+				<p:dataTable id="tbl2"
+					value="#{admAgenciaBean.listaadmclienteagenciasistema}" var="item2"
+					paginator="true" rows="10"
+					paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+					paginatorPosition="bottom" editable="true"
+					tableStyle="white-space: nowrap" widgetVar="tablacodigoagencia"
+					filteredValue="#{admAgenciaBean.filtroclienteagenciasistema}"
+					emptyMessage="No existen registros con ese criterio"
+					styleClass="table" reflow="true" selectionMode="single"
+					rowKey="#{item2.idclienteAgenciaSistemas}">
+					<f:facet name="header">
+						<div class="row row-nomargin">
+							<div class="col-lg-3">
+								<p:inputText id="globalFilter"
+									onkeyup="PF('tablacodigoagencia').filter()" class="pull-left"
+									style="width: 100%" placeholder="xxxxxxxx" />
+							</div>
+							<div class="col-lg-6">
+								<h:outputText value="Lista de Código Agencia" />
+							</div>
+							<div class="col-lg-3">
+								<div class="pull-right">
+									<p:commandButton
+										action="#{admClienteAgenciaSistemaBean.eliminar}"
+										update=":frm2:tbl2 :frm2:growl" title="Eliminar"
+										value="Eliminar" class="btn-primary" icon="fa fa-list">
+										<p:confirm header="Confirmacion"
+											message="Desea eliminar el Registro..?" icon="ui-icon-alert" />
+									</p:commandButton>
+								</div>
+							</div>
+						</div>
+					</f:facet>
+
+					<p:ajax event="rowSelect"
+						listener="#{admClienteAgenciaSistemaBean.onRowSelect}"
+						update=":frm2:pnl2" />
+
+					<p:column headerText="Id Sistemas"
+						filterBy="#{item2.idclienteAgenciaSistemas}"
+						filterStyle="display:none">
+						<h:outputText value="#{item2.idclienteAgenciaSistemas}" />
+					</p:column>
+
+
+					<p:column headerText="Cliente"
+						filterBy="#{item2.idagencia.idcliente.nombrecomercial}"
+						filterStyle="display:none">
+						<h:outputText value="#{item2.idagencia.idcliente.nombrecomercial}" />
+					</p:column>
+
+					<p:column headerText="Agenciapadre"
+						filterBy="#{item2.idagencia.idagenciapadre.nombre}"
+						filterStyle="display:none">
+						<h:outputText value="#{item2.idagencia.idagenciapadre.nombre}" />
+					</p:column>
+
+					<p:column headerText="Agencia" filterBy="#{item2.idagencia.nombre}"
+						filterStyle="display:none">
+						<h:outputText value="#{item2.idagencia.nombre}" />
+					</p:column>
+
+					<p:column headerText="Nominativo"
+						filterBy="#{item2.idagencia.nominativo}"
+						filterStyle="display:none">
+						<h:outputText value="#{item2.idagencia.nominativo}" />
+					</p:column>
+
+					<p:column headerText="Ciudad"
+						filterBy="#{item2.idagencia.idciudaddc}"
+						filterStyle="display:none">
+						<h:outputText value="#{item2.idagencia.idciudaddc.nombre}" />
+					</p:column>
+
+
+					<p:column headerText="Dirección"
+						filterBy="#{item2.idagencia.direccion}" filterStyle="display:none">
+						<h:outputText value="#{item2.idagencia.direccion}" />
+					</p:column>
+
+					<p:column headerText="Estado"
+						filterBy="#{item2.idagencia.idestadodc}"
+						filterStyle="display:none">
+						<h:outputText value="#{item2.idagencia.idestadodc.nombre}" />
+					</p:column>
+
+					<p:column headerText="Sistema"
+						filterBy="#{item2.idsistemas.nombre}" filterStyle="display:none">
+						<h:outputText value="#{item2.idsistemas.nombre}" />
+					</p:column>
+
+					<p:column headerText="Código" filterBy="#{item2.valor}"
+						filterStyle="display:none">
+						<h:outputText value="#{item2.valor}" />
+					</p:column>
+				</p:dataTable>
+			</h:panelGrid>
+		</p:panel>
+	</ui:define>
+
+</ui:composition>
+
+</html>

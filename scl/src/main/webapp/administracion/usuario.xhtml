@@ -1,0 +1,483 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+<body>
+	<ui:composition template="/templates/admin.xhtml">
+
+
+		<ui:define name="content">
+			<h:form id="frmUsuario">
+
+				<p:growl id="growl" showDetail="true" life="3000"
+					rendered="#{not facesContext.validationFailed}" />
+
+
+				<!-- general form elements -->
+				<div class="box box-primary">
+					<div class="box-header with-border">
+						<h3 class="box-title">Datos del Usuario</h3>
+					</div>
+					<!-- /.box-header -->
+					<!-- form start -->
+
+					<div class="box-body">
+
+						<!--#### CONTENIDO DE LA TABLA USUARIO -->
+						<p:dataTable id="tbl" 
+							value="#{admUsuarioBean.listausuario}"
+							var="item" 
+							paginator="true"
+							rows="10"
+							paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+							paginatorPosition="bottom"
+							selection="#{admUsuarioBean.usuarioseleccionado}"
+							tableStyle="white-space: nowrap" 
+							widgetVar="tablaUsuario"
+							filteredValue="#{admUsuarioBean.usuariofiltrado}"
+							emptyMessage="No existen registros con ese criterio"
+							styleClass="table"
+							reflow="true"
+							selectionMode="single"
+							rowsPerPageTemplate="5,10,15"
+							rowKey="#{item.idUsuario}">
+							 
+							 
+							<f:facet name="header">
+								<div class="row row-nomargin">
+									<div class="col-lg-3">
+										<p:inputText id="globalFilter"
+											onkeyup="PF('tablaUsuario').filter()" class="pull-left"
+											style="width: 100%" placeholder="Buscar...." />
+									</div>
+									<div class="col-lg-6">
+										<p:outputLabel value="Lista de Usuarios" />
+									</div>
+
+									<div class="col-lg-3">
+										<div class="pull-right">
+											<h:commandLink>
+												<p:graphicImage name="/images/excel.png" width="24"
+													title="Exportar Excel" />
+												<p:dataExporter type="xls" target="tbl" fileName="cars"
+													options="#{responsableAgenciaBean.excelOpt}" />
+											</h:commandLink>
+
+											<h:commandLink>
+												<p:graphicImage name="/images/pdf.png" width="24"
+													title="Exportar PDF" />
+												<p:dataExporter type="pdf" target="tbl" fileName="cars"
+													options="#{responsableAgenciaBean.pdfOpt}" />
+											</h:commandLink>
+
+										</div>
+									</div>
+
+
+								</div>
+							</f:facet>
+
+
+							<p:column headerText="Codigo">
+								<h:outputText value="#{item.idUsuario}" />
+							</p:column>
+
+							<p:column headerText="Usuario" filterBy="#{item.usuario}"
+								filterStyle="display:none">
+								<h:outputText value="#{item.usuario}" />
+							</p:column>
+
+						</p:dataTable>
+
+						<br /> <br />
+
+						<div id="footer" class="box-footer">
+
+							<p:commandButton id="btnNuevo"
+								actionListener="#{admUsuarioBean.nuevo()}" value="Nuevo"
+								styleClass="my-button" icon="fa fa-plus"
+								update=":frmUsuario:growl :frmCrear" />
+
+							<p:commandButton id="btnModificar"
+								actionListener="#{admUsuarioBean.modificar()}" value="Modificar"
+								styleClass="my-button" icon="fa fa-pencil"
+								update=":frmUsuario:growl :frmCrear" />
+
+
+
+						</div>
+
+						<br />
+					</div>
+				</div>
+			</h:form>
+
+
+
+
+
+
+			<!-- DIALOGO NUEVO USUARIO -->
+
+			<p:dialog id="dlgDatosUsuario" widgetVar="dlgDatosUsuario" styleClass="my-dialogs" position="top"  
+				responsive="true" modal="true" width="50%" 
+				 appendTo="@(body)">
+
+			<!-- general form elements -->
+				<h:form id="frmCrear">
+
+					<p:messages id="mensaje" autoUpdate="false" />
+					<p:focus context="@form" />
+					
+
+<p:tabView id="tab">
+   		 <p:tab id="tbUsuario" title="Datos de Usuario">
+   		 	<p:panelGrid id="pnlEmpleado" columns="4" styleClass="ui-panelgrid-blank">
+								<p:outputLabel value="Empleado" for="empleado" />
+								<p:inputText id="empleado"
+									value="#{admUsuarioBean.admEmpleado.nombres} #{admUsuarioBean.admEmpleado.apellidos}"
+									 disabled="true">
+								</p:inputText>
+								<p:message for="empleado" />
+								<p:commandButton 
+									value="Buscar" id="btnBuscar" styleClass="my-button"
+									oncomplete="PF('dlgEmpleado').show();" update="dlgEmpleado"
+									icon="fa fa-search">
+								</p:commandButton>
+							</p:panelGrid>
+							
+							<p:panelGrid id="pnlD" columns="3"
+								styleClass="ui-panelgrid-blank">
+							
+								<p:outputLabel value="Usuario" for="usuario" />
+								<p:inputText id="usuario"
+									value="#{admUsuarioBean.admUsuario.usuario}" >
+								</p:inputText>
+								<p:message for="usuario" />
+
+								<p:outputLabel value="Password" for="password" />
+								<p:inputText id="password"
+									value="#{admUsuarioBean.admUsuario.password}" 
+									>
+								</p:inputText>
+								<p:message for="usuario" />
+
+
+								<p:outputLabel value="Estado" for="estado" />
+								<p:selectOneMenu id="estado" value="#{admUsuarioBean.idestado}"
+									>
+									<f:selectItem itemLabel="Seleccionar" itemValue="#{null}" />
+									<f:selectItems value="#{admUsuarioBean.listaestado}" var="item"
+										itemLabel="#{item.nombre}"
+										itemValue="#{item.idDetalleCatalogo}">
+									</f:selectItems>
+								</p:selectOneMenu>
+								<p:message for="estado" />
+								</p:panelGrid>
+								
+								<p:commandButton value="Guardar"
+									action="#{admUsuarioBean.persistir()}"
+									update=":frmUsuario:tbl  :frmUsuario:growl"
+									icon="fa fa-save" styleClass="my-button"
+									oncomplete="if (args &amp;&amp; !args.validationFailed) PF('dlgDatosUsuario').hide(); " />
+
+								<p:commandButton value="Cancelar" styleClass="my-button"
+									actionListener="#{admUsuarioBean.cancelar()}"
+									icon="fa fa-close" oncomplete="PF('dlgDatosUsuario').hide();" />
+
+								
+							
+							
+   		 </p:tab>
+   		 
+   		 <p:tab id="tbRolAsignado" title="Asignacion De Roles">
+   		 	<p:panelGrid id="pnlRol" columns="5" styleClass="ui-panelgrid-blank" >
+						
+						<p:outputLabel value="Rol" for="rol" />
+								<p:selectOneMenu id="rol" value="#{admUsuarioBean.idRol}"
+									>
+									<f:selectItem itemLabel="Seleccionar" itemValue="#{null}" />
+									<f:selectItems value="#{admUsuarioBean.listaRol}" var="item"
+										itemLabel="#{item.nombre}"
+										itemValue="#{item.idRol}">
+									</f:selectItems>
+								</p:selectOneMenu>
+								<p:message for="rol" />
+								 
+								<p:commandButton value="Asignar" styleClass="my-button"
+									actionListener="#{admUsuarioBean.asignarRol()}" update="tblRolAsignado"
+									  />
+									
+									<p:commandButton value="Eliminar" styleClass="my-button"
+									actionListener="#{admUsuarioBean.eliminarRol()}" update="tblRolAsignado"
+									icon="fa fa-trash"  />
+									
+								</p:panelGrid>
+								
+	
+									
+									<h:panelGrid id="pnlTbl"  styleClass="ui-panelgrid-blank" >
+								<br/>
+								<!--  ROLES ASIGNADAS -->
+								<p:dataTable id="tblRolAsignado"
+									value="#{admUsuarioBean.rolesAsignados}" var="item"
+									paginator="true" rows="10"
+									paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+									paginatorPosition="bottom"
+									selection="#{admUsuarioBean.rolesSeleccionados}"
+									tableStyle="white-space: nowrap" widgetVar="tblValidacionI"
+									emptyMessage="No existen registros con ese criterio"
+									styleClass="table" reflow="true" rowsPerPageTemplate="5,10,15"
+									rowKey="#{item.idRol}">
+
+									
+
+									<p:column selectionMode="multiple"
+										style="width:40px;text-align:left" />
+
+
+									<p:column headerText="Roles Asignados"
+										filterBy="#{item.idRol.nombre}"
+										filterStyle="display:none">
+										<h:outputText value="#{item.idRol.nombre}" />
+									</p:column>
+
+									
+								</p:dataTable>
+						
+						
+						
+						</h:panelGrid>
+   		 
+   		 </p:tab>
+   		 
+   		 <p:tab id="tbAgenciaAsignada" title="Asignacion de Agencias a Delegados">
+   		 
+   		 <p:panelGrid id="pnlAgencia" columns="3" styleClass="ui-panelgrid-blank" >
+						
+						
+              
+              <p:outputLabel value="Ciudad" for="ciudad" />
+				<p:selectOneMenu id="ciudad" value="#{admUsuarioBean.idCiudadA}" filter="true" filterMatchMode="contains">	
+			
+						<p:ajax    listener="#{admUsuarioBean.asignaCiudad()}"  />
+					<f:selectItem itemLabel="Seleccionar" itemValue="#{null}" />
+					<f:selectItems value="#{admUsuarioBean.ciudadesAsignadas}" var="c" itemLabel="#{c.idCiudadDc.nombre}"
+									itemValue="#{c.idCiudadDc.idDetalleCatalogo}">
+					</f:selectItems>
+				</p:selectOneMenu>
+				<p:message for="ciudad" display="icon"/>
+				
+				
+				
+				 <p:outputLabel value="Cliente" for="clienteorigen" />
+				<p:selectOneMenu id="clienteorigen" value="#{admUsuarioBean.idCliente}" filter="true" filterMatchMode="contains">	
+					<p:ajax     listener="#{admUsuarioBean.consultaListaAgencia()}" update="agenciaorigen tblAgenciaAsignada" />	
+					<f:selectItem itemLabel="Seleccionar" itemValue="#{null}" />
+					<f:selectItems value="#{admUsuarioBean.listaCliente}" var="item"
+						itemLabel="#{item.razonSocial}" itemValue="#{item.idCliente}">
+					</f:selectItems>	
+				</p:selectOneMenu>
+				<p:message for="clienteorigen" display="icon"/>
+				
+				
+				
+				
+				<p:outputLabel value="Agencia" for="agenciaorigen" />
+				<p:selectOneMenu id="agenciaorigen" value="#{admUsuarioBean.idAgencia}" filter="true" filterMatchMode="contains">
+					<f:selectItem itemLabel="Seleccionar" itemValue="#{null}" />
+					<f:selectItems value="#{admUsuarioBean.listaAgencia}" var="item"
+						itemLabel="#{item.nombre}" itemValue="#{item.idAgencia}">
+					</f:selectItems>
+				</p:selectOneMenu>
+				<p:message for="agenciaorigen" display="icon"/>
+				
+				</p:panelGrid>
+								
+								<br/>
+								
+								<h:panelGrid id="pnlButA" columns="2" styleClass="ui-panelgrid-blank" >
+								
+								<p:commandButton value="Asignar" styleClass="my-button"
+									actionListener="#{admUsuarioBean.asignarAgencia()}" update="tblAgenciaAsignada"
+									  >
+									  
+									   </p:commandButton>
+									
+									<p:commandButton value="Eliminar"   styleClass="my-button"
+									actionListener="#{admUsuarioBean.eliminarAgencia()}" update="tblAgenciaAsignada"
+									  />
+									</h:panelGrid>
+									
+									<h:panelGrid id="pnlTbl2"  styleClass="ui-panelgrid-blank" >
+							
+								
+								<p:dataTable id="tblAgenciaAsignada"
+									value="#{admUsuarioBean.agenciasAsignadas}" var="item"
+									paginator="true" rows="10"
+									paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+									paginatorPosition="bottom"
+									selection="#{admUsuarioBean.agenciasSeleccionadas}"
+									tableStyle="white-space: nowrap" widgetVar="tblAgenciaAsignada"
+									emptyMessage="No existen registros con ese criterio"
+									styleClass="table" reflow="true" rowsPerPageTemplate="5,10,15"
+									rowKey="#{item.idAgencia}">
+
+									
+
+									<p:column selectionMode="multiple"
+										style="width:40px;text-align:left" />
+
+
+									<p:column headerText="Agencias Asignadas"
+										filterBy="#{item.idAgencia.nombre}"
+										filterStyle="display:none">
+										<h:outputText value="#{item.idAgencia.nombre}" />
+									</p:column>
+									
+									<p:column headerText="Cliente"
+										filterBy="#{item.idAgencia.idCliente.razonSocial}"
+										filterStyle="display:none">
+										<h:outputText value="#{item.idAgencia.idCliente.razonSocial}" />
+									</p:column>
+
+									
+								</p:dataTable>
+						
+						
+						
+						</h:panelGrid>
+   		 
+   		 
+   		 </p:tab>
+   		 
+   		  <p:tab id="tbAsignacionCiudad" title="Asignacion de Ciudades">
+   		  
+								<p:panelGrid  columns="5" styleClass="ui-panelgrid-blank" >
+   		  
+   		  <p:outputLabel value="Ciudad" for="ciudadC" />
+				<p:selectOneMenu id="ciudadC" value="#{admUsuarioBean.idCiudadC}" filter="true" filterMatchMode="contains">	
+					
+					<f:selectItem itemLabel="Seleccionar" itemValue="#{null}" />
+					<f:selectItems value="#{admUsuarioBean.listaCiudad}" var="item" itemLabel="#{item.nombre}"
+									itemValue="#{item.idDetalleCatalogo}">
+					</f:selectItems>
+				</p:selectOneMenu>
+				<p:message for="ciudadC" display="icon"/>
+		
+								
+								<p:commandButton value="Asignar Ciudad" styleClass="my-button"
+									actionListener="#{admUsuarioBean.asignarCiudad}" update="tblCiudadAsignada ciudad"
+									  />
+									
+									<p:commandButton value="Eliminar" styleClass="my-button"
+									actionListener="#{admUsuarioBean.eliminarCiudad()}" update="tblCiudadAsignada ciudad"
+									icon="fa fa-trash"  />
+									</p:panelGrid>
+				
+				<!--  CIUDADES ASIGNADAS -->
+								<p:dataTable id="tblCiudadAsignada"
+									value="#{admUsuarioBean.ciudadesAsignadas}" var="item"
+									paginator="true" rows="10"
+									paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+									paginatorPosition="bottom"
+									selection="#{admUsuarioBean.ciudadesSeleccionadas}"
+									tableStyle="white-space: nowrap" widgetVar="tblAgenciaAsignada"
+									emptyMessage="No existen registros con ese criterio"
+									styleClass="table" reflow="true" rowsPerPageTemplate="5,10,15"
+									rowKey="#{item.idUsuarioCiudad}">
+
+									
+
+									<p:column selectionMode="multiple"
+										style="width:40px;text-align:left" />
+
+
+									<p:column headerText="Ciudades Asignadas"
+										filterBy="#{item.idCiudad.nombre}"
+										filterStyle="display:none">
+										<h:outputText value="#{item.idCiudadDc.nombre}" />
+									</p:column>
+
+									
+								</p:dataTable>
+						
+				
+				
+   		  
+   		  </p:tab>
+ </p:tabView>
+
+					
+							
+								
+
+						
+							<br />
+						
+
+					
+				</h:form>
+
+			</p:dialog>
+
+
+			<!-- DIALOGO SELECCON EMPLEADO -->
+			<p:dialog id="dlgEmpleado" widgetVar="dlgEmpleado"
+				showEffect="explode" hideEffect="clip" responsive="true"
+				modal="true" width="50%">
+
+				<p:dataTable id="tablaEmpleado" value="#{admEmpleadoBean.listaempleado}"
+					var="item" paginator="true" rows="10"
+					paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+					paginatorPosition="bottom" editable="true"
+					tableStyle="white-space: nowrap" widgetVar="tablaEmpleado"
+					filteredValue="#{admEmpleadoBean.empleadofiltrado}"
+					emptyMessage="No existen registros con ese criterio"
+					selectionMode="single"
+					selection="#{admEmpleadoBean.empleadoseleccionado}"
+					rowKey="#{item.idEmpleado}">
+
+					<f:facet name="header">
+						<p:outputPanel>
+							<h:outputText value="Buscar:" />
+							<p:inputText id="globalFilter"
+								onkeyup="PF('tablaEmpleado').filter()" style="width:150px"
+								title="Escriba la identificiacion, nombre o apellido " />
+						</p:outputPanel>
+					</f:facet>
+
+					<p:ajax event="rowSelect"
+						listener="#{admUsuarioBean.onRowSelectEmpleado}"
+						oncomplete="PF('dlgEmpleado').hide();" update=":frmCrear:tab:pnlEmpleado"/>
+
+					<p:column headerText="Id" filterBy="#{item.idEmpleado}"
+						filterStyle="display:none">
+						<h:outputText value="#{item.idEmpleado}" />
+					</p:column>
+
+					<p:column headerText="Nombres" filterBy="#{item.nombres}"
+						filterStyle="display:none">
+						<h:outputText value="#{item.nombres}" />
+					</p:column>
+
+					<p:column headerText="apellidos" filterBy="#{item.apellidos}"
+						filterStyle="display:none">
+						<h:outputText value="#{item.apellidos}" />
+					</p:column>
+				</p:dataTable>
+
+			</p:dialog>
+
+
+
+
+
+		</ui:define>
+
+	</ui:composition>
+</body>
+</html>

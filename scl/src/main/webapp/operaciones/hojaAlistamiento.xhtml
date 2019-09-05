@@ -1,0 +1,465 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:pe="http://primefaces.org/ui/extensions">
+<body>
+	<ui:composition template="/templates/admin.xhtml">
+		<ui:define name="content">
+			<h:form id="frmHoja">
+
+				<p:growl id="growl" showDetail="true" life="3000"
+					rendered="#{not facesContext.validationFailed}" />
+
+				<!-- general form elements -->
+				<div class="box box-primary">
+					<div class="box-header with-border">
+						<h3 class="box-title">Alistamiento</h3>
+					</div>
+
+					<div class="box-body">
+
+						<p:panelGrid id="pnl" columns="3" styleClass="ui-panelgrid-blank">
+
+							<p:outputLabel value="Ciudad" for="ciudad" />
+							<p:selectOneMenu id="ciudad"
+								value="#{hojaAlistamientoBean.idCiudad}" filter="true"
+								filterMatchMode="contains">
+
+								<p:ajax listener="#{hojaAlistamientoBean.asignaCiudad()}"
+									update="clienteorigen agenciaorigen  clientedestino agenciadestino" />
+								<f:selectItem itemLabel="Seleccionar" itemValue="#{null}" />
+								<f:selectItems value="#{hojaAlistamientoBean.listaCiudad}"
+									var="item" itemLabel="#{item.nombre}"
+									itemValue="#{item.idDetalleCatalogo}">
+								</f:selectItems>
+							</p:selectOneMenu>
+							<p:message for="ciudad" display="icon" />
+
+
+
+							<p:outputLabel value="Cliente Origen" for="clienteorigen" />
+							<p:selectOneMenu id="clienteorigen"
+								value="#{hojaAlistamientoBean.idClienteOrigen}" filter="true"
+								filterMatchMode="contains">
+								<p:ajax
+									listener="#{hojaAlistamientoBean.consultaListaAgenciaOrigen()}"
+									update="agenciaorigen tblHoja" process="@this" />
+								<f:selectItem itemLabel="Seleccionar" itemValue="#{null}" />
+								<f:selectItems value="#{hojaAlistamientoBean.listaCliente}"
+									var="item" itemLabel="#{item.razonSocial}"
+									itemValue="#{item.idCliente}">
+								</f:selectItems>
+							</p:selectOneMenu>
+							<p:message for="clienteorigen" display="icon" />
+
+
+
+
+							<p:outputLabel value="Agencia Origen" for="agenciaorigen" />
+							<p:selectOneMenu id="agenciaorigen"
+								value="#{hojaAlistamientoBean.idAgenciaOrigen}" filter="true"
+								filterMatchMode="contains">
+								<p:ajax process="@this"></p:ajax>
+								<f:selectItem itemLabel="Seleccionar" itemValue="#{null}" />
+								<f:selectItems value="#{hojaAlistamientoBean.listaAgencia}"
+									var="item" itemLabel="#{item.nombre}"
+									itemValue="#{item.idAgencia}">
+								</f:selectItems>
+							</p:selectOneMenu>
+							<p:message for="agenciaorigen" display="icon" />
+
+
+							<p:outputLabel value="Cliente Destino" for="clientedestino" />
+							<p:selectOneMenu id="clientedestino"
+								value="#{hojaAlistamientoBean.idClienteDestino}" filter="true"
+								filterMatchMode="contains">
+								<p:ajax
+									listener="#{hojaAlistamientoBean.consultaListaAgenciaDestino()}"
+									update="agenciadestino" process="@this" />
+								<f:selectItem itemLabel="Seleccionar" itemValue="#{null}" />
+								<f:selectItems value="#{hojaAlistamientoBean.listaCliente}"
+									var="item" itemLabel="#{item.razonSocial}"
+									itemValue="#{item.idCliente}">
+								</f:selectItems>
+							</p:selectOneMenu>
+							<p:message for="clientedestino" display="icon" />
+
+
+
+
+							<p:outputLabel value="Agencia Destino" for="agenciadestino" />
+							<p:selectOneMenu id="agenciadestino"
+								value="#{hojaAlistamientoBean.idAgenciaDestino}" filter="true"
+								filterMatchMode="contains">
+								<p:ajax process="@this"></p:ajax>
+								<f:selectItem itemLabel="Seleccionar" itemValue="#{null}" />
+								<f:selectItems value="#{hojaAlistamientoBean.listaAgencia}"
+									var="item" itemLabel="#{item.nombre}"
+									itemValue="#{item.idAgencia}">
+								</f:selectItems>
+							</p:selectOneMenu>
+							<p:message for="agenciadestino" display="icon" />
+
+
+
+
+
+
+
+
+
+						</p:panelGrid>
+
+
+
+
+
+						<p:dataTable id="tblHoja"
+							value="#{hojaAlistamientoBean.listaHojaAlistamiento}" var="item"
+							paginator="true" rows="10"
+							paginatorTemplate="    {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown} "
+							paginatorPosition="bottom"
+							selection="#{hojaAlistamientoBean.hojaSeleccionada}"
+							emptyMessage="No existen registros con ese criterio"
+							tableStyle="width:auto" styleClass="table" reflow="true"
+							selectionMode="single" widgetVar="tblHoja"
+							rowKey="#{item.idHojaAlistamiento}" rowsPerPageTemplate="5,10,15">
+
+							<f:facet name="header">
+								<div class="row row-nomargin">
+									<div class="col-lg-3">
+										<p:inputText id="globalFilter"
+											onkeyup="PF('tblHoja').filter()" class="pull-left"
+											style="width: 100%" placeholder="Buscar...." />
+									</div>
+									<div class="col-lg-6">
+										<p:outputLabel value="Lista de Agencias" />
+									</div>
+
+									<div class="col-lg-3">
+										<div class="pull-right">
+											<h:commandLink>
+												<p:graphicImage name="/images/excel.png" width="24"
+													title="Exportar Excel" />
+												<p:dataExporter type="xls" target="tbl" fileName="cars"
+													options="#{responsableAgenciaBean.excelOpt}" />
+											</h:commandLink>
+
+											<h:commandLink>
+												<p:graphicImage name="/images/pdf.png" width="24"
+													title="Exportar PDF" />
+												<p:dataExporter type="pdf" target="tbl" fileName="cars"
+													options="#{responsableAgenciaBean.pdfOpt}" />
+											</h:commandLink>
+
+										</div>
+									</div>
+
+
+								</div>
+							</f:facet>
+
+
+							<p:column headerText="id">
+								<h:outputText value="#{item.idHojaAlistamiento}" />
+							</p:column>
+
+							<p:column headerText="Cliente Origen"
+								filterBy="#{item.idClienteOrigen.razonSocial}"
+								sortBy="#{item.idClienteOrigen.razonSocial}"
+								filterStyle="display:none">
+								<h:outputText value="#{item.idClienteOrigen.razonSocial}" />
+							</p:column>
+
+							<p:column headerText="Agencia Origen"
+								filterBy="#{item.idAgenciaOrigen.nombre}"
+								sortBy="#{item.idAgenciaOrigen.nombre}"
+								filterStyle="display:none">
+								<h:outputText value="#{item.idAgenciaOrigen.nombre}" />
+							</p:column>
+
+
+
+							<p:column headerText="Cliente Destino"
+								filterBy="#{item.idClienteDestino.razonSocial}"
+								sortBy="#{item.idClienteDestino.razonSocial}"
+								filterStyle="display:none">
+								<h:outputText value="#{item.idClienteDestino.razonSocial}" />
+							</p:column>
+
+							<p:column headerText="Agencia Destino"
+								filterBy="#{item.idAgenciaDestino.nombre}"
+								sortBy="#{item.idAgenciaDestino.nombre}"
+								filterStyle="display:none">
+								<h:outputText value="#{item.idAgenciaDestino.nombre}" />
+							</p:column>
+
+							<p:column headerText="Frecuencia">
+								<p:commandButton value="Ver"
+									onclick="PF('dlgDatosFrecuencia').show();"
+									action="#{hojaAlistamientoBean.consultaListaFrecuencia}"
+									update=":frmCrear:tblFrecuencia">
+									<f:setPropertyActionListener value="#{item}"
+										target="#{hojaAlistamientoBean.hojaAlistamiento}"></f:setPropertyActionListener>
+
+								</p:commandButton>
+							</p:column>
+
+
+
+
+
+
+						</p:dataTable>
+
+
+						<div id="footer" class="box-footer">
+
+							<p:commandButton
+								actionListener="#{hojaAlistamientoBean.guardar()}"
+								value="Guardar" styleClass="my-button" icon="fa fa-plus"
+								process="@this"
+								update=":frmHoja:tblHoja :frmHoja:pnl :frmHoja:growl " />
+
+							<p:commandButton id="btnModificar"
+								actionListener="#{hojaAlistamientoBean.modificar()}"
+								value="Modificar" styleClass="my-button" icon="fa fa-pencil"
+								update=":frmHoja:growl " />
+
+
+
+
+
+
+						</div>
+
+						<br />
+
+					</div>
+				</div>
+
+
+			</h:form>
+
+
+			<p:dialog id="dlgDatosFrecuencia" widgetVar="dlgDatosFrecuencia"
+				styleClass="my-dialogs" responsive="true" modal="true" width="50%"
+				closable="true" closeOnEscape="true" appendTo="@(body)">
+
+
+				<!-- general form elements -->
+				<h:form id="frmCrear">
+
+					<p:messages id="mensaje" autoUpdate="false" />
+
+					<p:panelGrid id="pnlFrecuencia" columns="3"
+						styleClass="ui-panelgrid-blank">
+						<p:panelGrid id="pnldia" columns="2" styleClass="ui-panelgrid-blank">
+							<p:outputLabel value="Dia" for="dia" />
+							<p:selectOneMenu id="dia" value="#{hojaAlistamientoBean.dia}">
+								<f:selectItem itemLabel="Seleccionar" itemValue="#{null}" />
+								<f:selectItem itemLabel="lunes" itemValue="lunes" />
+								<f:selectItem itemLabel="martes" itemValue="martes" />
+								<f:selectItem itemLabel="miercoles" itemValue="miércoles" />
+								<f:selectItem itemLabel="jueves" itemValue="jueves" />
+								<f:selectItem itemLabel="viernes" itemValue="viernes" />
+								<f:selectItem itemLabel="sabado" itemValue="sábado" />
+								<f:selectItem itemLabel="domingo" itemValue="domingo" />
+							</p:selectOneMenu>
+							<p:message for="dia" display="icon" />
+						</p:panelGrid>
+
+						<p:panelGrid id="pnldesde" columns="4"  styleClass="ui-panelgrid-blank">
+
+							<p:outputLabel value="Desde" for="d" />
+							<p:selectOneMenu id="d" value="#{hojaAlistamientoBean.horaDesde}"
+								filter="true" filterMatchMode="contains">
+								<f:selectItem itemLabel="Seleccionar" itemValue="#{null}" />
+								<f:selectItem itemLabel="06:00" itemValue="06:00" />
+								<f:selectItem itemLabel="06:30" itemValue="06:30" />
+								<f:selectItem itemLabel="07:00" itemValue="07:00" />
+								<f:selectItem itemLabel="07:30" itemValue="07:30" />
+								<f:selectItem itemLabel="08:00" itemValue="08:00" />
+								<f:selectItem itemLabel="08:30" itemValue="08:30" />
+								<f:selectItem itemLabel="09:00" itemValue="09:00" />
+								<f:selectItem itemLabel="09:30" itemValue="09:30" />
+								<f:selectItem itemLabel="10:00" itemValue="10:00" />
+								<f:selectItem itemLabel="10:30" itemValue="10:30" />
+								<f:selectItem itemLabel="11:00" itemValue="11:00" />
+								<f:selectItem itemLabel="11:30" itemValue="11:30" />
+								<f:selectItem itemLabel="12:00" itemValue="12:00" />
+								<f:selectItem itemLabel="12:30" itemValue="12:30" />
+								<f:selectItem itemLabel="13:00" itemValue="13:00" />
+								<f:selectItem itemLabel="13:30" itemValue="13:30" />
+								<f:selectItem itemLabel="14:00" itemValue="14:00" />
+								<f:selectItem itemLabel="14:30" itemValue="14:30" />
+								<f:selectItem itemLabel="15:00" itemValue="15:00" />
+								<f:selectItem itemLabel="15:30" itemValue="15:30" />
+								<f:selectItem itemLabel="16:00" itemValue="16:00" />
+								<f:selectItem itemLabel="16:30" itemValue="16:30" />
+								<f:selectItem itemLabel="17:00" itemValue="17:00" />
+								<f:selectItem itemLabel="17:30" itemValue="17:30" />
+								<f:selectItem itemLabel="18:00" itemValue="18:00" />
+								<f:selectItem itemLabel="18:30" itemValue="18:30" />
+								<f:selectItem itemLabel="19:00" itemValue="19:00" />
+								<f:selectItem itemLabel="19:30" itemValue="19:30" />
+								<f:selectItem itemLabel="20:00" itemValue="20:00" />
+								<f:selectItem itemLabel="20:30" itemValue="20:30" />
+								<f:selectItem itemLabel="21:00" itemValue="21:00" />
+								<f:selectItem itemLabel="21:30" itemValue="21:30" />
+								<f:selectItem itemLabel="22:00" itemValue="22:00" />
+								<f:selectItem itemLabel="22:30" itemValue="22:30" />
+								<f:selectItem itemLabel="23:00" itemValue="23:00" />
+								<f:selectItem itemLabel="23:30" itemValue="23:30" />
+								<f:selectItem itemLabel="00:00" itemValue="00:00" />
+
+
+
+							</p:selectOneMenu>
+							
+							<p:outputLabel value="Hasta" for="hasta" />
+							<p:selectOneMenu id="hasta" value="#{hojaAlistamientoBean.horaHasta}"
+								filter="true" filterMatchMode="contains">
+								<f:selectItem itemLabel="Seleccionar" itemValue="#{null}" />
+								<f:selectItem itemLabel="06:00" itemValue="06:00" />
+								<f:selectItem itemLabel="06:30" itemValue="06:30" />
+								<f:selectItem itemLabel="07:00" itemValue="07:00" />
+								<f:selectItem itemLabel="07:30" itemValue="07:30" />
+								<f:selectItem itemLabel="08:00" itemValue="08:00" />
+								<f:selectItem itemLabel="08:30" itemValue="08:30" />
+								<f:selectItem itemLabel="09:00" itemValue="09:00" />
+								<f:selectItem itemLabel="09:30" itemValue="09:30" />
+								<f:selectItem itemLabel="10:00" itemValue="10:00" />
+								<f:selectItem itemLabel="10:30" itemValue="10:30" />
+								<f:selectItem itemLabel="11:00" itemValue="11:00" />
+								<f:selectItem itemLabel="11:30" itemValue="11:30" />
+								<f:selectItem itemLabel="12:00" itemValue="12:00" />
+								<f:selectItem itemLabel="12:30" itemValue="12:30" />
+								<f:selectItem itemLabel="13:00" itemValue="13:00" />
+								<f:selectItem itemLabel="13:30" itemValue="13:30" />
+								<f:selectItem itemLabel="14:00" itemValue="14:00" />
+								<f:selectItem itemLabel="14:30" itemValue="14:30" />
+								<f:selectItem itemLabel="15:00" itemValue="15:00" />
+								<f:selectItem itemLabel="15:30" itemValue="15:30" />
+								<f:selectItem itemLabel="16:00" itemValue="16:00" />
+								<f:selectItem itemLabel="16:30" itemValue="16:30" />
+								<f:selectItem itemLabel="17:00" itemValue="17:00" />
+								<f:selectItem itemLabel="17:30" itemValue="17:30" />
+								<f:selectItem itemLabel="18:00" itemValue="18:00" />
+								<f:selectItem itemLabel="18:30" itemValue="18:30" />
+								<f:selectItem itemLabel="19:00" itemValue="19:00" />
+								<f:selectItem itemLabel="19:30" itemValue="19:30" />
+								<f:selectItem itemLabel="20:00" itemValue="20:00" />
+								<f:selectItem itemLabel="20:30" itemValue="20:30" />
+								<f:selectItem itemLabel="21:00" itemValue="21:00" />
+								<f:selectItem itemLabel="21:30" itemValue="21:30" />
+								<f:selectItem itemLabel="22:00" itemValue="22:00" />
+								<f:selectItem itemLabel="22:30" itemValue="22:30" />
+								<f:selectItem itemLabel="23:00" itemValue="23:00" />
+								<f:selectItem itemLabel="23:30" itemValue="23:30" />
+								<f:selectItem itemLabel="00:00" itemValue="00:00" />
+
+
+
+							</p:selectOneMenu>
+							
+							
+						
+
+
+
+							
+
+						
+
+
+					</p:panelGrid>
+					
+					</p:panelGrid>
+
+
+
+					<p:commandButton
+						actionListener="#{hojaAlistamientoBean.guardarFrecuencia()}"
+						value="Agregar" update=":frmCrear:tblFrecuencia"
+						styleClass="my-button" icon="fa fa-plus" />
+
+					<!--#### CONTENIDO DE LA TABLA FRECUENCIA VISITA -->
+					<p:dataTable id="tblFrecuencia"
+						value="#{hojaAlistamientoBean.listaFrecuencia}" var="item"
+						tableStyle=" white-space: nowrap"
+						selection="#{hojaAlistamientoBean.frecuenciaSeleccionada}"
+						emptyMessage="No existen registros con ese criterio"
+						styleClass="table" reflow="true" widgetVar="tblFrecuencia"
+						rowKey="#{item.idFrecuenciaVisita}">
+
+
+						<p:column selectionMode="multiple"
+							style="width:40px;text-align:left" />>
+									
+
+
+									<p:column headerText="Dia" sortBy="#{item.nombreDia}">
+							<h:outputText value="#{item.nombreDia}" />
+						</p:column>
+
+						<p:column headerText="Desde" sortBy="#{item.horaDesde}">
+							<h:outputText value="#{item.horaDesde}" />
+						</p:column>
+
+						<p:column headerText="Hasta" sortBy="#{item.horaHasta}">
+							<h:outputText value="#{item.horaHasta}" />
+						</p:column>
+
+					</p:dataTable>
+
+
+
+
+
+
+
+					<br />
+
+
+					<!-- /.box-body -->
+
+
+
+					<p:commandButton
+						actionListener="#{hojaAlistamientoBean.eliminarFrecuencia()}"
+						value="Eliminar" icon="fa fa-plus" styleClass="my-button"
+						update=":frmCrear:tblFrecuencia  " />
+
+
+					<p:commandButton value="Cancelar"
+						actionListener="#{hojaAlistamientoBean.cancelar()}"
+						icon="fa fa-close" styleClass="my-button"
+						oncomplete="PF('dlgDatosFrecuencia').hide();" />
+
+
+
+
+
+
+				</h:form>
+			</p:dialog>
+
+
+
+
+
+
+
+
+
+
+
+		</ui:define>
+
+	</ui:composition>
+</body>
+</html>

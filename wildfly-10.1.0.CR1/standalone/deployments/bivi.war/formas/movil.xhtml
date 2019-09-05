@@ -1,0 +1,220 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+<body>
+	<ui:composition template="/templates/menuT.xhtml">
+		<ui:define name="contenido">
+
+
+			<h:form id="frmMovil">
+
+
+				
+					<div class="box-header with-border">
+						<h3 class="box-title">Movil</h3>
+					</div>
+					
+
+						<!--#### CONTENIDO DE LA TABLA MOVIL -->
+						<p:dataTable id="tblMovil"
+							value="#{movilBean.listaMovil}" 
+							var="item"
+							paginator="true"
+							paginatorTemplate="    {FirstPageLink} {PreviousPageLink}  {NextPageLink} {LastPageLink} "
+							paginatorPosition="bottom" 
+							tableStyle=" white-space: nowrap"
+							emptyMessage="No existen registros con ese criterio"
+							
+							editable="true" 
+							 reflow="true" 
+							 widgetVar="tblMovil"
+							rowKey="#{item.idMovil}">
+							
+							<p:ajax event="rowEdit" listener="#{movilBean.onRowEdit}" />
+								<p:ajax event="rowEditCancel" listener="#{movilBean.onRowCancel}" />
+
+							
+							
+							<p:column headerText="Nominativo">						
+								<p:cellEditor>
+										<f:facet name="output">	<h:outputText value="#{item.nominativo}" /></f:facet>
+										<f:facet name="input"><p:inputText id="modelInputN" value="#{item.nominativo}" style="width:100%" /></f:facet>		
+									</p:cellEditor>
+							</p:column>
+
+
+
+					<p:column headerText="Ciudad">
+						<p:cellEditor>
+							<f:facet name="output">
+								<h:outputText value="#{item.idCiudadDc.descripcion}" />
+							</f:facet>
+							<f:facet name="input">
+								<p:selectOneMenu value="#{movilBean.idDetalleCat}">
+									<f:selectItems value="#{movilBean.listaCiudad}"
+										var="item1" itemLabel="#{item1.descripcion}"
+										itemValue="#{item1.idDetalleCatalogo}">
+									</f:selectItems>
+								</p:selectOneMenu>
+							</f:facet>
+						</p:cellEditor>
+					</p:column>
+
+					<p:column headerText="Descripcion">						
+								<p:cellEditor>
+										<f:facet name="output">	<h:outputText value="#{item.descripcion}" /></f:facet>
+										<f:facet name="input"><p:inputText id="modelInputE" value="#{item.descripcion}" style="width:100%" /></f:facet>		
+									</p:cellEditor>
+							</p:column>
+							
+							
+							
+							
+							
+							<p:column headerText="Agencia">
+						<p:cellEditor>
+							<f:facet name="output">
+								<h:outputText value="#{item.idAgencia.nombre}" />
+							</f:facet>
+							<f:facet name="input">
+								<p:selectOneMenu value="#{movilBean.idAgencia}">
+									<f:selectItems value="#{movilBean.listaAgencia}"
+										var="item1" itemLabel="#{item1.nombre}"
+										itemValue="#{item1.idAgencia}">
+									</f:selectItems>
+								</p:selectOneMenu>
+							</f:facet>
+						</p:cellEditor>
+					</p:column>
+					
+					
+					<p:column headerText="Id Android">						
+								<p:cellEditor>
+										<f:facet name="output">	<h:outputText value="#{item.idAndroid}" /></f:facet>
+										<f:facet name="input"><p:inputText id="modelInputId" value="#{item.idAndroid}" style="width:100%" /></f:facet>		
+									</p:cellEditor>
+							</p:column>
+							
+
+					<p:column style="width:35px">
+									<p:rowEditor />
+								</p:column>
+								
+								<p:column style="width:32px">
+									<p:commandButton action="#{movilBean.eliminarMovil()}"
+										icon="ui-icon-closethick" update=":frmMovil:tblMovil">
+										<f:setPropertyActionListener value="#{item}"
+											target="#{movilBean.movil}"></f:setPropertyActionListener>
+										<p:confirm header="Confirmacion"
+											message="Desea eliminar el Registro :( ..?"
+											icon="ui-icon-alert" />
+									</p:commandButton>
+									
+									</p:column>
+									
+
+
+						</p:dataTable>
+
+				
+			
+				<br />
+
+
+				<p:commandButton value="Nuevo"  oncomplete="PF('dlgMovil').show()"
+				 update=":frmCrear"
+					  >
+					
+					
+					 
+					 </p:commandButton>
+
+
+			</h:form>
+
+
+
+<p:dialog id="dlgMovil" widgetVar="dlgMovil" responsive="true"
+				modal="true" width="50%" closable="true" closeOnEscape="true"  >
+				
+
+				<p:ajax event="close" update="dlgMovil" />
+
+				<h:form id="frmCrear">
+
+					<p:messages id="mensaje" autoUpdate="false" />
+					<p:focus context="@form"/>
+
+					<p:panelGrid id="pnlgenral2" columns="2"
+						styleClass="ui-panelgrid-blank">
+						
+						
+					<p:outputLabel value="Nominativo" />
+				<p:inputText id = "x" value="#{movilBean.movil.nominativo}" ></p:inputText>
+				
+				
+
+						
+						
+						<p:outputLabel value="Ciudad"  />
+						<p:selectOneMenu id="ciudad" value="#{movilBean.idDetalleCat}"
+							filter="true" filterMatchMode="contains">
+							
+							<f:selectItem itemLabel="Seleccionar" itemValue="#{null}" />
+							<f:selectItems value="#{movilBean.listaCiudad}" var="item"
+								itemLabel="#{item.descripcion}" itemValue="#{item.idDetalleCatalogo}">
+							</f:selectItems>
+						</p:selectOneMenu>
+						
+						
+							<p:outputLabel value="Descripcion" />
+				<p:inputText value="#{movilBean.movil.descripcion}" ></p:inputText>
+						
+						
+						
+
+
+						<p:outputLabel value="Agencia" />
+						<p:selectOneMenu id="agencia" value="#{movilBean.idAgencia}"
+							filter="true" filterMatchMode="contains">
+							
+							<f:selectItem itemLabel="Seleccionar" itemValue="#{null}" />
+							<f:selectItems value="#{movilBean.listaAgencia}" var="item"
+								itemLabel="#{item.nombre}" itemValue="#{item.idAgencia}">
+							</f:selectItems>
+						</p:selectOneMenu>
+						
+
+					
+					
+					<h:outputText value="Id Android" />
+						<p:inputText value="#{movilBean.movil.idAndroid}"></p:inputText>
+						
+						
+
+</p:panelGrid>
+
+
+					
+
+					<p:commandButton value="Guardar" 
+						action="#{movilBean.guardar()}"
+						oncomplete="if (args &amp;&amp; !args.validationFailed) PF('dlgMovil').hide(); "
+						update="frmMovil:tblMovil" />
+
+				</h:form>
+			</p:dialog>
+
+
+
+
+
+
+		</ui:define>
+
+	</ui:composition>
+</body>
+</html>

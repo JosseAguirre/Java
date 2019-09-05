@@ -1,0 +1,235 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+<ui:composition template="/templates/admin.xhtml">
+	
+
+	<ui:define name="content">
+			<h:form id="frmCatalogo">
+			<p:growl id="growl" showDetail="true" life="3000" rendered="#{not facesContext.validationFailed}" />
+				<p:messages id="mensaje" autoUpdate="false" />
+			
+				<div class="box box-primary">
+					<div class="box-header with-border">
+						<h3 class="box-title">Gestion de Catalogos</h3>
+					</div>
+
+					<div class="box-body">
+		<p:tabView id="tab">
+   			 <p:tab id="tbCatalogo" title="Catalogo">
+   			 <p:dataTable id="tbl2"
+					value="#{admGestionCatalogoBean.listacatalogo}" var="item1"
+					paginator="true" rows="10"
+					paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+					paginatorPosition="bottom" editable="true"
+					tableStyle="white-space: nowrap" widgetVar="tablacatalogo"
+					filteredValue="#{admGestionCatalogoBean.catalogofiltro}"
+					emptyMessage="No existen registros con ese criterio"
+					styleClass="table" reflow="true" selectionMode="single"
+					rowKey="#{item1.idCatalogo}">
+
+					<f:facet name="header">
+						<div class="row row-nomargin">
+							<div class="col-lg-3">
+								<p:inputText id="globalFilter"
+									onkeyup="PF('tablacatalogo').filter()" class="pull-left"
+									style="width: 100%" placeholder="xxxxxxxx" />
+							</div>
+							<div class="col-lg-6">
+								<h:outputText value="Lista de Catalogo" />
+							</div>
+							
+						</div>
+					</f:facet>
+
+					
+
+					
+					<p:column headerText="Tipo Catalogo">
+						<h:outputText value="#{item1.idTipoCatalogo.nombre}"/>
+					</p:column>
+					
+					<p:column headerText="Nombre" filterBy="#{item1.nombre}"
+						filterStyle="display:none">
+						<h:outputText value="#{item1.nombre}" />
+					</p:column>
+
+
+					<p:column headerText="Descripción" filterBy="#{item1.descripcion}"
+						filterStyle="display:none">
+						<h:outputText value="#{item1.descripcion}" />
+					</p:column>
+				</p:dataTable>
+					<p:commandButton id="btnNuevo1"
+								actionListener="#{admGestionCatalogoBean.nuevo()}" value="Nuevo"
+								styleClass="my-button" icon="fa fa-plus"
+								update=":frmCatalogo:growl :frmCrearCatalogo" />
+
+							<p:commandButton id="btnModificar1"
+								actionListener="#{admGestionCatalogoBean.modificar()}" value="Modificar"
+								styleClass="my-button" icon="fa fa-pencil"
+								update=":frmCatalogo:growl :frmCrearCatalogo" />
+			 </p:tab>
+			 
+			 <p:tab id="tbTipoCatalogo" title="Tipo Catalogo">
+			 	<p:dataTable id="tbl"
+				value="#{admGestionCatalogoBean.listatipocatalogo}" var="item"
+				paginator="true" rows="10"
+				paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+				paginatorPosition="bottom" editable="true"
+				tableStyle="white-space: nowrap" widgetVar="tablatipocatalogo"
+				filteredValue="#{admGestionCatalogoBean.tipocatalogofiltro}"
+				emptyMessage="No existen registros con ese criterio"
+				styleClass="table" reflow="true" selectionMode="single"
+				rowKey="#{item.idTipoCatalogo}">
+
+				<f:facet name="header">
+					<div class="row row-nomargin">
+						<div class="col-lg-3">
+							<p:inputText id="globalFilter"
+								onkeyup="PF('tablatipocatalogo').filter()" class="pull-left"
+								style="width: 100%" placeholder="xxxxxxxx" />
+						</div>
+						<div class="col-lg-6">
+							<h:outputText value="Lista de Tipo Catálogo" />
+						</div>
+					
+					</div>
+				</f:facet>
+
+			
+
+				
+
+				<p:column headerText="Nombre" filterBy="#{item.nombre}"
+					filterStyle="display:none">
+					<h:outputText value="#{item.nombre}" />
+				</p:column>
+				
+				<p:commandButton id="btnNuevo2"
+								actionListener="#{admGestionCatalogoBean.nuevo()}" value="Nuevo"
+								styleClass="my-button" icon="fa fa-plus"
+								update=":frmCatalogo:growl :frmCrearTipoCatalogo" />
+
+							<p:commandButton id="btnModificar2"
+								actionListener="#{admGestionCatalogoBean.modificar()}" value="Modificar"
+								styleClass="my-button" icon="fa fa-pencil"
+								update=":frmCatalogo:growl :frmCrearTipoCatalogo" />
+			</p:dataTable>
+	
+			 </p:tab>
+			 
+			 <p:tab id="tbDetalleCatalogo" title="Detalle Catalogo">
+			 <p:dataTable id="tbl3"
+				value="#{admGestionCatalogoBean.listadetallecatalogo}" var="item2"
+				paginator="true" rows="10"
+				paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+				paginatorPosition="bottom" editable="true"
+				tableStyle="white-space: nowrap" widgetVar="tabladetallecatalogo"
+				filteredValue="#{admGestionCatalogoBean.detallecatalogofiltro}"
+				emptyMessage="No existen registros con ese criterio"
+				styleClass="table" reflow="true" selectionMode="single"
+				rowKey="#{item2.idDetalleCatalogo}">
+
+				<f:facet name="header">
+					<div class="row row-nomargin">
+						<div class="col-lg-3">
+							<p:inputText id="globalFilter"
+								onkeyup="PF('tabladetallecatalogo').filter()" class="pull-left"
+								style="width: 100%" placeholder="xxxxxxxx" />
+						</div>
+						<div class="col-lg-6">
+							<h:outputText value="Lista Detalle Catálogo" />
+						</div>
+						
+					</div>
+				</f:facet>
+
+				
+
+				
+				<p:column headerText="Nombre" filterBy="#{item2.nombre}"
+					filterStyle="display:none">
+					<h:outputText value="#{item2.nombre}" />
+				</p:column>
+				<p:column headerText="Detallecatalogo Padre"
+					filterBy="#{item2.idDetalleCatalogoPadre.nombre}"
+					filterStyle="display:none">
+					<h:outputText value="#{item2.idDetalleCatalogoPadre.nombre}" />
+				</p:column>
+				<p:column headerText="Catalogo"
+					filterBy="#{item2.idCatalogo.nombre}" filterStyle="display:none">
+					<h:outputText value="#{item2.idCatalogo.nombre}" />
+				</p:column>
+				<p:column headerText="Descripción" filterBy="#{item2.nombre}"
+					filterStyle="display:none">
+					<h:outputText value="#{item2.descripcion}" />
+				</p:column>
+			</p:dataTable>
+			<p:commandButton id="btnNuevo3"
+								actionListener="#{admGestionCatalogoBean.nuevo()}" value="Nuevo"
+								styleClass="my-button" icon="fa fa-plus"
+								update=":frmCatalogo:growl :frmCrearDetalleCatalogo" />
+
+							<p:commandButton id="btnModificar3"
+								actionListener="#{admGestionCatalogoBean.modificar()}" value="Modificar"
+								styleClass="my-button" icon="fa fa-pencil"
+								update=":frmCatalogo:growl :frmCrearDetalleCatalogo" />
+			 </p:tab>
+			
+			
+		</p:tabView>
+					
+					</div>
+					
+				</div>
+			
+				
+		
+		
+			
+</h:form>
+
+
+			
+			<p:dialog id="dlgCatalogo" widgetVar="dlgCatalogo"
+				showEffect="explode" hideEffect="clip" responsive="true"
+				modal="true" width="50%">
+				<h:form id="frmCrearCatalogo">
+				
+				</h:form>
+				
+				
+			</p:dialog>
+			
+e			<p:dialog id="dlgTipoCatalogo" widgetVar="dlgTipoCatalogo"
+				showEffect="explode" hideEffect="clip" responsive="true"
+				modal="true" width="50%">
+				<h:form id="frmCrearTipoCatalogo">
+				
+				</h:form>
+				
+			</p:dialog>
+			
+			<p:dialog id="dlgDetalleCatalogo" widgetVar="dlgDetalleCatalogo"
+				showEffect="explode" hideEffect="clip" responsive="true"
+				modal="true" width="50%">
+				<h:form id="frmCrearDetalleCatalogo">
+				
+				</h:form>
+				
+			</p:dialog>
+			
+			
+			
+</ui:define>
+
+</ui:composition>
+</html>
+
+
+

@@ -1,0 +1,121 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+
+<body>
+	<ui:composition template="/templates/admin.xhtml">
+
+
+		<ui:define name="content">
+			<h:form id="frmSolicitudBP">
+
+
+				<p:growl id="growl" showDetail="true" life="3000"
+					rendered="#{not facesContext.validationFailed}" />
+
+
+
+
+
+				<!-- general form elements -->
+				<div class="box box-primary">
+					<div class="box-header with-border">
+						<h3 class="box-title">Solicitud de Traslado Bajo Pedido</h3>
+					</div>
+					<!-- /.box-header -->
+					<!-- form start -->
+
+					<div class="box-body">
+
+
+
+						<p:panelGrid id="pnlDatos" columns="2"
+							styleClass="ui-panelgrid-blank">
+
+							<p:outputLabel value="Ciudad" for="ciudad" />
+							<p:selectOneMenu id="ciudad"
+								value="#{solicitudBajoPedidoBean.idCiudad}" filter="true"
+								filterMatchMode="contains">
+								<f:selectItem itemLabel="Seleccionar" itemValue="#{null}" />
+								<p:ajax update=":frmSolicitudBP:origen"
+									listener="#{solicitudBajoPedidoBean.consultaListaAgencia()}" />
+
+								<f:selectItems value="#{solicitudBajoPedidoBean.listaCiudad}"
+									var="item" itemLabel="#{item.nombre}"
+									itemValue="#{item.idDetalleCatalogo}">
+								</f:selectItems>
+							</p:selectOneMenu>
+
+
+
+
+
+
+							<p:outputLabel value="Origen" for="origen" />
+							<p:selectOneMenu id="origen"
+								value="#{solicitudBajoPedidoBean.idAgenciaOrigen}" filter="true"
+								filterMatchMode="contains">
+								<f:selectItem itemLabel="Seleccionar" itemValue="#{null}" />
+
+								<f:selectItems value="#{solicitudBajoPedidoBean.listaAgencia}"
+									var="agencia" itemLabel="#{agencia.nombre}"
+									itemValue="#{agencia.idAgencia}">
+								</f:selectItems>
+							</p:selectOneMenu>
+							
+							<p:outputLabel value="Destino" for="destino" />
+							<p:selectOneMenu id="destino"
+								value="#{solicitudBajoPedidoBean.idAgenciaDestino}" filter="true"
+								filterMatchMode="contains">
+								<f:selectItem itemLabel="Seleccionar" itemValue="#{null}" />
+
+								<f:selectItems value="#{solicitudBajoPedidoBean.listaAgencia}"
+									var="agencia" itemLabel="#{agencia.nombre}"
+									itemValue="#{agencia.idAgencia}">
+								</f:selectItems>
+							</p:selectOneMenu>
+							
+
+
+							<p:outputLabel value="Monto Aproximado" />
+							<p:inputText value="#{solicitudBajoPedidoBean.solicitud.monto}"
+								style="width: 80px ;  text-align:right ; background-color:#B8F589;" />
+								
+								<p:outputLabel value="Hora" />
+							<p:inputText value="#{solicitudBajoPedidoBean.solicitud.hora}"
+								style="width: 80px ;  text-align:right ; background-color:#B8F589;" />
+								
+								<p:outputLabel value="Fecha Operacion" />
+							<p:inputText value="#{solicitudBajoPedidoBean.solicitud.fechaOperacion}"
+								 />
+
+						</p:panelGrid>
+
+
+
+					</div>
+				</div>
+
+
+
+
+
+
+			</h:form>
+
+
+
+
+		</ui:define>
+
+	</ui:composition>
+
+
+</body>
+</html>
+

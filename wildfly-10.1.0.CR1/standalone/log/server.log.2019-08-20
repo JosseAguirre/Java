@@ -1,0 +1,2124 @@
+2019-08-20 14:35:46,109 INFO  [org.jboss.modules] (main) JBoss Modules version 1.5.2.Final
+2019-08-20 14:36:08,271 INFO  [org.jboss.msc] (main) JBoss MSC version 1.2.6.Final
+2019-08-20 14:36:08,737 INFO  [org.jboss.as] (MSC service thread 1-7) WFLYSRV0049: WildFly Full 10.1.0.Final (WildFly Core 2.2.0.Final) starting
+2019-08-20 14:36:08,750 DEBUG [org.jboss.as.config] (MSC service thread 1-7) Configured system properties:
+	awt.toolkit = sun.awt.windows.WToolkit
+	file.encoding = Cp1252
+	file.encoding.pkg = sun.io
+	file.separator = \
+	java.awt.graphicsenv = sun.awt.Win32GraphicsEnvironment
+	java.awt.headless = true
+	java.awt.printerjob = sun.awt.windows.WPrinterJob
+	java.class.path = C:\Desarrollo\wildfly-10.1.0.CR1\jboss-modules.jar
+	java.class.version = 52.0
+	java.endorsed.dirs = C:\Program Files\Java\jdk1.8.0_201\jre\lib\endorsed
+	java.ext.dirs = C:\Program Files\Java\jdk1.8.0_201\jre\lib\ext;C:\WINDOWS\Sun\Java\lib\ext
+	java.home = C:\Program Files\Java\jdk1.8.0_201\jre
+	java.io.tmpdir = C:\Users\vytal\AppData\Local\Temp\
+	java.library.path = C:\Program Files\Java\jdk1.8.0_201\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;native;C:/Program Files/Java/jre1.8.0_221/bin/server;C:/Program Files/Java/jre1.8.0_221/bin;C:/Program Files/Java/jre1.8.0_221/lib/amd64;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\Java\jdk1.8.0_201\bin;C:\Program Files\Git\cmd;C:\Users\vytal\AppData\Local\Microsoft\WindowsApps;C:\Users\vytal\AppData\Local\Programs\Microsoft VS Code\bin;C:\Program Files\eclipse;;.
+	java.net.preferIPv4Stack = true
+	java.runtime.name = Java(TM) SE Runtime Environment
+	java.runtime.version = 1.8.0_201-b09
+	java.specification.name = Java Platform API Specification
+	java.specification.vendor = Oracle Corporation
+	java.specification.version = 1.8
+	java.util.logging.manager = org.jboss.logmanager.LogManager
+	java.vendor = Oracle Corporation
+	java.vendor.url = http://java.oracle.com/
+	java.vendor.url.bug = http://bugreport.sun.com/bugreport/
+	java.version = 1.8.0_201
+	java.vm.info = mixed mode
+	java.vm.name = Java HotSpot(TM) 64-Bit Server VM
+	java.vm.specification.name = Java Virtual Machine Specification
+	java.vm.specification.vendor = Oracle Corporation
+	java.vm.specification.version = 1.8
+	java.vm.vendor = Oracle Corporation
+	java.vm.version = 25.201-b09
+	javax.management.builder.initial = org.jboss.as.jmx.PluggableMBeanServerBuilder
+	javax.xml.datatype.DatatypeFactory = __redirected.__DatatypeFactory
+	javax.xml.parsers.DocumentBuilderFactory = __redirected.__DocumentBuilderFactory
+	javax.xml.parsers.SAXParserFactory = __redirected.__SAXParserFactory
+	javax.xml.stream.XMLEventFactory = __redirected.__XMLEventFactory
+	javax.xml.stream.XMLInputFactory = __redirected.__XMLInputFactory
+	javax.xml.stream.XMLOutputFactory = __redirected.__XMLOutputFactory
+	javax.xml.transform.TransformerFactory = __redirected.__TransformerFactory
+	javax.xml.validation.SchemaFactory:http://www.w3.org/2001/XMLSchema = __redirected.__SchemaFactory
+	javax.xml.xpath.XPathFactory:http://java.sun.com/jaxp/xpath/dom = __redirected.__XPathFactory
+	jboss.bind.address = localhost
+	jboss.bind.address.management = localhost
+	jboss.home.dir = C:\Desarrollo\wildfly-10.1.0.CR1
+	jboss.host.name = desktop-kmoc2a1
+	jboss.modules.dir = C:\Desarrollo\wildfly-10.1.0.CR1\modules
+	jboss.modules.system.pkgs = org.jboss.byteman
+	jboss.node.name = desktop-kmoc2a1
+	jboss.qualified.host.name = desktop-kmoc2a1
+	jboss.server.base.dir = C:\Desarrollo\wildfly-10.1.0.CR1\standalone
+	jboss.server.config.dir = C:\Desarrollo\wildfly-10.1.0.CR1\standalone\configuration
+	jboss.server.data.dir = C:\Desarrollo\wildfly-10.1.0.CR1\standalone\data
+	jboss.server.deploy.dir = C:\Desarrollo\wildfly-10.1.0.CR1\standalone\data\content
+	jboss.server.log.dir = C:\Desarrollo\wildfly-10.1.0.CR1\standalone\log
+	jboss.server.name = desktop-kmoc2a1
+	jboss.server.persist.config = true
+	jboss.server.temp.dir = C:\Desarrollo\wildfly-10.1.0.CR1\standalone\tmp
+	line.separator = 
+
+	logging.configuration = file:/C:/Desarrollo/wildfly-10.1.0.CR1/standalone/configuration/logging.properties
+	module.path = C:/Desarrollo/wildfly-10.1.0.CR1/modules
+	org.jboss.boot.log.file = C:/Desarrollo/wildfly-10.1.0.CR1/standalone/log/boot.log
+	org.jboss.logmanager.nocolor = true
+	org.jboss.resolver.warning = true
+	org.xml.sax.driver = __redirected.__XMLReaderFactory
+	os.arch = amd64
+	os.name = Windows 10
+	os.version = 10.0
+	path.separator = ;
+	program.name = JBossTools: WildFly 10.x
+	sun.arch.data.model = 64
+	sun.boot.class.path = C:\Program Files\Java\jdk1.8.0_201\jre\lib\resources.jar;C:\Program Files\Java\jdk1.8.0_201\jre\lib\rt.jar;C:\Program Files\Java\jdk1.8.0_201\jre\lib\sunrsasign.jar;C:\Program Files\Java\jdk1.8.0_201\jre\lib\jsse.jar;C:\Program Files\Java\jdk1.8.0_201\jre\lib\jce.jar;C:\Program Files\Java\jdk1.8.0_201\jre\lib\charsets.jar;C:\Program Files\Java\jdk1.8.0_201\jre\lib\jfr.jar;C:\Program Files\Java\jdk1.8.0_201\jre\classes
+	sun.boot.library.path = C:\Program Files\Java\jdk1.8.0_201\jre\bin
+	sun.cpu.endian = little
+	sun.cpu.isalist = amd64
+	sun.desktop = windows
+	sun.io.unicode.encoding = UnicodeLittle
+	sun.java.command = org.jboss.modules.Main -mp C:/Desarrollo/wildfly-10.1.0.CR1/modules org.jboss.as.standalone -b localhost --server-config=standalone.xml -Djboss.server.base.dir=C:\Desarrollo\wildfly-10.1.0.CR1\standalone
+	sun.java.launcher = SUN_STANDARD
+	sun.jnu.encoding = Cp1252
+	sun.management.compiler = HotSpot 64-Bit Tiered Compilers
+	sun.os.patch.level = 
+	sun.rmi.dgc.client.gcInterval = 3600000
+	sun.rmi.dgc.server.gcInterval = 3600000
+	user.country = EC
+	user.dir = C:\Desarrollo\wildfly-10.1.0.CR1\bin
+	user.home = C:\Users\vytal
+	user.language = es
+	user.name = Operador 01
+	user.script = 
+	user.timezone = America/Bogota
+	user.variant = 
+2019-08-20 14:36:08,752 DEBUG [org.jboss.as.config] (MSC service thread 1-7) VM Arguments: -Dprogram.name=JBossTools: WildFly 10.x -Xms64m -Xmx512m -Dorg.jboss.resolver.warning=true -Djava.net.preferIPv4Stack=true -Dsun.rmi.dgc.client.gcInterval=3600000 -Dsun.rmi.dgc.server.gcInterval=3600000 -Djboss.modules.system.pkgs=org.jboss.byteman -Djava.awt.headless=true -Dorg.jboss.boot.log.file=C:/Desarrollo/wildfly-10.1.0.CR1/standalone/log/boot.log -Dlogging.configuration=file:/C:/Desarrollo/wildfly-10.1.0.CR1/standalone/configuration/logging.properties -Djboss.home.dir=C:/Desarrollo/wildfly-10.1.0.CR1 -Dorg.jboss.logmanager.nocolor=true -Djboss.bind.address.management=localhost -Dfile.encoding=Cp1252 
+2019-08-20 14:37:19,632 INFO  [org.jboss.as.server.deployment.scanner] (DeploymentScanner-threads - 1) WFLYDS0004: Found scl.war in deployment directory. To trigger deployment create a file called scl.war.dodeploy
+2019-08-20 14:37:19,632 INFO  [org.jboss.as.server.deployment.scanner] (DeploymentScanner-threads - 1) WFLYDS0004: Found bivi.war in deployment directory. To trigger deployment create a file called bivi.war.dodeploy
+2019-08-20 14:37:19,720 INFO  [org.jboss.as.server] (Controller Boot Thread) WFLYSRV0039: Creating http management service using socket-binding (management-http)
+2019-08-20 14:37:19,917 INFO  [org.xnio] (MSC service thread 1-7) XNIO version 3.4.0.Final
+2019-08-20 14:37:19,932 INFO  [org.xnio.nio] (MSC service thread 1-7) XNIO NIO Implementation Version 3.4.0.Final
+2019-08-20 14:37:20,071 WARN  [org.jboss.as.txn] (ServerService Thread Pool -- 78) WFLYTX0013: Node identifier property is set to the default value. Please make sure it is unique.
+2019-08-20 14:37:20,083 INFO  [org.jboss.as.security] (ServerService Thread Pool -- 77) WFLYSEC0002: Activating Security Subsystem
+2019-08-20 14:37:20,084 INFO  [org.jboss.as.clustering.infinispan] (ServerService Thread Pool -- 62) WFLYCLINF0001: Activating Infinispan subsystem.
+2019-08-20 14:37:20,084 INFO  [org.jboss.as.naming] (ServerService Thread Pool -- 70) WFLYNAM0001: Activating Naming Subsystem
+2019-08-20 14:37:20,104 INFO  [org.jboss.as.security] (MSC service thread 1-4) WFLYSEC0001: Current PicketBox version=4.9.6.Final
+2019-08-20 14:37:20,111 INFO  [org.jboss.as.webservices] (ServerService Thread Pool -- 80) WFLYWS0002: Activating WebServices Extension
+2019-08-20 14:37:20,125 INFO  [org.wildfly.extension.io] (ServerService Thread Pool -- 61) WFLYIO001: Worker 'default' has auto-configured to 8 core threads with 64 task threads based on your 4 available processors
+2019-08-20 14:37:20,126 INFO  [org.jboss.as.jsf] (ServerService Thread Pool -- 68) WFLYJSF0007: Activated the following JSF Implementations: [main]
+2019-08-20 14:37:20,227 INFO  [org.jboss.as.connector] (MSC service thread 1-4) WFLYJCA0009: Starting JCA Subsystem (WildFly/IronJacamar 1.3.4.Final)
+2019-08-20 14:37:21,598 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-4) WFLYUT0003: Undertow 1.4.0.Final starting
+2019-08-20 14:37:22,008 INFO  [org.jboss.as.naming] (MSC service thread 1-4) WFLYNAM0003: Starting Naming Service
+2019-08-20 14:37:22,009 INFO  [org.jboss.as.mail.extension] (MSC service thread 1-8) WFLYMAIL0001: Bound mail session [java:jboss/mail/Default]
+2019-08-20 14:37:22,168 INFO  [org.wildfly.extension.undertow] (ServerService Thread Pool -- 79) WFLYUT0014: Creating file handler for path 'C:\Desarrollo\wildfly-10.1.0.CR1/welcome-content' with options [directory-listing: 'false', follow-symlink: 'false', case-sensitive: 'true', safe-symlink-paths: '[]']
+2019-08-20 14:37:22,415 INFO  [org.jboss.as.connector.subsystems.datasources] (ServerService Thread Pool -- 57) WFLYJCA0004: Deploying JDBC-compliant driver class org.h2.Driver (version 1.3)
+2019-08-20 14:37:22,473 INFO  [org.jboss.as.connector.deployers.jdbc] (MSC service thread 1-8) WFLYJCA0018: Started Driver service with driver-name = h2
+2019-08-20 14:37:22,698 INFO  [org.jboss.as.ejb3] (MSC service thread 1-4) WFLYEJB0481: Strict pool slsb-strict-max-pool is using a max instance size of 64 (per class), which is derived from thread worker pool sizing.
+2019-08-20 14:37:22,698 INFO  [org.jboss.as.ejb3] (MSC service thread 1-8) WFLYEJB0482: Strict pool mdb-strict-max-pool is using a max instance size of 16 (per class), which is derived from the number of CPUs on this host.
+2019-08-20 14:37:23,376 INFO  [org.jboss.as.connector.subsystems.datasources] (ServerService Thread Pool -- 57) WFLYJCA0005: Deploying non-JDBC-compliant driver class org.postgresql.Driver (version 42.0)
+2019-08-20 14:37:23,379 INFO  [org.jboss.as.connector.deployers.jdbc] (MSC service thread 1-4) WFLYJCA0018: Started Driver service with driver-name = postgresql
+2019-08-20 14:37:24,703 INFO  [org.jboss.remoting] (MSC service thread 1-7) JBoss Remoting version 4.0.21.Final
+2019-08-20 14:37:24,859 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-7) WFLYUT0012: Started server default-server.
+2019-08-20 14:37:24,862 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-4) WFLYUT0018: Host default-host starting
+2019-08-20 14:37:26,494 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-5) WFLYUT0006: Undertow HTTP listener default listening on 0.0.0.0:8180
+2019-08-20 14:37:27,387 INFO  [org.jboss.as.connector.subsystems.datasources] (ServerService Thread Pool -- 57) WFLYJCA0004: Deploying JDBC-compliant driver class com.microsoft.sqlserver.jdbc.SQLServerDriver (version 6.0)
+2019-08-20 14:37:27,387 INFO  [org.jboss.as.connector.deployers.jdbc] (MSC service thread 1-7) WFLYJCA0018: Started Driver service with driver-name = sqlserver
+2019-08-20 14:37:27,754 INFO  [org.jboss.as.connector.subsystems.datasources] (MSC service thread 1-3) WFLYJCA0001: Bound data source [java:jboss/datasources/ExampleDS]
+2019-08-20 14:37:27,758 INFO  [org.jboss.as.connector.subsystems.datasources] (MSC service thread 1-5) WFLYJCA0098: Bound non-transactional data source: java:jboss/postgresDS
+2019-08-20 14:37:27,889 WARN  [org.jboss.as.domain.management.security] (MSC service thread 1-4) WFLYDM0111: Keystore C:\Desarrollo\wildfly-10.1.0.CR1\standalone\configuration\application.keystore not found, it will be auto generated on first use with a self signed certificate for host localhost
+2019-08-20 14:37:27,939 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-5) WFLYSRV0027: Starting deployment of "scl.war" (runtime-name: "scl.war")
+2019-08-20 14:37:28,008 INFO  [org.jboss.as.server.deployment.scanner] (MSC service thread 1-5) WFLYDS0013: Started FileSystemDeploymentService for directory C:\Desarrollo\wildfly-10.1.0.CR1\standalone\deployments
+2019-08-20 14:37:28,008 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-5) WFLYSRV0027: Starting deployment of "bivi.war" (runtime-name: "bivi.war")
+2019-08-20 14:37:29,141 INFO  [org.infinispan.factories.GlobalComponentRegistry] (MSC service thread 1-7) ISPN000128: Infinispan version: Infinispan 'Chakra' 8.2.4.Final
+2019-08-20 14:37:29,512 INFO  [org.infinispan.configuration.cache.EvictionConfigurationBuilder] (ServerService Thread Pool -- 82) ISPN000152: Passivation configured without an eviction policy being selected. Only manually evicted entities will be passivated.
+2019-08-20 14:37:29,516 INFO  [org.infinispan.configuration.cache.EvictionConfigurationBuilder] (ServerService Thread Pool -- 82) ISPN000152: Passivation configured without an eviction policy being selected. Only manually evicted entities will be passivated.
+2019-08-20 14:37:29,518 INFO  [org.infinispan.configuration.cache.EvictionConfigurationBuilder] (ServerService Thread Pool -- 85) ISPN000152: Passivation configured without an eviction policy being selected. Only manually evicted entities will be passivated.
+2019-08-20 14:37:29,518 INFO  [org.infinispan.configuration.cache.EvictionConfigurationBuilder] (ServerService Thread Pool -- 83) ISPN000152: Passivation configured without an eviction policy being selected. Only manually evicted entities will be passivated.
+2019-08-20 14:37:29,519 INFO  [org.infinispan.configuration.cache.EvictionConfigurationBuilder] (ServerService Thread Pool -- 85) ISPN000152: Passivation configured without an eviction policy being selected. Only manually evicted entities will be passivated.
+2019-08-20 14:37:29,521 INFO  [org.infinispan.configuration.cache.EvictionConfigurationBuilder] (ServerService Thread Pool -- 83) ISPN000152: Passivation configured without an eviction policy being selected. Only manually evicted entities will be passivated.
+2019-08-20 14:37:31,357 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-6) WFLYUT0006: Undertow HTTPS listener https listening on 0.0.0.0:8443
+2019-08-20 14:37:44,097 INFO  [org.jboss.ws.common.management] (MSC service thread 1-6) JBWS022052: Starting JBossWS 5.1.5.Final (Apache CXF 3.1.6) 
+2019-08-20 14:38:53,715 INFO  [org.jboss.as.jpa] (MSC service thread 1-8) WFLYJPA0002: Read persistence.xml for postgresDS
+2019-08-20 14:39:16,554 INFO  [org.jboss.as.jpa] (ServerService Thread Pool -- 95) WFLYJPA0010: Starting Persistence Unit (phase 1 of 2) Service 'bivi.war#postgresDS'
+2019-08-20 14:39:16,761 INFO  [org.hibernate.jpa.internal.util.LogHelper] (ServerService Thread Pool -- 95) HHH000204: Processing PersistenceUnitInfo [
+	name: postgresDS
+	...]
+2019-08-20 14:39:18,500 INFO  [org.hibernate.Version] (ServerService Thread Pool -- 95) HHH000412: Hibernate Core {5.0.10.Final}
+2019-08-20 14:39:18,501 INFO  [org.hibernate.cfg.Environment] (ServerService Thread Pool -- 95) HHH000206: hibernate.properties not found
+2019-08-20 14:39:18,502 INFO  [org.hibernate.cfg.Environment] (ServerService Thread Pool -- 95) HHH000021: Bytecode provider name : javassist
+2019-08-20 14:39:18,779 INFO  [org.hibernate.annotations.common.Version] (ServerService Thread Pool -- 95) HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2019-08-20 14:39:20,804 INFO  [org.jboss.weld.deployer] (MSC service thread 1-7) WFLYWELD0003: Processing weld deployment bivi.war
+2019-08-20 14:39:22,022 INFO  [org.jboss.as.jpa] (MSC service thread 1-4) WFLYJPA0002: Read persistence.xml for postgresDS
+2019-08-20 14:39:30,397 INFO  [org.hibernate.validator.internal.util.Version] (MSC service thread 1-7) HV000001: Hibernate Validator 5.2.4.Final
+2019-08-20 14:39:30,582 INFO  [org.jboss.as.ejb3.deployment] (MSC service thread 1-7) WFLYEJB0473: JNDI bindings for session bean named 'ServicioAdmRolUsuario' in deployment unit 'deployment "bivi.war"' are as follows:
+
+	java:global/bivi/ServicioAdmRolUsuario!com.bivi.servicios.ServicioAdmRolUsuario
+	java:app/bivi/ServicioAdmRolUsuario!com.bivi.servicios.ServicioAdmRolUsuario
+	java:module/ServicioAdmRolUsuario!com.bivi.servicios.ServicioAdmRolUsuario
+	java:global/bivi/ServicioAdmRolUsuario
+	java:app/bivi/ServicioAdmRolUsuario
+	java:module/ServicioAdmRolUsuario
+
+2019-08-20 14:39:30,649 INFO  [org.jboss.as.ejb3.deployment] (MSC service thread 1-7) WFLYEJB0473: JNDI bindings for session bean named 'ServicioAdmUsuario' in deployment unit 'deployment "bivi.war"' are as follows:
+
+	java:global/bivi/ServicioAdmUsuario!com.bivi.servicios.ServicioAdmUsuario
+	java:app/bivi/ServicioAdmUsuario!com.bivi.servicios.ServicioAdmUsuario
+	java:module/ServicioAdmUsuario!com.bivi.servicios.ServicioAdmUsuario
+	java:global/bivi/ServicioAdmUsuario
+	java:app/bivi/ServicioAdmUsuario
+	java:module/ServicioAdmUsuario
+
+2019-08-20 14:39:30,650 INFO  [org.jboss.as.ejb3.deployment] (MSC service thread 1-7) WFLYEJB0473: JNDI bindings for session bean named 'ServicioUsuarioCiudad' in deployment unit 'deployment "bivi.war"' are as follows:
+
+	java:global/bivi/ServicioUsuarioCiudad!com.bivi.servicios.ServicioUsuarioCiudad
+	java:app/bivi/ServicioUsuarioCiudad!com.bivi.servicios.ServicioUsuarioCiudad
+	java:module/ServicioUsuarioCiudad!com.bivi.servicios.ServicioUsuarioCiudad
+	java:global/bivi/ServicioUsuarioCiudad
+	java:app/bivi/ServicioUsuarioCiudad
+	java:module/ServicioUsuarioCiudad
+
+2019-08-20 14:39:30,650 INFO  [org.jboss.as.ejb3.deployment] (MSC service thread 1-7) WFLYEJB0473: JNDI bindings for session bean named 'ServicioAdmPuestos' in deployment unit 'deployment "bivi.war"' are as follows:
+
+	java:global/bivi/ServicioAdmPuestos!com.bivi.servicios.ServicioAdmPuestos
+	java:app/bivi/ServicioAdmPuestos!com.bivi.servicios.ServicioAdmPuestos
+	java:module/ServicioAdmPuestos!com.bivi.servicios.ServicioAdmPuestos
+	java:global/bivi/ServicioAdmPuestos
+	java:app/bivi/ServicioAdmPuestos
+	java:module/ServicioAdmPuestos
+
+2019-08-20 14:39:30,650 INFO  [org.jboss.as.ejb3.deployment] (MSC service thread 1-7) WFLYEJB0473: JNDI bindings for session bean named 'ServicioIinicioSesion' in deployment unit 'deployment "bivi.war"' are as follows:
+
+	java:global/bivi/ServicioIinicioSesion!com.bivi.servicios.ServicioIinicioSesion
+	java:app/bivi/ServicioIinicioSesion!com.bivi.servicios.ServicioIinicioSesion
+	java:module/ServicioIinicioSesion!com.bivi.servicios.ServicioIinicioSesion
+	java:global/bivi/ServicioIinicioSesion
+	java:app/bivi/ServicioIinicioSesion
+	java:module/ServicioIinicioSesion
+
+2019-08-20 14:39:30,650 INFO  [org.jboss.as.ejb3.deployment] (MSC service thread 1-7) WFLYEJB0473: JNDI bindings for session bean named 'ServicioAdmEmpleado' in deployment unit 'deployment "bivi.war"' are as follows:
+
+	java:global/bivi/ServicioAdmEmpleado!com.bivi.servicios.ServicioAdmEmpleado
+	java:app/bivi/ServicioAdmEmpleado!com.bivi.servicios.ServicioAdmEmpleado
+	java:module/ServicioAdmEmpleado!com.bivi.servicios.ServicioAdmEmpleado
+	java:global/bivi/ServicioAdmEmpleado
+	java:app/bivi/ServicioAdmEmpleado
+	java:module/ServicioAdmEmpleado
+
+2019-08-20 14:39:30,650 INFO  [org.jboss.as.ejb3.deployment] (MSC service thread 1-7) WFLYEJB0473: JNDI bindings for session bean named 'ServicioFisDetalleBitacora' in deployment unit 'deployment "bivi.war"' are as follows:
+
+	java:global/bivi/ServicioFisDetalleBitacora!com.bivi.servicios.ServicioFisDetalleBitacora
+	java:app/bivi/ServicioFisDetalleBitacora!com.bivi.servicios.ServicioFisDetalleBitacora
+	java:module/ServicioFisDetalleBitacora!com.bivi.servicios.ServicioFisDetalleBitacora
+	java:global/bivi/ServicioFisDetalleBitacora
+	java:app/bivi/ServicioFisDetalleBitacora
+	java:module/ServicioFisDetalleBitacora
+
+2019-08-20 14:39:30,650 INFO  [org.jboss.as.ejb3.deployment] (MSC service thread 1-7) WFLYEJB0473: JNDI bindings for session bean named 'ServicioFisGuardiaAgencia' in deployment unit 'deployment "bivi.war"' are as follows:
+
+	java:global/bivi/ServicioFisGuardiaAgencia!com.bivi.servicios.ServicioFisGuardiaAgencia
+	java:app/bivi/ServicioFisGuardiaAgencia!com.bivi.servicios.ServicioFisGuardiaAgencia
+	java:module/ServicioFisGuardiaAgencia!com.bivi.servicios.ServicioFisGuardiaAgencia
+	java:global/bivi/ServicioFisGuardiaAgencia
+	java:app/bivi/ServicioFisGuardiaAgencia
+	java:module/ServicioFisGuardiaAgencia
+
+2019-08-20 14:39:30,788 INFO  [org.jboss.as.ejb3.deployment] (MSC service thread 1-7) WFLYEJB0473: JNDI bindings for session bean named 'ServicioAdmRolMenu' in deployment unit 'deployment "bivi.war"' are as follows:
+
+	java:global/bivi/ServicioAdmRolMenu!com.bivi.servicios.ServicioAdmRolMenu
+	java:app/bivi/ServicioAdmRolMenu!com.bivi.servicios.ServicioAdmRolMenu
+	java:module/ServicioAdmRolMenu!com.bivi.servicios.ServicioAdmRolMenu
+	java:global/bivi/ServicioAdmRolMenu
+	java:app/bivi/ServicioAdmRolMenu
+	java:module/ServicioAdmRolMenu
+
+2019-08-20 14:39:30,789 INFO  [org.jboss.as.ejb3.deployment] (MSC service thread 1-7) WFLYEJB0473: JNDI bindings for session bean named 'ServicioFisConsignasG' in deployment unit 'deployment "bivi.war"' are as follows:
+
+	java:global/bivi/ServicioFisConsignasG!com.bivi.servicios.ServicioFisConsignasG
+	java:app/bivi/ServicioFisConsignasG!com.bivi.servicios.ServicioFisConsignasG
+	java:module/ServicioFisConsignasG!com.bivi.servicios.ServicioFisConsignasG
+	java:global/bivi/ServicioFisConsignasG
+	java:app/bivi/ServicioFisConsignasG
+	java:module/ServicioFisConsignasG
+
+2019-08-20 14:39:30,789 INFO  [org.jboss.as.ejb3.deployment] (MSC service thread 1-7) WFLYEJB0473: JNDI bindings for session bean named 'ServicioFisMovil' in deployment unit 'deployment "bivi.war"' are as follows:
+
+	java:global/bivi/ServicioFisMovil!com.bivi.servicios.ServicioFisMovil
+	java:app/bivi/ServicioFisMovil!com.bivi.servicios.ServicioFisMovil
+	java:module/ServicioFisMovil!com.bivi.servicios.ServicioFisMovil
+	java:global/bivi/ServicioFisMovil
+	java:app/bivi/ServicioFisMovil
+	java:module/ServicioFisMovil
+
+2019-08-20 14:39:30,789 INFO  [org.jboss.as.ejb3.deployment] (MSC service thread 1-7) WFLYEJB0473: JNDI bindings for session bean named 'ServicioAdmCliente' in deployment unit 'deployment "bivi.war"' are as follows:
+
+	java:global/bivi/ServicioAdmCliente!com.bivi.servicios.ServicioAdmCliente
+	java:app/bivi/ServicioAdmCliente!com.bivi.servicios.ServicioAdmCliente
+	java:module/ServicioAdmCliente!com.bivi.servicios.ServicioAdmCliente
+	java:global/bivi/ServicioAdmCliente
+	java:app/bivi/ServicioAdmCliente
+	java:module/ServicioAdmCliente
+
+2019-08-20 14:39:30,790 INFO  [org.jboss.as.ejb3.deployment] (MSC service thread 1-7) WFLYEJB0473: JNDI bindings for session bean named 'ServicioAdmAgencia' in deployment unit 'deployment "bivi.war"' are as follows:
+
+	java:global/bivi/ServicioAdmAgencia!com.bivi.servicios.ServicioAdmAgencia
+	java:app/bivi/ServicioAdmAgencia!com.bivi.servicios.ServicioAdmAgencia
+	java:module/ServicioAdmAgencia!com.bivi.servicios.ServicioAdmAgencia
+	java:global/bivi/ServicioAdmAgencia
+	java:app/bivi/ServicioAdmAgencia
+	java:module/ServicioAdmAgencia
+
+2019-08-20 14:39:30,790 INFO  [org.jboss.as.ejb3.deployment] (MSC service thread 1-7) WFLYEJB0473: JNDI bindings for session bean named 'ServicioAdmMenu' in deployment unit 'deployment "bivi.war"' are as follows:
+
+	java:global/bivi/ServicioAdmMenu!com.bivi.servicios.ServicioAdmMenu
+	java:app/bivi/ServicioAdmMenu!com.bivi.servicios.ServicioAdmMenu
+	java:module/ServicioAdmMenu!com.bivi.servicios.ServicioAdmMenu
+	java:global/bivi/ServicioAdmMenu
+	java:app/bivi/ServicioAdmMenu
+	java:module/ServicioAdmMenu
+
+2019-08-20 14:39:30,790 INFO  [org.jboss.as.ejb3.deployment] (MSC service thread 1-7) WFLYEJB0473: JNDI bindings for session bean named 'ServicioFisConsignasE' in deployment unit 'deployment "bivi.war"' are as follows:
+
+	java:global/bivi/ServicioFisConsignasE!com.bivi.servicios.ServicioFisConsignasE
+	java:app/bivi/ServicioFisConsignasE!com.bivi.servicios.ServicioFisConsignasE
+	java:module/ServicioFisConsignasE!com.bivi.servicios.ServicioFisConsignasE
+	java:global/bivi/ServicioFisConsignasE
+	java:app/bivi/ServicioFisConsignasE
+	java:module/ServicioFisConsignasE
+
+2019-08-20 14:39:30,790 INFO  [org.jboss.as.ejb3.deployment] (MSC service thread 1-7) WFLYEJB0473: JNDI bindings for session bean named 'ServicioAdmRol' in deployment unit 'deployment "bivi.war"' are as follows:
+
+	java:global/bivi/ServicioAdmRol!com.bivi.servicios.ServicioAdmRol
+	java:app/bivi/ServicioAdmRol!com.bivi.servicios.ServicioAdmRol
+	java:module/ServicioAdmRol!com.bivi.servicios.ServicioAdmRol
+	java:global/bivi/ServicioAdmRol
+	java:app/bivi/ServicioAdmRol
+	java:module/ServicioAdmRol
+
+2019-08-20 14:39:30,790 INFO  [org.jboss.as.ejb3.deployment] (MSC service thread 1-7) WFLYEJB0473: JNDI bindings for session bean named 'ServicioAdmDetalleCatalogo' in deployment unit 'deployment "bivi.war"' are as follows:
+
+	java:global/bivi/ServicioAdmDetalleCatalogo!com.bivi.servicios.ServicioAdmDetalleCatalogo
+	java:app/bivi/ServicioAdmDetalleCatalogo!com.bivi.servicios.ServicioAdmDetalleCatalogo
+	java:module/ServicioAdmDetalleCatalogo!com.bivi.servicios.ServicioAdmDetalleCatalogo
+	java:global/bivi/ServicioAdmDetalleCatalogo
+	java:app/bivi/ServicioAdmDetalleCatalogo
+	java:module/ServicioAdmDetalleCatalogo
+
+2019-08-20 14:39:31,811 INFO  [org.infinispan.configuration.cache.EvictionConfigurationBuilder] (ServerService Thread Pool -- 95) ISPN000152: Passivation configured without an eviction policy being selected. Only manually evicted entities will be passivated.
+2019-08-20 14:39:31,814 INFO  [org.infinispan.configuration.cache.EvictionConfigurationBuilder] (ServerService Thread Pool -- 95) ISPN000152: Passivation configured without an eviction policy being selected. Only manually evicted entities will be passivated.
+2019-08-20 14:39:32,674 INFO  [org.jboss.as.jpa] (ServerService Thread Pool -- 96) WFLYJPA0010: Starting Persistence Unit (phase 1 of 2) Service 'scl.war#postgresDS'
+2019-08-20 14:39:32,675 INFO  [org.hibernate.jpa.internal.util.LogHelper] (ServerService Thread Pool -- 96) HHH000204: Processing PersistenceUnitInfo [
+	name: postgresDS
+	...]
+2019-08-20 14:39:37,018 WARN  [org.jboss.as.connector.deployers.jdbc] (MSC service thread 1-8) WFLYJCA0003: Unable to instantiate driver class "org.olap4j.driver.xmla.XmlaOlap4jDriver": java.lang.NoSuchMethodException: org.olap4j.driver.xmla.XmlaOlap4jDriver.<init>()
+2019-08-20 14:39:37,134 INFO  [org.jboss.as.clustering.infinispan] (ServerService Thread Pool -- 95) WFLYCLINF0002: Started client-mappings cache from ejb container
+2019-08-20 14:39:38,104 INFO  [org.jboss.weld.deployer] (MSC service thread 1-2) WFLYWELD0003: Processing weld deployment scl.war
+2019-08-20 14:39:38,191 INFO  [org.jboss.weld.Version] (MSC service thread 1-8) WELD-000900: 2.3.5 (Final)
+2019-08-20 14:39:38,350 INFO  [org.jboss.as.ejb3.deployment] (MSC service thread 1-2) WFLYEJB0473: JNDI bindings for session bean named 'ServicioAdmRolUsuario' in deployment unit 'deployment "scl.war"' are as follows:
+
+	java:global/scl/ServicioAdmRolUsuario!com.scl.administracion.servicio.ServicioAdmRolUsuario
+	java:app/scl/ServicioAdmRolUsuario!com.scl.administracion.servicio.ServicioAdmRolUsuario
+	java:module/ServicioAdmRolUsuario!com.scl.administracion.servicio.ServicioAdmRolUsuario
+	java:global/scl/ServicioAdmRolUsuario
+	java:app/scl/ServicioAdmRolUsuario
+	java:module/ServicioAdmRolUsuario
+
+2019-08-20 14:39:38,350 INFO  [org.jboss.as.ejb3.deployment] (MSC service thread 1-2) WFLYEJB0473: JNDI bindings for session bean named 'ServicioDistribucionCaja' in deployment unit 'deployment "scl.war"' are as follows:
+
+	java:global/scl/ServicioDistribucionCaja!com.scl.cpc.servicio.ServicioDistribucionCaja
+	java:app/scl/ServicioDistribucionCaja!com.scl.cpc.servicio.ServicioDistribucionCaja
+	java:module/ServicioDistribucionCaja!com.scl.cpc.servicio.ServicioDistribucionCaja
+	java:global/scl/ServicioDistribucionCaja
+	java:app/scl/ServicioDistribucionCaja
+	java:module/ServicioDistribucionCaja
+
+2019-08-20 14:39:38,350 INFO  [org.jboss.as.ejb3.deployment] (MSC service thread 1-2) WFLYEJB0473: JNDI bindings for session bean named 'ServicioCircuito' in deployment unit 'deployment "scl.war"' are as follows:
+
+	java:global/scl/ServicioCircuito!com.scl.operacion.servicio.ServicioCircuito
+	java:app/scl/ServicioCircuito!com.scl.operacion.servicio.ServicioCircuito
+	java:module/ServicioCircuito!com.scl.operacion.servicio.ServicioCircuito
+	java:global/scl/ServicioCircuito
+	java:app/scl/ServicioCircuito
+	java:module/ServicioCircuito
+
+2019-08-20 14:39:38,351 INFO  [org.jboss.as.ejb3.deployment] (MSC service thread 1-2) WFLYEJB0473: JNDI bindings for session bean named 'ServicioEquipoMovil' in deployment unit 'deployment "scl.war"' are as follows:
+
+	java:global/scl/ServicioEquipoMovil!com.scl.operacion.servicio.ServicioEquipoMovil
+	java:app/scl/ServicioEquipoMovil!com.scl.operacion.servicio.ServicioEquipoMovil
+	java:module/ServicioEquipoMovil!com.scl.operacion.servicio.ServicioEquipoMovil
+	java:global/scl/ServicioEquipoMovil
+	java:app/scl/ServicioEquipoMovil
+	java:module/ServicioEquipoMovil
+
+2019-08-20 14:39:38,352 INFO  [org.jboss.as.ejb3.deployment] (MSC service thread 1-2) WFLYEJB0473: JNDI bindings for session bean named 'ServicioAdmUsuario' in deployment unit 'deployment "scl.war"' are as follows:
+
+	java:global/scl/ServicioAdmUsuario!com.scl.administracion.servicio.ServicioAdmUsuario
+	java:app/scl/ServicioAdmUsuario!com.scl.administracion.servicio.ServicioAdmUsuario
+	java:module/ServicioAdmUsuario!com.scl.administracion.servicio.ServicioAdmUsuario
+	java:global/scl/ServicioAdmUsuario
+	java:app/scl/ServicioAdmUsuario
+	java:module/ServicioAdmUsuario
+
+2019-08-20 14:39:38,352 INFO  [org.jboss.as.ejb3.deployment] (MSC service thread 1-2) WFLYEJB0473: JNDI bindings for session bean named 'ServicioUsuarioAgencia' in deployment unit 'deployment "scl.war"' are as follows:
+
+	java:global/scl/ServicioUsuarioAgencia!com.scl.administracion.servicio.ServicioUsuarioAgencia
+	java:app/scl/ServicioUsuarioAgencia!com.scl.administracion.servicio.ServicioUsuarioAgencia
+	java:module/ServicioUsuarioAgencia!com.scl.administracion.servicio.ServicioUsuarioAgencia
+	java:global/scl/ServicioUsuarioAgencia
+	java:app/scl/ServicioUsuarioAgencia
+	java:module/ServicioUsuarioAgencia
+
+2019-08-20 14:39:38,352 INFO  [org.jboss.as.ejb3.deployment] (MSC service thread 1-2) WFLYEJB0473: JNDI bindings for session bean named 'ServicioFrecuenciaVisita' in deployment unit 'deployment "scl.war"' are as follows:
+
+	java:global/scl/ServicioFrecuenciaVisita!com.scl.operacion.servicio.ServicioFrecuenciaVisita
+	java:app/scl/ServicioFrecuenciaVisita!com.scl.operacion.servicio.ServicioFrecuenciaVisita
+	java:module/ServicioFrecuenciaVisita!com.scl.operacion.servicio.ServicioFrecuenciaVisita
+	java:global/scl/ServicioFrecuenciaVisita
+	java:app/scl/ServicioFrecuenciaVisita
+	java:module/ServicioFrecuenciaVisita
+
+2019-08-20 14:39:38,353 INFO  [org.jboss.as.ejb3.deployment] (MSC service thread 1-2) WFLYEJB0473: JNDI bindings for session bean named 'ServicioPlanificacion' in deployment unit 'deployment "scl.war"' are as follows:
+
+	java:global/scl/ServicioPlanificacion!com.scl.operacion.servicio.ServicioPlanificacion
+	java:app/scl/ServicioPlanificacion!com.scl.operacion.servicio.ServicioPlanificacion
+	java:module/ServicioPlanificacion!com.scl.operacion.servicio.ServicioPlanificacion
+	java:global/scl/ServicioPlanificacion
+	java:app/scl/ServicioPlanificacion
+	java:module/ServicioPlanificacion
+
+2019-08-20 14:39:38,353 INFO  [org.jboss.as.ejb3.deployment] (MSC service thread 1-2) WFLYEJB0473: JNDI bindings for session bean named 'ServicioSolicitud' in deployment unit 'deployment "scl.war"' are as follows:
+
+	java:global/scl/ServicioSolicitud!com.scl.sac.servicio.ServicioSolicitud
+	java:app/scl/ServicioSolicitud!com.scl.sac.servicio.ServicioSolicitud
+	java:module/ServicioSolicitud!com.scl.sac.servicio.ServicioSolicitud
+	java:global/scl/ServicioSolicitud
+	java:app/scl/ServicioSolicitud
+	java:module/ServicioSolicitud
+
+2019-08-20 14:39:38,361 INFO  [org.jboss.as.ejb3.deployment] (MSC service thread 1-2) WFLYEJB0473: JNDI bindings for session bean named 'ServicioIinicioSesion' in deployment unit 'deployment "scl.war"' are as follows:
+
+	java:global/scl/ServicioIinicioSesion!com.scl.administracion.servicio.ServicioIinicioSesion
+	java:app/scl/ServicioIinicioSesion!com.scl.administracion.servicio.ServicioIinicioSesion
+	java:module/ServicioIinicioSesion!com.scl.administracion.servicio.ServicioIinicioSesion
+	java:global/scl/ServicioIinicioSesion
+	java:app/scl/ServicioIinicioSesion
+	java:module/ServicioIinicioSesion
+
+2019-08-20 14:39:38,362 INFO  [org.jboss.as.ejb3.deployment] (MSC service thread 1-2) WFLYEJB0473: JNDI bindings for session bean named 'ServicioDetalleEspecie' in deployment unit 'deployment "scl.war"' are as follows:
+
+	java:global/scl/ServicioDetalleEspecie!com.scl.cpc.servicio.ServicioDetalleEspecie
+	java:app/scl/ServicioDetalleEspecie!com.scl.cpc.servicio.ServicioDetalleEspecie
+	java:module/ServicioDetalleEspecie!com.scl.cpc.servicio.ServicioDetalleEspecie
+	java:global/scl/ServicioDetalleEspecie
+	java:app/scl/ServicioDetalleEspecie
+	java:module/ServicioDetalleEspecie
+
+2019-08-20 14:39:38,362 INFO  [org.jboss.as.ejb3.deployment] (MSC service thread 1-2) WFLYEJB0473: JNDI bindings for session bean named 'ServicioHojaAlistamiento' in deployment unit 'deployment "scl.war"' are as follows:
+
+	java:global/scl/ServicioHojaAlistamiento!com.scl.operacion.servicio.ServicioHojaAlistamiento
+	java:app/scl/ServicioHojaAlistamiento!com.scl.operacion.servicio.ServicioHojaAlistamiento
+	java:module/ServicioHojaAlistamiento!com.scl.operacion.servicio.ServicioHojaAlistamiento
+	java:global/scl/ServicioHojaAlistamiento
+	java:app/scl/ServicioHojaAlistamiento
+	java:module/ServicioHojaAlistamiento
+
+2019-08-20 14:39:38,362 INFO  [org.jboss.as.ejb3.deployment] (MSC service thread 1-2) WFLYEJB0473: JNDI bindings for session bean named 'ServicioTripulacion' in deployment unit 'deployment "scl.war"' are as follows:
+
+	java:global/scl/ServicioTripulacion!com.scl.operacion.servicio.ServicioTripulacion
+	java:app/scl/ServicioTripulacion!com.scl.operacion.servicio.ServicioTripulacion
+	java:module/ServicioTripulacion!com.scl.operacion.servicio.ServicioTripulacion
+	java:global/scl/ServicioTripulacion
+	java:app/scl/ServicioTripulacion
+	java:module/ServicioTripulacion
+
+2019-08-20 14:39:38,362 INFO  [org.jboss.as.ejb3.deployment] (MSC service thread 1-2) WFLYEJB0473: JNDI bindings for session bean named 'ServicioAdmCliente' in deployment unit 'deployment "scl.war"' are as follows:
+
+	java:global/scl/ServicioAdmCliente!com.scl.administracion.servicio.ServicioAdmCliente
+	java:app/scl/ServicioAdmCliente!com.scl.administracion.servicio.ServicioAdmCliente
+	java:module/ServicioAdmCliente!com.scl.administracion.servicio.ServicioAdmCliente
+	java:global/scl/ServicioAdmCliente
+	java:app/scl/ServicioAdmCliente
+	java:module/ServicioAdmCliente
+
+2019-08-20 14:39:38,363 INFO  [org.jboss.as.ejb3.deployment] (MSC service thread 1-2) WFLYEJB0473: JNDI bindings for session bean named 'ServicioAdmMenu' in deployment unit 'deployment "scl.war"' are as follows:
+
+	java:global/scl/ServicioAdmMenu!com.scl.administracion.servicio.ServicioAdmMenu
+	java:app/scl/ServicioAdmMenu!com.scl.administracion.servicio.ServicioAdmMenu
+	java:module/ServicioAdmMenu!com.scl.administracion.servicio.ServicioAdmMenu
+	java:global/scl/ServicioAdmMenu
+	java:app/scl/ServicioAdmMenu
+	java:module/ServicioAdmMenu
+
+2019-08-20 14:39:38,363 INFO  [org.jboss.as.ejb3.deployment] (MSC service thread 1-2) WFLYEJB0473: JNDI bindings for session bean named 'ServicioDetalleTransaccionTmp' in deployment unit 'deployment "scl.war"' are as follows:
+
+	java:global/scl/ServicioDetalleTransaccionTmp!com.scl.operacion.servicio.ServicioDetalleTransaccionTmp
+	java:app/scl/ServicioDetalleTransaccionTmp!com.scl.operacion.servicio.ServicioDetalleTransaccionTmp
+	java:module/ServicioDetalleTransaccionTmp!com.scl.operacion.servicio.ServicioDetalleTransaccionTmp
+	java:global/scl/ServicioDetalleTransaccionTmp
+	java:app/scl/ServicioDetalleTransaccionTmp
+	java:module/ServicioDetalleTransaccionTmp
+
+2019-08-20 14:39:38,371 INFO  [org.jboss.as.ejb3.deployment] (MSC service thread 1-2) WFLYEJB0473: JNDI bindings for session bean named 'ServicioDetalleTransaccion' in deployment unit 'deployment "scl.war"' are as follows:
+
+	java:global/scl/ServicioDetalleTransaccion!com.scl.operacion.servicio.ServicioDetalleTransaccion
+	java:app/scl/ServicioDetalleTransaccion!com.scl.operacion.servicio.ServicioDetalleTransaccion
+	java:module/ServicioDetalleTransaccion!com.scl.operacion.servicio.ServicioDetalleTransaccion
+	java:global/scl/ServicioDetalleTransaccion
+	java:app/scl/ServicioDetalleTransaccion
+	java:module/ServicioDetalleTransaccion
+
+2019-08-20 14:39:38,372 INFO  [org.jboss.as.ejb3.deployment] (MSC service thread 1-2) WFLYEJB0473: JNDI bindings for session bean named 'ServicioBanco' in deployment unit 'deployment "scl.war"' are as follows:
+
+	java:global/scl/ServicioBanco!com.scl.cpc.servicio.ServicioBanco
+	java:app/scl/ServicioBanco!com.scl.cpc.servicio.ServicioBanco
+	java:module/ServicioBanco!com.scl.cpc.servicio.ServicioBanco
+	java:global/scl/ServicioBanco
+	java:app/scl/ServicioBanco
+	java:module/ServicioBanco
+
+2019-08-20 14:39:38,372 INFO  [org.jboss.as.ejb3.deployment] (MSC service thread 1-2) WFLYEJB0473: JNDI bindings for session bean named 'ServicioValidacionDetalle' in deployment unit 'deployment "scl.war"' are as follows:
+
+	java:global/scl/ServicioValidacionDetalle!com.scl.operacion.servicio.ServicioValidacionDetalle
+	java:app/scl/ServicioValidacionDetalle!com.scl.operacion.servicio.ServicioValidacionDetalle
+	java:module/ServicioValidacionDetalle!com.scl.operacion.servicio.ServicioValidacionDetalle
+	java:global/scl/ServicioValidacionDetalle
+	java:app/scl/ServicioValidacionDetalle
+	java:module/ServicioValidacionDetalle
+
+2019-08-20 14:39:38,372 INFO  [org.jboss.as.ejb3.deployment] (MSC service thread 1-2) WFLYEJB0473: JNDI bindings for session bean named 'ServicioVehiculo' in deployment unit 'deployment "scl.war"' are as follows:
+
+	java:global/scl/ServicioVehiculo!com.scl.operacion.servicio.ServicioVehiculo
+	java:app/scl/ServicioVehiculo!com.scl.operacion.servicio.ServicioVehiculo
+	java:module/ServicioVehiculo!com.scl.operacion.servicio.ServicioVehiculo
+	java:global/scl/ServicioVehiculo
+	java:app/scl/ServicioVehiculo
+	java:module/ServicioVehiculo
+
+2019-08-20 14:39:38,372 INFO  [org.jboss.as.ejb3.deployment] (MSC service thread 1-2) WFLYEJB0473: JNDI bindings for session bean named 'ServicioTipoTarifa' in deployment unit 'deployment "scl.war"' are as follows:
+
+	java:global/scl/ServicioTipoTarifa!com.scl.operacion.servicio.ServicioTipoTarifa
+	java:app/scl/ServicioTipoTarifa!com.scl.operacion.servicio.ServicioTipoTarifa
+	java:module/ServicioTipoTarifa!com.scl.operacion.servicio.ServicioTipoTarifa
+	java:global/scl/ServicioTipoTarifa
+	java:app/scl/ServicioTipoTarifa
+	java:module/ServicioTipoTarifa
+
+2019-08-20 14:39:38,372 INFO  [org.jboss.as.ejb3.deployment] (MSC service thread 1-2) WFLYEJB0473: JNDI bindings for session bean named 'ServicioEstadoTransaccion' in deployment unit 'deployment "scl.war"' are as follows:
+
+	java:global/scl/ServicioEstadoTransaccion!com.scl.operacion.servicio.ServicioEstadoTransaccion
+	java:app/scl/ServicioEstadoTransaccion!com.scl.operacion.servicio.ServicioEstadoTransaccion
+	java:module/ServicioEstadoTransaccion!com.scl.operacion.servicio.ServicioEstadoTransaccion
+	java:global/scl/ServicioEstadoTransaccion
+	java:app/scl/ServicioEstadoTransaccion
+	java:module/ServicioEstadoTransaccion
+
+2019-08-20 14:39:38,373 INFO  [org.jboss.as.ejb3.deployment] (MSC service thread 1-2) WFLYEJB0473: JNDI bindings for session bean named 'ServicioDetalleSolicitud' in deployment unit 'deployment "scl.war"' are as follows:
+
+	java:global/scl/ServicioDetalleSolicitud!com.scl.sac.servicio.ServicioDetalleSolicitud
+	java:app/scl/ServicioDetalleSolicitud!com.scl.sac.servicio.ServicioDetalleSolicitud
+	java:module/ServicioDetalleSolicitud!com.scl.sac.servicio.ServicioDetalleSolicitud
+	java:global/scl/ServicioDetalleSolicitud
+	java:app/scl/ServicioDetalleSolicitud
+	java:module/ServicioDetalleSolicitud
+
+2019-08-20 14:39:38,373 INFO  [org.jboss.as.ejb3.deployment] (MSC service thread 1-2) WFLYEJB0473: JNDI bindings for session bean named 'ServicioNovedad' in deployment unit 'deployment "scl.war"' are as follows:
+
+	java:global/scl/ServicioNovedad!com.scl.cpc.servicio.ServicioNovedad
+	java:app/scl/ServicioNovedad!com.scl.cpc.servicio.ServicioNovedad
+	java:module/ServicioNovedad!com.scl.cpc.servicio.ServicioNovedad
+	java:global/scl/ServicioNovedad
+	java:app/scl/ServicioNovedad
+	java:module/ServicioNovedad
+
+2019-08-20 14:39:38,374 INFO  [org.jboss.as.ejb3.deployment] (MSC service thread 1-2) WFLYEJB0473: JNDI bindings for session bean named 'ServicioTipoEspecie' in deployment unit 'deployment "scl.war"' are as follows:
+
+	java:global/scl/ServicioTipoEspecie!com.scl.cpc.servicio.ServicioTipoEspecie
+	java:app/scl/ServicioTipoEspecie!com.scl.cpc.servicio.ServicioTipoEspecie
+	java:module/ServicioTipoEspecie!com.scl.cpc.servicio.ServicioTipoEspecie
+	java:global/scl/ServicioTipoEspecie
+	java:app/scl/ServicioTipoEspecie
+	java:module/ServicioTipoEspecie
+
+2019-08-20 14:39:38,374 INFO  [org.jboss.as.ejb3.deployment] (MSC service thread 1-2) WFLYEJB0473: JNDI bindings for session bean named 'ServicioEspecie' in deployment unit 'deployment "scl.war"' are as follows:
+
+	java:global/scl/ServicioEspecie!com.scl.cpc.servicio.ServicioEspecie
+	java:app/scl/ServicioEspecie!com.scl.cpc.servicio.ServicioEspecie
+	java:module/ServicioEspecie!com.scl.cpc.servicio.ServicioEspecie
+	java:global/scl/ServicioEspecie
+	java:app/scl/ServicioEspecie
+	java:module/ServicioEspecie
+
+2019-08-20 14:39:38,375 INFO  [org.jboss.as.ejb3.deployment] (MSC service thread 1-2) WFLYEJB0473: JNDI bindings for session bean named 'ServicioTransaccion' in deployment unit 'deployment "scl.war"' are as follows:
+
+	java:global/scl/ServicioTransaccion!com.scl.operacion.servicio.ServicioTransaccion
+	java:app/scl/ServicioTransaccion!com.scl.operacion.servicio.ServicioTransaccion
+	java:module/ServicioTransaccion!com.scl.operacion.servicio.ServicioTransaccion
+	java:global/scl/ServicioTransaccion
+	java:app/scl/ServicioTransaccion
+	java:module/ServicioTransaccion
+
+2019-08-20 14:39:38,375 INFO  [org.jboss.as.ejb3.deployment] (MSC service thread 1-2) WFLYEJB0473: JNDI bindings for session bean named 'ServicioDestinoProvisional' in deployment unit 'deployment "scl.war"' are as follows:
+
+	java:global/scl/ServicioDestinoProvisional!com.scl.operacion.servicio.ServicioDestinoProvisional
+	java:app/scl/ServicioDestinoProvisional!com.scl.operacion.servicio.ServicioDestinoProvisional
+	java:module/ServicioDestinoProvisional!com.scl.operacion.servicio.ServicioDestinoProvisional
+	java:global/scl/ServicioDestinoProvisional
+	java:app/scl/ServicioDestinoProvisional
+	java:module/ServicioDestinoProvisional
+
+2019-08-20 14:39:38,375 INFO  [org.jboss.as.ejb3.deployment] (MSC service thread 1-2) WFLYEJB0473: JNDI bindings for session bean named 'ServicioResponsableAgencia' in deployment unit 'deployment "scl.war"' are as follows:
+
+	java:global/scl/ServicioResponsableAgencia!com.scl.operacion.servicio.ServicioResponsableAgencia
+	java:app/scl/ServicioResponsableAgencia!com.scl.operacion.servicio.ServicioResponsableAgencia
+	java:module/ServicioResponsableAgencia!com.scl.operacion.servicio.ServicioResponsableAgencia
+	java:global/scl/ServicioResponsableAgencia
+	java:app/scl/ServicioResponsableAgencia
+	java:module/ServicioResponsableAgencia
+
+2019-08-20 14:39:38,375 INFO  [org.jboss.as.ejb3.deployment] (MSC service thread 1-2) WFLYEJB0473: JNDI bindings for session bean named 'ServicioTipoNovedad' in deployment unit 'deployment "scl.war"' are as follows:
+
+	java:global/scl/ServicioTipoNovedad!com.scl.cpc.servicio.ServicioTipoNovedad
+	java:app/scl/ServicioTipoNovedad!com.scl.cpc.servicio.ServicioTipoNovedad
+	java:module/ServicioTipoNovedad!com.scl.cpc.servicio.ServicioTipoNovedad
+	java:global/scl/ServicioTipoNovedad
+	java:app/scl/ServicioTipoNovedad
+	java:module/ServicioTipoNovedad
+
+2019-08-20 14:39:38,375 INFO  [org.jboss.as.ejb3.deployment] (MSC service thread 1-2) WFLYEJB0473: JNDI bindings for session bean named 'ServicioAdmSucursal' in deployment unit 'deployment "scl.war"' are as follows:
+
+	java:global/scl/ServicioAdmSucursal!com.scl.administracion.servicio.ServicioAdmSucursal
+	java:app/scl/ServicioAdmSucursal!com.scl.administracion.servicio.ServicioAdmSucursal
+	java:module/ServicioAdmSucursal!com.scl.administracion.servicio.ServicioAdmSucursal
+	java:global/scl/ServicioAdmSucursal
+	java:app/scl/ServicioAdmSucursal
+	java:module/ServicioAdmSucursal
+
+2019-08-20 14:39:38,375 INFO  [org.jboss.as.ejb3.deployment] (MSC service thread 1-2) WFLYEJB0473: JNDI bindings for session bean named 'ServicioUsuarioCiudad' in deployment unit 'deployment "scl.war"' are as follows:
+
+	java:global/scl/ServicioUsuarioCiudad!com.scl.administracion.servicio.ServicioUsuarioCiudad
+	java:app/scl/ServicioUsuarioCiudad!com.scl.administracion.servicio.ServicioUsuarioCiudad
+	java:module/ServicioUsuarioCiudad!com.scl.administracion.servicio.ServicioUsuarioCiudad
+	java:global/scl/ServicioUsuarioCiudad
+	java:app/scl/ServicioUsuarioCiudad
+	java:module/ServicioUsuarioCiudad
+
+2019-08-20 14:39:38,494 INFO  [org.jboss.as.ejb3.deployment] (MSC service thread 1-2) WFLYEJB0473: JNDI bindings for session bean named 'ServicioMonitoreo' in deployment unit 'deployment "scl.war"' are as follows:
+
+	java:global/scl/ServicioMonitoreo!com.scl.operacion.servicio.ServicioMonitoreo
+	java:app/scl/ServicioMonitoreo!com.scl.operacion.servicio.ServicioMonitoreo
+	java:module/ServicioMonitoreo!com.scl.operacion.servicio.ServicioMonitoreo
+	java:global/scl/ServicioMonitoreo
+	java:app/scl/ServicioMonitoreo
+	java:module/ServicioMonitoreo
+
+2019-08-20 14:39:38,494 INFO  [org.jboss.as.ejb3.deployment] (MSC service thread 1-2) WFLYEJB0473: JNDI bindings for session bean named 'ServicioAdmCatalogo' in deployment unit 'deployment "scl.war"' are as follows:
+
+	java:global/scl/ServicioAdmCatalogo!com.scl.administracion.servicio.ServicioAdmCatalogo
+	java:app/scl/ServicioAdmCatalogo!com.scl.administracion.servicio.ServicioAdmCatalogo
+	java:module/ServicioAdmCatalogo!com.scl.administracion.servicio.ServicioAdmCatalogo
+	java:global/scl/ServicioAdmCatalogo
+	java:app/scl/ServicioAdmCatalogo
+	java:module/ServicioAdmCatalogo
+
+2019-08-20 14:39:38,495 INFO  [org.jboss.as.ejb3.deployment] (MSC service thread 1-2) WFLYEJB0473: JNDI bindings for session bean named 'ServicioAdmEmpleado' in deployment unit 'deployment "scl.war"' are as follows:
+
+	java:global/scl/ServicioAdmEmpleado!com.scl.administracion.servicio.ServicioAdmEmpleado
+	java:app/scl/ServicioAdmEmpleado!com.scl.administracion.servicio.ServicioAdmEmpleado
+	java:module/ServicioAdmEmpleado!com.scl.administracion.servicio.ServicioAdmEmpleado
+	java:global/scl/ServicioAdmEmpleado
+	java:app/scl/ServicioAdmEmpleado
+	java:module/ServicioAdmEmpleado
+
+2019-08-20 14:39:38,495 INFO  [org.jboss.as.ejb3.deployment] (MSC service thread 1-2) WFLYEJB0473: JNDI bindings for session bean named 'ServicioSeguroVehiculo' in deployment unit 'deployment "scl.war"' are as follows:
+
+	java:global/scl/ServicioSeguroVehiculo!com.scl.operacion.servicio.ServicioSeguroVehiculo
+	java:app/scl/ServicioSeguroVehiculo!com.scl.operacion.servicio.ServicioSeguroVehiculo
+	java:module/ServicioSeguroVehiculo!com.scl.operacion.servicio.ServicioSeguroVehiculo
+	java:global/scl/ServicioSeguroVehiculo
+	java:app/scl/ServicioSeguroVehiculo
+	java:module/ServicioSeguroVehiculo
+
+2019-08-20 14:39:38,495 INFO  [org.jboss.as.ejb3.deployment] (MSC service thread 1-2) WFLYEJB0473: JNDI bindings for session bean named 'ServicioRutero' in deployment unit 'deployment "scl.war"' are as follows:
+
+	java:global/scl/ServicioRutero!com.scl.operacion.servicio.ServicioRutero
+	java:app/scl/ServicioRutero!com.scl.operacion.servicio.ServicioRutero
+	java:module/ServicioRutero!com.scl.operacion.servicio.ServicioRutero
+	java:global/scl/ServicioRutero
+	java:app/scl/ServicioRutero
+	java:module/ServicioRutero
+
+2019-08-20 14:39:38,495 INFO  [org.jboss.as.ejb3.deployment] (MSC service thread 1-2) WFLYEJB0473: JNDI bindings for session bean named 'ServicioAdmTipoServicio' in deployment unit 'deployment "scl.war"' are as follows:
+
+	java:global/scl/ServicioAdmTipoServicio!com.scl.administracion.servicio.ServicioAdmTipoServicio
+	java:app/scl/ServicioAdmTipoServicio!com.scl.administracion.servicio.ServicioAdmTipoServicio
+	java:module/ServicioAdmTipoServicio!com.scl.administracion.servicio.ServicioAdmTipoServicio
+	java:global/scl/ServicioAdmTipoServicio
+	java:app/scl/ServicioAdmTipoServicio
+	java:module/ServicioAdmTipoServicio
+
+2019-08-20 14:39:38,495 INFO  [org.jboss.as.ejb3.deployment] (MSC service thread 1-2) WFLYEJB0473: JNDI bindings for session bean named 'ServicioMotivoNoGestion' in deployment unit 'deployment "scl.war"' are as follows:
+
+	java:global/scl/ServicioMotivoNoGestion!com.scl.operacion.servicio.ServicioMotivoNoGestion
+	java:app/scl/ServicioMotivoNoGestion!com.scl.operacion.servicio.ServicioMotivoNoGestion
+	java:module/ServicioMotivoNoGestion!com.scl.operacion.servicio.ServicioMotivoNoGestion
+	java:global/scl/ServicioMotivoNoGestion
+	java:app/scl/ServicioMotivoNoGestion
+	java:module/ServicioMotivoNoGestion
+
+2019-08-20 14:39:38,496 INFO  [org.jboss.as.ejb3.deployment] (MSC service thread 1-2) WFLYEJB0473: JNDI bindings for session bean named 'ServicioAdmRolMenu' in deployment unit 'deployment "scl.war"' are as follows:
+
+	java:global/scl/ServicioAdmRolMenu!com.scl.administracion.servicio.ServicioAdmRolMenu
+	java:app/scl/ServicioAdmRolMenu!com.scl.administracion.servicio.ServicioAdmRolMenu
+	java:module/ServicioAdmRolMenu!com.scl.administracion.servicio.ServicioAdmRolMenu
+	java:global/scl/ServicioAdmRolMenu
+	java:app/scl/ServicioAdmRolMenu
+	java:module/ServicioAdmRolMenu
+
+2019-08-20 14:39:38,497 INFO  [org.jboss.as.ejb3.deployment] (MSC service thread 1-2) WFLYEJB0473: JNDI bindings for session bean named 'ServicioCategoriaVehiculo' in deployment unit 'deployment "scl.war"' are as follows:
+
+	java:global/scl/ServicioCategoriaVehiculo!com.scl.operacion.servicio.ServicioCategoriaVehiculo
+	java:app/scl/ServicioCategoriaVehiculo!com.scl.operacion.servicio.ServicioCategoriaVehiculo
+	java:module/ServicioCategoriaVehiculo!com.scl.operacion.servicio.ServicioCategoriaVehiculo
+	java:global/scl/ServicioCategoriaVehiculo
+	java:app/scl/ServicioCategoriaVehiculo
+	java:module/ServicioCategoriaVehiculo
+
+2019-08-20 14:39:38,498 INFO  [org.jboss.as.ejb3.deployment] (MSC service thread 1-2) WFLYEJB0473: JNDI bindings for session bean named 'ServicioAdmTipoCatalogo' in deployment unit 'deployment "scl.war"' are as follows:
+
+	java:global/scl/ServicioAdmTipoCatalogo!com.scl.administracion.servicio.ServicioAdmTipoCatalogo
+	java:app/scl/ServicioAdmTipoCatalogo!com.scl.administracion.servicio.ServicioAdmTipoCatalogo
+	java:module/ServicioAdmTipoCatalogo!com.scl.administracion.servicio.ServicioAdmTipoCatalogo
+	java:global/scl/ServicioAdmTipoCatalogo
+	java:app/scl/ServicioAdmTipoCatalogo
+	java:module/ServicioAdmTipoCatalogo
+
+2019-08-20 14:39:38,498 INFO  [org.jboss.as.ejb3.deployment] (MSC service thread 1-2) WFLYEJB0473: JNDI bindings for session bean named 'ServicioDetalleDistribucion' in deployment unit 'deployment "scl.war"' are as follows:
+
+	java:global/scl/ServicioDetalleDistribucion!com.scl.cpc.servicio.ServicioDetalleDistribucion
+	java:app/scl/ServicioDetalleDistribucion!com.scl.cpc.servicio.ServicioDetalleDistribucion
+	java:module/ServicioDetalleDistribucion!com.scl.cpc.servicio.ServicioDetalleDistribucion
+	java:global/scl/ServicioDetalleDistribucion
+	java:app/scl/ServicioDetalleDistribucion
+	java:module/ServicioDetalleDistribucion
+
+2019-08-20 14:39:38,498 INFO  [org.jboss.as.ejb3.deployment] (MSC service thread 1-2) WFLYEJB0473: JNDI bindings for session bean named 'ServicioAdmAgencia' in deployment unit 'deployment "scl.war"' are as follows:
+
+	java:global/scl/ServicioAdmAgencia!com.scl.administracion.servicio.ServicioAdmAgencia
+	java:app/scl/ServicioAdmAgencia!com.scl.administracion.servicio.ServicioAdmAgencia
+	java:module/ServicioAdmAgencia!com.scl.administracion.servicio.ServicioAdmAgencia
+	java:global/scl/ServicioAdmAgencia
+	java:app/scl/ServicioAdmAgencia
+	java:module/ServicioAdmAgencia
+
+2019-08-20 14:39:38,498 INFO  [org.jboss.as.ejb3.deployment] (MSC service thread 1-2) WFLYEJB0473: JNDI bindings for session bean named 'ServicioAdmRol' in deployment unit 'deployment "scl.war"' are as follows:
+
+	java:global/scl/ServicioAdmRol!com.scl.administracion.servicio.ServicioAdmRol
+	java:app/scl/ServicioAdmRol!com.scl.administracion.servicio.ServicioAdmRol
+	java:module/ServicioAdmRol!com.scl.administracion.servicio.ServicioAdmRol
+	java:global/scl/ServicioAdmRol
+	java:app/scl/ServicioAdmRol
+	java:module/ServicioAdmRol
+
+2019-08-20 14:39:38,499 INFO  [org.jboss.as.ejb3.deployment] (MSC service thread 1-2) WFLYEJB0473: JNDI bindings for session bean named 'ServicioAdmServicio' in deployment unit 'deployment "scl.war"' are as follows:
+
+	java:global/scl/ServicioAdmServicio!com.scl.administracion.servicio.ServicioAdmServicio
+	java:app/scl/ServicioAdmServicio!com.scl.administracion.servicio.ServicioAdmServicio
+	java:module/ServicioAdmServicio!com.scl.administracion.servicio.ServicioAdmServicio
+	java:global/scl/ServicioAdmServicio
+	java:app/scl/ServicioAdmServicio
+	java:module/ServicioAdmServicio
+
+2019-08-20 14:39:38,499 INFO  [org.jboss.as.ejb3.deployment] (MSC service thread 1-2) WFLYEJB0473: JNDI bindings for session bean named 'ServicioReporte' in deployment unit 'deployment "scl.war"' are as follows:
+
+	java:global/scl/ServicioReporte!com.scl.operacion.servicio.ServicioReporte
+	java:app/scl/ServicioReporte!com.scl.operacion.servicio.ServicioReporte
+	java:module/ServicioReporte!com.scl.operacion.servicio.ServicioReporte
+	java:global/scl/ServicioReporte
+	java:app/scl/ServicioReporte
+	java:module/ServicioReporte
+
+2019-08-20 14:39:38,499 INFO  [org.jboss.as.ejb3.deployment] (MSC service thread 1-2) WFLYEJB0473: JNDI bindings for session bean named 'ServicioDetalleTripulacion' in deployment unit 'deployment "scl.war"' are as follows:
+
+	java:global/scl/ServicioDetalleTripulacion!com.scl.operacion.servicio.ServicioDetalleTripulacion
+	java:app/scl/ServicioDetalleTripulacion!com.scl.operacion.servicio.ServicioDetalleTripulacion
+	java:module/ServicioDetalleTripulacion!com.scl.operacion.servicio.ServicioDetalleTripulacion
+	java:global/scl/ServicioDetalleTripulacion
+	java:app/scl/ServicioDetalleTripulacion
+	java:module/ServicioDetalleTripulacion
+
+2019-08-20 14:39:38,501 INFO  [org.jboss.as.ejb3.deployment] (MSC service thread 1-2) WFLYEJB0473: JNDI bindings for session bean named 'ServicioAdmDetalleCatalogo' in deployment unit 'deployment "scl.war"' are as follows:
+
+	java:global/scl/ServicioAdmDetalleCatalogo!com.scl.administracion.servicio.ServicioAdmDetalleCatalogo
+	java:app/scl/ServicioAdmDetalleCatalogo!com.scl.administracion.servicio.ServicioAdmDetalleCatalogo
+	java:module/ServicioAdmDetalleCatalogo!com.scl.administracion.servicio.ServicioAdmDetalleCatalogo
+	java:global/scl/ServicioAdmDetalleCatalogo
+	java:app/scl/ServicioAdmDetalleCatalogo
+	java:module/ServicioAdmDetalleCatalogo
+
+2019-08-20 14:39:38,502 INFO  [org.jboss.as.ejb3.deployment] (MSC service thread 1-2) WFLYEJB0473: JNDI bindings for session bean named 'ServicioCaja' in deployment unit 'deployment "scl.war"' are as follows:
+
+	java:global/scl/ServicioCaja!com.scl.cpc.servicio.ServicioCaja
+	java:app/scl/ServicioCaja!com.scl.cpc.servicio.ServicioCaja
+	java:module/ServicioCaja!com.scl.cpc.servicio.ServicioCaja
+	java:global/scl/ServicioCaja
+	java:app/scl/ServicioCaja
+	java:module/ServicioCaja
+
+2019-08-20 14:39:38,502 INFO  [org.jboss.as.ejb3.deployment] (MSC service thread 1-2) WFLYEJB0473: JNDI bindings for session bean named 'ServicioPapeleta' in deployment unit 'deployment "scl.war"' are as follows:
+
+	java:global/scl/ServicioPapeleta!com.scl.cpc.servicio.ServicioPapeleta
+	java:app/scl/ServicioPapeleta!com.scl.cpc.servicio.ServicioPapeleta
+	java:module/ServicioPapeleta!com.scl.cpc.servicio.ServicioPapeleta
+	java:global/scl/ServicioPapeleta
+	java:app/scl/ServicioPapeleta
+	java:module/ServicioPapeleta
+
+2019-08-20 14:39:39,146 INFO  [org.jboss.ws.cxf.metadata] (MSC service thread 1-8) JBWS024061: Adding service endpoint metadata: id=com.g4s.curso.db.uno.serviciosweb.Calculadora
+ address=http://localhost:8180/bivi/Calculadora
+ implementor=com.g4s.curso.db.uno.serviciosweb.Calculadora
+ serviceName={http://serviciosweb.uno.db.curso.g4s.com/}CalculadoraService
+ portName={http://serviciosweb.uno.db.curso.g4s.com/}CalculadoraPort
+ annotationWsdlLocation=null
+ wsdlLocationOverride=null
+ mtomEnabled=false
+2019-08-20 14:39:40,295 WARN  [org.jboss.as.connector.deployers.jdbc] (MSC service thread 1-5) WFLYJCA0003: Unable to instantiate driver class "org.olap4j.driver.xmla.XmlaOlap4jDriver": java.lang.NoSuchMethodException: org.olap4j.driver.xmla.XmlaOlap4jDriver.<init>()
+2019-08-20 14:39:43,466 INFO  [org.jboss.as.jpa] (ServerService Thread Pool -- 96) WFLYJPA0010: Starting Persistence Unit (phase 2 of 2) Service 'scl.war#postgresDS'
+2019-08-20 14:39:45,159 INFO  [org.apache.cxf.wsdl.service.factory.ReflectionServiceFactoryBean] (MSC service thread 1-8) Creating Service {http://serviciosweb.uno.db.curso.g4s.com/}CalculadoraService from class com.g4s.curso.db.uno.serviciosweb.Calculadora
+2019-08-20 14:39:46,761 INFO  [org.apache.cxf.endpoint.ServerImpl] (MSC service thread 1-8) Setting the server's publish address to be http://localhost:8180/bivi/Calculadora
+2019-08-20 14:39:46,936 INFO  [org.jboss.ws.cxf.deployment] (MSC service thread 1-8) JBWS024074: WSDL published to: file:/C:/Desarrollo/wildfly-10.1.0.CR1/standalone/data/wsdl/bivi.war/CalculadoraService.wsdl
+2019-08-20 14:39:46,972 INFO  [org.jboss.as.webservices] (MSC service thread 1-4) WFLYWS0003: Starting service jboss.ws.endpoint."bivi.war"."com.g4s.curso.db.uno.serviciosweb.Calculadora"
+2019-08-20 14:39:47,137 INFO  [org.jboss.as.jpa] (ServerService Thread Pool -- 95) WFLYJPA0010: Starting Persistence Unit (phase 2 of 2) Service 'bivi.war#postgresDS'
+2019-08-20 14:39:49,319 INFO  [org.hibernate.dialect.Dialect] (ServerService Thread Pool -- 96) HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2019-08-20 14:39:49,319 INFO  [org.hibernate.dialect.Dialect] (ServerService Thread Pool -- 95) HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2019-08-20 14:39:51,287 INFO  [org.hibernate.engine.jdbc.env.internal.LobCreatorBuilderImpl] (ServerService Thread Pool -- 96) HHH000424: Disabling contextual LOB creation as createClob() method threw error : java.lang.reflect.InvocationTargetException
+2019-08-20 14:39:51,322 INFO  [org.hibernate.type.BasicTypeRegistry] (ServerService Thread Pool -- 96) HHH000270: Type registration [java.util.UUID] overrides previous : org.hibernate.type.UUIDBinaryType@14561a83
+2019-08-20 14:39:51,327 INFO  [org.hibernate.envers.boot.internal.EnversServiceImpl] (ServerService Thread Pool -- 96) Envers integration enabled? : true
+2019-08-20 14:39:51,582 INFO  [org.hibernate.engine.jdbc.env.internal.LobCreatorBuilderImpl] (ServerService Thread Pool -- 95) HHH000424: Disabling contextual LOB creation as createClob() method threw error : java.lang.reflect.InvocationTargetException
+2019-08-20 14:39:51,583 INFO  [org.hibernate.type.BasicTypeRegistry] (ServerService Thread Pool -- 95) HHH000270: Type registration [java.util.UUID] overrides previous : org.hibernate.type.UUIDBinaryType@14561a83
+2019-08-20 14:39:51,585 INFO  [org.hibernate.envers.boot.internal.EnversServiceImpl] (ServerService Thread Pool -- 95) Envers integration enabled? : true
+2019-08-20 14:40:00,556 INFO  [org.hibernate.hql.internal.QueryTranslatorFactoryInitiator] (ServerService Thread Pool -- 95) HHH000397: Using ASTQueryTranslatorFactory
+2019-08-20 14:40:01,239 INFO  [org.hibernate.hql.internal.QueryTranslatorFactoryInitiator] (ServerService Thread Pool -- 96) HHH000397: Using ASTQueryTranslatorFactory
+2019-08-20 14:40:13,095 INFO  [javax.enterprise.resource.webcontainer.jsf.config] (ServerService Thread Pool -- 138) Inicializando Mojarra 2.2.13.SP1 20160303-1204 para el contexto '/bivi'
+2019-08-20 14:40:22,965 INFO  [javax.enterprise.resource.webcontainer.jsf.config] (ServerService Thread Pool -- 189) Inicializando Mojarra 2.2.13.SP1 20160303-1204 para el contexto '/scl'
+2019-08-20 14:40:45,658 INFO  [org.primefaces.webapp.PostConstructApplicationEventListener] (ServerService Thread Pool -- 138) Running on PrimeFaces 6.2
+2019-08-20 14:40:45,762 INFO  [org.wildfly.extension.undertow] (ServerService Thread Pool -- 138) WFLYUT0021: Registered web context: /bivi
+2019-08-20 14:42:25,448 INFO  [org.primefaces.webapp.PostConstructApplicationEventListener] (ServerService Thread Pool -- 189) Running on PrimeFaces 6.1
+2019-08-20 14:42:25,448 INFO  [org.primefaces.extensions.application.PostConstructApplicationEventListener] (ServerService Thread Pool -- 189) Running on PrimeFaces Extensions 6.0.0
+2019-08-20 14:42:25,450 INFO  [org.wildfly.extension.undertow] (ServerService Thread Pool -- 189) WFLYUT0021: Registered web context: /scl
+2019-08-20 14:42:32,882 INFO  [org.jboss.as.server] (ServerService Thread Pool -- 58) WFLYSRV0010: Deployed "scl.war" (runtime-name : "scl.war")
+2019-08-20 14:42:32,904 INFO  [org.jboss.as.server] (ServerService Thread Pool -- 58) WFLYSRV0010: Deployed "bivi.war" (runtime-name : "bivi.war")
+2019-08-20 14:42:41,236 INFO  [org.jboss.as] (Controller Boot Thread) WFLYSRV0060: Http management interface listening on http://0.0.0.0:9990/management
+2019-08-20 14:42:41,460 INFO  [org.jboss.as] (Controller Boot Thread) WFLYSRV0051: Admin console listening on http://0.0.0.0:9990
+2019-08-20 14:42:41,461 INFO  [org.jboss.as] (Controller Boot Thread) WFLYSRV0025: WildFly Full 10.1.0.Final (WildFly Core 2.2.0.Final) started in 434466ms - Started 2632 of 2874 services (416 services are lazy, passive or on-demand)
+2019-08-20 14:43:35,550 INFO  [stdout] (default task-19) cifrado es. 3c9909afec25354d551dae21590bb26e38d53f2173b8d3dc3eee4c047e7ab1c1eb8b85103e3be7ba613b31bb5c9c36214dc9f14a42fd7a2fdb84856bca5c44c2
+2019-08-20 14:43:51,540 INFO  [stdout] (default task-19) Hibernate: 
+2019-08-20 14:43:51,540 INFO  [stdout] (default task-19)     select
+2019-08-20 14:43:51,540 INFO  [stdout] (default task-19)         admusuario0_.id_usuario as id_usuar1_12_,
+2019-08-20 14:43:51,540 INFO  [stdout] (default task-19)         admusuario0_.activo as activo2_12_,
+2019-08-20 14:43:51,540 INFO  [stdout] (default task-19)         admusuario0_.clave as clave3_12_,
+2019-08-20 14:43:51,540 INFO  [stdout] (default task-19)         admusuario0_.dias_validez as dias_val4_12_,
+2019-08-20 14:43:51,540 INFO  [stdout] (default task-19)         admusuario0_.fecha_creacion as fecha_cr5_12_,
+2019-08-20 14:43:51,540 INFO  [stdout] (default task-19)         admusuario0_.fecha_modificacion as fecha_mo6_12_,
+2019-08-20 14:43:51,540 INFO  [stdout] (default task-19)         admusuario0_.id_empleado as id_emple9_12_,
+2019-08-20 14:43:51,540 INFO  [stdout] (default task-19)         admusuario0_.sys_delete as sys_dele7_12_,
+2019-08-20 14:43:51,540 INFO  [stdout] (default task-19)         admusuario0_.usuario as usuario8_12_ 
+2019-08-20 14:43:51,540 INFO  [stdout] (default task-19)     from
+2019-08-20 14:43:51,541 INFO  [stdout] (default task-19)         bivi.adm_usuario admusuario0_ 
+2019-08-20 14:43:51,541 INFO  [stdout] (default task-19)     where
+2019-08-20 14:43:51,541 INFO  [stdout] (default task-19)         admusuario0_.usuario=? 
+2019-08-20 14:43:51,541 INFO  [stdout] (default task-19)         and admusuario0_.clave=?
+2019-08-20 14:43:55,176 INFO  [stdout] (default task-19) Hibernate: 
+2019-08-20 14:43:55,176 INFO  [stdout] (default task-19)     select
+2019-08-20 14:43:55,176 INFO  [stdout] (default task-19)         admemplead0_.id_empleado as id_emple1_5_0_,
+2019-08-20 14:43:55,176 INFO  [stdout] (default task-19)         admemplead0_.apellidos as apellido2_5_0_,
+2019-08-20 14:43:55,176 INFO  [stdout] (default task-19)         admemplead0_.direccion as direccio3_5_0_,
+2019-08-20 14:43:55,176 INFO  [stdout] (default task-19)         admemplead0_.fecha_nacimiento as fecha_na4_5_0_,
+2019-08-20 14:43:55,177 INFO  [stdout] (default task-19)         admemplead0_.identificacion as identifi5_5_0_,
+2019-08-20 14:43:55,177 INFO  [stdout] (default task-19)         admemplead0_.nombre_contacto as nombre_c6_5_0_,
+2019-08-20 14:43:55,177 INFO  [stdout] (default task-19)         admemplead0_.nombres as nombres7_5_0_,
+2019-08-20 14:43:55,177 INFO  [stdout] (default task-19)         admemplead0_.telefono_celular as telefono8_5_0_,
+2019-08-20 14:43:55,177 INFO  [stdout] (default task-19)         admemplead0_.telefono_contacto as telefono9_5_0_,
+2019-08-20 14:43:55,177 INFO  [stdout] (default task-19)         admemplead0_.telefono_fijo as telefon10_5_0_,
+2019-08-20 14:43:55,177 INFO  [stdout] (default task-19)         admemplead0_.url_imagen as url_ima11_5_0_ 
+2019-08-20 14:43:55,177 INFO  [stdout] (default task-19)     from
+2019-08-20 14:43:55,177 INFO  [stdout] (default task-19)         bivi.adm_empleado admemplead0_ 
+2019-08-20 14:43:55,177 INFO  [stdout] (default task-19)     where
+2019-08-20 14:43:55,177 INFO  [stdout] (default task-19)         admemplead0_.id_empleado=?
+2019-08-20 14:44:01,567 INFO  [stdout] (default task-20) Hibernate: 
+2019-08-20 14:44:01,568 INFO  [stdout] (default task-20)     select
+2019-08-20 14:44:01,568 INFO  [stdout] (default task-20)         distinct rm.id_menu as rm,
+2019-08-20 14:44:01,568 INFO  [stdout] (default task-20)         me.id_menu,
+2019-08-20 14:44:01,568 INFO  [stdout] (default task-20)         me.id_padre,
+2019-08-20 14:44:01,568 INFO  [stdout] (default task-20)         me.nombre,
+2019-08-20 14:44:01,568 INFO  [stdout] (default task-20)         me.url_pagina,
+2019-08-20 14:44:01,568 INFO  [stdout] (default task-20)         me.icono,
+2019-08-20 14:44:01,568 INFO  [stdout] (default task-20)         me.orden,
+2019-08-20 14:44:01,568 INFO  [stdout] (default task-20)         me.icono2 
+2019-08-20 14:44:01,568 INFO  [stdout] (default task-20)     from
+2019-08-20 14:44:01,568 INFO  [stdout] (default task-20)         bivi.adm_rol_menu as rm 
+2019-08-20 14:44:01,568 INFO  [stdout] (default task-20)     inner join
+2019-08-20 14:44:01,568 INFO  [stdout] (default task-20)         bivi.adm_menu as me 
+2019-08-20 14:44:01,568 INFO  [stdout] (default task-20)             on me.id_menu = rm.id_menu 
+2019-08-20 14:44:01,568 INFO  [stdout] (default task-20)     where
+2019-08-20 14:44:01,568 INFO  [stdout] (default task-20)         rm.id_rol = 1 
+2019-08-20 14:44:01,568 INFO  [stdout] (default task-20)     order by
+2019-08-20 14:44:01,569 INFO  [stdout] (default task-20)         me.orden asc
+2019-08-20 15:40:20,415 INFO  [stdout] (default task-33) Hibernate: 
+2019-08-20 15:40:20,965 INFO  [stdout] (default task-33)     select
+2019-08-20 15:40:20,966 INFO  [stdout] (default task-33)         distinct rm.id_menu as rm,
+2019-08-20 15:40:20,966 INFO  [stdout] (default task-33)         me.id_menu,
+2019-08-20 15:40:20,966 INFO  [stdout] (default task-33)         me.id_padre,
+2019-08-20 15:40:20,966 INFO  [stdout] (default task-33)         me.nombre,
+2019-08-20 15:40:20,966 INFO  [stdout] (default task-33)         me.url_pagina,
+2019-08-20 15:40:21,136 INFO  [stdout] (default task-33)         me.icono,
+2019-08-20 15:40:21,136 INFO  [stdout] (default task-33)         me.orden,
+2019-08-20 15:40:21,136 INFO  [stdout] (default task-33)         me.icono2 
+2019-08-20 15:40:21,136 INFO  [stdout] (default task-33)     from
+2019-08-20 15:40:21,136 INFO  [stdout] (default task-33)         bivi.adm_rol_menu as rm 
+2019-08-20 15:40:21,136 INFO  [stdout] (default task-33)     inner join
+2019-08-20 15:40:21,136 INFO  [stdout] (default task-33)         bivi.adm_menu as me 
+2019-08-20 15:40:21,136 INFO  [stdout] (default task-33)             on me.id_menu = rm.id_menu 
+2019-08-20 15:40:21,136 INFO  [stdout] (default task-33)     where
+2019-08-20 15:40:21,136 INFO  [stdout] (default task-33)         rm.id_rol = 1 
+2019-08-20 15:40:21,136 INFO  [stdout] (default task-33)     order by
+2019-08-20 15:40:21,137 INFO  [stdout] (default task-33)         me.orden asc
+2019-08-20 15:40:21,137 INFO  [stdout] (default task-31) Hibernate: 
+2019-08-20 15:40:21,138 INFO  [stdout] (default task-31)     select
+2019-08-20 15:40:21,144 INFO  [stdout] (default task-31)         distinct rm.id_menu as rm,
+2019-08-20 15:40:21,144 INFO  [stdout] (default task-31)         me.id_menu,
+2019-08-20 15:40:21,144 INFO  [stdout] (default task-31)         me.id_padre,
+2019-08-20 15:40:21,144 INFO  [stdout] (default task-31)         me.nombre,
+2019-08-20 15:40:21,144 INFO  [stdout] (default task-31)         me.url_pagina,
+2019-08-20 15:40:21,145 INFO  [stdout] (default task-31)         me.icono,
+2019-08-20 15:40:21,145 INFO  [stdout] (default task-31)         me.orden,
+2019-08-20 15:40:21,145 INFO  [stdout] (default task-31)         me.icono2 
+2019-08-20 15:40:21,145 INFO  [stdout] (default task-31)     from
+2019-08-20 15:40:21,145 INFO  [stdout] (default task-31)         bivi.adm_rol_menu as rm 
+2019-08-20 15:40:21,145 INFO  [stdout] (default task-31)     inner join
+2019-08-20 15:40:21,145 INFO  [stdout] (default task-31)         bivi.adm_menu as me 
+2019-08-20 15:40:21,145 INFO  [stdout] (default task-31)             on me.id_menu = rm.id_menu 
+2019-08-20 15:40:21,145 INFO  [stdout] (default task-31)     where
+2019-08-20 15:40:21,335 INFO  [stdout] (default task-31)         rm.id_rol = 1 
+2019-08-20 15:40:21,524 INFO  [stdout] (default task-31)     order by
+2019-08-20 15:40:21,671 INFO  [stdout] (default task-31)         me.orden asc
+2019-08-20 15:40:21,671 INFO  [stdout] (default task-32) Hibernate: 
+2019-08-20 15:40:21,672 INFO  [stdout] (default task-32)     select
+2019-08-20 15:40:21,672 INFO  [stdout] (default task-32)         distinct rm.id_menu as rm,
+2019-08-20 15:40:21,672 INFO  [stdout] (default task-32)         me.id_menu,
+2019-08-20 15:40:21,672 INFO  [stdout] (default task-32)         me.id_padre,
+2019-08-20 15:40:21,672 INFO  [stdout] (default task-32)         me.nombre,
+2019-08-20 15:40:21,672 INFO  [stdout] (default task-32)         me.url_pagina,
+2019-08-20 15:40:21,672 INFO  [stdout] (default task-32)         me.icono,
+2019-08-20 15:40:21,672 INFO  [stdout] (default task-32)         me.orden,
+2019-08-20 15:40:21,672 INFO  [stdout] (default task-32)         me.icono2 
+2019-08-20 15:40:21,672 INFO  [stdout] (default task-32)     from
+2019-08-20 15:40:21,672 INFO  [stdout] (default task-32)         bivi.adm_rol_menu as rm 
+2019-08-20 15:40:21,672 INFO  [stdout] (default task-32)     inner join
+2019-08-20 15:40:21,672 INFO  [stdout] (default task-32)         bivi.adm_menu as me 
+2019-08-20 15:40:21,672 INFO  [stdout] (default task-32)             on me.id_menu = rm.id_menu 
+2019-08-20 15:40:21,672 INFO  [stdout] (default task-32)     where
+2019-08-20 15:40:21,672 INFO  [stdout] (default task-32)         rm.id_rol = 1 
+2019-08-20 15:40:21,672 INFO  [stdout] (default task-32)     order by
+2019-08-20 15:40:21,673 INFO  [stdout] (default task-32)         me.orden asc
+2019-08-20 15:40:34,026 INFO  [stdout] (default task-32) Hibernate: 
+2019-08-20 15:40:34,027 INFO  [stdout] (default task-32)     select
+2019-08-20 15:40:34,027 INFO  [stdout] (default task-32)         e.id_empleado,
+2019-08-20 15:40:34,027 INFO  [stdout] (default task-32)         e.nombres,
+2019-08-20 15:40:34,027 INFO  [stdout] (default task-32)         e.apellidos 
+2019-08-20 15:40:34,027 INFO  [stdout] (default task-32)     from
+2019-08-20 15:40:34,027 INFO  [stdout] (default task-32)         bivi.adm_rol_usuario as ru 
+2019-08-20 15:40:34,027 INFO  [stdout] (default task-32)     inner join
+2019-08-20 15:40:34,027 INFO  [stdout] (default task-32)         bivi.adm_usuario as u 
+2019-08-20 15:40:34,027 INFO  [stdout] (default task-32)             on u.id_usuario = ru.id_usuario 
+2019-08-20 15:40:34,027 INFO  [stdout] (default task-32)     inner join
+2019-08-20 15:40:34,027 INFO  [stdout] (default task-32)         bivi.adm_empleado as e 
+2019-08-20 15:40:34,027 INFO  [stdout] (default task-32)             on e.id_empleado = u.id_empleado 
+2019-08-20 15:40:34,027 INFO  [stdout] (default task-32)     where
+2019-08-20 15:40:34,027 INFO  [stdout] (default task-32)         ru.id_rol = 2 
+2019-08-20 15:40:34,027 INFO  [stdout] (default task-31) Hibernate: 
+2019-08-20 15:40:34,028 INFO  [stdout] (default task-31)     select
+2019-08-20 15:40:34,096 INFO  [stdout] (default task-31)         e.id_empleado,
+2019-08-20 15:40:34,096 INFO  [stdout] (default task-31)         e.nombres,
+2019-08-20 15:40:34,096 INFO  [stdout] (default task-31)         e.apellidos 
+2019-08-20 15:40:34,096 INFO  [stdout] (default task-31)     from
+2019-08-20 15:40:34,096 INFO  [stdout] (default task-31)         bivi.adm_rol_usuario as ru 
+2019-08-20 15:40:34,096 INFO  [stdout] (default task-31)     inner join
+2019-08-20 15:40:34,096 INFO  [stdout] (default task-31)         bivi.adm_usuario as u 
+2019-08-20 15:40:34,096 INFO  [stdout] (default task-31)             on u.id_usuario = ru.id_usuario 
+2019-08-20 15:40:34,096 INFO  [stdout] (default task-31)     inner join
+2019-08-20 15:40:34,096 INFO  [stdout] (default task-31)         bivi.adm_empleado as e 
+2019-08-20 15:40:34,096 INFO  [stdout] (default task-31)             on e.id_empleado = u.id_empleado 
+2019-08-20 15:40:34,096 INFO  [stdout] (default task-31)     where
+2019-08-20 15:40:34,096 INFO  [stdout] (default task-31)         ru.id_rol = 2 
+2019-08-20 15:40:36,423 INFO  [stdout] (default task-32) Hibernate: 
+2019-08-20 15:40:36,423 INFO  [stdout] (default task-32)     select
+2019-08-20 15:40:36,423 INFO  [stdout] (default task-32)         fisguardia0_.id_guardia_agencia as id_guard1_22_,
+2019-08-20 15:40:36,423 INFO  [stdout] (default task-32)         fisguardia0_.activo as activo2_22_,
+2019-08-20 15:40:36,423 INFO  [stdout] (default task-32)         fisguardia0_.fecha_asignacion as fecha_as3_22_,
+2019-08-20 15:40:36,423 INFO  [stdout] (default task-32)         fisguardia0_.id_agencia as id_agenc5_22_,
+2019-08-20 15:40:36,423 INFO  [stdout] (default task-32)         fisguardia0_.id_usuario as id_usuar6_22_,
+2019-08-20 15:40:36,423 INFO  [stdout] (default task-32)         fisguardia0_.id_puesto as id_puest7_22_,
+2019-08-20 15:40:36,423 INFO  [stdout] (default task-32)         fisguardia0_.id_usuario_asignado_por as id_usuar8_22_,
+2019-08-20 15:40:36,423 INFO  [stdout] (default task-32)         fisguardia0_.sys_delete as sys_dele4_22_ 
+2019-08-20 15:40:36,424 INFO  [stdout] (default task-32)     from
+2019-08-20 15:40:36,424 INFO  [stdout] (default task-32)         bivi.fis_guardia_agencia fisguardia0_
+2019-08-20 15:40:36,424 INFO  [stdout] (default task-33) Hibernate: 
+2019-08-20 15:40:36,424 INFO  [stdout] (default task-33)     select
+2019-08-20 15:40:36,508 INFO  [stdout] (default task-33)         fisconsign0_.id_consigna_g as id_consi1_17_,
+2019-08-20 15:40:36,614 INFO  [stdout] (default task-33)         fisconsign0_.consigna as consigna2_17_,
+2019-08-20 15:40:36,614 INFO  [stdout] (default task-33)         fisconsign0_.estado as estado3_17_ 
+2019-08-20 15:40:36,614 INFO  [stdout] (default task-33)     from
+2019-08-20 15:40:36,614 INFO  [stdout] (default task-33)         bivi.fis_consignas_generales fisconsign0_
+2019-08-20 15:40:36,614 INFO  [stdout] (default task-31) Hibernate: 
+2019-08-20 15:40:36,615 INFO  [stdout] (default task-31)     select
+2019-08-20 15:40:36,615 INFO  [stdout] (default task-31)         fisguardia0_.id_guardia_agencia as id_guard1_22_,
+2019-08-20 15:40:36,615 INFO  [stdout] (default task-31)         fisguardia0_.activo as activo2_22_,
+2019-08-20 15:40:36,615 INFO  [stdout] (default task-31)         fisguardia0_.fecha_asignacion as fecha_as3_22_,
+2019-08-20 15:40:36,615 INFO  [stdout] (default task-31)         fisguardia0_.id_agencia as id_agenc5_22_,
+2019-08-20 15:40:36,615 INFO  [stdout] (default task-31)         fisguardia0_.id_usuario as id_usuar6_22_,
+2019-08-20 15:40:36,615 INFO  [stdout] (default task-31)         fisguardia0_.id_puesto as id_puest7_22_,
+2019-08-20 15:40:36,615 INFO  [stdout] (default task-31)         fisguardia0_.id_usuario_asignado_por as id_usuar8_22_,
+2019-08-20 15:40:36,615 INFO  [stdout] (default task-31)         fisguardia0_.sys_delete as sys_dele4_22_ 
+2019-08-20 15:40:36,615 INFO  [stdout] (default task-31)     from
+2019-08-20 15:40:36,615 INFO  [stdout] (default task-31)         bivi.fis_guardia_agencia fisguardia0_
+2019-08-20 15:40:37,409 INFO  [stdout] (default task-32) Hibernate: 
+2019-08-20 15:40:37,409 INFO  [stdout] (default task-32)     select
+2019-08-20 15:40:37,409 INFO  [stdout] (default task-32)         admagencia0_.id_agencia as id_agenc1_0_0_,
+2019-08-20 15:40:37,409 INFO  [stdout] (default task-32)         admagencia0_.celular_administrador as celular_2_0_0_,
+2019-08-20 15:40:37,409 INFO  [stdout] (default task-32)         admagencia0_.direccion as direccio3_0_0_,
+2019-08-20 15:40:37,409 INFO  [stdout] (default task-32)         admagencia0_.id_ciudad as id_ciuda4_0_0_,
+2019-08-20 15:40:37,409 INFO  [stdout] (default task-32)         admagencia0_.id_cliente as id_clien7_0_0_,
+2019-08-20 15:40:37,410 INFO  [stdout] (default task-32)         admagencia0_.nombre as nombre5_0_0_,
+2019-08-20 15:40:37,410 INFO  [stdout] (default task-32)         admagencia0_.nombre_administrador as nombre_a6_0_0_,
+2019-08-20 15:40:37,410 INFO  [stdout] (default task-32)         admcliente1_.id_cliente as id_clien1_2_1_,
+2019-08-20 15:40:37,410 INFO  [stdout] (default task-32)         admcliente1_.administrador as administ2_2_1_,
+2019-08-20 15:40:37,410 INFO  [stdout] (default task-32)         admcliente1_.direccion as direccio3_2_1_,
+2019-08-20 15:40:37,410 INFO  [stdout] (default task-32)         admcliente1_.id_ciudad as id_ciuda4_2_1_,
+2019-08-20 15:40:37,410 INFO  [stdout] (default task-32)         admcliente1_.id_cliente_padre as id_clien5_2_1_,
+2019-08-20 15:40:37,410 INFO  [stdout] (default task-32)         admcliente1_.identificacion as identifi6_2_1_,
+2019-08-20 15:40:37,410 INFO  [stdout] (default task-32)         admcliente1_.nombre_comercial as nombre_c7_2_1_,
+2019-08-20 15:40:37,410 INFO  [stdout] (default task-32)         admcliente1_.razon_social as razon_so8_2_1_,
+2019-08-20 15:40:37,411 INFO  [stdout] (default task-32)         admcliente1_.telefono_administrador as telefono9_2_1_ 
+2019-08-20 15:40:37,411 INFO  [stdout] (default task-32)     from
+2019-08-20 15:40:37,411 INFO  [stdout] (default task-32)         bivi.adm_agencia admagencia0_ 
+2019-08-20 15:40:37,411 INFO  [stdout] (default task-32)     left outer join
+2019-08-20 15:40:37,411 INFO  [stdout] (default task-32)         bivi.adm_cliente admcliente1_ 
+2019-08-20 15:40:37,411 INFO  [stdout] (default task-32)             on admagencia0_.id_cliente=admcliente1_.id_cliente 
+2019-08-20 15:40:37,411 INFO  [stdout] (default task-32)     where
+2019-08-20 15:40:37,411 INFO  [stdout] (default task-32)         admagencia0_.id_agencia=?
+2019-08-20 15:40:37,411 INFO  [stdout] (default task-31) Hibernate: 
+2019-08-20 15:40:37,411 INFO  [stdout] (default task-31)     select
+2019-08-20 15:40:37,411 INFO  [stdout] (default task-31)         admagencia0_.id_agencia as id_agenc1_0_0_,
+2019-08-20 15:40:37,411 INFO  [stdout] (default task-31)         admagencia0_.celular_administrador as celular_2_0_0_,
+2019-08-20 15:40:37,411 INFO  [stdout] (default task-31)         admagencia0_.direccion as direccio3_0_0_,
+2019-08-20 15:40:37,411 INFO  [stdout] (default task-31)         admagencia0_.id_ciudad as id_ciuda4_0_0_,
+2019-08-20 15:40:37,411 INFO  [stdout] (default task-31)         admagencia0_.id_cliente as id_clien7_0_0_,
+2019-08-20 15:40:37,411 INFO  [stdout] (default task-31)         admagencia0_.nombre as nombre5_0_0_,
+2019-08-20 15:40:37,411 INFO  [stdout] (default task-31)         admagencia0_.nombre_administrador as nombre_a6_0_0_,
+2019-08-20 15:40:37,412 INFO  [stdout] (default task-31)         admcliente1_.id_cliente as id_clien1_2_1_,
+2019-08-20 15:40:37,412 INFO  [stdout] (default task-31)         admcliente1_.administrador as administ2_2_1_,
+2019-08-20 15:40:37,412 INFO  [stdout] (default task-31)         admcliente1_.direccion as direccio3_2_1_,
+2019-08-20 15:40:37,412 INFO  [stdout] (default task-31)         admcliente1_.id_ciudad as id_ciuda4_2_1_,
+2019-08-20 15:40:37,412 INFO  [stdout] (default task-31)         admcliente1_.id_cliente_padre as id_clien5_2_1_,
+2019-08-20 15:40:37,412 INFO  [stdout] (default task-31)         admcliente1_.identificacion as identifi6_2_1_,
+2019-08-20 15:40:37,412 INFO  [stdout] (default task-31)         admcliente1_.nombre_comercial as nombre_c7_2_1_,
+2019-08-20 15:40:37,412 INFO  [stdout] (default task-31)         admcliente1_.razon_social as razon_so8_2_1_,
+2019-08-20 15:40:37,412 INFO  [stdout] (default task-31)         admcliente1_.telefono_administrador as telefono9_2_1_ 
+2019-08-20 15:40:37,412 INFO  [stdout] (default task-31)     from
+2019-08-20 15:40:37,412 INFO  [stdout] (default task-31)         bivi.adm_agencia admagencia0_ 
+2019-08-20 15:40:37,412 INFO  [stdout] (default task-31)     left outer join
+2019-08-20 15:40:37,412 INFO  [stdout] (default task-31)         bivi.adm_cliente admcliente1_ 
+2019-08-20 15:40:37,412 INFO  [stdout] (default task-31)             on admagencia0_.id_cliente=admcliente1_.id_cliente 
+2019-08-20 15:40:37,412 INFO  [stdout] (default task-31)     where
+2019-08-20 15:40:37,413 INFO  [stdout] (default task-31)         admagencia0_.id_agencia=?
+2019-08-20 15:40:37,678 INFO  [stdout] (default task-33) Hibernate: 
+2019-08-20 15:40:37,678 INFO  [stdout] (default task-33)     select
+2019-08-20 15:40:37,678 INFO  [stdout] (default task-33)         fisconsign0_.id_consigna_especifica_puesto as id_consi1_16_,
+2019-08-20 15:40:37,678 INFO  [stdout] (default task-33)         fisconsign0_.consigna as consigna2_16_,
+2019-08-20 15:40:37,678 INFO  [stdout] (default task-33)         fisconsign0_.id_puesto as id_puest4_16_,
+2019-08-20 15:40:37,678 INFO  [stdout] (default task-33)         fisconsign0_.url_imagen as url_imag3_16_ 
+2019-08-20 15:40:37,678 INFO  [stdout] (default task-33)     from
+2019-08-20 15:40:37,678 INFO  [stdout] (default task-33)         bivi.fis_consignas_especificas_puestos fisconsign0_
+2019-08-20 15:40:37,867 INFO  [stdout] (default task-33) Hibernate: 
+2019-08-20 15:40:37,867 INFO  [stdout] (default task-33)     select
+2019-08-20 15:40:37,867 INFO  [stdout] (default task-33)         admpuesto0_.id_puesto as id_puest1_7_0_,
+2019-08-20 15:40:37,867 INFO  [stdout] (default task-33)         admpuesto0_.codigo_barras as codigo_b2_7_0_,
+2019-08-20 15:40:37,867 INFO  [stdout] (default task-33)         admpuesto0_.id_agencia as id_agenc6_7_0_,
+2019-08-20 15:40:37,867 INFO  [stdout] (default task-33)         admpuesto0_.id_tipo_puesto_catalogo as id_tipo_3_7_0_,
+2019-08-20 15:40:37,867 INFO  [stdout] (default task-33)         admpuesto0_.nombre_puesto as nombre_p4_7_0_,
+2019-08-20 15:40:37,867 INFO  [stdout] (default task-33)         admpuesto0_.ubicacion as ubicacio5_7_0_,
+2019-08-20 15:40:37,867 INFO  [stdout] (default task-33)         admagencia1_.id_agencia as id_agenc1_0_1_,
+2019-08-20 15:40:37,867 INFO  [stdout] (default task-33)         admagencia1_.celular_administrador as celular_2_0_1_,
+2019-08-20 15:40:37,868 INFO  [stdout] (default task-33)         admagencia1_.direccion as direccio3_0_1_,
+2019-08-20 15:40:37,868 INFO  [stdout] (default task-33)         admagencia1_.id_ciudad as id_ciuda4_0_1_,
+2019-08-20 15:40:37,868 INFO  [stdout] (default task-33)         admagencia1_.id_cliente as id_clien7_0_1_,
+2019-08-20 15:40:37,868 INFO  [stdout] (default task-33)         admagencia1_.nombre as nombre5_0_1_,
+2019-08-20 15:40:37,868 INFO  [stdout] (default task-33)         admagencia1_.nombre_administrador as nombre_a6_0_1_,
+2019-08-20 15:40:37,868 INFO  [stdout] (default task-33)         admcliente2_.id_cliente as id_clien1_2_2_,
+2019-08-20 15:40:37,868 INFO  [stdout] (default task-33)         admcliente2_.administrador as administ2_2_2_,
+2019-08-20 15:40:37,868 INFO  [stdout] (default task-33)         admcliente2_.direccion as direccio3_2_2_,
+2019-08-20 15:40:37,868 INFO  [stdout] (default task-33)         admcliente2_.id_ciudad as id_ciuda4_2_2_,
+2019-08-20 15:40:37,868 INFO  [stdout] (default task-33)         admcliente2_.id_cliente_padre as id_clien5_2_2_,
+2019-08-20 15:40:37,868 INFO  [stdout] (default task-33)         admcliente2_.identificacion as identifi6_2_2_,
+2019-08-20 15:40:37,868 INFO  [stdout] (default task-33)         admcliente2_.nombre_comercial as nombre_c7_2_2_,
+2019-08-20 15:40:37,868 INFO  [stdout] (default task-33)         admcliente2_.razon_social as razon_so8_2_2_,
+2019-08-20 15:40:37,868 INFO  [stdout] (default task-33)         admcliente2_.telefono_administrador as telefono9_2_2_ 
+2019-08-20 15:40:37,868 INFO  [stdout] (default task-33)     from
+2019-08-20 15:40:37,868 INFO  [stdout] (default task-33)         bivi.adm_puestos admpuesto0_ 
+2019-08-20 15:40:37,869 INFO  [stdout] (default task-33)     left outer join
+2019-08-20 15:40:37,869 INFO  [stdout] (default task-33)         bivi.adm_agencia admagencia1_ 
+2019-08-20 15:40:37,869 INFO  [stdout] (default task-33)             on admpuesto0_.id_agencia=admagencia1_.id_agencia 
+2019-08-20 15:40:37,869 INFO  [stdout] (default task-33)     left outer join
+2019-08-20 15:40:37,869 INFO  [stdout] (default task-33)         bivi.adm_cliente admcliente2_ 
+2019-08-20 15:40:37,869 INFO  [stdout] (default task-33)             on admagencia1_.id_cliente=admcliente2_.id_cliente 
+2019-08-20 15:40:37,869 INFO  [stdout] (default task-33)     where
+2019-08-20 15:40:37,869 INFO  [stdout] (default task-33)         admpuesto0_.id_puesto=?
+2019-08-20 15:40:38,004 INFO  [stdout] (default task-33) Hibernate: 
+2019-08-20 15:40:38,004 INFO  [stdout] (default task-33)     select
+2019-08-20 15:40:38,004 INFO  [stdout] (default task-33)         admpuesto0_.id_puesto as id_puest1_7_0_,
+2019-08-20 15:40:38,004 INFO  [stdout] (default task-33)         admpuesto0_.codigo_barras as codigo_b2_7_0_,
+2019-08-20 15:40:38,004 INFO  [stdout] (default task-33)         admpuesto0_.id_agencia as id_agenc6_7_0_,
+2019-08-20 15:40:38,004 INFO  [stdout] (default task-33)         admpuesto0_.id_tipo_puesto_catalogo as id_tipo_3_7_0_,
+2019-08-20 15:40:38,004 INFO  [stdout] (default task-33)         admpuesto0_.nombre_puesto as nombre_p4_7_0_,
+2019-08-20 15:40:38,004 INFO  [stdout] (default task-33)         admpuesto0_.ubicacion as ubicacio5_7_0_,
+2019-08-20 15:40:38,004 INFO  [stdout] (default task-33)         admagencia1_.id_agencia as id_agenc1_0_1_,
+2019-08-20 15:40:38,004 INFO  [stdout] (default task-33)         admagencia1_.celular_administrador as celular_2_0_1_,
+2019-08-20 15:40:38,004 INFO  [stdout] (default task-33)         admagencia1_.direccion as direccio3_0_1_,
+2019-08-20 15:40:38,004 INFO  [stdout] (default task-33)         admagencia1_.id_ciudad as id_ciuda4_0_1_,
+2019-08-20 15:40:38,004 INFO  [stdout] (default task-33)         admagencia1_.id_cliente as id_clien7_0_1_,
+2019-08-20 15:40:38,005 INFO  [stdout] (default task-33)         admagencia1_.nombre as nombre5_0_1_,
+2019-08-20 15:40:38,005 INFO  [stdout] (default task-33)         admagencia1_.nombre_administrador as nombre_a6_0_1_,
+2019-08-20 15:40:38,005 INFO  [stdout] (default task-33)         admcliente2_.id_cliente as id_clien1_2_2_,
+2019-08-20 15:40:38,005 INFO  [stdout] (default task-33)         admcliente2_.administrador as administ2_2_2_,
+2019-08-20 15:40:38,005 INFO  [stdout] (default task-33)         admcliente2_.direccion as direccio3_2_2_,
+2019-08-20 15:40:38,005 INFO  [stdout] (default task-33)         admcliente2_.id_ciudad as id_ciuda4_2_2_,
+2019-08-20 15:40:38,005 INFO  [stdout] (default task-33)         admcliente2_.id_cliente_padre as id_clien5_2_2_,
+2019-08-20 15:40:38,005 INFO  [stdout] (default task-33)         admcliente2_.identificacion as identifi6_2_2_,
+2019-08-20 15:40:38,005 INFO  [stdout] (default task-33)         admcliente2_.nombre_comercial as nombre_c7_2_2_,
+2019-08-20 15:40:38,005 INFO  [stdout] (default task-33)         admcliente2_.razon_social as razon_so8_2_2_,
+2019-08-20 15:40:38,005 INFO  [stdout] (default task-33)         admcliente2_.telefono_administrador as telefono9_2_2_ 
+2019-08-20 15:40:38,005 INFO  [stdout] (default task-33)     from
+2019-08-20 15:40:38,005 INFO  [stdout] (default task-33)         bivi.adm_puestos admpuesto0_ 
+2019-08-20 15:40:38,005 INFO  [stdout] (default task-33)     left outer join
+2019-08-20 15:40:38,005 INFO  [stdout] (default task-33)         bivi.adm_agencia admagencia1_ 
+2019-08-20 15:40:38,006 INFO  [stdout] (default task-33)             on admpuesto0_.id_agencia=admagencia1_.id_agencia 
+2019-08-20 15:40:38,006 INFO  [stdout] (default task-33)     left outer join
+2019-08-20 15:40:38,006 INFO  [stdout] (default task-33)         bivi.adm_cliente admcliente2_ 
+2019-08-20 15:40:38,006 INFO  [stdout] (default task-33)             on admagencia1_.id_cliente=admcliente2_.id_cliente 
+2019-08-20 15:40:38,006 INFO  [stdout] (default task-33)     where
+2019-08-20 15:40:38,006 INFO  [stdout] (default task-33)         admpuesto0_.id_puesto=?
+2019-08-20 15:40:38,015 INFO  [stdout] (default task-32) Hibernate: 
+2019-08-20 15:40:38,016 INFO  [stdout] (default task-32)     select
+2019-08-20 15:40:38,016 INFO  [stdout] (default task-32)         admemplead0_.id_empleado as id_emple1_5_0_,
+2019-08-20 15:40:38,016 INFO  [stdout] (default task-32)         admemplead0_.apellidos as apellido2_5_0_,
+2019-08-20 15:40:38,016 INFO  [stdout] (default task-32)         admemplead0_.direccion as direccio3_5_0_,
+2019-08-20 15:40:38,016 INFO  [stdout] (default task-32)         admemplead0_.fecha_nacimiento as fecha_na4_5_0_,
+2019-08-20 15:40:38,016 INFO  [stdout] (default task-32)         admemplead0_.identificacion as identifi5_5_0_,
+2019-08-20 15:40:38,016 INFO  [stdout] (default task-32)         admemplead0_.nombre_contacto as nombre_c6_5_0_,
+2019-08-20 15:40:38,016 INFO  [stdout] (default task-32)         admemplead0_.nombres as nombres7_5_0_,
+2019-08-20 15:40:38,016 INFO  [stdout] (default task-32)         admemplead0_.telefono_celular as telefono8_5_0_,
+2019-08-20 15:40:38,016 INFO  [stdout] (default task-32)         admemplead0_.telefono_contacto as telefono9_5_0_,
+2019-08-20 15:40:38,016 INFO  [stdout] (default task-32)         admemplead0_.telefono_fijo as telefon10_5_0_,
+2019-08-20 15:40:38,016 INFO  [stdout] (default task-32)         admemplead0_.url_imagen as url_ima11_5_0_ 
+2019-08-20 15:40:38,016 INFO  [stdout] (default task-32)     from
+2019-08-20 15:40:38,016 INFO  [stdout] (default task-32)         bivi.adm_empleado admemplead0_ 
+2019-08-20 15:40:38,016 INFO  [stdout] (default task-32)     where
+2019-08-20 15:40:38,016 INFO  [stdout] (default task-32)         admemplead0_.id_empleado=?
+2019-08-20 15:40:38,156 INFO  [stdout] (default task-32) Hibernate: 
+2019-08-20 15:40:38,156 INFO  [stdout] (default task-32)     select
+2019-08-20 15:40:38,156 INFO  [stdout] (default task-32)         admusuario0_.id_usuario as id_usuar1_12_0_,
+2019-08-20 15:40:38,156 INFO  [stdout] (default task-32)         admusuario0_.activo as activo2_12_0_,
+2019-08-20 15:40:38,156 INFO  [stdout] (default task-32)         admusuario0_.clave as clave3_12_0_,
+2019-08-20 15:40:38,156 INFO  [stdout] (default task-32)         admusuario0_.dias_validez as dias_val4_12_0_,
+2019-08-20 15:40:38,157 INFO  [stdout] (default task-32)         admusuario0_.fecha_creacion as fecha_cr5_12_0_,
+2019-08-20 15:40:38,157 INFO  [stdout] (default task-32)         admusuario0_.fecha_modificacion as fecha_mo6_12_0_,
+2019-08-20 15:40:38,157 INFO  [stdout] (default task-32)         admusuario0_.id_empleado as id_emple9_12_0_,
+2019-08-20 15:40:38,157 INFO  [stdout] (default task-32)         admusuario0_.sys_delete as sys_dele7_12_0_,
+2019-08-20 15:40:38,157 INFO  [stdout] (default task-32)         admusuario0_.usuario as usuario8_12_0_,
+2019-08-20 15:40:38,157 INFO  [stdout] (default task-32)         admemplead1_.id_empleado as id_emple1_5_1_,
+2019-08-20 15:40:38,157 INFO  [stdout] (default task-32)         admemplead1_.apellidos as apellido2_5_1_,
+2019-08-20 15:40:38,157 INFO  [stdout] (default task-32)         admemplead1_.direccion as direccio3_5_1_,
+2019-08-20 15:40:38,157 INFO  [stdout] (default task-32)         admemplead1_.fecha_nacimiento as fecha_na4_5_1_,
+2019-08-20 15:40:38,157 INFO  [stdout] (default task-32)         admemplead1_.identificacion as identifi5_5_1_,
+2019-08-20 15:40:38,157 INFO  [stdout] (default task-32)         admemplead1_.nombre_contacto as nombre_c6_5_1_,
+2019-08-20 15:40:38,157 INFO  [stdout] (default task-32)         admemplead1_.nombres as nombres7_5_1_,
+2019-08-20 15:40:38,157 INFO  [stdout] (default task-32)         admemplead1_.telefono_celular as telefono8_5_1_,
+2019-08-20 15:40:38,157 INFO  [stdout] (default task-32)         admemplead1_.telefono_contacto as telefono9_5_1_,
+2019-08-20 15:40:38,157 INFO  [stdout] (default task-32)         admemplead1_.telefono_fijo as telefon10_5_1_,
+2019-08-20 15:40:38,157 INFO  [stdout] (default task-32)         admemplead1_.url_imagen as url_ima11_5_1_ 
+2019-08-20 15:40:38,157 INFO  [stdout] (default task-32)     from
+2019-08-20 15:40:38,157 INFO  [stdout] (default task-32)         bivi.adm_usuario admusuario0_ 
+2019-08-20 15:40:38,157 INFO  [stdout] (default task-32)     left outer join
+2019-08-20 15:40:38,157 INFO  [stdout] (default task-32)         bivi.adm_empleado admemplead1_ 
+2019-08-20 15:40:38,157 INFO  [stdout] (default task-32)             on admusuario0_.id_empleado=admemplead1_.id_empleado 
+2019-08-20 15:40:38,157 INFO  [stdout] (default task-32)     where
+2019-08-20 15:40:38,157 INFO  [stdout] (default task-32)         admusuario0_.id_usuario=?
+2019-08-20 15:40:38,157 INFO  [stdout] (default task-33) Hibernate: 
+2019-08-20 15:40:38,158 INFO  [stdout] (default task-33)     select
+2019-08-20 15:40:38,158 INFO  [stdout] (default task-33)         admpuesto0_.id_puesto as id_puest1_7_0_,
+2019-08-20 15:40:38,158 INFO  [stdout] (default task-33)         admpuesto0_.codigo_barras as codigo_b2_7_0_,
+2019-08-20 15:40:38,158 INFO  [stdout] (default task-33)         admpuesto0_.id_agencia as id_agenc6_7_0_,
+2019-08-20 15:40:38,158 INFO  [stdout] (default task-33)         admpuesto0_.id_tipo_puesto_catalogo as id_tipo_3_7_0_,
+2019-08-20 15:40:38,158 INFO  [stdout] (default task-33)         admpuesto0_.nombre_puesto as nombre_p4_7_0_,
+2019-08-20 15:40:38,159 INFO  [stdout] (default task-33)         admpuesto0_.ubicacion as ubicacio5_7_0_,
+2019-08-20 15:40:38,159 INFO  [stdout] (default task-33)         admagencia1_.id_agencia as id_agenc1_0_1_,
+2019-08-20 15:40:38,159 INFO  [stdout] (default task-33)         admagencia1_.celular_administrador as celular_2_0_1_,
+2019-08-20 15:40:38,159 INFO  [stdout] (default task-33)         admagencia1_.direccion as direccio3_0_1_,
+2019-08-20 15:40:38,159 INFO  [stdout] (default task-33)         admagencia1_.id_ciudad as id_ciuda4_0_1_,
+2019-08-20 15:40:38,159 INFO  [stdout] (default task-33)         admagencia1_.id_cliente as id_clien7_0_1_,
+2019-08-20 15:40:38,159 INFO  [stdout] (default task-33)         admagencia1_.nombre as nombre5_0_1_,
+2019-08-20 15:40:38,159 INFO  [stdout] (default task-33)         admagencia1_.nombre_administrador as nombre_a6_0_1_,
+2019-08-20 15:40:38,159 INFO  [stdout] (default task-33)         admcliente2_.id_cliente as id_clien1_2_2_,
+2019-08-20 15:40:38,159 INFO  [stdout] (default task-33)         admcliente2_.administrador as administ2_2_2_,
+2019-08-20 15:40:38,159 INFO  [stdout] (default task-33)         admcliente2_.direccion as direccio3_2_2_,
+2019-08-20 15:40:38,159 INFO  [stdout] (default task-33)         admcliente2_.id_ciudad as id_ciuda4_2_2_,
+2019-08-20 15:40:38,159 INFO  [stdout] (default task-33)         admcliente2_.id_cliente_padre as id_clien5_2_2_,
+2019-08-20 15:40:38,159 INFO  [stdout] (default task-33)         admcliente2_.identificacion as identifi6_2_2_,
+2019-08-20 15:40:38,159 INFO  [stdout] (default task-33)         admcliente2_.nombre_comercial as nombre_c7_2_2_,
+2019-08-20 15:40:38,159 INFO  [stdout] (default task-33)         admcliente2_.razon_social as razon_so8_2_2_,
+2019-08-20 15:40:38,159 INFO  [stdout] (default task-33)         admcliente2_.telefono_administrador as telefono9_2_2_ 
+2019-08-20 15:40:38,159 INFO  [stdout] (default task-33)     from
+2019-08-20 15:40:38,159 INFO  [stdout] (default task-33)         bivi.adm_puestos admpuesto0_ 
+2019-08-20 15:40:38,160 INFO  [stdout] (default task-33)     left outer join
+2019-08-20 15:40:38,160 INFO  [stdout] (default task-33)         bivi.adm_agencia admagencia1_ 
+2019-08-20 15:40:38,160 INFO  [stdout] (default task-33)             on admpuesto0_.id_agencia=admagencia1_.id_agencia 
+2019-08-20 15:40:38,161 INFO  [stdout] (default task-33)     left outer join
+2019-08-20 15:40:38,161 INFO  [stdout] (default task-33)         bivi.adm_cliente admcliente2_ 
+2019-08-20 15:40:38,161 INFO  [stdout] (default task-33)             on admagencia1_.id_cliente=admcliente2_.id_cliente 
+2019-08-20 15:40:38,161 INFO  [stdout] (default task-33)     where
+2019-08-20 15:40:38,161 INFO  [stdout] (default task-33)         admpuesto0_.id_puesto=?
+2019-08-20 15:40:38,161 INFO  [stdout] (default task-31) Hibernate: 
+2019-08-20 15:40:38,161 INFO  [stdout] (default task-31)     select
+2019-08-20 15:40:38,161 INFO  [stdout] (default task-31)         admemplead0_.id_empleado as id_emple1_5_0_,
+2019-08-20 15:40:38,162 INFO  [stdout] (default task-31)         admemplead0_.apellidos as apellido2_5_0_,
+2019-08-20 15:40:38,163 INFO  [stdout] (default task-31)         admemplead0_.direccion as direccio3_5_0_,
+2019-08-20 15:40:38,163 INFO  [stdout] (default task-31)         admemplead0_.fecha_nacimiento as fecha_na4_5_0_,
+2019-08-20 15:40:38,163 INFO  [stdout] (default task-31)         admemplead0_.identificacion as identifi5_5_0_,
+2019-08-20 15:40:38,163 INFO  [stdout] (default task-31)         admemplead0_.nombre_contacto as nombre_c6_5_0_,
+2019-08-20 15:40:38,164 INFO  [stdout] (default task-31)         admemplead0_.nombres as nombres7_5_0_,
+2019-08-20 15:40:38,164 INFO  [stdout] (default task-31)         admemplead0_.telefono_celular as telefono8_5_0_,
+2019-08-20 15:40:38,164 INFO  [stdout] (default task-31)         admemplead0_.telefono_contacto as telefono9_5_0_,
+2019-08-20 15:40:38,165 INFO  [stdout] (default task-31)         admemplead0_.telefono_fijo as telefon10_5_0_,
+2019-08-20 15:40:38,165 INFO  [stdout] (default task-31)         admemplead0_.url_imagen as url_ima11_5_0_ 
+2019-08-20 15:40:38,165 INFO  [stdout] (default task-31)     from
+2019-08-20 15:40:38,165 INFO  [stdout] (default task-31)         bivi.adm_empleado admemplead0_ 
+2019-08-20 15:40:38,165 INFO  [stdout] (default task-31)     where
+2019-08-20 15:40:38,166 INFO  [stdout] (default task-31)         admemplead0_.id_empleado=?
+2019-08-20 15:40:38,170 INFO  [stdout] (default task-31) Hibernate: 
+2019-08-20 15:40:38,170 INFO  [stdout] (default task-31)     select
+2019-08-20 15:40:38,170 INFO  [stdout] (default task-31)         admusuario0_.id_usuario as id_usuar1_12_0_,
+2019-08-20 15:40:38,170 INFO  [stdout] (default task-31)         admusuario0_.activo as activo2_12_0_,
+2019-08-20 15:40:38,170 INFO  [stdout] (default task-31)         admusuario0_.clave as clave3_12_0_,
+2019-08-20 15:40:38,170 INFO  [stdout] (default task-31)         admusuario0_.dias_validez as dias_val4_12_0_,
+2019-08-20 15:40:38,170 INFO  [stdout] (default task-31)         admusuario0_.fecha_creacion as fecha_cr5_12_0_,
+2019-08-20 15:40:38,171 INFO  [stdout] (default task-31)         admusuario0_.fecha_modificacion as fecha_mo6_12_0_,
+2019-08-20 15:40:38,171 INFO  [stdout] (default task-31)         admusuario0_.id_empleado as id_emple9_12_0_,
+2019-08-20 15:40:38,171 INFO  [stdout] (default task-31)         admusuario0_.sys_delete as sys_dele7_12_0_,
+2019-08-20 15:40:38,171 INFO  [stdout] (default task-31)         admusuario0_.usuario as usuario8_12_0_,
+2019-08-20 15:40:38,171 INFO  [stdout] (default task-31)         admemplead1_.id_empleado as id_emple1_5_1_,
+2019-08-20 15:40:38,171 INFO  [stdout] (default task-31)         admemplead1_.apellidos as apellido2_5_1_,
+2019-08-20 15:40:38,171 INFO  [stdout] (default task-31)         admemplead1_.direccion as direccio3_5_1_,
+2019-08-20 15:40:38,171 INFO  [stdout] (default task-31)         admemplead1_.fecha_nacimiento as fecha_na4_5_1_,
+2019-08-20 15:40:38,171 INFO  [stdout] (default task-31)         admemplead1_.identificacion as identifi5_5_1_,
+2019-08-20 15:40:38,171 INFO  [stdout] (default task-31)         admemplead1_.nombre_contacto as nombre_c6_5_1_,
+2019-08-20 15:40:38,171 INFO  [stdout] (default task-31)         admemplead1_.nombres as nombres7_5_1_,
+2019-08-20 15:40:38,171 INFO  [stdout] (default task-31)         admemplead1_.telefono_celular as telefono8_5_1_,
+2019-08-20 15:40:38,171 INFO  [stdout] (default task-31)         admemplead1_.telefono_contacto as telefono9_5_1_,
+2019-08-20 15:40:38,171 INFO  [stdout] (default task-31)         admemplead1_.telefono_fijo as telefon10_5_1_,
+2019-08-20 15:40:38,171 INFO  [stdout] (default task-31)         admemplead1_.url_imagen as url_ima11_5_1_ 
+2019-08-20 15:40:38,171 INFO  [stdout] (default task-31)     from
+2019-08-20 15:40:38,171 INFO  [stdout] (default task-31)         bivi.adm_usuario admusuario0_ 
+2019-08-20 15:40:38,171 INFO  [stdout] (default task-31)     left outer join
+2019-08-20 15:40:38,172 INFO  [stdout] (default task-31)         bivi.adm_empleado admemplead1_ 
+2019-08-20 15:40:38,172 INFO  [stdout] (default task-31)             on admusuario0_.id_empleado=admemplead1_.id_empleado 
+2019-08-20 15:40:38,172 INFO  [stdout] (default task-31)     where
+2019-08-20 15:40:38,172 INFO  [stdout] (default task-31)         admusuario0_.id_usuario=?
+2019-08-20 15:40:38,572 INFO  [stdout] (default task-31) Hibernate: 
+2019-08-20 15:40:38,572 INFO  [stdout] (default task-31)     select
+2019-08-20 15:40:38,572 INFO  [stdout] (default task-31)         admemplead0_.id_empleado as id_emple1_5_0_,
+2019-08-20 15:40:38,572 INFO  [stdout] (default task-31)         admemplead0_.apellidos as apellido2_5_0_,
+2019-08-20 15:40:38,572 INFO  [stdout] (default task-31)         admemplead0_.direccion as direccio3_5_0_,
+2019-08-20 15:40:38,572 INFO  [stdout] (default task-31)         admemplead0_.fecha_nacimiento as fecha_na4_5_0_,
+2019-08-20 15:40:38,572 INFO  [stdout] (default task-31)         admemplead0_.identificacion as identifi5_5_0_,
+2019-08-20 15:40:38,572 INFO  [stdout] (default task-31)         admemplead0_.nombre_contacto as nombre_c6_5_0_,
+2019-08-20 15:40:38,572 INFO  [stdout] (default task-31)         admemplead0_.nombres as nombres7_5_0_,
+2019-08-20 15:40:38,572 INFO  [stdout] (default task-31)         admemplead0_.telefono_celular as telefono8_5_0_,
+2019-08-20 15:40:38,572 INFO  [stdout] (default task-31)         admemplead0_.telefono_contacto as telefono9_5_0_,
+2019-08-20 15:40:38,572 INFO  [stdout] (default task-31)         admemplead0_.telefono_fijo as telefon10_5_0_,
+2019-08-20 15:40:38,572 INFO  [stdout] (default task-31)         admemplead0_.url_imagen as url_ima11_5_0_ 
+2019-08-20 15:40:38,572 INFO  [stdout] (default task-31)     from
+2019-08-20 15:40:38,572 INFO  [stdout] (default task-31)         bivi.adm_empleado admemplead0_ 
+2019-08-20 15:40:38,572 INFO  [stdout] (default task-31)     where
+2019-08-20 15:40:38,572 INFO  [stdout] (default task-31)         admemplead0_.id_empleado=?
+2019-08-20 15:40:38,572 INFO  [stdout] (default task-32) Hibernate: 
+2019-08-20 15:40:38,572 INFO  [stdout] (default task-32)     select
+2019-08-20 15:40:38,572 INFO  [stdout] (default task-32)         admemplead0_.id_empleado as id_emple1_5_0_,
+2019-08-20 15:40:38,572 INFO  [stdout] (default task-32)         admemplead0_.apellidos as apellido2_5_0_,
+2019-08-20 15:40:38,573 INFO  [stdout] (default task-32)         admemplead0_.direccion as direccio3_5_0_,
+2019-08-20 15:40:38,573 INFO  [stdout] (default task-32)         admemplead0_.fecha_nacimiento as fecha_na4_5_0_,
+2019-08-20 15:40:38,573 INFO  [stdout] (default task-32)         admemplead0_.identificacion as identifi5_5_0_,
+2019-08-20 15:40:38,573 INFO  [stdout] (default task-32)         admemplead0_.nombre_contacto as nombre_c6_5_0_,
+2019-08-20 15:40:38,573 INFO  [stdout] (default task-32)         admemplead0_.nombres as nombres7_5_0_,
+2019-08-20 15:40:38,573 INFO  [stdout] (default task-32)         admemplead0_.telefono_celular as telefono8_5_0_,
+2019-08-20 15:40:38,573 INFO  [stdout] (default task-32)         admemplead0_.telefono_contacto as telefono9_5_0_,
+2019-08-20 15:40:38,573 INFO  [stdout] (default task-32)         admemplead0_.telefono_fijo as telefon10_5_0_,
+2019-08-20 15:40:38,573 INFO  [stdout] (default task-32)         admemplead0_.url_imagen as url_ima11_5_0_ 
+2019-08-20 15:40:38,573 INFO  [stdout] (default task-32)     from
+2019-08-20 15:40:38,573 INFO  [stdout] (default task-32)         bivi.adm_empleado admemplead0_ 
+2019-08-20 15:40:38,573 INFO  [stdout] (default task-32)     where
+2019-08-20 15:40:38,573 INFO  [stdout] (default task-32)         admemplead0_.id_empleado=?
+2019-08-20 15:40:38,576 INFO  [stdout] (default task-31) Hibernate: 
+2019-08-20 15:40:38,576 INFO  [stdout] (default task-31)     select
+2019-08-20 15:40:38,577 INFO  [stdout] (default task-31)         admemplead0_.id_empleado as id_emple1_5_0_,
+2019-08-20 15:40:38,577 INFO  [stdout] (default task-31)         admemplead0_.apellidos as apellido2_5_0_,
+2019-08-20 15:40:38,577 INFO  [stdout] (default task-31)         admemplead0_.direccion as direccio3_5_0_,
+2019-08-20 15:40:38,577 INFO  [stdout] (default task-31)         admemplead0_.fecha_nacimiento as fecha_na4_5_0_,
+2019-08-20 15:40:38,577 INFO  [stdout] (default task-31)         admemplead0_.identificacion as identifi5_5_0_,
+2019-08-20 15:40:38,577 INFO  [stdout] (default task-31)         admemplead0_.nombre_contacto as nombre_c6_5_0_,
+2019-08-20 15:40:38,577 INFO  [stdout] (default task-31)         admemplead0_.nombres as nombres7_5_0_,
+2019-08-20 15:40:38,577 INFO  [stdout] (default task-31)         admemplead0_.telefono_celular as telefono8_5_0_,
+2019-08-20 15:40:38,577 INFO  [stdout] (default task-31)         admemplead0_.telefono_contacto as telefono9_5_0_,
+2019-08-20 15:40:38,577 INFO  [stdout] (default task-31)         admemplead0_.telefono_fijo as telefon10_5_0_,
+2019-08-20 15:40:38,577 INFO  [stdout] (default task-31)         admemplead0_.url_imagen as url_ima11_5_0_ 
+2019-08-20 15:40:38,577 INFO  [stdout] (default task-31)     from
+2019-08-20 15:40:38,577 INFO  [stdout] (default task-31)         bivi.adm_empleado admemplead0_ 
+2019-08-20 15:40:38,577 INFO  [stdout] (default task-31)     where
+2019-08-20 15:40:38,577 INFO  [stdout] (default task-31)         admemplead0_.id_empleado=?
+2019-08-20 15:40:38,577 INFO  [stdout] (default task-32) Hibernate: 
+2019-08-20 15:40:38,578 INFO  [stdout] (default task-32)     select
+2019-08-20 15:40:38,578 INFO  [stdout] (default task-32)         admemplead0_.id_empleado as id_emple1_5_0_,
+2019-08-20 15:40:38,578 INFO  [stdout] (default task-32)         admemplead0_.apellidos as apellido2_5_0_,
+2019-08-20 15:40:38,578 INFO  [stdout] (default task-32)         admemplead0_.direccion as direccio3_5_0_,
+2019-08-20 15:40:38,578 INFO  [stdout] (default task-32)         admemplead0_.fecha_nacimiento as fecha_na4_5_0_,
+2019-08-20 15:40:38,578 INFO  [stdout] (default task-32)         admemplead0_.identificacion as identifi5_5_0_,
+2019-08-20 15:40:38,578 INFO  [stdout] (default task-32)         admemplead0_.nombre_contacto as nombre_c6_5_0_,
+2019-08-20 15:40:38,578 INFO  [stdout] (default task-32)         admemplead0_.nombres as nombres7_5_0_,
+2019-08-20 15:40:38,578 INFO  [stdout] (default task-32)         admemplead0_.telefono_celular as telefono8_5_0_,
+2019-08-20 15:40:38,578 INFO  [stdout] (default task-32)         admemplead0_.telefono_contacto as telefono9_5_0_,
+2019-08-20 15:40:38,578 INFO  [stdout] (default task-32)         admemplead0_.telefono_fijo as telefon10_5_0_,
+2019-08-20 15:40:38,578 INFO  [stdout] (default task-32)         admemplead0_.url_imagen as url_ima11_5_0_ 
+2019-08-20 15:40:38,578 INFO  [stdout] (default task-32)     from
+2019-08-20 15:40:38,578 INFO  [stdout] (default task-32)         bivi.adm_empleado admemplead0_ 
+2019-08-20 15:40:38,579 INFO  [stdout] (default task-32)     where
+2019-08-20 15:40:38,579 INFO  [stdout] (default task-32)         admemplead0_.id_empleado=?
+2019-08-20 15:40:38,581 INFO  [stdout] (default task-31) Hibernate: 
+2019-08-20 15:40:38,581 INFO  [stdout] (default task-31)     select
+2019-08-20 15:40:38,581 INFO  [stdout] (default task-31)         admemplead0_.id_empleado as id_emple1_5_0_,
+2019-08-20 15:40:38,581 INFO  [stdout] (default task-31)         admemplead0_.apellidos as apellido2_5_0_,
+2019-08-20 15:40:38,581 INFO  [stdout] (default task-31)         admemplead0_.direccion as direccio3_5_0_,
+2019-08-20 15:40:38,581 INFO  [stdout] (default task-31)         admemplead0_.fecha_nacimiento as fecha_na4_5_0_,
+2019-08-20 15:40:38,581 INFO  [stdout] (default task-31)         admemplead0_.identificacion as identifi5_5_0_,
+2019-08-20 15:40:38,581 INFO  [stdout] (default task-31)         admemplead0_.nombre_contacto as nombre_c6_5_0_,
+2019-08-20 15:40:38,581 INFO  [stdout] (default task-31)         admemplead0_.nombres as nombres7_5_0_,
+2019-08-20 15:40:38,581 INFO  [stdout] (default task-31)         admemplead0_.telefono_celular as telefono8_5_0_,
+2019-08-20 15:40:38,581 INFO  [stdout] (default task-31)         admemplead0_.telefono_contacto as telefono9_5_0_,
+2019-08-20 15:40:38,582 INFO  [stdout] (default task-31)         admemplead0_.telefono_fijo as telefon10_5_0_,
+2019-08-20 15:40:38,582 INFO  [stdout] (default task-31)         admemplead0_.url_imagen as url_ima11_5_0_ 
+2019-08-20 15:40:38,582 INFO  [stdout] (default task-31)     from
+2019-08-20 15:40:38,582 INFO  [stdout] (default task-31)         bivi.adm_empleado admemplead0_ 
+2019-08-20 15:40:38,582 INFO  [stdout] (default task-31)     where
+2019-08-20 15:40:38,582 INFO  [stdout] (default task-31)         admemplead0_.id_empleado=?
+2019-08-20 15:40:38,582 INFO  [stdout] (default task-32) Hibernate: 
+2019-08-20 15:40:38,582 INFO  [stdout] (default task-32)     select
+2019-08-20 15:40:38,582 INFO  [stdout] (default task-32)         admemplead0_.id_empleado as id_emple1_5_0_,
+2019-08-20 15:40:38,582 INFO  [stdout] (default task-32)         admemplead0_.apellidos as apellido2_5_0_,
+2019-08-20 15:40:38,582 INFO  [stdout] (default task-32)         admemplead0_.direccion as direccio3_5_0_,
+2019-08-20 15:40:38,582 INFO  [stdout] (default task-32)         admemplead0_.fecha_nacimiento as fecha_na4_5_0_,
+2019-08-20 15:40:38,582 INFO  [stdout] (default task-32)         admemplead0_.identificacion as identifi5_5_0_,
+2019-08-20 15:40:38,582 INFO  [stdout] (default task-32)         admemplead0_.nombre_contacto as nombre_c6_5_0_,
+2019-08-20 15:40:38,582 INFO  [stdout] (default task-32)         admemplead0_.nombres as nombres7_5_0_,
+2019-08-20 15:40:38,582 INFO  [stdout] (default task-32)         admemplead0_.telefono_celular as telefono8_5_0_,
+2019-08-20 15:40:38,582 INFO  [stdout] (default task-32)         admemplead0_.telefono_contacto as telefono9_5_0_,
+2019-08-20 15:40:38,582 INFO  [stdout] (default task-32)         admemplead0_.telefono_fijo as telefon10_5_0_,
+2019-08-20 15:40:38,582 INFO  [stdout] (default task-32)         admemplead0_.url_imagen as url_ima11_5_0_ 
+2019-08-20 15:40:38,582 INFO  [stdout] (default task-32)     from
+2019-08-20 15:40:38,582 INFO  [stdout] (default task-32)         bivi.adm_empleado admemplead0_ 
+2019-08-20 15:40:38,582 INFO  [stdout] (default task-32)     where
+2019-08-20 15:40:38,582 INFO  [stdout] (default task-32)         admemplead0_.id_empleado=?
+2019-08-20 15:40:38,585 INFO  [stdout] (default task-31) Hibernate: 
+2019-08-20 15:40:38,585 INFO  [stdout] (default task-31)     select
+2019-08-20 15:40:38,585 INFO  [stdout] (default task-31)         admagencia0_.id_agencia as id_agenc1_0_0_,
+2019-08-20 15:40:38,585 INFO  [stdout] (default task-31)         admagencia0_.celular_administrador as celular_2_0_0_,
+2019-08-20 15:40:38,585 INFO  [stdout] (default task-31)         admagencia0_.direccion as direccio3_0_0_,
+2019-08-20 15:40:38,585 INFO  [stdout] (default task-31)         admagencia0_.id_ciudad as id_ciuda4_0_0_,
+2019-08-20 15:40:38,585 INFO  [stdout] (default task-31)         admagencia0_.id_cliente as id_clien7_0_0_,
+2019-08-20 15:40:38,585 INFO  [stdout] (default task-31)         admagencia0_.nombre as nombre5_0_0_,
+2019-08-20 15:40:38,585 INFO  [stdout] (default task-31)         admagencia0_.nombre_administrador as nombre_a6_0_0_,
+2019-08-20 15:40:38,585 INFO  [stdout] (default task-31)         admcliente1_.id_cliente as id_clien1_2_1_,
+2019-08-20 15:40:38,585 INFO  [stdout] (default task-31)         admcliente1_.administrador as administ2_2_1_,
+2019-08-20 15:40:38,585 INFO  [stdout] (default task-31)         admcliente1_.direccion as direccio3_2_1_,
+2019-08-20 15:40:38,585 INFO  [stdout] (default task-31)         admcliente1_.id_ciudad as id_ciuda4_2_1_,
+2019-08-20 15:40:38,586 INFO  [stdout] (default task-31)         admcliente1_.id_cliente_padre as id_clien5_2_1_,
+2019-08-20 15:40:38,586 INFO  [stdout] (default task-31)         admcliente1_.identificacion as identifi6_2_1_,
+2019-08-20 15:40:38,586 INFO  [stdout] (default task-31)         admcliente1_.nombre_comercial as nombre_c7_2_1_,
+2019-08-20 15:40:38,586 INFO  [stdout] (default task-31)         admcliente1_.razon_social as razon_so8_2_1_,
+2019-08-20 15:40:38,586 INFO  [stdout] (default task-31)         admcliente1_.telefono_administrador as telefono9_2_1_ 
+2019-08-20 15:40:38,586 INFO  [stdout] (default task-31)     from
+2019-08-20 15:40:38,586 INFO  [stdout] (default task-31)         bivi.adm_agencia admagencia0_ 
+2019-08-20 15:40:38,586 INFO  [stdout] (default task-31)     left outer join
+2019-08-20 15:40:38,586 INFO  [stdout] (default task-31)         bivi.adm_cliente admcliente1_ 
+2019-08-20 15:40:38,586 INFO  [stdout] (default task-31)             on admagencia0_.id_cliente=admcliente1_.id_cliente 
+2019-08-20 15:40:38,586 INFO  [stdout] (default task-31)     where
+2019-08-20 15:40:38,586 INFO  [stdout] (default task-31)         admagencia0_.id_agencia=?
+2019-08-20 15:40:38,586 INFO  [stdout] (default task-32) Hibernate: 
+2019-08-20 15:40:38,586 INFO  [stdout] (default task-32)     select
+2019-08-20 15:40:38,586 INFO  [stdout] (default task-32)         admagencia0_.id_agencia as id_agenc1_0_0_,
+2019-08-20 15:40:38,586 INFO  [stdout] (default task-32)         admagencia0_.celular_administrador as celular_2_0_0_,
+2019-08-20 15:40:38,586 INFO  [stdout] (default task-32)         admagencia0_.direccion as direccio3_0_0_,
+2019-08-20 15:40:38,586 INFO  [stdout] (default task-32)         admagencia0_.id_ciudad as id_ciuda4_0_0_,
+2019-08-20 15:40:38,586 INFO  [stdout] (default task-32)         admagencia0_.id_cliente as id_clien7_0_0_,
+2019-08-20 15:40:38,586 INFO  [stdout] (default task-32)         admagencia0_.nombre as nombre5_0_0_,
+2019-08-20 15:40:38,586 INFO  [stdout] (default task-32)         admagencia0_.nombre_administrador as nombre_a6_0_0_,
+2019-08-20 15:40:38,586 INFO  [stdout] (default task-32)         admcliente1_.id_cliente as id_clien1_2_1_,
+2019-08-20 15:40:38,586 INFO  [stdout] (default task-32)         admcliente1_.administrador as administ2_2_1_,
+2019-08-20 15:40:38,586 INFO  [stdout] (default task-32)         admcliente1_.direccion as direccio3_2_1_,
+2019-08-20 15:40:38,586 INFO  [stdout] (default task-32)         admcliente1_.id_ciudad as id_ciuda4_2_1_,
+2019-08-20 15:40:38,586 INFO  [stdout] (default task-32)         admcliente1_.id_cliente_padre as id_clien5_2_1_,
+2019-08-20 15:40:38,587 INFO  [stdout] (default task-32)         admcliente1_.identificacion as identifi6_2_1_,
+2019-08-20 15:40:38,587 INFO  [stdout] (default task-32)         admcliente1_.nombre_comercial as nombre_c7_2_1_,
+2019-08-20 15:40:38,587 INFO  [stdout] (default task-32)         admcliente1_.razon_social as razon_so8_2_1_,
+2019-08-20 15:40:38,587 INFO  [stdout] (default task-32)         admcliente1_.telefono_administrador as telefono9_2_1_ 
+2019-08-20 15:40:38,587 INFO  [stdout] (default task-32)     from
+2019-08-20 15:40:38,587 INFO  [stdout] (default task-32)         bivi.adm_agencia admagencia0_ 
+2019-08-20 15:40:38,587 INFO  [stdout] (default task-32)     left outer join
+2019-08-20 15:40:38,587 INFO  [stdout] (default task-32)         bivi.adm_cliente admcliente1_ 
+2019-08-20 15:40:38,587 INFO  [stdout] (default task-32)             on admagencia0_.id_cliente=admcliente1_.id_cliente 
+2019-08-20 15:40:38,587 INFO  [stdout] (default task-32)     where
+2019-08-20 15:40:38,587 INFO  [stdout] (default task-32)         admagencia0_.id_agencia=?
+2019-08-20 15:40:38,716 INFO  [stdout] (default task-31) Hibernate: 
+2019-08-20 15:40:38,716 INFO  [stdout] (default task-31)     select
+2019-08-20 15:40:38,716 INFO  [stdout] (default task-31)         admemplead0_.id_empleado as id_emple1_5_0_,
+2019-08-20 15:40:38,717 INFO  [stdout] (default task-31)         admemplead0_.apellidos as apellido2_5_0_,
+2019-08-20 15:40:38,717 INFO  [stdout] (default task-31)         admemplead0_.direccion as direccio3_5_0_,
+2019-08-20 15:40:38,717 INFO  [stdout] (default task-31)         admemplead0_.fecha_nacimiento as fecha_na4_5_0_,
+2019-08-20 15:40:38,717 INFO  [stdout] (default task-31)         admemplead0_.identificacion as identifi5_5_0_,
+2019-08-20 15:40:38,717 INFO  [stdout] (default task-31)         admemplead0_.nombre_contacto as nombre_c6_5_0_,
+2019-08-20 15:40:38,717 INFO  [stdout] (default task-31)         admemplead0_.nombres as nombres7_5_0_,
+2019-08-20 15:40:38,717 INFO  [stdout] (default task-31)         admemplead0_.telefono_celular as telefono8_5_0_,
+2019-08-20 15:40:38,717 INFO  [stdout] (default task-31)         admemplead0_.telefono_contacto as telefono9_5_0_,
+2019-08-20 15:40:38,717 INFO  [stdout] (default task-31)         admemplead0_.telefono_fijo as telefon10_5_0_,
+2019-08-20 15:40:38,717 INFO  [stdout] (default task-31)         admemplead0_.url_imagen as url_ima11_5_0_ 
+2019-08-20 15:40:38,717 INFO  [stdout] (default task-31)     from
+2019-08-20 15:40:38,717 INFO  [stdout] (default task-31)         bivi.adm_empleado admemplead0_ 
+2019-08-20 15:40:38,717 INFO  [stdout] (default task-31)     where
+2019-08-20 15:40:38,717 INFO  [stdout] (default task-31)         admemplead0_.id_empleado=?
+2019-08-20 15:40:39,095 INFO  [stdout] (default task-33) Hibernate: 
+2019-08-20 15:40:39,095 INFO  [stdout] (default task-33)     select
+2019-08-20 15:40:39,095 INFO  [stdout] (default task-33)         admpuesto0_.id_puesto as id_puest1_7_,
+2019-08-20 15:40:39,095 INFO  [stdout] (default task-33)         admpuesto0_.codigo_barras as codigo_b2_7_,
+2019-08-20 15:40:39,095 INFO  [stdout] (default task-33)         admpuesto0_.id_agencia as id_agenc6_7_,
+2019-08-20 15:40:39,095 INFO  [stdout] (default task-33)         admpuesto0_.id_tipo_puesto_catalogo as id_tipo_3_7_,
+2019-08-20 15:40:39,095 INFO  [stdout] (default task-33)         admpuesto0_.nombre_puesto as nombre_p4_7_,
+2019-08-20 15:40:39,096 INFO  [stdout] (default task-33)         admpuesto0_.ubicacion as ubicacio5_7_ 
+2019-08-20 15:40:39,096 INFO  [stdout] (default task-33)     from
+2019-08-20 15:40:39,097 INFO  [stdout] (default task-33)         bivi.adm_puestos admpuesto0_
+2019-08-20 15:40:39,097 INFO  [stdout] (default task-32) Hibernate: 
+2019-08-20 15:40:39,097 INFO  [stdout] (default task-32)     select
+2019-08-20 15:40:39,097 INFO  [stdout] (default task-32)         admemplead0_.id_empleado as id_emple1_5_0_,
+2019-08-20 15:40:39,097 INFO  [stdout] (default task-32)         admemplead0_.apellidos as apellido2_5_0_,
+2019-08-20 15:40:39,097 INFO  [stdout] (default task-32)         admemplead0_.direccion as direccio3_5_0_,
+2019-08-20 15:40:39,098 INFO  [stdout] (default task-32)         admemplead0_.fecha_nacimiento as fecha_na4_5_0_,
+2019-08-20 15:40:39,098 INFO  [stdout] (default task-32)         admemplead0_.identificacion as identifi5_5_0_,
+2019-08-20 15:40:39,098 INFO  [stdout] (default task-32)         admemplead0_.nombre_contacto as nombre_c6_5_0_,
+2019-08-20 15:40:39,098 INFO  [stdout] (default task-32)         admemplead0_.nombres as nombres7_5_0_,
+2019-08-20 15:40:39,098 INFO  [stdout] (default task-32)         admemplead0_.telefono_celular as telefono8_5_0_,
+2019-08-20 15:40:39,098 INFO  [stdout] (default task-32)         admemplead0_.telefono_contacto as telefono9_5_0_,
+2019-08-20 15:40:39,098 INFO  [stdout] (default task-32)         admemplead0_.telefono_fijo as telefon10_5_0_,
+2019-08-20 15:40:39,098 INFO  [stdout] (default task-32)         admemplead0_.url_imagen as url_ima11_5_0_ 
+2019-08-20 15:40:39,098 INFO  [stdout] (default task-32)     from
+2019-08-20 15:40:39,098 INFO  [stdout] (default task-32)         bivi.adm_empleado admemplead0_ 
+2019-08-20 15:40:39,098 INFO  [stdout] (default task-32)     where
+2019-08-20 15:40:39,099 INFO  [stdout] (default task-32)         admemplead0_.id_empleado=?
+2019-08-20 15:40:39,100 INFO  [stdout] (default task-33) Hibernate: 
+2019-08-20 15:40:39,101 INFO  [stdout] (default task-33)     select
+2019-08-20 15:40:39,101 INFO  [stdout] (default task-33)         admagencia0_.id_agencia as id_agenc1_0_0_,
+2019-08-20 15:40:39,101 INFO  [stdout] (default task-33)         admagencia0_.celular_administrador as celular_2_0_0_,
+2019-08-20 15:40:39,101 INFO  [stdout] (default task-33)         admagencia0_.direccion as direccio3_0_0_,
+2019-08-20 15:40:39,101 INFO  [stdout] (default task-33)         admagencia0_.id_ciudad as id_ciuda4_0_0_,
+2019-08-20 15:40:39,101 INFO  [stdout] (default task-33)         admagencia0_.id_cliente as id_clien7_0_0_,
+2019-08-20 15:40:39,101 INFO  [stdout] (default task-33)         admagencia0_.nombre as nombre5_0_0_,
+2019-08-20 15:40:39,101 INFO  [stdout] (default task-33)         admagencia0_.nombre_administrador as nombre_a6_0_0_,
+2019-08-20 15:40:39,101 INFO  [stdout] (default task-33)         admcliente1_.id_cliente as id_clien1_2_1_,
+2019-08-20 15:40:39,101 INFO  [stdout] (default task-33)         admcliente1_.administrador as administ2_2_1_,
+2019-08-20 15:40:39,101 INFO  [stdout] (default task-33)         admcliente1_.direccion as direccio3_2_1_,
+2019-08-20 15:40:39,101 INFO  [stdout] (default task-33)         admcliente1_.id_ciudad as id_ciuda4_2_1_,
+2019-08-20 15:40:39,101 INFO  [stdout] (default task-33)         admcliente1_.id_cliente_padre as id_clien5_2_1_,
+2019-08-20 15:40:39,101 INFO  [stdout] (default task-33)         admcliente1_.identificacion as identifi6_2_1_,
+2019-08-20 15:40:39,101 INFO  [stdout] (default task-33)         admcliente1_.nombre_comercial as nombre_c7_2_1_,
+2019-08-20 15:40:39,101 INFO  [stdout] (default task-33)         admcliente1_.razon_social as razon_so8_2_1_,
+2019-08-20 15:40:39,101 INFO  [stdout] (default task-33)         admcliente1_.telefono_administrador as telefono9_2_1_ 
+2019-08-20 15:40:39,101 INFO  [stdout] (default task-33)     from
+2019-08-20 15:40:39,101 INFO  [stdout] (default task-33)         bivi.adm_agencia admagencia0_ 
+2019-08-20 15:40:39,101 INFO  [stdout] (default task-33)     left outer join
+2019-08-20 15:40:39,101 INFO  [stdout] (default task-33)         bivi.adm_cliente admcliente1_ 
+2019-08-20 15:40:39,101 INFO  [stdout] (default task-33)             on admagencia0_.id_cliente=admcliente1_.id_cliente 
+2019-08-20 15:40:39,101 INFO  [stdout] (default task-33)     where
+2019-08-20 15:40:39,101 INFO  [stdout] (default task-33)         admagencia0_.id_agencia=?
+2019-08-20 15:40:39,280 INFO  [stdout] (default task-31) Hibernate: 
+2019-08-20 15:40:39,280 INFO  [stdout] (default task-31)     select
+2019-08-20 15:40:39,280 INFO  [stdout] (default task-31)         admemplead0_.id_empleado as id_emple1_5_0_,
+2019-08-20 15:40:39,280 INFO  [stdout] (default task-31)         admemplead0_.apellidos as apellido2_5_0_,
+2019-08-20 15:40:39,280 INFO  [stdout] (default task-31)         admemplead0_.direccion as direccio3_5_0_,
+2019-08-20 15:40:39,281 INFO  [stdout] (default task-31)         admemplead0_.fecha_nacimiento as fecha_na4_5_0_,
+2019-08-20 15:40:39,281 INFO  [stdout] (default task-31)         admemplead0_.identificacion as identifi5_5_0_,
+2019-08-20 15:40:39,281 INFO  [stdout] (default task-31)         admemplead0_.nombre_contacto as nombre_c6_5_0_,
+2019-08-20 15:40:39,281 INFO  [stdout] (default task-31)         admemplead0_.nombres as nombres7_5_0_,
+2019-08-20 15:40:39,281 INFO  [stdout] (default task-31)         admemplead0_.telefono_celular as telefono8_5_0_,
+2019-08-20 15:40:39,281 INFO  [stdout] (default task-31)         admemplead0_.telefono_contacto as telefono9_5_0_,
+2019-08-20 15:40:39,281 INFO  [stdout] (default task-31)         admemplead0_.telefono_fijo as telefon10_5_0_,
+2019-08-20 15:40:39,282 INFO  [stdout] (default task-31)         admemplead0_.url_imagen as url_ima11_5_0_ 
+2019-08-20 15:40:39,285 INFO  [stdout] (default task-31)     from
+2019-08-20 15:40:39,286 INFO  [stdout] (default task-31)         bivi.adm_empleado admemplead0_ 
+2019-08-20 15:40:39,286 INFO  [stdout] (default task-31)     where
+2019-08-20 15:40:39,286 INFO  [stdout] (default task-31)         admemplead0_.id_empleado=?
+2019-08-20 15:40:39,287 INFO  [stdout] (default task-32) Hibernate: 
+2019-08-20 15:40:39,287 INFO  [stdout] (default task-32)     select
+2019-08-20 15:40:39,287 INFO  [stdout] (default task-32)         admemplead0_.id_empleado as id_emple1_5_0_,
+2019-08-20 15:40:39,287 INFO  [stdout] (default task-32)         admemplead0_.apellidos as apellido2_5_0_,
+2019-08-20 15:40:39,287 INFO  [stdout] (default task-32)         admemplead0_.direccion as direccio3_5_0_,
+2019-08-20 15:40:39,287 INFO  [stdout] (default task-32)         admemplead0_.fecha_nacimiento as fecha_na4_5_0_,
+2019-08-20 15:40:39,287 INFO  [stdout] (default task-32)         admemplead0_.identificacion as identifi5_5_0_,
+2019-08-20 15:40:39,287 INFO  [stdout] (default task-32)         admemplead0_.nombre_contacto as nombre_c6_5_0_,
+2019-08-20 15:40:39,287 INFO  [stdout] (default task-32)         admemplead0_.nombres as nombres7_5_0_,
+2019-08-20 15:40:39,288 INFO  [stdout] (default task-32)         admemplead0_.telefono_celular as telefono8_5_0_,
+2019-08-20 15:40:39,288 INFO  [stdout] (default task-32)         admemplead0_.telefono_contacto as telefono9_5_0_,
+2019-08-20 15:40:39,288 INFO  [stdout] (default task-32)         admemplead0_.telefono_fijo as telefon10_5_0_,
+2019-08-20 15:40:39,288 INFO  [stdout] (default task-32)         admemplead0_.url_imagen as url_ima11_5_0_ 
+2019-08-20 15:40:39,288 INFO  [stdout] (default task-32)     from
+2019-08-20 15:40:39,288 INFO  [stdout] (default task-32)         bivi.adm_empleado admemplead0_ 
+2019-08-20 15:40:39,288 INFO  [stdout] (default task-32)     where
+2019-08-20 15:40:39,288 INFO  [stdout] (default task-32)         admemplead0_.id_empleado=?
+2019-08-20 15:40:39,381 INFO  [stdout] (default task-32) Hibernate: 
+2019-08-20 15:40:39,381 INFO  [stdout] (default task-32)     select
+2019-08-20 15:40:39,381 INFO  [stdout] (default task-32)         admagencia0_.id_agencia as id_agenc1_0_0_,
+2019-08-20 15:40:39,381 INFO  [stdout] (default task-32)         admagencia0_.celular_administrador as celular_2_0_0_,
+2019-08-20 15:40:39,381 INFO  [stdout] (default task-32)         admagencia0_.direccion as direccio3_0_0_,
+2019-08-20 15:40:39,381 INFO  [stdout] (default task-32)         admagencia0_.id_ciudad as id_ciuda4_0_0_,
+2019-08-20 15:40:39,381 INFO  [stdout] (default task-32)         admagencia0_.id_cliente as id_clien7_0_0_,
+2019-08-20 15:40:39,381 INFO  [stdout] (default task-32)         admagencia0_.nombre as nombre5_0_0_,
+2019-08-20 15:40:39,381 INFO  [stdout] (default task-32)         admagencia0_.nombre_administrador as nombre_a6_0_0_,
+2019-08-20 15:40:39,381 INFO  [stdout] (default task-32)         admcliente1_.id_cliente as id_clien1_2_1_,
+2019-08-20 15:40:39,381 INFO  [stdout] (default task-32)         admcliente1_.administrador as administ2_2_1_,
+2019-08-20 15:40:39,381 INFO  [stdout] (default task-32)         admcliente1_.direccion as direccio3_2_1_,
+2019-08-20 15:40:39,381 INFO  [stdout] (default task-32)         admcliente1_.id_ciudad as id_ciuda4_2_1_,
+2019-08-20 15:40:39,382 INFO  [stdout] (default task-32)         admcliente1_.id_cliente_padre as id_clien5_2_1_,
+2019-08-20 15:40:39,382 INFO  [stdout] (default task-32)         admcliente1_.identificacion as identifi6_2_1_,
+2019-08-20 15:40:39,382 INFO  [stdout] (default task-32)         admcliente1_.nombre_comercial as nombre_c7_2_1_,
+2019-08-20 15:40:39,382 INFO  [stdout] (default task-32)         admcliente1_.razon_social as razon_so8_2_1_,
+2019-08-20 15:40:39,412 INFO  [stdout] (default task-32)         admcliente1_.telefono_administrador as telefono9_2_1_ 
+2019-08-20 15:40:39,412 INFO  [stdout] (default task-32)     from
+2019-08-20 15:40:39,412 INFO  [stdout] (default task-32)         bivi.adm_agencia admagencia0_ 
+2019-08-20 15:40:39,412 INFO  [stdout] (default task-32)     left outer join
+2019-08-20 15:40:39,412 INFO  [stdout] (default task-32)         bivi.adm_cliente admcliente1_ 
+2019-08-20 15:40:39,412 INFO  [stdout] (default task-32)             on admagencia0_.id_cliente=admcliente1_.id_cliente 
+2019-08-20 15:40:39,412 INFO  [stdout] (default task-32)     where
+2019-08-20 15:40:39,412 INFO  [stdout] (default task-32)         admagencia0_.id_agencia=?
+2019-08-20 15:40:39,412 INFO  [stdout] (default task-31) Hibernate: 
+2019-08-20 15:40:39,412 INFO  [stdout] (default task-31)     select
+2019-08-20 15:40:39,412 INFO  [stdout] (default task-31)         admagencia0_.id_agencia as id_agenc1_0_0_,
+2019-08-20 15:40:39,412 INFO  [stdout] (default task-31)         admagencia0_.celular_administrador as celular_2_0_0_,
+2019-08-20 15:40:39,412 INFO  [stdout] (default task-31)         admagencia0_.direccion as direccio3_0_0_,
+2019-08-20 15:40:39,413 INFO  [stdout] (default task-31)         admagencia0_.id_ciudad as id_ciuda4_0_0_,
+2019-08-20 15:40:39,413 INFO  [stdout] (default task-31)         admagencia0_.id_cliente as id_clien7_0_0_,
+2019-08-20 15:40:39,413 INFO  [stdout] (default task-31)         admagencia0_.nombre as nombre5_0_0_,
+2019-08-20 15:40:39,413 INFO  [stdout] (default task-31)         admagencia0_.nombre_administrador as nombre_a6_0_0_,
+2019-08-20 15:40:39,413 INFO  [stdout] (default task-31)         admcliente1_.id_cliente as id_clien1_2_1_,
+2019-08-20 15:40:39,413 INFO  [stdout] (default task-31)         admcliente1_.administrador as administ2_2_1_,
+2019-08-20 15:40:39,413 INFO  [stdout] (default task-31)         admcliente1_.direccion as direccio3_2_1_,
+2019-08-20 15:40:39,413 INFO  [stdout] (default task-31)         admcliente1_.id_ciudad as id_ciuda4_2_1_,
+2019-08-20 15:40:39,413 INFO  [stdout] (default task-31)         admcliente1_.id_cliente_padre as id_clien5_2_1_,
+2019-08-20 15:40:39,413 INFO  [stdout] (default task-31)         admcliente1_.identificacion as identifi6_2_1_,
+2019-08-20 15:40:39,413 INFO  [stdout] (default task-31)         admcliente1_.nombre_comercial as nombre_c7_2_1_,
+2019-08-20 15:40:39,413 INFO  [stdout] (default task-31)         admcliente1_.razon_social as razon_so8_2_1_,
+2019-08-20 15:40:39,413 INFO  [stdout] (default task-31)         admcliente1_.telefono_administrador as telefono9_2_1_ 
+2019-08-20 15:40:39,413 INFO  [stdout] (default task-31)     from
+2019-08-20 15:40:39,413 INFO  [stdout] (default task-31)         bivi.adm_agencia admagencia0_ 
+2019-08-20 15:40:39,413 INFO  [stdout] (default task-31)     left outer join
+2019-08-20 15:40:39,413 INFO  [stdout] (default task-31)         bivi.adm_cliente admcliente1_ 
+2019-08-20 15:40:39,413 INFO  [stdout] (default task-31)             on admagencia0_.id_cliente=admcliente1_.id_cliente 
+2019-08-20 15:40:39,413 INFO  [stdout] (default task-31)     where
+2019-08-20 15:40:39,413 INFO  [stdout] (default task-31)         admagencia0_.id_agencia=?
+2019-08-20 15:40:39,416 INFO  [stdout] (default task-32) Hibernate: 
+2019-08-20 15:40:39,416 INFO  [stdout] (default task-32)     select
+2019-08-20 15:40:39,416 INFO  [stdout] (default task-32)         admemplead0_.id_empleado as id_emple1_5_0_,
+2019-08-20 15:40:39,416 INFO  [stdout] (default task-32)         admemplead0_.apellidos as apellido2_5_0_,
+2019-08-20 15:40:39,416 INFO  [stdout] (default task-32)         admemplead0_.direccion as direccio3_5_0_,
+2019-08-20 15:40:39,416 INFO  [stdout] (default task-32)         admemplead0_.fecha_nacimiento as fecha_na4_5_0_,
+2019-08-20 15:40:39,416 INFO  [stdout] (default task-32)         admemplead0_.identificacion as identifi5_5_0_,
+2019-08-20 15:40:39,416 INFO  [stdout] (default task-32)         admemplead0_.nombre_contacto as nombre_c6_5_0_,
+2019-08-20 15:40:39,416 INFO  [stdout] (default task-32)         admemplead0_.nombres as nombres7_5_0_,
+2019-08-20 15:40:39,417 INFO  [stdout] (default task-32)         admemplead0_.telefono_celular as telefono8_5_0_,
+2019-08-20 15:40:39,417 INFO  [stdout] (default task-32)         admemplead0_.telefono_contacto as telefono9_5_0_,
+2019-08-20 15:40:39,417 INFO  [stdout] (default task-32)         admemplead0_.telefono_fijo as telefon10_5_0_,
+2019-08-20 15:40:39,417 INFO  [stdout] (default task-32)         admemplead0_.url_imagen as url_ima11_5_0_ 
+2019-08-20 15:40:39,417 INFO  [stdout] (default task-32)     from
+2019-08-20 15:40:39,417 INFO  [stdout] (default task-32)         bivi.adm_empleado admemplead0_ 
+2019-08-20 15:40:39,417 INFO  [stdout] (default task-32)     where
+2019-08-20 15:40:39,417 INFO  [stdout] (default task-32)         admemplead0_.id_empleado=?
+2019-08-20 15:40:39,417 INFO  [stdout] (default task-31) Hibernate: 
+2019-08-20 15:40:39,417 INFO  [stdout] (default task-31)     select
+2019-08-20 15:40:39,417 INFO  [stdout] (default task-31)         admemplead0_.id_empleado as id_emple1_5_0_,
+2019-08-20 15:40:39,417 INFO  [stdout] (default task-31)         admemplead0_.apellidos as apellido2_5_0_,
+2019-08-20 15:40:39,417 INFO  [stdout] (default task-31)         admemplead0_.direccion as direccio3_5_0_,
+2019-08-20 15:40:39,417 INFO  [stdout] (default task-31)         admemplead0_.fecha_nacimiento as fecha_na4_5_0_,
+2019-08-20 15:40:39,417 INFO  [stdout] (default task-31)         admemplead0_.identificacion as identifi5_5_0_,
+2019-08-20 15:40:39,417 INFO  [stdout] (default task-31)         admemplead0_.nombre_contacto as nombre_c6_5_0_,
+2019-08-20 15:40:39,417 INFO  [stdout] (default task-31)         admemplead0_.nombres as nombres7_5_0_,
+2019-08-20 15:40:39,417 INFO  [stdout] (default task-31)         admemplead0_.telefono_celular as telefono8_5_0_,
+2019-08-20 15:40:39,417 INFO  [stdout] (default task-31)         admemplead0_.telefono_contacto as telefono9_5_0_,
+2019-08-20 15:40:39,417 INFO  [stdout] (default task-31)         admemplead0_.telefono_fijo as telefon10_5_0_,
+2019-08-20 15:40:39,417 INFO  [stdout] (default task-31)         admemplead0_.url_imagen as url_ima11_5_0_ 
+2019-08-20 15:40:39,417 INFO  [stdout] (default task-31)     from
+2019-08-20 15:40:39,417 INFO  [stdout] (default task-31)         bivi.adm_empleado admemplead0_ 
+2019-08-20 15:40:39,417 INFO  [stdout] (default task-31)     where
+2019-08-20 15:40:39,417 INFO  [stdout] (default task-31)         admemplead0_.id_empleado=?
+2019-08-20 15:40:39,786 INFO  [stdout] (default task-31) Hibernate: 
+2019-08-20 15:40:39,786 INFO  [stdout] (default task-31)     select
+2019-08-20 15:40:39,786 INFO  [stdout] (default task-31)         admagencia0_.id_agencia as id_agenc1_0_,
+2019-08-20 15:40:39,786 INFO  [stdout] (default task-31)         admagencia0_.celular_administrador as celular_2_0_,
+2019-08-20 15:40:39,786 INFO  [stdout] (default task-31)         admagencia0_.direccion as direccio3_0_,
+2019-08-20 15:40:39,786 INFO  [stdout] (default task-31)         admagencia0_.id_ciudad as id_ciuda4_0_,
+2019-08-20 15:40:39,786 INFO  [stdout] (default task-31)         admagencia0_.id_cliente as id_clien7_0_,
+2019-08-20 15:40:39,786 INFO  [stdout] (default task-31)         admagencia0_.nombre as nombre5_0_,
+2019-08-20 15:40:39,786 INFO  [stdout] (default task-31)         admagencia0_.nombre_administrador as nombre_a6_0_ 
+2019-08-20 15:40:39,786 INFO  [stdout] (default task-31)     from
+2019-08-20 15:40:39,786 INFO  [stdout] (default task-31)         bivi.adm_agencia admagencia0_
+2019-08-20 15:40:39,786 INFO  [stdout] (default task-32) Hibernate: 
+2019-08-20 15:40:39,787 INFO  [stdout] (default task-32)     select
+2019-08-20 15:40:39,787 INFO  [stdout] (default task-32)         admagencia0_.id_agencia as id_agenc1_0_,
+2019-08-20 15:40:39,787 INFO  [stdout] (default task-32)         admagencia0_.celular_administrador as celular_2_0_,
+2019-08-20 15:40:39,787 INFO  [stdout] (default task-32)         admagencia0_.direccion as direccio3_0_,
+2019-08-20 15:40:39,787 INFO  [stdout] (default task-32)         admagencia0_.id_ciudad as id_ciuda4_0_,
+2019-08-20 15:40:39,787 INFO  [stdout] (default task-32)         admagencia0_.id_cliente as id_clien7_0_,
+2019-08-20 15:40:39,787 INFO  [stdout] (default task-32)         admagencia0_.nombre as nombre5_0_,
+2019-08-20 15:40:39,787 INFO  [stdout] (default task-32)         admagencia0_.nombre_administrador as nombre_a6_0_ 
+2019-08-20 15:40:39,787 INFO  [stdout] (default task-32)     from
+2019-08-20 15:40:39,787 INFO  [stdout] (default task-32)         bivi.adm_agencia admagencia0_
+2019-08-20 15:40:39,817 INFO  [stdout] (default task-31) Hibernate: 
+2019-08-20 15:40:39,817 INFO  [stdout] (default task-31)     select
+2019-08-20 15:40:39,818 INFO  [stdout] (default task-31)         admcliente0_.id_cliente as id_clien1_2_0_,
+2019-08-20 15:40:39,818 INFO  [stdout] (default task-31)         admcliente0_.administrador as administ2_2_0_,
+2019-08-20 15:40:39,818 INFO  [stdout] (default task-31)         admcliente0_.direccion as direccio3_2_0_,
+2019-08-20 15:40:39,818 INFO  [stdout] (default task-31)         admcliente0_.id_ciudad as id_ciuda4_2_0_,
+2019-08-20 15:40:39,818 INFO  [stdout] (default task-31)         admcliente0_.id_cliente_padre as id_clien5_2_0_,
+2019-08-20 15:40:39,818 INFO  [stdout] (default task-31)         admcliente0_.identificacion as identifi6_2_0_,
+2019-08-20 15:40:39,818 INFO  [stdout] (default task-31)         admcliente0_.nombre_comercial as nombre_c7_2_0_,
+2019-08-20 15:40:39,818 INFO  [stdout] (default task-31)         admcliente0_.razon_social as razon_so8_2_0_,
+2019-08-20 15:40:39,818 INFO  [stdout] (default task-31)         admcliente0_.telefono_administrador as telefono9_2_0_ 
+2019-08-20 15:40:39,818 INFO  [stdout] (default task-31)     from
+2019-08-20 15:40:39,818 INFO  [stdout] (default task-31)         bivi.adm_cliente admcliente0_ 
+2019-08-20 15:40:39,818 INFO  [stdout] (default task-31)     where
+2019-08-20 15:40:39,818 INFO  [stdout] (default task-31)         admcliente0_.id_cliente=?
+2019-08-20 15:40:39,818 INFO  [stdout] (default task-32) Hibernate: 
+2019-08-20 15:40:39,818 INFO  [stdout] (default task-32)     select
+2019-08-20 15:40:39,818 INFO  [stdout] (default task-32)         admcliente0_.id_cliente as id_clien1_2_0_,
+2019-08-20 15:40:39,819 INFO  [stdout] (default task-32)         admcliente0_.administrador as administ2_2_0_,
+2019-08-20 15:40:39,819 INFO  [stdout] (default task-32)         admcliente0_.direccion as direccio3_2_0_,
+2019-08-20 15:40:39,819 INFO  [stdout] (default task-32)         admcliente0_.id_ciudad as id_ciuda4_2_0_,
+2019-08-20 15:40:39,819 INFO  [stdout] (default task-32)         admcliente0_.id_cliente_padre as id_clien5_2_0_,
+2019-08-20 15:40:39,819 INFO  [stdout] (default task-32)         admcliente0_.identificacion as identifi6_2_0_,
+2019-08-20 15:40:39,819 INFO  [stdout] (default task-32)         admcliente0_.nombre_comercial as nombre_c7_2_0_,
+2019-08-20 15:40:39,819 INFO  [stdout] (default task-32)         admcliente0_.razon_social as razon_so8_2_0_,
+2019-08-20 15:40:39,819 INFO  [stdout] (default task-32)         admcliente0_.telefono_administrador as telefono9_2_0_ 
+2019-08-20 15:40:39,819 INFO  [stdout] (default task-32)     from
+2019-08-20 15:40:39,819 INFO  [stdout] (default task-32)         bivi.adm_cliente admcliente0_ 
+2019-08-20 15:40:39,819 INFO  [stdout] (default task-32)     where
+2019-08-20 15:40:39,819 INFO  [stdout] (default task-32)         admcliente0_.id_cliente=?
+2019-08-20 15:43:01,750 INFO  [stdout] (default task-34) Hibernate: 
+2019-08-20 15:43:01,751 INFO  [stdout] (default task-34)     select
+2019-08-20 15:43:01,751 INFO  [stdout] (default task-34)         distinct rm.id_menu as rm,
+2019-08-20 15:43:01,751 INFO  [stdout] (default task-34)         me.id_menu,
+2019-08-20 15:43:01,751 INFO  [stdout] (default task-34)         me.id_padre,
+2019-08-20 15:43:01,751 INFO  [stdout] (default task-34)         me.nombre,
+2019-08-20 15:43:01,751 INFO  [stdout] (default task-34)         me.url_pagina,
+2019-08-20 15:43:01,751 INFO  [stdout] (default task-34)         me.icono,
+2019-08-20 15:43:01,751 INFO  [stdout] (default task-34)         me.orden,
+2019-08-20 15:43:01,751 INFO  [stdout] (default task-34)         me.icono2 
+2019-08-20 15:43:01,751 INFO  [stdout] (default task-34)     from
+2019-08-20 15:43:01,751 INFO  [stdout] (default task-34)         bivi.adm_rol_menu as rm 
+2019-08-20 15:43:01,751 INFO  [stdout] (default task-34)     inner join
+2019-08-20 15:43:01,751 INFO  [stdout] (default task-34)         bivi.adm_menu as me 
+2019-08-20 15:43:01,751 INFO  [stdout] (default task-34)             on me.id_menu = rm.id_menu 
+2019-08-20 15:43:01,751 INFO  [stdout] (default task-34)     where
+2019-08-20 15:43:01,751 INFO  [stdout] (default task-34)         rm.id_rol = 1 
+2019-08-20 15:43:01,751 INFO  [stdout] (default task-34)     order by
+2019-08-20 15:43:01,751 INFO  [stdout] (default task-34)         me.orden asc
+2019-08-20 15:43:02,786 INFO  [stdout] (default task-34) Hibernate: 
+2019-08-20 15:43:02,786 INFO  [stdout] (default task-34)     select
+2019-08-20 15:43:02,786 INFO  [stdout] (default task-34)         fisdetalle0_.id_detalle_bitacora as id_detal1_18_,
+2019-08-20 15:43:02,786 INFO  [stdout] (default task-34)         fisdetalle0_.apellidos as apellido2_18_,
+2019-08-20 15:43:02,786 INFO  [stdout] (default task-34)         fisdetalle0_.id_puesto as id_pues13_18_,
+2019-08-20 15:43:02,786 INFO  [stdout] (default task-34)         fisdetalle0_.identificacion as identifi3_18_,
+2019-08-20 15:43:02,786 INFO  [stdout] (default task-34)         fisdetalle0_.ingreso_por_parqueadero as ingreso_4_18_,
+2019-08-20 15:43:02,786 INFO  [stdout] (default task-34)         fisdetalle0_.nombres as nombres5_18_,
+2019-08-20 15:43:02,786 INFO  [stdout] (default task-34)         fisdetalle0_.observaciones as observac6_18_,
+2019-08-20 15:43:02,786 INFO  [stdout] (default task-34)         fisdetalle0_.oficina as oficina7_18_,
+2019-08-20 15:43:02,786 INFO  [stdout] (default task-34)         fisdetalle0_.persona_visitada as persona_8_18_,
+2019-08-20 15:43:02,786 INFO  [stdout] (default task-34)         fisdetalle0_.placa as placa9_18_,
+2019-08-20 15:43:02,787 INFO  [stdout] (default task-34)         fisdetalle0_.seguimiento as seguimi10_18_,
+2019-08-20 15:43:02,787 INFO  [stdout] (default task-34)         fisdetalle0_.tipo_ingreso as tipo_in11_18_,
+2019-08-20 15:43:02,787 INFO  [stdout] (default task-34)         fisdetalle0_.url_imagen as url_ima12_18_ 
+2019-08-20 15:43:02,787 INFO  [stdout] (default task-34)     from
+2019-08-20 15:43:02,787 INFO  [stdout] (default task-34)         bivi.fis_detalle_bitacora fisdetalle0_
+2019-08-20 15:43:14,146 INFO  [stdout] (default task-35) Hibernate: 
+2019-08-20 15:43:14,146 INFO  [stdout] (default task-35)     select
+2019-08-20 15:43:14,146 INFO  [stdout] (default task-35)         distinct rm.id_menu as rm,
+2019-08-20 15:43:14,147 INFO  [stdout] (default task-35)         me.id_menu,
+2019-08-20 15:43:14,147 INFO  [stdout] (default task-35)         me.id_padre,
+2019-08-20 15:43:14,147 INFO  [stdout] (default task-35)         me.nombre,
+2019-08-20 15:43:14,147 INFO  [stdout] (default task-35)         me.url_pagina,
+2019-08-20 15:43:14,147 INFO  [stdout] (default task-35)         me.icono,
+2019-08-20 15:43:14,147 INFO  [stdout] (default task-35)         me.orden,
+2019-08-20 15:43:14,147 INFO  [stdout] (default task-35)         me.icono2 
+2019-08-20 15:43:14,147 INFO  [stdout] (default task-35)     from
+2019-08-20 15:43:14,147 INFO  [stdout] (default task-35)         bivi.adm_rol_menu as rm 
+2019-08-20 15:43:14,147 INFO  [stdout] (default task-35)     inner join
+2019-08-20 15:43:14,147 INFO  [stdout] (default task-35)         bivi.adm_menu as me 
+2019-08-20 15:43:14,147 INFO  [stdout] (default task-35)             on me.id_menu = rm.id_menu 
+2019-08-20 15:43:14,147 INFO  [stdout] (default task-35)     where
+2019-08-20 15:43:14,147 INFO  [stdout] (default task-35)         rm.id_rol = 1 
+2019-08-20 15:43:14,148 INFO  [stdout] (default task-35)     order by
+2019-08-20 15:43:14,148 INFO  [stdout] (default task-35)         me.orden asc
+2019-08-20 15:43:15,957 INFO  [stdout] (default task-35) Hibernate: 
+2019-08-20 15:43:15,957 INFO  [stdout] (default task-35)     select
+2019-08-20 15:43:15,957 INFO  [stdout] (default task-35)         fismovil0_.id_movil as id_movil1_23_,
+2019-08-20 15:43:15,957 INFO  [stdout] (default task-35)         fismovil0_.descripcion as descripc2_23_,
+2019-08-20 15:43:15,957 INFO  [stdout] (default task-35)         fismovil0_.id_agencia as id_agenc5_23_,
+2019-08-20 15:43:15,957 INFO  [stdout] (default task-35)         fismovil0_.id_android as id_andro3_23_,
+2019-08-20 15:43:15,957 INFO  [stdout] (default task-35)         fismovil0_.id_ciudad_dc as id_ciuda6_23_,
+2019-08-20 15:43:15,957 INFO  [stdout] (default task-35)         fismovil0_.nominativo as nominati4_23_ 
+2019-08-20 15:43:15,957 INFO  [stdout] (default task-35)     from
+2019-08-20 15:43:15,957 INFO  [stdout] (default task-35)         bivi.fis_movil fismovil0_
+2019-08-20 15:43:15,996 INFO  [stdout] (default task-35) Hibernate: 
+2019-08-20 15:43:15,996 INFO  [stdout] (default task-35)     select
+2019-08-20 15:43:15,996 INFO  [stdout] (default task-35)         admagencia0_.id_agencia as id_agenc1_0_0_,
+2019-08-20 15:43:15,996 INFO  [stdout] (default task-35)         admagencia0_.celular_administrador as celular_2_0_0_,
+2019-08-20 15:43:15,996 INFO  [stdout] (default task-35)         admagencia0_.direccion as direccio3_0_0_,
+2019-08-20 15:43:15,996 INFO  [stdout] (default task-35)         admagencia0_.id_ciudad as id_ciuda4_0_0_,
+2019-08-20 15:43:15,996 INFO  [stdout] (default task-35)         admagencia0_.id_cliente as id_clien7_0_0_,
+2019-08-20 15:43:15,996 INFO  [stdout] (default task-35)         admagencia0_.nombre as nombre5_0_0_,
+2019-08-20 15:43:15,996 INFO  [stdout] (default task-35)         admagencia0_.nombre_administrador as nombre_a6_0_0_,
+2019-08-20 15:43:15,996 INFO  [stdout] (default task-35)         admcliente1_.id_cliente as id_clien1_2_1_,
+2019-08-20 15:43:15,996 INFO  [stdout] (default task-35)         admcliente1_.administrador as administ2_2_1_,
+2019-08-20 15:43:16,030 INFO  [stdout] (default task-35)         admcliente1_.direccion as direccio3_2_1_,
+2019-08-20 15:43:16,030 INFO  [stdout] (default task-35)         admcliente1_.id_ciudad as id_ciuda4_2_1_,
+2019-08-20 15:43:16,030 INFO  [stdout] (default task-35)         admcliente1_.id_cliente_padre as id_clien5_2_1_,
+2019-08-20 15:43:16,030 INFO  [stdout] (default task-35)         admcliente1_.identificacion as identifi6_2_1_,
+2019-08-20 15:43:16,030 INFO  [stdout] (default task-35)         admcliente1_.nombre_comercial as nombre_c7_2_1_,
+2019-08-20 15:43:16,030 INFO  [stdout] (default task-35)         admcliente1_.razon_social as razon_so8_2_1_,
+2019-08-20 15:43:16,030 INFO  [stdout] (default task-35)         admcliente1_.telefono_administrador as telefono9_2_1_ 
+2019-08-20 15:43:16,030 INFO  [stdout] (default task-35)     from
+2019-08-20 15:43:16,030 INFO  [stdout] (default task-35)         bivi.adm_agencia admagencia0_ 
+2019-08-20 15:43:16,030 INFO  [stdout] (default task-35)     left outer join
+2019-08-20 15:43:16,030 INFO  [stdout] (default task-35)         bivi.adm_cliente admcliente1_ 
+2019-08-20 15:43:16,030 INFO  [stdout] (default task-35)             on admagencia0_.id_cliente=admcliente1_.id_cliente 
+2019-08-20 15:43:16,030 INFO  [stdout] (default task-35)     where
+2019-08-20 15:43:16,030 INFO  [stdout] (default task-35)         admagencia0_.id_agencia=?
+2019-08-20 15:43:16,145 INFO  [stdout] (default task-35) Hibernate: 
+2019-08-20 15:43:16,174 INFO  [stdout] (default task-35)     select
+2019-08-20 15:43:16,174 INFO  [stdout] (default task-35)         admdetalle0_.id_detalle_catalogo as id_detal1_4_0_,
+2019-08-20 15:43:16,174 INFO  [stdout] (default task-35)         admdetalle0_.descripcion as descripc2_4_0_,
+2019-08-20 15:43:16,174 INFO  [stdout] (default task-35)         admdetalle0_.id_catalogo as id_catal4_4_0_,
+2019-08-20 15:43:16,174 INFO  [stdout] (default task-35)         admdetalle0_.id_detalle_catalogo_padre as id_detal3_4_0_,
+2019-08-20 15:43:16,174 INFO  [stdout] (default task-35)         admcatalog1_.id_catalogo as id_catal1_1_1_,
+2019-08-20 15:43:16,174 INFO  [stdout] (default task-35)         admcatalog1_.id_catalogo_padre as id_catal2_1_1_,
+2019-08-20 15:43:16,174 INFO  [stdout] (default task-35)         admcatalog1_.nombre as nombre3_1_1_ 
+2019-08-20 15:43:16,174 INFO  [stdout] (default task-35)     from
+2019-08-20 15:43:16,174 INFO  [stdout] (default task-35)         bivi.adm_detalle_catalogo admdetalle0_ 
+2019-08-20 15:43:16,175 INFO  [stdout] (default task-35)     left outer join
+2019-08-20 15:43:16,175 INFO  [stdout] (default task-35)         bivi.adm_catalogo admcatalog1_ 
+2019-08-20 15:43:16,175 INFO  [stdout] (default task-35)             on admdetalle0_.id_catalogo=admcatalog1_.id_catalogo 
+2019-08-20 15:43:16,175 INFO  [stdout] (default task-35)     where
+2019-08-20 15:43:16,175 INFO  [stdout] (default task-35)         admdetalle0_.id_detalle_catalogo=?
+2019-08-20 15:43:16,434 INFO  [stdout] (default task-35) Hibernate: 
+2019-08-20 15:43:16,434 INFO  [stdout] (default task-35)     select
+2019-08-20 15:43:16,435 INFO  [stdout] (default task-35)         admagencia0_.id_agencia as id_agenc1_0_0_,
+2019-08-20 15:43:16,435 INFO  [stdout] (default task-35)         admagencia0_.celular_administrador as celular_2_0_0_,
+2019-08-20 15:43:16,435 INFO  [stdout] (default task-35)         admagencia0_.direccion as direccio3_0_0_,
+2019-08-20 15:43:16,435 INFO  [stdout] (default task-35)         admagencia0_.id_ciudad as id_ciuda4_0_0_,
+2019-08-20 15:43:16,456 INFO  [stdout] (default task-35)         admagencia0_.id_cliente as id_clien7_0_0_,
+2019-08-20 15:43:16,457 INFO  [stdout] (default task-35)         admagencia0_.nombre as nombre5_0_0_,
+2019-08-20 15:43:16,457 INFO  [stdout] (default task-35)         admagencia0_.nombre_administrador as nombre_a6_0_0_,
+2019-08-20 15:43:16,457 INFO  [stdout] (default task-35)         admcliente1_.id_cliente as id_clien1_2_1_,
+2019-08-20 15:43:16,457 INFO  [stdout] (default task-35)         admcliente1_.administrador as administ2_2_1_,
+2019-08-20 15:43:16,457 INFO  [stdout] (default task-35)         admcliente1_.direccion as direccio3_2_1_,
+2019-08-20 15:43:16,457 INFO  [stdout] (default task-35)         admcliente1_.id_ciudad as id_ciuda4_2_1_,
+2019-08-20 15:43:16,457 INFO  [stdout] (default task-35)         admcliente1_.id_cliente_padre as id_clien5_2_1_,
+2019-08-20 15:43:16,457 INFO  [stdout] (default task-35)         admcliente1_.identificacion as identifi6_2_1_,
+2019-08-20 15:43:16,457 INFO  [stdout] (default task-35)         admcliente1_.nombre_comercial as nombre_c7_2_1_,
+2019-08-20 15:43:16,457 INFO  [stdout] (default task-35)         admcliente1_.razon_social as razon_so8_2_1_,
+2019-08-20 15:43:16,457 INFO  [stdout] (default task-35)         admcliente1_.telefono_administrador as telefono9_2_1_ 
+2019-08-20 15:43:16,457 INFO  [stdout] (default task-35)     from
+2019-08-20 15:43:16,457 INFO  [stdout] (default task-35)         bivi.adm_agencia admagencia0_ 
+2019-08-20 15:43:16,457 INFO  [stdout] (default task-35)     left outer join
+2019-08-20 15:43:16,457 INFO  [stdout] (default task-35)         bivi.adm_cliente admcliente1_ 
+2019-08-20 15:43:16,457 INFO  [stdout] (default task-35)             on admagencia0_.id_cliente=admcliente1_.id_cliente 
+2019-08-20 15:43:16,457 INFO  [stdout] (default task-35)     where
+2019-08-20 15:43:16,457 INFO  [stdout] (default task-35)         admagencia0_.id_agencia=?
+2019-08-20 15:43:20,561 INFO  [stdout] (default task-35) Hibernate: 
+2019-08-20 15:43:20,561 INFO  [stdout] (default task-35)     select
+2019-08-20 15:43:20,562 INFO  [stdout] (default task-35)         admagencia0_.id_agencia as id_agenc1_0_0_,
+2019-08-20 15:43:20,562 INFO  [stdout] (default task-35)         admagencia0_.celular_administrador as celular_2_0_0_,
+2019-08-20 15:43:20,562 INFO  [stdout] (default task-35)         admagencia0_.direccion as direccio3_0_0_,
+2019-08-20 15:43:20,562 INFO  [stdout] (default task-35)         admagencia0_.id_ciudad as id_ciuda4_0_0_,
+2019-08-20 15:43:20,562 INFO  [stdout] (default task-35)         admagencia0_.id_cliente as id_clien7_0_0_,
+2019-08-20 15:43:20,562 INFO  [stdout] (default task-35)         admagencia0_.nombre as nombre5_0_0_,
+2019-08-20 15:43:20,562 INFO  [stdout] (default task-35)         admagencia0_.nombre_administrador as nombre_a6_0_0_,
+2019-08-20 15:43:20,562 INFO  [stdout] (default task-35)         admcliente1_.id_cliente as id_clien1_2_1_,
+2019-08-20 15:43:20,562 INFO  [stdout] (default task-35)         admcliente1_.administrador as administ2_2_1_,
+2019-08-20 15:43:20,562 INFO  [stdout] (default task-35)         admcliente1_.direccion as direccio3_2_1_,
+2019-08-20 15:43:20,562 INFO  [stdout] (default task-35)         admcliente1_.id_ciudad as id_ciuda4_2_1_,
+2019-08-20 15:43:20,562 INFO  [stdout] (default task-35)         admcliente1_.id_cliente_padre as id_clien5_2_1_,
+2019-08-20 15:43:20,562 INFO  [stdout] (default task-35)         admcliente1_.identificacion as identifi6_2_1_,
+2019-08-20 15:43:20,562 INFO  [stdout] (default task-35)         admcliente1_.nombre_comercial as nombre_c7_2_1_,
+2019-08-20 15:43:20,562 INFO  [stdout] (default task-35)         admcliente1_.razon_social as razon_so8_2_1_,
+2019-08-20 15:43:20,562 INFO  [stdout] (default task-35)         admcliente1_.telefono_administrador as telefono9_2_1_ 
+2019-08-20 15:43:20,562 INFO  [stdout] (default task-35)     from
+2019-08-20 15:43:20,562 INFO  [stdout] (default task-35)         bivi.adm_agencia admagencia0_ 
+2019-08-20 15:43:20,562 INFO  [stdout] (default task-35)     left outer join
+2019-08-20 15:43:20,563 INFO  [stdout] (default task-35)         bivi.adm_cliente admcliente1_ 
+2019-08-20 15:43:20,563 INFO  [stdout] (default task-35)             on admagencia0_.id_cliente=admcliente1_.id_cliente 
+2019-08-20 15:43:20,563 INFO  [stdout] (default task-35)     where
+2019-08-20 15:43:20,563 INFO  [stdout] (default task-35)         admagencia0_.id_agencia=?
+2019-08-20 15:43:24,018 INFO  [stdout] (default task-35) Hibernate: 
+2019-08-20 15:43:24,018 INFO  [stdout] (default task-35)     select
+2019-08-20 15:43:24,018 INFO  [stdout] (default task-35)         admdetalle0_.id_detalle_catalogo as id_detal1_4_,
+2019-08-20 15:43:24,018 INFO  [stdout] (default task-35)         admdetalle0_.descripcion as descripc2_4_,
+2019-08-20 15:43:24,018 INFO  [stdout] (default task-35)         admdetalle0_.id_catalogo as id_catal4_4_,
+2019-08-20 15:43:24,018 INFO  [stdout] (default task-35)         admdetalle0_.id_detalle_catalogo_padre as id_detal3_4_ 
+2019-08-20 15:43:24,018 INFO  [stdout] (default task-35)     from
+2019-08-20 15:43:24,019 INFO  [stdout] (default task-35)         bivi.adm_detalle_catalogo admdetalle0_ 
+2019-08-20 15:43:24,019 INFO  [stdout] (default task-35)     where
+2019-08-20 15:43:24,019 INFO  [stdout] (default task-35)         admdetalle0_.id_catalogo=3
+2019-08-20 15:43:24,045 INFO  [stdout] (default task-35) Hibernate: 
+2019-08-20 15:43:24,045 INFO  [stdout] (default task-35)     select
+2019-08-20 15:43:24,045 INFO  [stdout] (default task-35)         admcatalog0_.id_catalogo as id_catal1_1_0_,
+2019-08-20 15:43:24,045 INFO  [stdout] (default task-35)         admcatalog0_.id_catalogo_padre as id_catal2_1_0_,
+2019-08-20 15:43:24,045 INFO  [stdout] (default task-35)         admcatalog0_.nombre as nombre3_1_0_ 
+2019-08-20 15:43:24,045 INFO  [stdout] (default task-35)     from
+2019-08-20 15:43:24,045 INFO  [stdout] (default task-35)         bivi.adm_catalogo admcatalog0_ 
+2019-08-20 15:43:24,045 INFO  [stdout] (default task-35)     where
+2019-08-20 15:43:24,045 INFO  [stdout] (default task-35)         admcatalog0_.id_catalogo=?
+2019-08-20 15:43:24,049 INFO  [stdout] (default task-35) Hibernate: 
+2019-08-20 15:43:24,049 INFO  [stdout] (default task-35)     select
+2019-08-20 15:43:24,049 INFO  [stdout] (default task-35)         admagencia0_.id_agencia as id_agenc1_0_,
+2019-08-20 15:43:24,049 INFO  [stdout] (default task-35)         admagencia0_.celular_administrador as celular_2_0_,
+2019-08-20 15:43:24,049 INFO  [stdout] (default task-35)         admagencia0_.direccion as direccio3_0_,
+2019-08-20 15:43:24,049 INFO  [stdout] (default task-35)         admagencia0_.id_ciudad as id_ciuda4_0_,
+2019-08-20 15:43:24,049 INFO  [stdout] (default task-35)         admagencia0_.id_cliente as id_clien7_0_,
+2019-08-20 15:43:24,049 INFO  [stdout] (default task-35)         admagencia0_.nombre as nombre5_0_,
+2019-08-20 15:43:24,049 INFO  [stdout] (default task-35)         admagencia0_.nombre_administrador as nombre_a6_0_ 
+2019-08-20 15:43:24,049 INFO  [stdout] (default task-35)     from
+2019-08-20 15:43:24,049 INFO  [stdout] (default task-35)         bivi.adm_agencia admagencia0_
+2019-08-20 15:43:24,052 INFO  [stdout] (default task-35) Hibernate: 
+2019-08-20 15:43:24,052 INFO  [stdout] (default task-35)     select
+2019-08-20 15:43:24,052 INFO  [stdout] (default task-35)         admcliente0_.id_cliente as id_clien1_2_0_,
+2019-08-20 15:43:24,052 INFO  [stdout] (default task-35)         admcliente0_.administrador as administ2_2_0_,
+2019-08-20 15:43:24,052 INFO  [stdout] (default task-35)         admcliente0_.direccion as direccio3_2_0_,
+2019-08-20 15:43:24,052 INFO  [stdout] (default task-35)         admcliente0_.id_ciudad as id_ciuda4_2_0_,
+2019-08-20 15:43:24,052 INFO  [stdout] (default task-35)         admcliente0_.id_cliente_padre as id_clien5_2_0_,
+2019-08-20 15:43:24,052 INFO  [stdout] (default task-35)         admcliente0_.identificacion as identifi6_2_0_,
+2019-08-20 15:43:24,052 INFO  [stdout] (default task-35)         admcliente0_.nombre_comercial as nombre_c7_2_0_,
+2019-08-20 15:43:24,052 INFO  [stdout] (default task-35)         admcliente0_.razon_social as razon_so8_2_0_,
+2019-08-20 15:43:24,052 INFO  [stdout] (default task-35)         admcliente0_.telefono_administrador as telefono9_2_0_ 
+2019-08-20 15:43:24,052 INFO  [stdout] (default task-35)     from
+2019-08-20 15:43:24,052 INFO  [stdout] (default task-35)         bivi.adm_cliente admcliente0_ 
+2019-08-20 15:43:24,052 INFO  [stdout] (default task-35)     where
+2019-08-20 15:43:24,052 INFO  [stdout] (default task-35)         admcliente0_.id_cliente=?
+2019-08-20 15:43:50,252 INFO  [stdout] (default task-36) Hibernate: 
+2019-08-20 15:43:50,252 INFO  [stdout] (default task-36)     select
+2019-08-20 15:43:50,253 INFO  [stdout] (default task-36)         distinct rm.id_menu as rm,
+2019-08-20 15:43:50,253 INFO  [stdout] (default task-36)         me.id_menu,
+2019-08-20 15:43:50,253 INFO  [stdout] (default task-36)         me.id_padre,
+2019-08-20 15:43:50,253 INFO  [stdout] (default task-36)         me.nombre,
+2019-08-20 15:43:50,253 INFO  [stdout] (default task-36)         me.url_pagina,
+2019-08-20 15:43:50,253 INFO  [stdout] (default task-36)         me.icono,
+2019-08-20 15:43:50,253 INFO  [stdout] (default task-36)         me.orden,
+2019-08-20 15:43:50,253 INFO  [stdout] (default task-36)         me.icono2 
+2019-08-20 15:43:50,253 INFO  [stdout] (default task-36)     from
+2019-08-20 15:43:50,253 INFO  [stdout] (default task-36)         bivi.adm_rol_menu as rm 
+2019-08-20 15:43:50,253 INFO  [stdout] (default task-36)     inner join
+2019-08-20 15:43:50,253 INFO  [stdout] (default task-36)         bivi.adm_menu as me 
+2019-08-20 15:43:50,253 INFO  [stdout] (default task-36)             on me.id_menu = rm.id_menu 
+2019-08-20 15:43:50,253 INFO  [stdout] (default task-36)     where
+2019-08-20 15:43:50,253 INFO  [stdout] (default task-36)         rm.id_rol = 1 
+2019-08-20 15:43:50,253 INFO  [stdout] (default task-36)     order by
+2019-08-20 15:43:50,253 INFO  [stdout] (default task-36)         me.orden asc
+2019-08-20 15:43:50,668 INFO  [stdout] (default task-36) Hibernate: 
+2019-08-20 15:43:50,668 INFO  [stdout] (default task-36)     select
+2019-08-20 15:43:50,668 INFO  [stdout] (default task-36)         e.id_empleado,
+2019-08-20 15:43:50,668 INFO  [stdout] (default task-36)         e.nombres,
+2019-08-20 15:43:50,668 INFO  [stdout] (default task-36)         e.apellidos 
+2019-08-20 15:43:50,668 INFO  [stdout] (default task-36)     from
+2019-08-20 15:43:50,668 INFO  [stdout] (default task-36)         bivi.adm_rol_usuario as ru 
+2019-08-20 15:43:50,668 INFO  [stdout] (default task-36)     inner join
+2019-08-20 15:43:50,668 INFO  [stdout] (default task-36)         bivi.adm_usuario as u 
+2019-08-20 15:43:50,668 INFO  [stdout] (default task-36)             on u.id_usuario = ru.id_usuario 
+2019-08-20 15:43:50,668 INFO  [stdout] (default task-36)     inner join
+2019-08-20 15:43:50,668 INFO  [stdout] (default task-36)         bivi.adm_empleado as e 
+2019-08-20 15:43:50,668 INFO  [stdout] (default task-36)             on e.id_empleado = u.id_empleado 
+2019-08-20 15:43:50,668 INFO  [stdout] (default task-36)     where
+2019-08-20 15:43:50,668 INFO  [stdout] (default task-36)         ru.id_rol = 2 
+2019-08-20 15:43:50,673 INFO  [stdout] (default task-36) Hibernate: 
+2019-08-20 15:43:50,673 INFO  [stdout] (default task-36)     select
+2019-08-20 15:43:50,673 INFO  [stdout] (default task-36)         fisguardia0_.id_guardia_agencia as id_guard1_22_,
+2019-08-20 15:43:50,673 INFO  [stdout] (default task-36)         fisguardia0_.activo as activo2_22_,
+2019-08-20 15:43:50,673 INFO  [stdout] (default task-36)         fisguardia0_.fecha_asignacion as fecha_as3_22_,
+2019-08-20 15:43:50,673 INFO  [stdout] (default task-36)         fisguardia0_.id_agencia as id_agenc5_22_,
+2019-08-20 15:43:50,673 INFO  [stdout] (default task-36)         fisguardia0_.id_usuario as id_usuar6_22_,
+2019-08-20 15:43:50,673 INFO  [stdout] (default task-36)         fisguardia0_.id_puesto as id_puest7_22_,
+2019-08-20 15:43:50,673 INFO  [stdout] (default task-36)         fisguardia0_.id_usuario_asignado_por as id_usuar8_22_,
+2019-08-20 15:43:50,673 INFO  [stdout] (default task-36)         fisguardia0_.sys_delete as sys_dele4_22_ 
+2019-08-20 15:43:50,673 INFO  [stdout] (default task-36)     from
+2019-08-20 15:43:50,674 INFO  [stdout] (default task-36)         bivi.fis_guardia_agencia fisguardia0_
+2019-08-20 15:43:50,741 INFO  [stdout] (default task-36) Hibernate: 
+2019-08-20 15:43:50,741 INFO  [stdout] (default task-36)     select
+2019-08-20 15:43:50,742 INFO  [stdout] (default task-36)         admagencia0_.id_agencia as id_agenc1_0_0_,
+2019-08-20 15:43:50,742 INFO  [stdout] (default task-36)         admagencia0_.celular_administrador as celular_2_0_0_,
+2019-08-20 15:43:50,742 INFO  [stdout] (default task-36)         admagencia0_.direccion as direccio3_0_0_,
+2019-08-20 15:43:50,742 INFO  [stdout] (default task-36)         admagencia0_.id_ciudad as id_ciuda4_0_0_,
+2019-08-20 15:43:50,742 INFO  [stdout] (default task-36)         admagencia0_.id_cliente as id_clien7_0_0_,
+2019-08-20 15:43:50,742 INFO  [stdout] (default task-36)         admagencia0_.nombre as nombre5_0_0_,
+2019-08-20 15:43:50,742 INFO  [stdout] (default task-36)         admagencia0_.nombre_administrador as nombre_a6_0_0_,
+2019-08-20 15:43:50,742 INFO  [stdout] (default task-36)         admcliente1_.id_cliente as id_clien1_2_1_,
+2019-08-20 15:43:50,742 INFO  [stdout] (default task-36)         admcliente1_.administrador as administ2_2_1_,
+2019-08-20 15:43:50,743 INFO  [stdout] (default task-36)         admcliente1_.direccion as direccio3_2_1_,
+2019-08-20 15:43:50,743 INFO  [stdout] (default task-36)         admcliente1_.id_ciudad as id_ciuda4_2_1_,
+2019-08-20 15:43:50,743 INFO  [stdout] (default task-36)         admcliente1_.id_cliente_padre as id_clien5_2_1_,
+2019-08-20 15:43:50,743 INFO  [stdout] (default task-36)         admcliente1_.identificacion as identifi6_2_1_,
+2019-08-20 15:43:50,743 INFO  [stdout] (default task-36)         admcliente1_.nombre_comercial as nombre_c7_2_1_,
+2019-08-20 15:43:50,743 INFO  [stdout] (default task-36)         admcliente1_.razon_social as razon_so8_2_1_,
+2019-08-20 15:43:50,743 INFO  [stdout] (default task-36)         admcliente1_.telefono_administrador as telefono9_2_1_ 
+2019-08-20 15:43:50,743 INFO  [stdout] (default task-36)     from
+2019-08-20 15:43:50,743 INFO  [stdout] (default task-36)         bivi.adm_agencia admagencia0_ 
+2019-08-20 15:43:50,743 INFO  [stdout] (default task-36)     left outer join
+2019-08-20 15:43:50,743 INFO  [stdout] (default task-36)         bivi.adm_cliente admcliente1_ 
+2019-08-20 15:43:50,743 INFO  [stdout] (default task-36)             on admagencia0_.id_cliente=admcliente1_.id_cliente 
+2019-08-20 15:43:50,853 INFO  [stdout] (default task-36)     where
+2019-08-20 15:43:50,853 INFO  [stdout] (default task-36)         admagencia0_.id_agencia=?
+2019-08-20 15:43:50,857 INFO  [stdout] (default task-36) Hibernate: 
+2019-08-20 15:43:50,857 INFO  [stdout] (default task-36)     select
+2019-08-20 15:43:50,857 INFO  [stdout] (default task-36)         admemplead0_.id_empleado as id_emple1_5_0_,
+2019-08-20 15:43:50,857 INFO  [stdout] (default task-36)         admemplead0_.apellidos as apellido2_5_0_,
+2019-08-20 15:43:50,857 INFO  [stdout] (default task-36)         admemplead0_.direccion as direccio3_5_0_,
+2019-08-20 15:43:50,857 INFO  [stdout] (default task-36)         admemplead0_.fecha_nacimiento as fecha_na4_5_0_,
+2019-08-20 15:43:50,857 INFO  [stdout] (default task-36)         admemplead0_.identificacion as identifi5_5_0_,
+2019-08-20 15:43:50,857 INFO  [stdout] (default task-36)         admemplead0_.nombre_contacto as nombre_c6_5_0_,
+2019-08-20 15:43:50,857 INFO  [stdout] (default task-36)         admemplead0_.nombres as nombres7_5_0_,
+2019-08-20 15:43:50,857 INFO  [stdout] (default task-36)         admemplead0_.telefono_celular as telefono8_5_0_,
+2019-08-20 15:43:50,857 INFO  [stdout] (default task-36)         admemplead0_.telefono_contacto as telefono9_5_0_,
+2019-08-20 15:43:50,857 INFO  [stdout] (default task-36)         admemplead0_.telefono_fijo as telefon10_5_0_,
+2019-08-20 15:43:50,857 INFO  [stdout] (default task-36)         admemplead0_.url_imagen as url_ima11_5_0_ 
+2019-08-20 15:43:50,857 INFO  [stdout] (default task-36)     from
+2019-08-20 15:43:50,857 INFO  [stdout] (default task-36)         bivi.adm_empleado admemplead0_ 
+2019-08-20 15:43:50,857 INFO  [stdout] (default task-36)     where
+2019-08-20 15:43:50,857 INFO  [stdout] (default task-36)         admemplead0_.id_empleado=?
+2019-08-20 15:43:51,368 INFO  [stdout] (default task-36) Hibernate: 
+2019-08-20 15:43:51,369 INFO  [stdout] (default task-36)     select
+2019-08-20 15:43:51,369 INFO  [stdout] (default task-36)         admusuario0_.id_usuario as id_usuar1_12_0_,
+2019-08-20 15:43:51,369 INFO  [stdout] (default task-36)         admusuario0_.activo as activo2_12_0_,
+2019-08-20 15:43:51,369 INFO  [stdout] (default task-36)         admusuario0_.clave as clave3_12_0_,
+2019-08-20 15:43:51,369 INFO  [stdout] (default task-36)         admusuario0_.dias_validez as dias_val4_12_0_,
+2019-08-20 15:43:51,369 INFO  [stdout] (default task-36)         admusuario0_.fecha_creacion as fecha_cr5_12_0_,
+2019-08-20 15:43:51,369 INFO  [stdout] (default task-36)         admusuario0_.fecha_modificacion as fecha_mo6_12_0_,
+2019-08-20 15:43:51,369 INFO  [stdout] (default task-36)         admusuario0_.id_empleado as id_emple9_12_0_,
+2019-08-20 15:43:51,369 INFO  [stdout] (default task-36)         admusuario0_.sys_delete as sys_dele7_12_0_,
+2019-08-20 15:43:51,369 INFO  [stdout] (default task-36)         admusuario0_.usuario as usuario8_12_0_,
+2019-08-20 15:43:51,369 INFO  [stdout] (default task-36)         admemplead1_.id_empleado as id_emple1_5_1_,
+2019-08-20 15:43:51,369 INFO  [stdout] (default task-36)         admemplead1_.apellidos as apellido2_5_1_,
+2019-08-20 15:43:51,369 INFO  [stdout] (default task-36)         admemplead1_.direccion as direccio3_5_1_,
+2019-08-20 15:43:51,369 INFO  [stdout] (default task-36)         admemplead1_.fecha_nacimiento as fecha_na4_5_1_,
+2019-08-20 15:43:51,369 INFO  [stdout] (default task-36)         admemplead1_.identificacion as identifi5_5_1_,
+2019-08-20 15:43:51,369 INFO  [stdout] (default task-36)         admemplead1_.nombre_contacto as nombre_c6_5_1_,
+2019-08-20 15:43:51,370 INFO  [stdout] (default task-36)         admemplead1_.nombres as nombres7_5_1_,
+2019-08-20 15:43:51,370 INFO  [stdout] (default task-36)         admemplead1_.telefono_celular as telefono8_5_1_,
+2019-08-20 15:43:51,370 INFO  [stdout] (default task-36)         admemplead1_.telefono_contacto as telefono9_5_1_,
+2019-08-20 15:43:51,370 INFO  [stdout] (default task-36)         admemplead1_.telefono_fijo as telefon10_5_1_,
+2019-08-20 15:43:51,370 INFO  [stdout] (default task-36)         admemplead1_.url_imagen as url_ima11_5_1_ 
+2019-08-20 15:43:51,370 INFO  [stdout] (default task-36)     from
+2019-08-20 15:43:51,370 INFO  [stdout] (default task-36)         bivi.adm_usuario admusuario0_ 
+2019-08-20 15:43:51,370 INFO  [stdout] (default task-36)     left outer join
+2019-08-20 15:43:51,370 INFO  [stdout] (default task-36)         bivi.adm_empleado admemplead1_ 
+2019-08-20 15:43:51,370 INFO  [stdout] (default task-36)             on admusuario0_.id_empleado=admemplead1_.id_empleado 
+2019-08-20 15:43:51,370 INFO  [stdout] (default task-36)     where
+2019-08-20 15:43:51,370 INFO  [stdout] (default task-36)         admusuario0_.id_usuario=?
+2019-08-20 15:43:51,383 INFO  [stdout] (default task-36) Hibernate: 
+2019-08-20 15:43:51,383 INFO  [stdout] (default task-36)     select
+2019-08-20 15:43:51,383 INFO  [stdout] (default task-36)         admemplead0_.id_empleado as id_emple1_5_0_,
+2019-08-20 15:43:51,383 INFO  [stdout] (default task-36)         admemplead0_.apellidos as apellido2_5_0_,
+2019-08-20 15:43:51,383 INFO  [stdout] (default task-36)         admemplead0_.direccion as direccio3_5_0_,
+2019-08-20 15:43:51,383 INFO  [stdout] (default task-36)         admemplead0_.fecha_nacimiento as fecha_na4_5_0_,
+2019-08-20 15:43:51,383 INFO  [stdout] (default task-36)         admemplead0_.identificacion as identifi5_5_0_,
+2019-08-20 15:43:51,383 INFO  [stdout] (default task-36)         admemplead0_.nombre_contacto as nombre_c6_5_0_,
+2019-08-20 15:43:51,383 INFO  [stdout] (default task-36)         admemplead0_.nombres as nombres7_5_0_,
+2019-08-20 15:43:51,383 INFO  [stdout] (default task-36)         admemplead0_.telefono_celular as telefono8_5_0_,
+2019-08-20 15:43:51,383 INFO  [stdout] (default task-36)         admemplead0_.telefono_contacto as telefono9_5_0_,
+2019-08-20 15:43:51,384 INFO  [stdout] (default task-36)         admemplead0_.telefono_fijo as telefon10_5_0_,
+2019-08-20 15:43:51,384 INFO  [stdout] (default task-36)         admemplead0_.url_imagen as url_ima11_5_0_ 
+2019-08-20 15:43:51,384 INFO  [stdout] (default task-36)     from
+2019-08-20 15:43:51,384 INFO  [stdout] (default task-36)         bivi.adm_empleado admemplead0_ 
+2019-08-20 15:43:51,384 INFO  [stdout] (default task-36)     where
+2019-08-20 15:43:51,384 INFO  [stdout] (default task-36)         admemplead0_.id_empleado=?
+2019-08-20 15:43:51,387 INFO  [stdout] (default task-36) Hibernate: 
+2019-08-20 15:43:51,387 INFO  [stdout] (default task-36)     select
+2019-08-20 15:43:51,387 INFO  [stdout] (default task-36)         admemplead0_.id_empleado as id_emple1_5_0_,
+2019-08-20 15:43:51,387 INFO  [stdout] (default task-36)         admemplead0_.apellidos as apellido2_5_0_,
+2019-08-20 15:43:51,387 INFO  [stdout] (default task-36)         admemplead0_.direccion as direccio3_5_0_,
+2019-08-20 15:43:51,387 INFO  [stdout] (default task-36)         admemplead0_.fecha_nacimiento as fecha_na4_5_0_,
+2019-08-20 15:43:51,387 INFO  [stdout] (default task-36)         admemplead0_.identificacion as identifi5_5_0_,
+2019-08-20 15:43:51,387 INFO  [stdout] (default task-36)         admemplead0_.nombre_contacto as nombre_c6_5_0_,
+2019-08-20 15:43:51,387 INFO  [stdout] (default task-36)         admemplead0_.nombres as nombres7_5_0_,
+2019-08-20 15:43:51,387 INFO  [stdout] (default task-36)         admemplead0_.telefono_celular as telefono8_5_0_,
+2019-08-20 15:43:51,387 INFO  [stdout] (default task-36)         admemplead0_.telefono_contacto as telefono9_5_0_,
+2019-08-20 15:43:51,387 INFO  [stdout] (default task-36)         admemplead0_.telefono_fijo as telefon10_5_0_,
+2019-08-20 15:43:51,387 INFO  [stdout] (default task-36)         admemplead0_.url_imagen as url_ima11_5_0_ 
+2019-08-20 15:43:51,387 INFO  [stdout] (default task-36)     from
+2019-08-20 15:43:51,387 INFO  [stdout] (default task-36)         bivi.adm_empleado admemplead0_ 
+2019-08-20 15:43:51,387 INFO  [stdout] (default task-36)     where
+2019-08-20 15:43:51,387 INFO  [stdout] (default task-36)         admemplead0_.id_empleado=?
+2019-08-20 15:43:51,437 INFO  [stdout] (default task-36) Hibernate: 
+2019-08-20 15:43:51,437 INFO  [stdout] (default task-36)     select
+2019-08-20 15:43:51,437 INFO  [stdout] (default task-36)         admemplead0_.id_empleado as id_emple1_5_0_,
+2019-08-20 15:43:51,438 INFO  [stdout] (default task-36)         admemplead0_.apellidos as apellido2_5_0_,
+2019-08-20 15:43:51,438 INFO  [stdout] (default task-36)         admemplead0_.direccion as direccio3_5_0_,
+2019-08-20 15:43:51,438 INFO  [stdout] (default task-36)         admemplead0_.fecha_nacimiento as fecha_na4_5_0_,
+2019-08-20 15:43:51,438 INFO  [stdout] (default task-36)         admemplead0_.identificacion as identifi5_5_0_,
+2019-08-20 15:43:51,438 INFO  [stdout] (default task-36)         admemplead0_.nombre_contacto as nombre_c6_5_0_,
+2019-08-20 15:43:51,438 INFO  [stdout] (default task-36)         admemplead0_.nombres as nombres7_5_0_,
+2019-08-20 15:43:51,438 INFO  [stdout] (default task-36)         admemplead0_.telefono_celular as telefono8_5_0_,
+2019-08-20 15:43:51,438 INFO  [stdout] (default task-36)         admemplead0_.telefono_contacto as telefono9_5_0_,
+2019-08-20 15:43:51,438 INFO  [stdout] (default task-36)         admemplead0_.telefono_fijo as telefon10_5_0_,
+2019-08-20 15:43:51,438 INFO  [stdout] (default task-36)         admemplead0_.url_imagen as url_ima11_5_0_ 
+2019-08-20 15:43:51,438 INFO  [stdout] (default task-36)     from
+2019-08-20 15:43:51,438 INFO  [stdout] (default task-36)         bivi.adm_empleado admemplead0_ 
+2019-08-20 15:43:51,438 INFO  [stdout] (default task-36)     where
+2019-08-20 15:43:51,438 INFO  [stdout] (default task-36)         admemplead0_.id_empleado=?
+2019-08-20 15:43:51,445 INFO  [stdout] (default task-36) Hibernate: 
+2019-08-20 15:43:51,445 INFO  [stdout] (default task-36)     select
+2019-08-20 15:43:51,445 INFO  [stdout] (default task-36)         admagencia0_.id_agencia as id_agenc1_0_0_,
+2019-08-20 15:43:51,445 INFO  [stdout] (default task-36)         admagencia0_.celular_administrador as celular_2_0_0_,
+2019-08-20 15:43:51,445 INFO  [stdout] (default task-36)         admagencia0_.direccion as direccio3_0_0_,
+2019-08-20 15:43:51,445 INFO  [stdout] (default task-36)         admagencia0_.id_ciudad as id_ciuda4_0_0_,
+2019-08-20 15:43:51,445 INFO  [stdout] (default task-36)         admagencia0_.id_cliente as id_clien7_0_0_,
+2019-08-20 15:43:51,445 INFO  [stdout] (default task-36)         admagencia0_.nombre as nombre5_0_0_,
+2019-08-20 15:43:51,445 INFO  [stdout] (default task-36)         admagencia0_.nombre_administrador as nombre_a6_0_0_,
+2019-08-20 15:43:51,445 INFO  [stdout] (default task-36)         admcliente1_.id_cliente as id_clien1_2_1_,
+2019-08-20 15:43:51,445 INFO  [stdout] (default task-36)         admcliente1_.administrador as administ2_2_1_,
+2019-08-20 15:43:51,759 INFO  [stdout] (default task-36)         admcliente1_.direccion as direccio3_2_1_,
+2019-08-20 15:43:51,759 INFO  [stdout] (default task-36)         admcliente1_.id_ciudad as id_ciuda4_2_1_,
+2019-08-20 15:43:51,759 INFO  [stdout] (default task-36)         admcliente1_.id_cliente_padre as id_clien5_2_1_,
+2019-08-20 15:43:51,759 INFO  [stdout] (default task-36)         admcliente1_.identificacion as identifi6_2_1_,
+2019-08-20 15:43:51,759 INFO  [stdout] (default task-36)         admcliente1_.nombre_comercial as nombre_c7_2_1_,
+2019-08-20 15:43:51,759 INFO  [stdout] (default task-36)         admcliente1_.razon_social as razon_so8_2_1_,
+2019-08-20 15:43:51,759 INFO  [stdout] (default task-36)         admcliente1_.telefono_administrador as telefono9_2_1_ 
+2019-08-20 15:43:51,759 INFO  [stdout] (default task-36)     from
+2019-08-20 15:43:51,759 INFO  [stdout] (default task-36)         bivi.adm_agencia admagencia0_ 
+2019-08-20 15:43:51,759 INFO  [stdout] (default task-36)     left outer join
+2019-08-20 15:43:51,759 INFO  [stdout] (default task-36)         bivi.adm_cliente admcliente1_ 
+2019-08-20 15:43:51,760 INFO  [stdout] (default task-36)             on admagencia0_.id_cliente=admcliente1_.id_cliente 
+2019-08-20 15:43:51,760 INFO  [stdout] (default task-36)     where
+2019-08-20 15:43:51,760 INFO  [stdout] (default task-36)         admagencia0_.id_agencia=?
+2019-08-20 15:43:51,763 INFO  [stdout] (default task-36) Hibernate: 
+2019-08-20 15:43:51,763 INFO  [stdout] (default task-36)     select
+2019-08-20 15:43:51,763 INFO  [stdout] (default task-36)         admemplead0_.id_empleado as id_emple1_5_0_,
+2019-08-20 15:43:51,763 INFO  [stdout] (default task-36)         admemplead0_.apellidos as apellido2_5_0_,
+2019-08-20 15:43:51,862 INFO  [stdout] (default task-36)         admemplead0_.direccion as direccio3_5_0_,
+2019-08-20 15:43:51,862 INFO  [stdout] (default task-36)         admemplead0_.fecha_nacimiento as fecha_na4_5_0_,
+2019-08-20 15:43:51,862 INFO  [stdout] (default task-36)         admemplead0_.identificacion as identifi5_5_0_,
+2019-08-20 15:43:51,862 INFO  [stdout] (default task-36)         admemplead0_.nombre_contacto as nombre_c6_5_0_,
+2019-08-20 15:43:51,862 INFO  [stdout] (default task-36)         admemplead0_.nombres as nombres7_5_0_,
+2019-08-20 15:43:51,862 INFO  [stdout] (default task-36)         admemplead0_.telefono_celular as telefono8_5_0_,
+2019-08-20 15:43:51,862 INFO  [stdout] (default task-36)         admemplead0_.telefono_contacto as telefono9_5_0_,
+2019-08-20 15:43:51,862 INFO  [stdout] (default task-36)         admemplead0_.telefono_fijo as telefon10_5_0_,
+2019-08-20 15:43:51,862 INFO  [stdout] (default task-36)         admemplead0_.url_imagen as url_ima11_5_0_ 
+2019-08-20 15:43:51,862 INFO  [stdout] (default task-36)     from
+2019-08-20 15:43:51,862 INFO  [stdout] (default task-36)         bivi.adm_empleado admemplead0_ 
+2019-08-20 15:43:51,862 INFO  [stdout] (default task-36)     where
+2019-08-20 15:43:51,862 INFO  [stdout] (default task-36)         admemplead0_.id_empleado=?
+2019-08-20 15:43:51,865 INFO  [stdout] (default task-36) Hibernate: 
+2019-08-20 15:43:51,866 INFO  [stdout] (default task-36)     select
+2019-08-20 15:43:51,866 INFO  [stdout] (default task-36)         admemplead0_.id_empleado as id_emple1_5_0_,
+2019-08-20 15:43:51,866 INFO  [stdout] (default task-36)         admemplead0_.apellidos as apellido2_5_0_,
+2019-08-20 15:43:51,866 INFO  [stdout] (default task-36)         admemplead0_.direccion as direccio3_5_0_,
+2019-08-20 15:43:51,866 INFO  [stdout] (default task-36)         admemplead0_.fecha_nacimiento as fecha_na4_5_0_,
+2019-08-20 15:43:51,866 INFO  [stdout] (default task-36)         admemplead0_.identificacion as identifi5_5_0_,
+2019-08-20 15:43:51,866 INFO  [stdout] (default task-36)         admemplead0_.nombre_contacto as nombre_c6_5_0_,
+2019-08-20 15:43:51,866 INFO  [stdout] (default task-36)         admemplead0_.nombres as nombres7_5_0_,
+2019-08-20 15:43:51,866 INFO  [stdout] (default task-36)         admemplead0_.telefono_celular as telefono8_5_0_,
+2019-08-20 15:43:51,866 INFO  [stdout] (default task-36)         admemplead0_.telefono_contacto as telefono9_5_0_,
+2019-08-20 15:43:51,866 INFO  [stdout] (default task-36)         admemplead0_.telefono_fijo as telefon10_5_0_,
+2019-08-20 15:43:51,866 INFO  [stdout] (default task-36)         admemplead0_.url_imagen as url_ima11_5_0_ 
+2019-08-20 15:43:51,866 INFO  [stdout] (default task-36)     from
+2019-08-20 15:43:51,866 INFO  [stdout] (default task-36)         bivi.adm_empleado admemplead0_ 
+2019-08-20 15:43:51,866 INFO  [stdout] (default task-36)     where
+2019-08-20 15:43:51,866 INFO  [stdout] (default task-36)         admemplead0_.id_empleado=?
+2019-08-20 15:43:51,869 INFO  [stdout] (default task-36) Hibernate: 
+2019-08-20 15:43:51,870 INFO  [stdout] (default task-36)     select
+2019-08-20 15:43:51,870 INFO  [stdout] (default task-36)         admagencia0_.id_agencia as id_agenc1_0_0_,
+2019-08-20 15:43:51,870 INFO  [stdout] (default task-36)         admagencia0_.celular_administrador as celular_2_0_0_,
+2019-08-20 15:43:51,870 INFO  [stdout] (default task-36)         admagencia0_.direccion as direccio3_0_0_,
+2019-08-20 15:43:51,870 INFO  [stdout] (default task-36)         admagencia0_.id_ciudad as id_ciuda4_0_0_,
+2019-08-20 15:43:51,870 INFO  [stdout] (default task-36)         admagencia0_.id_cliente as id_clien7_0_0_,
+2019-08-20 15:43:51,870 INFO  [stdout] (default task-36)         admagencia0_.nombre as nombre5_0_0_,
+2019-08-20 15:43:51,870 INFO  [stdout] (default task-36)         admagencia0_.nombre_administrador as nombre_a6_0_0_,
+2019-08-20 15:43:51,870 INFO  [stdout] (default task-36)         admcliente1_.id_cliente as id_clien1_2_1_,
+2019-08-20 15:43:51,870 INFO  [stdout] (default task-36)         admcliente1_.administrador as administ2_2_1_,
+2019-08-20 15:43:51,870 INFO  [stdout] (default task-36)         admcliente1_.direccion as direccio3_2_1_,
+2019-08-20 15:43:51,870 INFO  [stdout] (default task-36)         admcliente1_.id_ciudad as id_ciuda4_2_1_,
+2019-08-20 15:43:51,870 INFO  [stdout] (default task-36)         admcliente1_.id_cliente_padre as id_clien5_2_1_,
+2019-08-20 15:43:51,870 INFO  [stdout] (default task-36)         admcliente1_.identificacion as identifi6_2_1_,
+2019-08-20 15:43:51,870 INFO  [stdout] (default task-36)         admcliente1_.nombre_comercial as nombre_c7_2_1_,
+2019-08-20 15:43:51,944 INFO  [stdout] (default task-36)         admcliente1_.razon_social as razon_so8_2_1_,
+2019-08-20 15:43:51,966 INFO  [stdout] (default task-36)         admcliente1_.telefono_administrador as telefono9_2_1_ 
+2019-08-20 15:43:51,966 INFO  [stdout] (default task-36)     from
+2019-08-20 15:43:51,966 INFO  [stdout] (default task-36)         bivi.adm_agencia admagencia0_ 
+2019-08-20 15:43:51,967 INFO  [stdout] (default task-36)     left outer join
+2019-08-20 15:43:51,967 INFO  [stdout] (default task-36)         bivi.adm_cliente admcliente1_ 
+2019-08-20 15:43:51,967 INFO  [stdout] (default task-36)             on admagencia0_.id_cliente=admcliente1_.id_cliente 
+2019-08-20 15:43:51,967 INFO  [stdout] (default task-36)     where
+2019-08-20 15:43:51,967 INFO  [stdout] (default task-36)         admagencia0_.id_agencia=?
+2019-08-20 15:43:52,034 INFO  [stdout] (default task-36) Hibernate: 
+2019-08-20 15:43:52,034 INFO  [stdout] (default task-36)     select
+2019-08-20 15:43:52,034 INFO  [stdout] (default task-36)         admemplead0_.id_empleado as id_emple1_5_0_,
+2019-08-20 15:43:52,034 INFO  [stdout] (default task-36)         admemplead0_.apellidos as apellido2_5_0_,
+2019-08-20 15:43:52,034 INFO  [stdout] (default task-36)         admemplead0_.direccion as direccio3_5_0_,
+2019-08-20 15:43:52,034 INFO  [stdout] (default task-36)         admemplead0_.fecha_nacimiento as fecha_na4_5_0_,
+2019-08-20 15:43:52,034 INFO  [stdout] (default task-36)         admemplead0_.identificacion as identifi5_5_0_,
+2019-08-20 15:43:52,035 INFO  [stdout] (default task-36)         admemplead0_.nombre_contacto as nombre_c6_5_0_,
+2019-08-20 15:43:52,035 INFO  [stdout] (default task-36)         admemplead0_.nombres as nombres7_5_0_,
+2019-08-20 15:43:52,035 INFO  [stdout] (default task-36)         admemplead0_.telefono_celular as telefono8_5_0_,
+2019-08-20 15:43:52,035 INFO  [stdout] (default task-36)         admemplead0_.telefono_contacto as telefono9_5_0_,
+2019-08-20 15:43:52,035 INFO  [stdout] (default task-36)         admemplead0_.telefono_fijo as telefon10_5_0_,
+2019-08-20 15:43:52,035 INFO  [stdout] (default task-36)         admemplead0_.url_imagen as url_ima11_5_0_ 
+2019-08-20 15:43:52,035 INFO  [stdout] (default task-36)     from
+2019-08-20 15:43:52,035 INFO  [stdout] (default task-36)         bivi.adm_empleado admemplead0_ 
+2019-08-20 15:43:52,035 INFO  [stdout] (default task-36)     where
+2019-08-20 15:43:52,035 INFO  [stdout] (default task-36)         admemplead0_.id_empleado=?
+2019-08-20 15:43:52,140 INFO  [stdout] (default task-36) Hibernate: 
+2019-08-20 15:43:52,140 INFO  [stdout] (default task-36)     select
+2019-08-20 15:43:52,140 INFO  [stdout] (default task-36)         admagencia0_.id_agencia as id_agenc1_0_,
+2019-08-20 15:43:52,140 INFO  [stdout] (default task-36)         admagencia0_.celular_administrador as celular_2_0_,
+2019-08-20 15:43:52,141 INFO  [stdout] (default task-36)         admagencia0_.direccion as direccio3_0_,
+2019-08-20 15:43:52,141 INFO  [stdout] (default task-36)         admagencia0_.id_ciudad as id_ciuda4_0_,
+2019-08-20 15:43:52,141 INFO  [stdout] (default task-36)         admagencia0_.id_cliente as id_clien7_0_,
+2019-08-20 15:43:52,141 INFO  [stdout] (default task-36)         admagencia0_.nombre as nombre5_0_,
+2019-08-20 15:43:52,141 INFO  [stdout] (default task-36)         admagencia0_.nombre_administrador as nombre_a6_0_ 
+2019-08-20 15:43:52,141 INFO  [stdout] (default task-36)     from
+2019-08-20 15:43:52,141 INFO  [stdout] (default task-36)         bivi.adm_agencia admagencia0_
+2019-08-20 15:43:52,144 INFO  [stdout] (default task-36) Hibernate: 
+2019-08-20 15:43:52,144 INFO  [stdout] (default task-36)     select
+2019-08-20 15:43:52,144 INFO  [stdout] (default task-36)         admcliente0_.id_cliente as id_clien1_2_0_,
+2019-08-20 15:43:52,144 INFO  [stdout] (default task-36)         admcliente0_.administrador as administ2_2_0_,
+2019-08-20 15:43:52,144 INFO  [stdout] (default task-36)         admcliente0_.direccion as direccio3_2_0_,
+2019-08-20 15:43:52,144 INFO  [stdout] (default task-36)         admcliente0_.id_ciudad as id_ciuda4_2_0_,
+2019-08-20 15:43:52,144 INFO  [stdout] (default task-36)         admcliente0_.id_cliente_padre as id_clien5_2_0_,
+2019-08-20 15:43:52,144 INFO  [stdout] (default task-36)         admcliente0_.identificacion as identifi6_2_0_,
+2019-08-20 15:43:52,144 INFO  [stdout] (default task-36)         admcliente0_.nombre_comercial as nombre_c7_2_0_,
+2019-08-20 15:43:52,144 INFO  [stdout] (default task-36)         admcliente0_.razon_social as razon_so8_2_0_,
+2019-08-20 15:43:52,144 INFO  [stdout] (default task-36)         admcliente0_.telefono_administrador as telefono9_2_0_ 
+2019-08-20 15:43:52,144 INFO  [stdout] (default task-36)     from
+2019-08-20 15:43:52,144 INFO  [stdout] (default task-36)         bivi.adm_cliente admcliente0_ 
+2019-08-20 15:43:52,144 INFO  [stdout] (default task-36)     where
+2019-08-20 15:43:52,144 INFO  [stdout] (default task-36)         admcliente0_.id_cliente=?

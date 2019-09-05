@@ -1,0 +1,95 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"> 
+
+<h:head>
+	<title><ui:insert name="tituloPagina">CURSO JAVA</ui:insert>
+	</title>
+	<link rel="stylesheet" type="text/css" href="#{request.contextPath}/css/base.css" />
+	<h:outputScript name="basicas.js" library="js"></h:outputScript>
+	<h:outputScript name="spanishLocale.js" library="js"/>
+    <f:facet name="first">
+        <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE9,chrome=1" />
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    </f:facet>
+</h:head> 
+<h:body> 
+	<p:layout fullPage="true">
+		<p:layoutUnit position="north" size="95" 
+			resizable="false" closable="false" collapsible="false">
+			<table style="border: 0px solid #CAD6E0" align="left"
+				cellpadding="0" cellspacing="0" border="0" width="500">
+				<tr>
+					<td height="50" align="left" valign="middle" width="98%"><p:graphicImage
+							value="/images/logotipo.gif" />
+					</td>
+				</tr>
+			</table>
+			<table style="border: 0px solid #CAD6E0" align="center"
+				cellpadding="0" cellspacing="0" border="0" width="500">
+				<tr>
+					<td height="5" align="center" width="2%">
+						<h1>PERSISTENCIA</h1>
+					</td>
+				</tr>      
+			</table>
+			<h:form id="frmMenu">
+				<p:menubar model="#{menuBean.model}" />
+			</h:form>
+		</p:layoutUnit>
+		
+		<p:layoutUnit position="west" size="400"
+			resizable="true" closable="false" collapsible="false">
+			<h:form id="frmMenu2">
+				<p:menu model="#{menuBean.model}" toggleable="false" />
+			</h:form>
+			
+		</p:layoutUnit>
+		
+		<p:layoutUnit position="center">
+			<table width="100%" style="height: 150px" align="left" cellpadding="0"
+					cellspacing="0" border="0">
+					<tr>
+						<td align="center" width="100%" valign="middle" class="formulario"
+							style=" font-family: Verdana, Arial, Helvetica, sans-serif;
+					  		font-size: 14px;"
+						>
+						<p:panelGrid id="pnlZero" columns="1">
+							<f:facet name="header">
+								<p:row>
+									<p:column><ui:insert name="panel">TITULO</ui:insert></p:column>
+								</p:row>
+						    </f:facet>
+						</p:panelGrid>
+							<h:form id="frm" target="_blank">
+								<p:growl id="growl" showDetail="false" sticky="true" life="3000" />
+								<ui:insert name="contenido">
+									Aqui va el contenido
+								</ui:insert>
+								<p:ajaxStatus onstart="PF('statusDialog').show()" oncomplete="PF('statusDialog').hide()" />
+						        <p:dialog modal="true" 
+						        		  widgetVar="statusDialog" 
+						        		  header="Procesando"   
+						                  draggable="false" 
+						                  closable="false"
+						                  >
+						            <p:graphicImage value="/images/ajaxloadingbar.gif" />  
+						        </p:dialog> 
+							</h:form>
+						<!--  </p:panel>-->
+						</td>
+					</tr>
+			</table>
+		</p:layoutUnit>
+		<h:form id="frmDlg">
+			<p:confirmDialog global="true" showEffect="fade" hideEffect="explode">
+		        <p:commandButton value="Yes" type="button" styleClass="ui-confirmdialog-yes" icon="ui-icon-check" />
+		        <p:commandButton value="No" type="button" styleClass="ui-confirmdialog-no" icon="ui-icon-close" />
+		    </p:confirmDialog>
+		</h:form>
+	</p:layout>
+</h:body> 
+</html>

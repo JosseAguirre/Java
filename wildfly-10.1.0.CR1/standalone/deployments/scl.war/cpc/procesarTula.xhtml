@@ -1,0 +1,900 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+<body>
+	<ui:composition template="/templates/admin.xhtml">
+		<ui:define name="content">
+			<h:form id="frmProcesarTula">
+
+				<p:growl id="growl" showDetail="true" life="3000"
+					rendered="#{not facesContext.validationFailed}" />
+
+
+
+				
+
+					<p:panel header="Recibos de Remesa Asignados"  
+						style="background-color: #F2C786;  ">
+						
+						<p:panelGrid columns="2" styleClass="ui-panelgrid-blank" >
+						
+						<p:panelGrid id="pnlRemesas" columns="1" styleClass="ui-panelgrid-blank">
+								<p:commandButton 
+									value="Buscar Remesa" id="btnBuscar" styleClass="my-button-azul"
+									oncomplete="PF('dlgRemesasAsignadas').show();" update="dlgRemesasAsignadas"
+									icon="fa fa-search">
+								</p:commandButton>
+								
+								
+								
+								
+								
+								
+								
+							</p:panelGrid>
+							
+							<p:panelGrid id="pnlDetalleRemesas" columns="4" styleClass="ui-panelgrid-blank">
+							
+							<p:outputLabel value="Remesa"  />
+								<p:outputLabel id="remesa" style="font-weight: bold; font-size: 15px;"
+									value="#{procesoTulasBean.trSeleccionada.idTransaccion.numeroRecibo}"
+									 disabled="true">
+								</p:outputLabel>
+								
+							<p:outputLabel value="Efectivo :"  />
+								<p:outputLabel style="font-weight: bold; font-size: 15px;"
+									value="#{procesoTulasBean.trSeleccionada.idTransaccion.totalEfectivo}"
+									 disabled="true">
+									 <f:convertNumber type="currency" currencySymbol="" maxFractionDigits="2"/> 
+								</p:outputLabel>
+								
+								<p:outputLabel value="Cheque :"  />
+								<p:outputLabel style="font-weight: bold; font-size: 15px;" 
+									value="#{procesoTulasBean.trSeleccionada.idTransaccion.totalCheque}"
+									 disabled="true">
+									 <f:convertNumber type="currency" currencySymbol="" maxFractionDigits="2"/> 
+								</p:outputLabel>
+								
+								<p:outputLabel value="Total Transaccion :"  />
+								<p:outputLabel  style="font-weight: bold; font-size: 15px;"
+									value="#{procesoTulasBean.trSeleccionada.idTransaccion.totalTransaccion}"
+									 disabled="true">
+									 <f:convertNumber type="currency" currencySymbol="" maxFractionDigits="2"/> 
+								</p:outputLabel>
+								
+								<p:outputLabel value="Paquetes :"  />
+								<p:outputLabel  style="font-weight: bold; font-size: 15px;"
+									value="#{procesoTulasBean.trSeleccionada.idTransaccion.totalPaquetes}"
+									 disabled="true">
+								</p:outputLabel>
+							
+							
+							</p:panelGrid>
+						</p:panelGrid>
+						
+
+						
+
+
+					</p:panel>
+
+
+
+					<br/>
+
+						<p:panel header="Papeletas">
+						
+						<p:commandButton 
+									value="Nueva"  styleClass="my-button-verde" 
+									actionListener="#{procesoTulasBean.nuevaPapeleta}"
+									 update="growl dlgPapeletas"
+									icon="fa fa-plus">
+								</p:commandButton>
+								
+								
+						
+						
+						<p:commandButton
+								actionListener="#{procesoTulasBean.eliminarPapeleta}"
+								value="Eliminar" styleClass="my-button-rojo" update="growl tblPapeleta"
+								icon="fa fa-trash"  />
+								
+								<p:commandButton 
+									value="Agregar Denominacion"  styleClass="my-button-verde"
+									oncomplete="PF('dlgDenominacion').show();" update="dlgDenominacion"
+									icon="fa fa-plus">
+								</p:commandButton>
+								
+								
+								
+								<br/>
+								<br/>
+						
+								
+								
+							
+							
+				<h:panelGrid id="pnlGrPapeletas">
+							<p:dataTable id="tblPapeleta"
+								value="#{procesoTulasBean.listaPapeletas}" var="item"
+								
+								tableStyle=" white-space: nowrap" rendered="#{procesoTulasBean.verTblPapeleta}"
+								selection="#{procesoTulasBean.papeletaSeleccionada}"
+								emptyMessage="No existen registros con ese criterio"
+								styleClass="table" reflow="true" selectionMode="single"
+								widgetVar="tblPapeleta" rowKey="#{item.idPapeleta}">
+
+
+
+
+								<p:column headerText="Banco" filterStyle="display:none" >
+									<h:outputText value="#{item.id_banco.nombre}" />
+								</p:column>
+
+								<p:column headerText="Cuenta" 
+									>
+									<h:outputText value="#{item.numeroCuenta}" />
+								</p:column>
+
+								<p:column headerText="Numero Papeleta" >
+									<h:outputText value="#{item.numeroPapeleta}" />
+								</p:column>
+
+								<p:column headerText="Valor Papeleta" style="text-align: right; "
+									>
+									<h:outputText value="#{item.valorDepositado}" >
+									<f:convertNumber type="currency" currencySymbol="" maxFractionDigits="2"/> 
+									</h:outputText>
+								</p:column>
+
+							</p:dataTable>
+							
+							
+							</h:panelGrid>
+							
+						</p:panel>
+						
+						
+						<br/>
+					
+		<p:panelGrid id="pnlDuplex" columns="2"	layout="grid">
+								
+
+		<p:panel header="Novedades">
+						
+				<p:commandButton
+								
+								 value="Nueva " styleClass="my-button-verde" actionListener="#{procesoTulasBean.nuevaNovedad}"
+								icon="fa fa-save"   update="growl dlgNovedad" />
+								
+							<p:commandButton
+								actionListener="#{procesoTulasBean.eliminarNovedad}"
+								value="Eliminar" styleClass="my-button-rojo" 
+								icon="fa fa-trash" update="growl tblNovedad tblPapeleta" />
+								
+								<br/>
+								<br/>
+							
+					<h:panelGrid id="pnlGrNovedad">
+							<p:dataTable id="tblNovedad"
+								value="#{procesoTulasBean.listaNovedades}" var="item"
+								
+								tableStyle=" white-space: nowrap" rendered="#{procesoTulasBean.verTblNovedad}"
+								selection="#{procesoTulasBean.novedadSeleccionada}"
+								emptyMessage="No existen registros con ese criterio"
+								styleClass="table" reflow="true" selectionMode="single"
+								widgetVar="tblNovedad" rowKey="#{item.idNovedad}">
+
+
+
+
+								
+
+								<p:column headerText="Sello" >
+									<h:outputText value="#{item.idDetalleDistribucion.idDetalleTransaccion.sello}" />
+								</p:column>
+								
+								<p:column headerText="Tipo" >
+									<h:outputText value="#{item.idTipoNovedad.nombre}" />
+								</p:column>
+
+								<p:column headerText="Valor" >
+									<h:outputText value="#{item.valor}" style="text-align: right; "/>
+								</p:column>
+
+								<p:column headerText="Papeleta" >
+									<h:outputText value="#{item.idPapeleta.numeroPapeleta}" />
+								</p:column>
+
+
+							</p:dataTable>
+							
+						</h:panelGrid>		
+								
+
+
+
+						</p:panel>
+						
+						<p:panel header="Resumen">
+						<p:panelGrid columns="2" styleClass="ui-panelgrid-blank">
+						
+							<p:outputLabel  value="Total Papeletas: "   />
+									<p:outputLabel id ="totalPapeletaCuadre" value="#{procesoTulasBean.sumaPapeleta}"
+											style="float: right !important">
+											<f:convertNumber minFractionDigits="2" ></f:convertNumber>
+											</p:outputLabel>
+											
+											
+							<p:outputLabel  value="Total Conteo: "   />
+									<p:outputLabel id ="totalConteo" value="#{procesoTulasBean.totalConteo}"
+											style="float: right !important">
+											<f:convertNumber minFractionDigits="2" ></f:convertNumber>
+											</p:outputLabel>
+							
+							
+							<p:outputLabel  value="Total Novedades: "   />
+									<p:outputLabel id ="totalNovedad" value="#{procesoTulasBean.sumaNovedad}"
+											style="float: right !important">
+											<f:convertNumber minFractionDigits="2" ></f:convertNumber>
+											</p:outputLabel>
+											
+											<p:outputLabel  value="Diferencia: "   />
+									<p:outputLabel id ="diferencia" value="#{procesoTulasBean.diferencia}"
+											style="float: right !important">
+											<f:convertNumber minFractionDigits="2" ></f:convertNumber>
+											</p:outputLabel>
+
+							<p:commandButton
+								actionListener="#{procesoTulasBean.cuadrarCaja}"
+								update = "growl 
+								 totalPapeletaCuadre 
+								  totalConteo 
+								  totalNovedad
+								   diferencia 
+								   tblNovedad 
+								   pnlRemesas
+								   tblPapeleta " value="Cuadrar Caja" styleClass="my-button"
+								icon="fa fa-save"  />
+
+						</p:panelGrid>
+
+
+
+					</p:panel>
+	
+					</p:panelGrid>	
+
+					
+
+				
+
+
+
+
+
+			</h:form>
+			
+<p:dialog id="dlgValidacionNovedad" widgetVar="dlgValidacionNovedad"
+			 responsive="true" modal="true"
+			width="30%"  closable="false"
+			closeOnEscape="true"
+			  appendTo="@(body)">	
+			   
+			  			
+			<!-- general form elements -->
+			<h:form id="frmValidacionNovedad">
+			
+			<p:messages id="mensaje" autoUpdate="false"/>
+			<p:focus context="@form"/>
+	
+				
+				
+				
+					<p:panelGrid columns="2"  styleClass="ui-panelgrid-blank">
+							<p:outputLabel value="Supervisor"  />
+							<p:selectOneMenu  value="#{procesoTulasBean.idEmpleado}">
+
+								<f:selectItem itemLabel="Seleccionar" itemValue="#{null}" />
+								<f:selectItems value="#{procesoTulasBean.usuariosValidadores}" var="item"
+									itemLabel="#{item.nombres}"
+									itemValue="#{item.idEmpleado}">
+								</f:selectItems>
+							</p:selectOneMenu>
+
+							<p:outputLabel value="Identificacion" />
+							<p:inputText value="#{procesoTulasBean.identificacion}" />
+
+							
+
+						</p:panelGrid>
+						
+						
+					
+					<br />
+				
+					<p:commandButton value="Guardar" styleClass="my-button-verde"
+						actionListener="#{procesoTulasBean.guardaNovedad()}"
+						 icon="fa fa-save" 
+						 update=":frmProcesarTula:tblNovedad  
+						 :frmProcesarTula:diferencia 
+						  :frmProcesarTula:totalNovedad
+						  :frmProcesarTula:pnlGrNovedad"
+						onclick="PF('dlgValidacionNovedad').hide(); PF('dlgNovedad').hide();" />
+
+					<p:commandButton value="Cancelar" onclick="PF('dlgValidacionNovedad').hide()" 
+					styleClass="my-button-azul"
+						icon="fa fa-close" />
+						 
+						 
+						
+			
+			</h:form>
+		</p:dialog>	
+		
+		
+		
+<p:dialog id="dlgRemesasAsignadas" 
+		widgetVar="dlgRemesasAsignadas"	 
+		responsive="true"
+		modal="true"
+		width =  "60%"
+		 
+		closable="false"
+		closeOnEscape="true"
+		appendTo="@(body)">	
+
+			<h:form id="frmRemesasAsignadas">
+			
+			<p:messages id="mensaje" autoUpdate="false"/>
+			<p:focus context="@form"/>
+			
+			
+
+						
+							
+					<p:dataTable id="tblTrAsignada"
+							value="#{procesoTulasBean.listTrAsignadas}" 
+							var="item" 
+							scrollRows="5"
+							scrollable="true" 
+							scrollHeight="100"
+							selection="#{procesoTulasBean.trSeleccionada}"
+							emptyMessage="No existen registros con ese criterio"
+							styleClass="table" reflow="true" 
+							selectionMode="single"
+							filteredValue="#{procesoTulasBean.transaccionFiltrada}"
+							tableStyle=" white-space: nowrap"
+							
+							widgetVar="tblTrAsignada"
+							rowKey="#{item.idDistribucionCaja}">
+
+							<f:facet name="header">
+								<div class="row row-nomargin">
+									<div class="col-lg-3">
+										<p:inputText id="globalFilter"
+											onkeyup="PF('tblTrAsignada').filter()" class="pull-left"
+											style="width: 100%" placeholder="Buscar...." />
+									</div>
+									<div class="col-lg-6">
+										<p:outputLabel value="Asignaciones" />
+									</div>
+
+								</div>
+							</f:facet>
+
+							<p:column headerText="Numero" style="width:80px" filterBy="#{item.idTransaccion.numeroRecibo}"
+								filterStyle="display:none"
+								 >
+								<h:outputText value="#{item.idTransaccion.numeroRecibo}" />
+							</p:column>
+
+							<p:column headerText="Agencia" 
+								>
+								<h:outputText value="#{item.idTransaccion.idAgenciaOrigen.nombre}" />
+							</p:column>
+							
+							<p:column headerText="Total Efectivo"  style="text-align: right; width:100px"
+								>
+								<h:outputText value="#{item.idTransaccion.totalEfectivo}" style="float: right !important">
+								<f:convertNumber type="currency" currencySymbol="" maxFractionDigits="2"/> 
+								</h:outputText>
+							</p:column>
+
+						</p:dataTable>
+						
+					
+					<br />
+				
+					<p:commandButton
+							actionListener="#{procesoTulasBean.procesar}"
+							 value="Procesar" styleClass="my-button-verde" 
+							 update=":frmProcesarTula:tblNovedad 
+							  
+							 :frmProcesarTula:totalConteo 
+							 :frmProcesarTula:diferencia 
+							 :frmProcesarTula:totalPapeletaCuadre 
+							 :frmProcesarTula:totalNovedad  
+							 :frmProcesarTula:tblPapeleta 
+							 :frmProcesarTula:tblNovedad
+							 :frmProcesarTula:pnlGrNovedad
+							:frmProcesarTula:pnlGrPapeletas 
+							:frmProcesarTula:pnlDetalleRemesas 
+							 :frmProcesarTula:pnlRemesas"
+							 
+							icon="fa fa-check" onclick="PF('dlgRemesasAsignadas').hide()" />
+
+					<p:commandButton value="Cancelar" onclick="PF('dlgRemesasAsignadas').hide()" styleClass="my-button-azul"
+						icon="fa fa-close" />
+						 		
+			
+			</h:form>
+		</p:dialog>	
+		
+		
+		
+<p:dialog id="dlgPapeletas" 
+		widgetVar="dlgPapeletas"	 
+		responsive="true"
+		modal="true"	  
+closable="false"
+		appendTo="@(body)">	
+
+			<h:form id="frmPapeletas">
+			
+			<p:messages id="mensaje" autoUpdate="false"/>
+			<p:focus context="@form"/>
+			
+			<p:panelGrid id="pnlPapeletas" columns="2" styleClass="ui-panelgrid-blank"
+								layout="grid">
+
+								<p:panelGrid columns="2" styleClass="ui-panelgrid-blank">
+								
+							<p:outputLabel value="Sello" for="sello" />
+							<p:selectOneMenu id="sello" value="#{procesoTulasBean.idDetalleTransaccion}">
+
+								<f:selectItem itemLabel="Seleccionar" itemValue="#{null}" />
+								<f:selectItems value="#{procesoTulasBean.listaSellos}" var="item"
+									itemLabel="#{item.sello}"
+									itemValue="#{item.idDetalleTransaccion}">
+								</f:selectItems>
+							</p:selectOneMenu>
+									
+									<p:outputLabel value="Cuenta" />
+									<p:inputText value="#{procesoTulasBean.papeleta.numeroCuenta}" />
+									
+									
+									<p:outputLabel value="Banco" for="banco" />
+							<p:selectOneMenu id="banco"  value="#{procesoTulasBean.idBanco}">
+
+								<f:selectItem itemLabel="Seleccionar" itemValue="#{null}" />
+								<f:selectItems value="#{procesoTulasBean.listaBancos}" var="item"
+									itemLabel="#{item.nombre}"
+									itemValue="#{item.idBanco}">
+								</f:selectItems>
+							</p:selectOneMenu>
+							
+							<p:outputLabel value="Valor" />
+									<p:inputText value="#{procesoTulasBean.papeleta.valorDepositado}" />
+									<p:outputLabel value="Nº Papeleta" />
+									<p:inputText value="#{procesoTulasBean.papeleta.numeroPapeleta}" />
+							
+									
+								</p:panelGrid>
+								
+								
+									
+								
+
+
+							</p:panelGrid>
+							
+							<p:commandButton
+								actionListener="#{procesoTulasBean.guardarPapeleta}" 
+								 value="Guardar" styleClass="my-button-verde"
+								 onclick="PF('dlgPapeletas').hide()"
+								icon="fa fa-save" 
+								update=":frmProcesarTula:pnlGrPapeletas  
+								
+								:frmProcesarTula:totalPapeletaCuadre 
+								:frmProcesarTula:diferencia " />
+							
+							
+							<p:commandButton
+								actionListener="#{procesoTulasBean.cancelar}"
+								value="Cancelar" styleClass="my-button-azul" onclick="PF('dlgPapeletas').hide()"
+								icon="fa fa-save" />
+
+
+			</h:form>
+		</p:dialog>	
+
+
+<p:dialog id="dlgDenominacion" 
+		widgetVar="dlgDenominacion"	 
+		responsive="true"
+		modal="true"	  
+closable="false"
+		appendTo="@(body)">	
+
+			<h:form id="frmDenominacion">
+			
+			<p:messages id="mensaje" autoUpdate="false"/>
+			<p:focus context="@form"/>
+			
+			<p:panelGrid columns="2"  styleClass="ui-panelgrid-blank">
+			
+			<p:outputLabel value="Sello" for="sello" />
+							<p:selectOneMenu id="sello" value="#{procesoTulasBean.idDetalleTransaccion}">
+
+								<f:selectItem itemLabel="Seleccionar" itemValue="#{null}" />
+								<f:selectItems value="#{procesoTulasBean.listaSellos}" var="item"
+									itemLabel="#{item.sello}"
+									itemValue="#{item.idDetalleTransaccion}">
+								</f:selectItems>
+							</p:selectOneMenu>
+					</p:panelGrid>
+			
+			<p:panelGrid columns="2" styleClass="ui-panelgrid-blank">
+			
+			
+
+								<p:panel header="Billetes" style="width: 220px">
+								
+								
+
+									<h:panelGrid id="pnlBilletes" columns="2"
+										styleClass="ui-panelgrid-blank" layout="grid">
+										<p:panelGrid columns="3" styleClass="ui-panelgrid-blank">
+											<p:outputLabel value="100" />
+											<p:inputText value="#{procesoTulasBean.b100}"
+												style="width:60px;  text-align:right">
+												<p:ajax listener="#{procesoTulasBean.subTotalBillete}"
+													update="b100 pnlTotalBilletes totalDenominacion" />
+
+											</p:inputText>
+											
+											<p:outputLabel id="b100"  
+												value="#{procesoTulasBean.subb100}"
+												style="width:70px; text-align:right ;  background-color:#FBF262;font-weight: bold; font-size: 15px;"
+												readonly="true" >
+												<f:convertNumber type="currency" currencySymbol="" maxFractionDigits="2"/> 
+											</p:outputLabel>
+
+											<p:outputLabel value="50" />
+											<p:inputText value="#{procesoTulasBean.b50}"
+												style="width:60px;  text-align:right">
+												<p:ajax listener="#{procesoTulasBean.subTotalBillete}"
+													update="b50 pnlTotalBilletes totalDenominacion" />
+											</p:inputText>
+											
+											<p:outputLabel id="b50" value="#{procesoTulasBean.subb50}"
+												style="width:70px; text-align:right ; background-color:#FBF262;font-weight: bold; font-size: 15px;"
+												readonly="true" >
+												<f:convertNumber type="currency" currencySymbol="" maxFractionDigits="2"/> 
+											</p:outputLabel>
+
+											<p:outputLabel value="20" />
+											<p:inputText value="#{procesoTulasBean.b20}"
+												style="width:60px; text-align:right">
+												<p:ajax listener="#{procesoTulasBean.subTotalBillete}"
+													update="b20 pnlTotalBilletes totalDenominacion" />
+											</p:inputText>
+											<p:outputLabel id="b20" value="#{procesoTulasBean.subb20}"
+												style="width:70px; text-align:right ; background-color:#FBF262;font-weight: bold; font-size: 15px;"
+												readonly="true" >
+												<f:convertNumber type="currency" currencySymbol="" maxFractionDigits="2"/> 
+											</p:outputLabel>
+
+											<p:outputLabel value="10" />
+											<p:inputText value="#{procesoTulasBean.b10}"
+												style="width:60px; text-align:right">
+												<p:ajax listener="#{procesoTulasBean.subTotalBillete}"
+													update="b10 pnlTotalBilletes totalDenominacion" />
+											</p:inputText>
+											<p:outputLabel id="b10" value="#{procesoTulasBean.subb10}"
+												style="width:70px; text-align:right ; background-color:#FBF262;font-weight: bold; font-size: 15px;"
+												readonly="true" >
+												<f:convertNumber type="currency" currencySymbol="" maxFractionDigits="2"/> 
+											</p:outputLabel>
+
+											<p:outputLabel value="5" />
+											<p:inputText value="#{procesoTulasBean.b5}"
+												style="width:60px; text-align:right">
+												<p:ajax listener="#{procesoTulasBean.subTotalBillete}"
+													update="b5 pnlTotalBilletes totalDenominacion" />
+											</p:inputText>
+											<p:outputLabel id="b5" value="#{procesoTulasBean.subb5}"
+												style="width:70px; text-align:right ; background-color:#FBF262;font-weight: bold; font-size: 15px;"
+												readonly="true" >
+												<f:convertNumber type="currency" currencySymbol="" maxFractionDigits="2"/> 
+											</p:outputLabel>
+
+											<p:outputLabel value="1" />
+											<p:inputText value="#{procesoTulasBean.b1}"
+												style="width:60px; text-align:right">
+												<p:ajax listener="#{procesoTulasBean.subTotalBillete}"
+													update="b1 pnlTotalBilletes totalDenominacion" />
+											</p:inputText>
+											<p:outputLabel id="b1" value="#{procesoTulasBean.subb1}"
+												style="width:70px; text-align:right ; background-color:#FBF262;font-weight: bold; font-size: 15px;"
+												readonly="true" >
+												<f:convertNumber type="currency" currencySymbol="" maxFractionDigits="2"/> 
+											</p:outputLabel>
+										</p:panelGrid>
+
+										
+
+
+									</h:panelGrid>
+									<br />
+									<p:panelGrid id="pnlTotalBilletes" columns="2"
+										styleClass="ui-panelgrid-blank">
+										<p:outputLabel value="Total Billetes: " />
+										<p:inputText value="#{procesoTulasBean.totalBillete}"
+											style="width:60px; text-align:right ;border:none; background-color:#FBBCAD"
+											readonly="true" />
+									</p:panelGrid>
+
+
+								</p:panel>
+
+								<h:panelGrid columns="3" styleClass="ui-panelgrid-blank">
+									<p:panel header="Monedas" style="width: 220px">
+
+										<h:panelGrid id="pnlMonedas" columns="2"
+											styleClass="ui-panelgrid-blank" layout="grid">
+											<p:panelGrid columns="3" styleClass="ui-panelgrid-blank">
+
+												<p:outputLabel value="1" style=" text-align:right" />
+												<p:inputText value="#{procesoTulasBean.m1}"
+													style="width:60px; text-align:right">
+													<p:ajax listener="#{procesoTulasBean.subTotalMoneda}"
+														update="m1 pnlTotalMonedas totalDenominacion" />
+												</p:inputText>
+												<p:outputLabel id="m1" value="#{procesoTulasBean.subm1}"
+													style="width:70px; text-align:right ; background-color:#FBF262;font-weight: bold; font-size: 15px;"
+												readonly="true" >
+												<f:convertNumber type="currency" currencySymbol="" maxFractionDigits="2"/> 
+											</p:outputLabel>
+
+												<p:outputLabel value="0.50" style=" text-align:left" />
+												<p:inputText value="#{procesoTulasBean.m50}"
+													style="width:60px; text-align:right">
+													<p:ajax listener="#{procesoTulasBean.subTotalMoneda}"
+														update="m050 pnlTotalMonedas totalDenominacion" />
+												</p:inputText>
+												<p:outputLabel id="m050"
+													value="#{procesoTulasBean.subm50}"
+													style="width:70px; text-align:right ; background-color:#FBF262;font-weight: bold; font-size: 15px;"
+												readonly="true" >
+												<f:convertNumber type="currency" currencySymbol="" maxFractionDigits="2"/> 
+											</p:outputLabel>
+
+												<p:outputLabel value="0.25" style=" text-align:left" />
+												<p:inputText value="#{procesoTulasBean.m25}"
+													style="width:60px; text-align:right">
+													<p:ajax listener="#{procesoTulasBean.subTotalMoneda}"
+														update="m025 pnlTotalMonedas totalDenominacion" />
+												</p:inputText>
+												<p:outputLabel id="m025"
+													value="#{procesoTulasBean.subm25}"
+													style="width:70px; text-align:right ; background-color:#FBF262;font-weight: bold; font-size: 15px;"
+												readonly="true" >
+												<f:convertNumber type="currency" currencySymbol="" maxFractionDigits="2"/> 
+											</p:outputLabel>
+
+												<p:outputLabel value="0.10" style=" text-align:left" />
+												<p:inputText value="#{procesoTulasBean.m10}"
+													style="width:60px; text-align:right">
+													<p:ajax listener="#{procesoTulasBean.subTotalMoneda}"
+														update="m010 pnlTotalMonedas totalDenominacion" />
+												</p:inputText>
+												<p:outputLabel id="m010"
+													value="#{procesoTulasBean.subm10}"
+													style="width:70px; text-align:right ; background-color:#FBF262;font-weight: bold; font-size: 15px;"
+												readonly="true" >
+												<f:convertNumber type="currency" currencySymbol="" maxFractionDigits="2"/> 
+											</p:outputLabel>
+
+												<p:outputLabel value="0.05" style=" text-align:left" />
+												<p:inputText value="#{procesoTulasBean.m5}"
+													style="width:60px; text-align:right">
+													<p:ajax listener="#{procesoTulasBean.subTotalMoneda}"
+														update="m05 pnlTotalMonedas totalDenominacion" />
+												</p:inputText>
+												<p:outputLabel id="m05" value="#{procesoTulasBean.subm5}"
+													style="width:70px; text-align:right ; background-color:#FBF262;font-weight: bold; font-size: 15px;"
+												readonly="true" >
+												<f:convertNumber type="currency" currencySymbol="" maxFractionDigits="2"/> 
+											</p:outputLabel>
+
+												<p:outputLabel value="0.01" style=" text-align:left" />
+												<p:inputText value="#{procesoTulasBean.m1c}"
+													style="width:60px; text-align:right">
+													<p:ajax listener="#{procesoTulasBean.subTotalMoneda}"
+														update="m1c pnlTotalMonedas totalDenominacion" />
+												</p:inputText>
+												<p:outputLabel id="m1c"
+													value="#{procesoTulasBean.subm1c}"
+													style="width:70px; text-align:right ; background-color:#FBF262;font-weight: bold; font-size: 15px;"
+												readonly="true" >
+												<f:convertNumber type="currency" currencySymbol="" maxFractionDigits="2"/> 
+											</p:outputLabel>
+
+											</p:panelGrid>
+
+											
+
+
+										</h:panelGrid>
+										<br />
+										<p:panelGrid id="pnlTotalMonedas" columns="2"
+											styleClass="ui-panelgrid-blank">
+											<p:outputLabel value="Total Monedas: " />
+											<p:inputText value="#{procesoTulasBean.totalMoneda}"
+												style="width:60px;  background-color:#FBBCAD; text-align:right"
+												readonly="true" />
+										</p:panelGrid>
+									</p:panel>
+								</h:panelGrid>
+
+
+							</p:panelGrid>
+							
+							<p:panelGrid id="totalDenominacion" columns="2"	styleClass="ui-panelgrid-blank">
+
+								<p:outputLabel value="Total Denominaciones: " />
+								<p:inputText value="#{procesoTulasBean.totalDenominacion}"
+									style="width:60px;  background-color:#B8F589; text-align:right"
+									readonly="true" />
+
+								
+
+
+							</p:panelGrid>
+							
+							<br/>
+							<br/>
+							
+							<p:commandButton
+									actionListener="#{procesoTulasBean.guardaDetalleEspecie}"
+									value="Guardar" styleClass="my-button-verde" 
+									update=":frmProcesarTula:growl  
+									:frmProcesarTula:totalPapeletaCuadre 
+									:frmProcesarTula:totalPapeletaCuadre 
+									:frmProcesarTula:totalNovedad 
+									:frmProcesarTula:diferencia 
+									:frmProcesarTula:totalConteo" 
+									icon="fa fa-save" />
+									
+							<p:commandButton
+								actionListener="#{procesoTulasBean.cancelar}"
+								value="Cancelar" styleClass="my-button-azul" onclick="PF('dlgDenominacion').hide()"
+								icon="fa fa-save" />
+
+
+			</h:form>
+		</p:dialog>	
+
+<p:dialog id="dlgNovedad" 
+		widgetVar="dlgNovedad"	 
+		responsive="true"
+		modal="true"	  
+closable="false"
+		appendTo="@(body)">
+		
+		
+
+			<h:form id="frmNovedad">
+			
+			<p:messages id="mensaje" autoUpdate="false"/>
+			<p:focus context="@form"/>
+			
+			<p:panelGrid id="pnlNovedad" columns="2" styleClass="ui-panelgrid-blank" layout="grid"
+								>
+								 <p:panel header="Datos de la Novedad"  >
+						  
+								<p:panelGrid columns="2"  styleClass="ui-panelgrid-blank">
+								
+								
+									<p:outputLabel value="Sello" for="selloN" />
+							<p:selectOneMenu id="selloN" value="#{procesoTulasBean.idDetalleTransaccionN}" required="true">
+
+								<f:selectItem itemLabel="Seleccionar" itemValue="#{null}" />
+								<f:selectItems value="#{procesoTulasBean.listaSellos}" var="item"
+									itemLabel="#{item.sello}"
+									itemValue="#{item.idDetalleTransaccion}">
+								</f:selectItems>
+							</p:selectOneMenu>
+									
+									
+									
+									
+							<p:outputLabel value="Papeleta" for="papeleta" />
+							<p:selectOneMenu id="papeleta"  value="#{procesoTulasBean.idPapeleta}" required="true">
+								<f:selectItem itemLabel="Seleccionar" itemValue="#{null}" />
+								<f:selectItems value="#{procesoTulasBean.listaPapeletas}" var="item"
+									itemLabel="#{item.numeroPapeleta}"
+									itemValue="#{item.idPapeleta}">
+								</f:selectItems>
+							</p:selectOneMenu>
+							
+									
+								
+								
+								<p:outputLabel value="Tipo Novedad" for="tipoNovedad" />
+							<p:selectOneMenu id="tipoNovedad"  value="#{procesoTulasBean.idTipoNovedad}" required="true">
+								<f:selectItem itemLabel="Seleccionar" itemValue="#{null}" />
+								<f:selectItems value="#{procesoTulasBean.listaTipoNovedad}" var="item"
+									itemLabel="#{item.nombre}"
+									itemValue="#{item.idTipoNovedad}">
+								</f:selectItems>
+							</p:selectOneMenu>
+							
+							
+									<p:outputLabel value="Valor" />
+									<p:inputText value="#{procesoTulasBean.novedad.valor}" required="true"/>
+									
+								</p:panelGrid>
+						</p:panel>
+								
+								 <p:panel header="Validacion de la Novedad"  >
+								<p:panelGrid columns="2"  styleClass="ui-panelgrid-blank">
+							<p:outputLabel value="Supervisor" for="validador"  />
+							<p:selectOneMenu id="validador"  value="#{procesoTulasBean.idEmpleado}" required="true">
+
+								<f:selectItem itemLabel="Seleccionar" itemValue="#{null}" />
+								<f:selectItems value="#{procesoTulasBean.usuariosValidadores}" var="item"
+									itemLabel="#{item.nombres}"
+									itemValue="#{item.idEmpleado}">
+								</f:selectItems>
+							</p:selectOneMenu>
+
+							<p:outputLabel value="Identificacion" for="identificacion" />
+							<p:inputText id = "identificacion" value="#{procesoTulasBean.usuario}" required="true"/>
+
+							
+
+						</p:panelGrid>
+						
+						</p:panel>
+								
+								
+									
+								
+
+
+							</p:panelGrid>
+							
+							<br/>
+							
+							
+							<p:commandButton
+								actionListener="#{procesoTulasBean.validarNovedad}"
+								 value="Validar Novedad" styleClass="my-button-azul"  update = "growl pnlNovedad"
+								icon="fa fa-save"  />
+								
+								<p:commandButton
+								actionListener="#{procesoTulasBean.cancelar}"
+								value="Cancelar" update="dlgValidacionNovedad" styleClass="my-button-azul" onclick="PF('dlgNovedad').hide()"
+								icon="fa fa-save" />
+							
+							
+
+			</h:form>
+		</p:dialog>	
+
+
+
+
+
+
+		</ui:define>
+
+	</ui:composition>
+</body>
+</html>

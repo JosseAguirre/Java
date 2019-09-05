@@ -1,0 +1,184 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	>
+<body>
+<ui:composition template="/templates/admin.xhtml">
+		<ui:define name="content">
+		<h:form id="frmTipoTarifa" >
+   
+   		<p:growl id="growl" showDetail="true" life="3000"  rendered="#{not facesContext.validationFailed}"/> 
+         
+           <!-- general form elements -->        
+             <div class="box box-primary">
+          		 <div class="box-header with-border">
+              		<h3 class="box-title">Tipos de Taria</h3>
+            	</div>			
+                      
+              <div class="box-body">
+                 
+			<!-- CONTENIDO DE LA TABLA TIPOS DE TARIFA -->
+			<p:dataTable id="tbl" 
+			    value="#{tipoTarifaBean.listaTipoTarifa}"
+				var="item" 
+				paginator="true" 
+				rows="10"
+				paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+				paginatorPosition="bottom" 
+				selection="#{tipoTarifaBean.tipoTarifaSeleccionado}"
+				tableStyle="white-space: nowrap" 
+				widgetVar="tablaTipoTarifa"
+				filteredValue="#{tipoTarifaBean.tipoTarifaFiltrado}"
+				emptyMessage="No existen registros con ese criterio"
+				styleClass="table"
+				reflow="true"
+				selectionMode="single"
+				rowsPerPageTemplate="5,10,15"
+			    rowKey="#{item.idTipoTarifa}">
+				
+			<f:facet name="header">
+								<div class="row row-nomargin">
+									<div class="col-lg-3">
+										<p:inputText id="globalFilter"
+											onkeyup="PF('tablaTipoTarifa').filter()" class="pull-left"
+											style="width: 100%" placeholder="Buscar...." />
+									</div>
+									<div class="col-lg-6">
+										<p:outputLabel value="Lista de Tipos de Tarifas" />
+									</div>
+
+									<div class="col-lg-3">
+										<div class="pull-right">
+											<h:commandLink >
+												<p:graphicImage name="/images/excel.png" width="24" title="Exportar Excel" />
+												<p:dataExporter type="xls" target="tbl" fileName="cars"
+													options="#{responsableAgenciaBean.excelOpt}" />
+											</h:commandLink>
+
+											<h:commandLink>
+												<p:graphicImage name="/images/pdf.png" width="24" title = "Exportar PDF" />
+												<p:dataExporter type="pdf" target="tbl" fileName="cars"
+													options="#{responsableAgenciaBean.pdfOpt}" />
+											</h:commandLink>
+
+										</div>
+									</div>
+
+
+								</div>
+							</f:facet>
+			
+			
+
+			
+				
+				
+
+				<p:column headerText="Codigo" filterBy="#{item.idTipoTarifa}"
+					filterStyle="display:none">
+					<h:outputText value="#{item.idTipoTarifa}" />
+				</p:column>
+
+				<p:column headerText="Nombre" filterBy="#{item.nombre}"
+					filterStyle="display:none">
+					<h:outputText value="#{item.nombre}" />
+					</p:column>
+			<p:column headerText="Descripcion" filterBy="#{item.descripcion}" filterStyle="display:none">
+					<h:outputText value="#{item.descripcion}" />
+				</p:column>
+				
+
+				
+			</p:dataTable>
+			
+				<div id= "footer" class="box-footer">
+
+							<p:commandButton id="btnNuevo"
+								actionListener="#{tipoTarifaBean.nuevo()}" value="Nuevo"
+								 styleClass="my-button" icon="fa fa-plus"
+								update=":frmTipoTarifa:growl :frmCrear" />
+
+							<p:commandButton id="btnModificar"
+								actionListener="#{tipoTarifaBean.modificar()}"
+								value="Modificar"  styleClass="my-button"
+								icon="fa fa-pencil" update=":frmTipoTarifa:growl :frmCrear" />
+
+							
+
+						</div>
+						
+			<br />
+			
+          </div>          
+     </div>
+</h:form>
+
+
+			
+				 <!-- DIALOGO NUEVO EMPLEADO -->
+
+		<p:dialog id="dlgDatosTipoTarifa" widgetVar="dlgDatosTipoTarifa"
+			 responsive="true" modal="true"
+			width="50%"  closable="true"
+			closeOnEscape="true"
+			  appendTo="@(body)">
+		
+ 
+			<!-- general form elements -->
+			<h:form id="frmCrear">
+			
+			<p:messages id="mensaje" autoUpdate="false"/>
+			<p:focus context="@form"/>
+	
+				
+				
+				
+					<p:panelGrid id="pnl" columns = "3" columnClasses="ui-grid-col-5" layout="grid" styleClass="ui-panelgrid-blank">
+						
+
+				<p:outputLabel value="Nombre" for="nombre" />
+				<p:inputText id="nombre"
+					value="#{tipoTarifaBean.tipoTarifa.nombre}" required="true"
+					requiredMessage="Requerido"
+					onkeyup="this.value = this.value.toUpperCase();">
+				</p:inputText>
+				<p:message for="nombre" display="icon"/>
+
+				<p:outputLabel value="Descrpcion" for="descripcion" />
+				<p:inputText id="descripcion"
+					value="#{tipoTarifaBean.tipoTarifa.descripcion}" required="true"
+					requiredMessage="Requerido"
+					onkeyup="this.value = this.value.toUpperCase();">
+				</p:inputText>
+				<p:message for="descripcion" display="icon"/>
+
+
+				 
+				
+				</p:panelGrid>	
+					
+					
+					<br />
+				
+					<p:commandButton value="Guardar"
+						action="#{tipoTarifaBean.persistir()}"
+						update = ":frmTipoTarifa:tbl :frmCrear:pnl :frmTipoTarifa:growl"  styleClass="my-button"	icon="fa fa-save"					
+						oncomplete="if (args &amp;&amp; !args.validationFailed) PF('dlgDatosTipoTarifa').hide(); " />
+						
+					<p:commandButton value="Cancelar"
+						actionListener="#{tipoTarifaBean.cancelar()}"	 styleClass="my-button"	icon="fa fa-close"			 
+						oncomplete="PF('dlgDatosTipoTarifa').hide();" />
+						
+			
+			</h:form>
+		</p:dialog>	
+				
+
+	</ui:define>
+
+</ui:composition>
+</body>
+</html>

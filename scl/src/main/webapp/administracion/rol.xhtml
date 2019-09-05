@@ -1,0 +1,203 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+<ui:composition template="/templates/admin.xhtml">
+
+
+	<ui:define name="content">
+		<h:form id="frmRol">
+			<p:growl id="growl" showDetail="true" life="3000"
+				rendered="#{not facesContext.validationFailed}" />
+			<p:messages id="mensaje" autoUpdate="false" />
+
+
+			<div class="box box-primary">
+				<div class="box-header with-border">
+					<h3 class="box-title">Roles</h3>
+				</div>
+
+				<div class="box-body">
+
+
+
+
+
+
+					<p:dataTable id="tbl" value="#{admRolBean.listaRol}" var="item"
+						paginator="true" rows="10"
+						paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+						paginatorPosition="bottom"
+						selection="#{admRolBean.rolSeleccionado}"
+						tableStyle="white-space: nowrap" widgetVar="tbl"
+						filteredValue="#{admRolBean.rolFiltrado}"
+						emptyMessage="No existen registros con ese criterio"
+						styleClass="table" reflow="true" selectionMode="single"
+						rowsPerPageTemplate="5,10,15" rowKey="#{item.idRol}">
+
+
+
+						<f:facet name="header">
+							<div class="row row-nomargin">
+								<div class="col-lg-3">
+									<p:inputText id="globalFilter"
+										onkeyup="PF('tablarol').filter()" class="pull-left"
+										style="width: 100%" title="Digite: Codigo o Nombre"
+										placeholder="Buscar aqui..." />
+								</div>
+								<div class="col-lg-6">
+									<h:outputText value="LISTA DE ROLES" />
+								</div>
+
+
+							</div>
+						</f:facet>
+
+
+						<p:column headerText="Nombre" filterBy="#{item.nombre}"
+							filterStyle="display:none">
+							<h:outputText value="#{item.nombre}" />
+						</p:column>
+						<p:column headerText="Descripcion" filterBy="#{item.descripcion}"
+							filterStyle="display:none">
+							<h:outputText value="#{item.descripcion}" />
+						</p:column>
+					</p:dataTable>
+
+				</div>
+
+
+
+
+				<div id="footer" class="box-footer"></div>
+				<p:commandButton id="btnNuevo"
+					actionListener="#{admRolBean.nuevo()}" value="Nuevo"
+					styleClass="my-button" icon="fa fa-plus"
+					update=":frmRol:growl :frmCrear:tab:tbl2" />
+
+				<p:commandButton id="btnModificar"
+					actionListener="#{admRolBean.modificar()}" value="Modificar"
+					styleClass="my-button" icon="fa fa-pencil"
+					update=":frmRol:growl  :frmCrear:tab:pnl :frmCrear:tab:tbl2" />
+
+
+			</div>
+
+
+
+
+
+
+		</h:form>
+
+		<!-- DIALOGO SELECCON EMPLEADO -->
+		<p:dialog id="dlgRol" widgetVar="dlgRol" styleClass="my-dialogs"
+			position="top" responsive="true" modal="true" width="30%">
+
+			<h:form id="frmCrear">
+			<p:growl id="growl2" showDetail="true" life="3000"
+				rendered="#{not facesContext.validationFailed}" />
+
+				<p:messages id="mensaje" autoUpdate="false" />
+				<p:focus context="@form" />
+
+				<p:tabView id="tab">
+					<p:tab id="tbRol" title="Rol">
+
+						<p:panelGrid id="pnl" columns="3" styleClass="ui-panelgrid-blank">
+						
+							<p:outputLabel value="Nombre" for="nombre" />
+							<p:inputText id="nombre" value="#{admRolBean.admrol.nombre}" required="true"
+								onkeyup="this.value = this.value.toUpperCase();">
+							</p:inputText>
+							<p:message for="nombre" display="icon" />
+							
+							<p:outputLabel value="Descripcion" for="descripcion" />
+							<p:inputText id="descripcion" 
+								value="#{admRolBean.admrol.descripcion}"
+								onkeyup="this.value = this.value.toUpperCase();">
+							</p:inputText>
+							<p:message for="descripcion" />
+							
+						</p:panelGrid>
+						<br />
+						<p:commandButton value="Guardar" action="#{admRolBean.guardar()}"
+							styleClass="my-button" update=" :frmCrear:tab:pnl :frmRol:tbl"
+							icon="fa fa-save"
+							 >
+						</p:commandButton>
+						
+						<p:commandButton value="Cancelar"
+						actionListener="#{admRolBean.cancelar()}"	styleClass="my-button"	icon="fa fa-close"			 
+						oncomplete="PF('dlgRol').hide();" />
+
+
+					</p:tab>
+
+					<p:tab id="tbMenuAsignados" title="Menu Asignados">
+						<p:commandButton value="Guardar"
+							action="#{admRolBean.asignarMenu()}" update=":frmCrear:growl2"
+							icon="fa fa-save"  styleClass="my-button"
+							 />
+							
+							<p:commandButton value="Cancelar"
+						actionListener="#{admRolBean.cancelar()}"	styleClass="my-button"	icon="fa fa-close"			 
+						oncomplete="PF('dlgRol').hide();" />
+							
+
+
+						<p:dataTable id="tbl2" value="#{admRolBean.obj}" var="item"
+							rows="100" paginatorPosition="bottom" editable="true"
+							selection="#{admRolBean.menuSeleccionado}"
+							tableStyle="white-space: nowrap" widgetVar="tablarol"
+							filteredValue="#{admRolBean.rolFiltrado}"
+							emptyMessage="No existen registros con ese criterio"
+							styleClass="table" reflow="true" scrollRows="10"
+							scrollable="true" scrollHeight="300" rowKey="#{item.idMenu}">
+
+
+							<p:ajax event="rowSelectCheckbox"
+								listener="#{admRolBean.onRowSelect}" />
+							<p:ajax event="rowUnselectCheckbox"
+								listener="#{admRolBean.onRowUnselect}" />
+
+
+							<p:column selectionMode="multiple"
+								style="width:40px;text-align:left" />
+
+
+
+
+							<p:column headerText="nombre" filterBy="#{item.nombre}"
+								filterStyle="display:none">
+								<h:outputText
+									styleClass="#{item.idPadre eq null ? 'recordLabel'  : null}"
+									value="#{item.idPadre eq null ? item.nombre  : '-----'.concat(item.nombre)} " />
+							</p:column>
+
+						</p:dataTable>
+
+
+
+
+
+
+					</p:tab>
+
+				</p:tabView>
+
+
+			</h:form>
+
+		</p:dialog>
+
+	</ui:define>
+
+</ui:composition>
+
+
+</html>
+

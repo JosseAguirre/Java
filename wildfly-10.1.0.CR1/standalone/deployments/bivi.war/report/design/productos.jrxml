@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.4.0.final using JasperReports Library version 6.4.1  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="productos" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="361050f2-2be3-477b-97ad-40140c83ba51">
+	<property name="com.jaspersoft.studio.data.sql.tables">
+		<![CDATA[amF2YS5wcm9kdWN0b3MgLDE2NCwzOSwxNzUwZjhhZC03N2U3LTQ0MmMtYjEyYi02NzYzZjczMmNh
+OTM7amF2YS5wcm92ZWVkb3JlcyAsMTUsMTMxLGI5ODI1MjNmLTQwZDYtNGQ5YS1iZWNmLWRkNWRh
+NzM4OGRkMztqYXZhLmNhdGVnb3JpYXMgLDE1LDE1LDhiZmI0ZWY2LTc0MGMtNGNlMC04ZGM2LWRk
+Zjg2ZmZmMjUyNTs=]]>
+	</property>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="src\main\webapp\report\fuentes\DataAdapter.xml"/>
+	<parameter name="codigoProducto" class="java.lang.Integer"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT p.productoid,
+	p.descripcion,
+	c.nombrecat,
+	pr.nombreprov,
+	p.preciounit,
+	p.existencia,
+	p.categoriaid,
+	p.proveedorid
+FROM java.productos p
+	inner join java.categorias c ON 
+	 c.categoriaid = p.categoriaid 
+	inner join java.proveedores pr ON 
+	 pr.proveedorid = p.proveedorid 
+WHERE 
+	 p.productoid = $P{codigoProducto}]]>
+	</queryString>
+	<field name="productoid" class="java.lang.Integer"/>
+	<field name="proveedorid" class="java.lang.Integer"/>
+	<field name="categoriaid" class="java.lang.Integer"/>
+	<field name="descripcion" class="java.lang.String"/>
+	<field name="preciounit" class="java.math.BigDecimal"/>
+	<field name="existencia" class="java.lang.Integer"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="61" splitType="Stretch">
+			<staticText>
+				<reportElement x="79" y="0" width="100" height="30" uuid="39325b5a-ffe2-49dc-88b0-1494652cc79c"/>
+				<text><![CDATA[descripcion]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="125" splitType="Stretch">
+			<textField>
+				<reportElement x="79" y="4" width="100" height="30" uuid="dc956f6e-992f-4810-b88a-6016efa4707a"/>
+				<textFieldExpression><![CDATA[$F{descripcion}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

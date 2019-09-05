@@ -1,0 +1,224 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+
+
+ <body>
+    <ui:composition template="/templates/admin.xhtml">
+  
+       
+        <ui:define name="content">
+   <h:form id="frmTransaccion" >
+   
+   <p:growl id="growl" showDetail="true" life="3000"  rendered="#{not facesContext.validationFailed}"/> 
+            
+            <div class="box box-primary">
+          		 <div class="box-header with-border">
+              		<h3 class="box-title">Crear Orden</h3>
+            	</div>			
+                      
+              <div class="box-body">
+              
+              <p:panelGrid id="pnl2" columns = "3" columnClasses="ui-grid-col-1,ui-grid-col-2" layout="grid" styleClass="ui-panelgrid-blank">						
+              
+              <p:outputLabel value="Ciudad" for="ciudad" />
+							<p:selectOneMenu id="ciudad"
+								value="#{transaccionBean.idCiudad}">
+								<p:ajax event="itemSelect" listener = "#{transaccionBean.consultaListaAgencia()}" 
+								 update = ":frmTransaccion:pnl2"/>
+								
+
+								<f:selectItems value="#{transaccionBean.listaCiudad}"
+									var="item" itemLabel="#{item.idCiudadDc.nombre}"
+									itemValue="#{item.idCiudadDc.idDetalleCatalogo}">
+								</f:selectItems>
+							</p:selectOneMenu>
+							<p:message for="ciudad" />
+              
+             
+             
+              <p:outputLabel value="Origen" for="origen" />
+						<p:selectOneMenu id="origen"
+							value="#{transaccionBean.idAgenciaOrigen}"  filter="true" filterMatchMode="contains">
+							<f:selectItem itemLabel="Seleccionar" itemValue="#{null}" />
+							<f:selectItems value="#{transaccionBean.listaAgencia}"
+								var="agencia" itemLabel="#{agencia.nombre}"
+								itemValue="#{agencia.idAgencia}">
+							</f:selectItems>
+						</p:selectOneMenu>
+						
+						<p:outputLabel value="Destino" for="Destino" />
+						<p:selectOneMenu id="Destino"
+							value="#{transaccionBean.idAgenciaDestino}" filter="true" filterMatchMode="contains">
+							<f:selectItem itemLabel="Seleccionar" itemValue="#{null}" />
+							<f:selectItems value="#{transaccionBean.listaAgencia}"
+								var="agencia" itemLabel="#{agencia.nombre}"
+								itemValue="#{agencia.idAgencia}">
+							</f:selectItems>
+						</p:selectOneMenu>
+						
+						
+					</p:panelGrid>
+						
+						
+              
+              <p:panelGrid id="pnl" columns="2"
+							columnClasses="ui-grid-col-1,ui-grid-col-1" layout="grid"
+							styleClass="ui-panelgrid-blank">
+
+							<p:outputLabel value="Delegado" />
+							<p:inputText id="nombre"
+								value="#{responsableAgenciaBean.responsable.nombre}"
+								onkeyup="this.value = this.value.toUpperCase()">
+							</p:inputText>
+
+
+							<p:outputLabel value="Cliente" />
+							<p:inputText id="cliente"
+								value="#{responsableAgenciaBean.responsable.nombre}"
+								onkeyup="this.value = this.value.toUpperCase()">
+							</p:inputText>
+
+						</p:panelGrid>
+						
+						
+
+						
+					
+					
+              
+              <p:panelGrid id="pnlDetalle" columns = "2" columnClasses="ui-grid-col-1,ui-grid-col-1" layout="grid" styleClass="ui-panelgrid-blank">
+						
+
+						<p:outputLabel value="Sello"  />
+						<p:inputText id="sello" value="#{transaccionBean.detalleTransaccion.sello}" >
+						</p:inputText>
+						
+						<p:outputLabel value="Tula"  />
+						<p:inputText id="tula" value="#{transaccionBean.detalleTransaccion.tula}" >
+						</p:inputText>
+						
+						<p:outputLabel value="Efectivo"  />
+						<p:inputText id="efectivo" value="#{transaccionBean.detalleTransaccion.efectivo}" >
+						</p:inputText>
+						
+						<p:outputLabel value="Cheque"  />
+						<p:inputText id="cheque" value="#{transaccionBean.detalleTransaccion.cheque}" >
+						</p:inputText>
+						
+						<p:outputLabel value="Cant. Cheques"  />
+						<p:inputText id="cantCheque" value="#{transaccionBean.detalleTransaccion.cantidadCheques}" >
+						</p:inputText>
+						
+							</p:panelGrid>
+							
+							<p:commandButton 	actionListener="#{transaccionBean.agregarFunda()}" value="AgregarFunda"
+								styleClass="btn btn-primary" icon="fa fa-plus" update = ":frmTransaccion:tblDetalle :frmTransaccion:pnlDetalle"  	 />
+          
+              
+              
+						<!--#### CONTENIDO DE LA TABLA DETALLE TRANSACCION -->
+						<p:dataTable id="tblDetalle"
+							value="#{transaccionBean.listaDetalleTransaccion}"
+							var="item"
+							
+							
+							emptyMessage="No existen registros con ese criterio" 
+					
+							
+							>
+<p:column headerText="Eliminar">
+				<p:commandButton action="#{transaccionBean.eliminar()}" icon="ui-icon-closethick" update=":frmTransaccion:tblDetalle ">
+					<f:setPropertyActionListener value="#{item}" target="#{transaccionBean.detalleTransaccion}"></f:setPropertyActionListener>
+					
+				</p:commandButton>
+			</p:column>
+							
+			
+							
+							<p:column headerText="Sello" >
+								<h:outputText value="#{item.sello}" />
+							</p:column>
+
+
+
+							<p:column headerText="Tula" >
+								<h:outputText value="#{item.tula}" />
+							</p:column>
+
+							<p:column headerText="Efectivo" >
+								<h:outputText value="#{item.efectivo}" />
+							</p:column>
+
+							<p:column headerText="Cheque"  style="text-align:right">
+								<h:outputText value="#{item.cheque}" />
+							</p:column>
+							
+							<p:column headerText="Cant.Cheque"  style="text-align:right">
+								<h:outputText value="#{item.cantidadCheques}" />
+							</p:column>
+							
+							
+							 <p:columnGroup type="footer">  
+        <p:row>  
+            <p:column colspan="3" style="text-align:right" footerText="Totals:"/>  
+  
+           <p:column footerText="#{transaccionBean.sumarEfectivo()}" style="text-align:right"/>  
+            <p:column footerText="#{transaccionBean.sumarCheque()}" style="text-align:right"/>  
+            <p:column footerText="#{transaccionBean.sumarCantidadCheque()}" style="text-align:right"/>  
+            
+        </p:row>  
+    </p:columnGroup>  
+
+						</p:dataTable>
+              
+              
+                 
+			
+
+		
+			
+				<div id= "footer" class="box-footer">
+				
+				<p:commandButton 	actionListener="#{transaccionBean.guardar()}" value="Guardar Transaccion"
+								styleClass="btn btn-primary" icon="fa fa-plus" update = ":frmTransaccion:tblDetalle :frmTransaccion:growl"/>
+								
+								
+				
+				<p:commandButton 	actionListener="#{transaccionBean.imprimirReporte2()}" value="reporte" ajax ="false"
+								styleClass="btn btn-primary" icon="fa fa-plus"/>
+								
+
+							
+						</div>
+						
+						
+						
+
+			
+          </div>          
+     </div>
+               
+             
+</h:form>
+
+							
+               
+
+		
+		
+		
+		
+
+	</ui:define>
+
+    </ui:composition>
+    
+    
+    </body>
+    </html>
+

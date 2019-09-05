@@ -1,0 +1,957 @@
+2019-02-12 21:48:32,185 INFO  [stdout] (default task-97) cifrado es. c7ad44cbad762a5da0a452f9e854fdc1e0e7a52a38015f23f3eab1d80b931dd472634dfac71cd34ebc35d16ab7fb8a90c81f975113d6c7538dc69dd8de9077ec
+2019-02-12 21:48:32,189 INFO  [stdout] (default task-97) Hibernate: 
+2019-02-12 21:48:32,189 INFO  [stdout] (default task-97)     select
+2019-02-12 21:48:32,190 INFO  [stdout] (default task-97)         admusuario0_.id_usuario as id_usuar1_14_,
+2019-02-12 21:48:32,190 INFO  [stdout] (default task-97)         admusuario0_.fecha_caducidad as fecha_ca2_14_,
+2019-02-12 21:48:32,190 INFO  [stdout] (default task-97)         admusuario0_.fecha_creacion as fecha_cr3_14_,
+2019-02-12 21:48:32,190 INFO  [stdout] (default task-97)         admusuario0_.fecha_modificacion as fecha_mo4_14_,
+2019-02-12 21:48:32,191 INFO  [stdout] (default task-97)         admusuario0_.fecha_ultimo_acceso as fecha_ul5_14_,
+2019-02-12 21:48:32,191 INFO  [stdout] (default task-97)         admusuario0_.id_empleado as id_emple8_14_,
+2019-02-12 21:48:32,191 INFO  [stdout] (default task-97)         admusuario0_.id_estado_dc as id_estad9_14_,
+2019-02-12 21:48:32,191 INFO  [stdout] (default task-97)         admusuario0_.password as password6_14_,
+2019-02-12 21:48:32,191 INFO  [stdout] (default task-97)         admusuario0_.usuario as usuario7_14_ 
+2019-02-12 21:48:32,191 INFO  [stdout] (default task-97)     from
+2019-02-12 21:48:32,191 INFO  [stdout] (default task-97)         java.adm_usuario admusuario0_ 
+2019-02-12 21:48:32,191 INFO  [stdout] (default task-97)     where
+2019-02-12 21:48:32,192 INFO  [stdout] (default task-97)         admusuario0_.usuario=? 
+2019-02-12 21:48:32,192 INFO  [stdout] (default task-97)         and admusuario0_.password=?
+2019-02-12 21:48:40,659 INFO  [stdout] (default task-113) cifrado es. 3c9909afec25354d551dae21590bb26e38d53f2173b8d3dc3eee4c047e7ab1c1eb8b85103e3be7ba613b31bb5c9c36214dc9f14a42fd7a2fdb84856bca5c44c2
+2019-02-12 21:48:40,661 INFO  [stdout] (default task-113) Hibernate: 
+2019-02-12 21:48:40,661 INFO  [stdout] (default task-113)     select
+2019-02-12 21:48:40,662 INFO  [stdout] (default task-113)         admusuario0_.id_usuario as id_usuar1_14_,
+2019-02-12 21:48:40,662 INFO  [stdout] (default task-113)         admusuario0_.fecha_caducidad as fecha_ca2_14_,
+2019-02-12 21:48:40,662 INFO  [stdout] (default task-113)         admusuario0_.fecha_creacion as fecha_cr3_14_,
+2019-02-12 21:48:40,662 INFO  [stdout] (default task-113)         admusuario0_.fecha_modificacion as fecha_mo4_14_,
+2019-02-12 21:48:40,662 INFO  [stdout] (default task-113)         admusuario0_.fecha_ultimo_acceso as fecha_ul5_14_,
+2019-02-12 21:48:40,662 INFO  [stdout] (default task-113)         admusuario0_.id_empleado as id_emple8_14_,
+2019-02-12 21:48:40,662 INFO  [stdout] (default task-113)         admusuario0_.id_estado_dc as id_estad9_14_,
+2019-02-12 21:48:40,662 INFO  [stdout] (default task-113)         admusuario0_.password as password6_14_,
+2019-02-12 21:48:40,662 INFO  [stdout] (default task-113)         admusuario0_.usuario as usuario7_14_ 
+2019-02-12 21:48:40,663 INFO  [stdout] (default task-113)     from
+2019-02-12 21:48:40,663 INFO  [stdout] (default task-113)         java.adm_usuario admusuario0_ 
+2019-02-12 21:48:40,663 INFO  [stdout] (default task-113)     where
+2019-02-12 21:48:40,663 INFO  [stdout] (default task-113)         admusuario0_.usuario=? 
+2019-02-12 21:48:40,663 INFO  [stdout] (default task-113)         and admusuario0_.password=?
+2019-02-12 21:48:40,666 INFO  [stdout] (default task-113) Hibernate: 
+2019-02-12 21:48:40,666 INFO  [stdout] (default task-113)     select
+2019-02-12 21:48:40,666 INFO  [stdout] (default task-113)         admemplead0_.id_empleado as id_emple1_5_0_,
+2019-02-12 21:48:40,666 INFO  [stdout] (default task-113)         admemplead0_.apellidos as apellido2_5_0_,
+2019-02-12 21:48:40,666 INFO  [stdout] (default task-113)         admemplead0_.correo_electronico as correo_e3_5_0_,
+2019-02-12 21:48:40,666 INFO  [stdout] (default task-113)         admemplead0_.direccion as direccio4_5_0_,
+2019-02-12 21:48:40,666 INFO  [stdout] (default task-113)         admemplead0_.fecha_nacimiento as fecha_na5_5_0_,
+2019-02-12 21:48:40,666 INFO  [stdout] (default task-113)         admemplead0_.fecha_registro as fecha_re6_5_0_,
+2019-02-12 21:48:40,667 INFO  [stdout] (default task-113)         admemplead0_.fecha_salida as fecha_sa7_5_0_,
+2019-02-12 21:48:40,667 INFO  [stdout] (default task-113)         admemplead0_.id_cargo_dc as id_carg14_5_0_,
+2019-02-12 21:48:40,667 INFO  [stdout] (default task-113)         admemplead0_.id_ciudad_dc as id_ciud15_5_0_,
+2019-02-12 21:48:40,667 INFO  [stdout] (default task-113)         admemplead0_.id_clase_empleado_dc as id_clas16_5_0_,
+2019-02-12 21:48:40,667 INFO  [stdout] (default task-113)         admemplead0_.id_departamento_dc as id_depa17_5_0_,
+2019-02-12 21:48:40,667 INFO  [stdout] (default task-113)         admemplead0_.id_estado_dc as id_esta18_5_0_,
+2019-02-12 21:48:40,667 INFO  [stdout] (default task-113)         admemplead0_.id_linea_negocio_dc as id_line19_5_0_,
+2019-02-12 21:48:40,667 INFO  [stdout] (default task-113)         admemplead0_.id_sexo_dc as id_sexo20_5_0_,
+2019-02-12 21:48:40,667 INFO  [stdout] (default task-113)         admemplead0_.id_sucursal as id_sucu21_5_0_,
+2019-02-12 21:48:40,667 INFO  [stdout] (default task-113)         admemplead0_.id_tipo_empleado_dc as id_tipo22_5_0_,
+2019-02-12 21:48:40,667 INFO  [stdout] (default task-113)         admemplead0_.identificacion as identifi8_5_0_,
+2019-02-12 21:48:40,667 INFO  [stdout] (default task-113)         admemplead0_.nombres as nombres9_5_0_,
+2019-02-12 21:48:40,667 INFO  [stdout] (default task-113)         admemplead0_.telefono as telefon10_5_0_,
+2019-02-12 21:48:40,667 INFO  [stdout] (default task-113)         admemplead0_.tipo_sanguineo as tipo_sa11_5_0_,
+2019-02-12 21:48:40,667 INFO  [stdout] (default task-113)         admemplead0_.url_firma as url_fir12_5_0_,
+2019-02-12 21:48:40,667 INFO  [stdout] (default task-113)         admemplead0_.url_foto as url_fot13_5_0_,
+2019-02-12 21:48:40,667 INFO  [stdout] (default task-113)         admdetalle1_.id_detalle_catalogo as id_detal1_4_1_,
+2019-02-12 21:48:40,667 INFO  [stdout] (default task-113)         admdetalle1_.descripcion as descripc2_4_1_,
+2019-02-12 21:48:40,667 INFO  [stdout] (default task-113)         admdetalle1_.id_catalogo as id_catal4_4_1_,
+2019-02-12 21:48:40,667 INFO  [stdout] (default task-113)         admdetalle1_.id_detalle_catalogo_padre as id_detal5_4_1_,
+2019-02-12 21:48:40,668 INFO  [stdout] (default task-113)         admdetalle1_.nombre as nombre3_4_1_,
+2019-02-12 21:48:40,668 INFO  [stdout] (default task-113)         admcatalog2_.id_catalogo as id_catal1_1_2_,
+2019-02-12 21:48:40,668 INFO  [stdout] (default task-113)         admcatalog2_.descripcion as descripc2_1_2_,
+2019-02-12 21:48:40,668 INFO  [stdout] (default task-113)         admcatalog2_.id_padre_catalogo as id_padre4_1_2_,
+2019-02-12 21:48:40,668 INFO  [stdout] (default task-113)         admcatalog2_.id_tipo_catalogo as id_tipo_5_1_2_,
+2019-02-12 21:48:40,668 INFO  [stdout] (default task-113)         admcatalog2_.nombre as nombre3_1_2_,
+2019-02-12 21:48:40,668 INFO  [stdout] (default task-113)         admcatalog3_.id_catalogo as id_catal1_1_3_,
+2019-02-12 21:48:40,668 INFO  [stdout] (default task-113)         admcatalog3_.descripcion as descripc2_1_3_,
+2019-02-12 21:48:40,668 INFO  [stdout] (default task-113)         admcatalog3_.id_padre_catalogo as id_padre4_1_3_,
+2019-02-12 21:48:40,668 INFO  [stdout] (default task-113)         admcatalog3_.id_tipo_catalogo as id_tipo_5_1_3_,
+2019-02-12 21:48:40,668 INFO  [stdout] (default task-113)         admcatalog3_.nombre as nombre3_1_3_,
+2019-02-12 21:48:40,668 INFO  [stdout] (default task-113)         admtipocat4_.id_tipo_catalogo as id_tipo_1_12_4_,
+2019-02-12 21:48:40,668 INFO  [stdout] (default task-113)         admtipocat4_.nombre as nombre2_12_4_,
+2019-02-12 21:48:40,668 INFO  [stdout] (default task-113)         admdetalle5_.id_detalle_catalogo as id_detal1_4_5_,
+2019-02-12 21:48:40,668 INFO  [stdout] (default task-113)         admdetalle5_.descripcion as descripc2_4_5_,
+2019-02-12 21:48:40,668 INFO  [stdout] (default task-113)         admdetalle5_.id_catalogo as id_catal4_4_5_,
+2019-02-12 21:48:40,668 INFO  [stdout] (default task-113)         admdetalle5_.id_detalle_catalogo_padre as id_detal5_4_5_,
+2019-02-12 21:48:40,668 INFO  [stdout] (default task-113)         admdetalle5_.nombre as nombre3_4_5_,
+2019-02-12 21:48:40,668 INFO  [stdout] (default task-113)         admdetalle6_.id_detalle_catalogo as id_detal1_4_6_,
+2019-02-12 21:48:40,668 INFO  [stdout] (default task-113)         admdetalle6_.descripcion as descripc2_4_6_,
+2019-02-12 21:48:40,668 INFO  [stdout] (default task-113)         admdetalle6_.id_catalogo as id_catal4_4_6_,
+2019-02-12 21:48:40,668 INFO  [stdout] (default task-113)         admdetalle6_.id_detalle_catalogo_padre as id_detal5_4_6_,
+2019-02-12 21:48:40,668 INFO  [stdout] (default task-113)         admdetalle6_.nombre as nombre3_4_6_,
+2019-02-12 21:48:40,668 INFO  [stdout] (default task-113)         admdetalle7_.id_detalle_catalogo as id_detal1_4_7_,
+2019-02-12 21:48:40,668 INFO  [stdout] (default task-113)         admdetalle7_.descripcion as descripc2_4_7_,
+2019-02-12 21:48:40,668 INFO  [stdout] (default task-113)         admdetalle7_.id_catalogo as id_catal4_4_7_,
+2019-02-12 21:48:40,668 INFO  [stdout] (default task-113)         admdetalle7_.id_detalle_catalogo_padre as id_detal5_4_7_,
+2019-02-12 21:48:40,668 INFO  [stdout] (default task-113)         admdetalle7_.nombre as nombre3_4_7_,
+2019-02-12 21:48:40,668 INFO  [stdout] (default task-113)         admdetalle8_.id_detalle_catalogo as id_detal1_4_8_,
+2019-02-12 21:48:40,668 INFO  [stdout] (default task-113)         admdetalle8_.descripcion as descripc2_4_8_,
+2019-02-12 21:48:40,668 INFO  [stdout] (default task-113)         admdetalle8_.id_catalogo as id_catal4_4_8_,
+2019-02-12 21:48:40,669 INFO  [stdout] (default task-113)         admdetalle8_.id_detalle_catalogo_padre as id_detal5_4_8_,
+2019-02-12 21:48:40,669 INFO  [stdout] (default task-113)         admdetalle8_.nombre as nombre3_4_8_,
+2019-02-12 21:48:40,669 INFO  [stdout] (default task-113)         admdetalle9_.id_detalle_catalogo as id_detal1_4_9_,
+2019-02-12 21:48:40,669 INFO  [stdout] (default task-113)         admdetalle9_.descripcion as descripc2_4_9_,
+2019-02-12 21:48:40,669 INFO  [stdout] (default task-113)         admdetalle9_.id_catalogo as id_catal4_4_9_,
+2019-02-12 21:48:40,669 INFO  [stdout] (default task-113)         admdetalle9_.id_detalle_catalogo_padre as id_detal5_4_9_,
+2019-02-12 21:48:40,669 INFO  [stdout] (default task-113)         admdetalle9_.nombre as nombre3_4_9_,
+2019-02-12 21:48:40,669 INFO  [stdout] (default task-113)         admdetalle10_.id_detalle_catalogo as id_detal1_4_10_,
+2019-02-12 21:48:40,669 INFO  [stdout] (default task-113)         admdetalle10_.descripcion as descripc2_4_10_,
+2019-02-12 21:48:40,669 INFO  [stdout] (default task-113)         admdetalle10_.id_catalogo as id_catal4_4_10_,
+2019-02-12 21:48:40,669 INFO  [stdout] (default task-113)         admdetalle10_.id_detalle_catalogo_padre as id_detal5_4_10_,
+2019-02-12 21:48:40,669 INFO  [stdout] (default task-113)         admdetalle10_.nombre as nombre3_4_10_,
+2019-02-12 21:48:40,669 INFO  [stdout] (default task-113)         admdetalle11_.id_detalle_catalogo as id_detal1_4_11_,
+2019-02-12 21:48:40,669 INFO  [stdout] (default task-113)         admdetalle11_.descripcion as descripc2_4_11_,
+2019-02-12 21:48:40,669 INFO  [stdout] (default task-113)         admdetalle11_.id_catalogo as id_catal4_4_11_,
+2019-02-12 21:48:40,669 INFO  [stdout] (default task-113)         admdetalle11_.id_detalle_catalogo_padre as id_detal5_4_11_,
+2019-02-12 21:48:40,669 INFO  [stdout] (default task-113)         admdetalle11_.nombre as nombre3_4_11_,
+2019-02-12 21:48:40,669 INFO  [stdout] (default task-113)         admsucursa12_.id_sucursal as id_sucur1_11_12_,
+2019-02-12 21:48:40,669 INFO  [stdout] (default task-113)         admsucursa12_.direccion as direccio2_11_12_,
+2019-02-12 21:48:40,669 INFO  [stdout] (default task-113)         admsucursa12_.id_ciudad_dc as id_ciuda5_11_12_,
+2019-02-12 21:48:40,669 INFO  [stdout] (default task-113)         admsucursa12_.nombre as nombre3_11_12_,
+2019-02-12 21:48:40,669 INFO  [stdout] (default task-113)         admsucursa12_.telefono as telefono4_11_12_,
+2019-02-12 21:48:40,669 INFO  [stdout] (default task-113)         admdetalle13_.id_detalle_catalogo as id_detal1_4_13_,
+2019-02-12 21:48:40,669 INFO  [stdout] (default task-113)         admdetalle13_.descripcion as descripc2_4_13_,
+2019-02-12 21:48:40,669 INFO  [stdout] (default task-113)         admdetalle13_.id_catalogo as id_catal4_4_13_,
+2019-02-12 21:48:40,669 INFO  [stdout] (default task-113)         admdetalle13_.id_detalle_catalogo_padre as id_detal5_4_13_,
+2019-02-12 21:48:40,669 INFO  [stdout] (default task-113)         admdetalle13_.nombre as nombre3_4_13_,
+2019-02-12 21:48:40,669 INFO  [stdout] (default task-113)         admdetalle14_.id_detalle_catalogo as id_detal1_4_14_,
+2019-02-12 21:48:40,669 INFO  [stdout] (default task-113)         admdetalle14_.descripcion as descripc2_4_14_,
+2019-02-12 21:48:40,669 INFO  [stdout] (default task-113)         admdetalle14_.id_catalogo as id_catal4_4_14_,
+2019-02-12 21:48:40,669 INFO  [stdout] (default task-113)         admdetalle14_.id_detalle_catalogo_padre as id_detal5_4_14_,
+2019-02-12 21:48:40,670 INFO  [stdout] (default task-113)         admdetalle14_.nombre as nombre3_4_14_ 
+2019-02-12 21:48:40,671 INFO  [stdout] (default task-113)     from
+2019-02-12 21:48:40,672 INFO  [stdout] (default task-113)         java.adm_empleado admemplead0_ 
+2019-02-12 21:48:40,672 INFO  [stdout] (default task-113)     left outer join
+2019-02-12 21:48:40,672 INFO  [stdout] (default task-113)         java.adm_detalle_catalogo admdetalle1_ 
+2019-02-12 21:48:40,672 INFO  [stdout] (default task-113)             on admemplead0_.id_cargo_dc=admdetalle1_.id_detalle_catalogo 
+2019-02-12 21:48:40,672 INFO  [stdout] (default task-113)     left outer join
+2019-02-12 21:48:40,672 INFO  [stdout] (default task-113)         java.adm_catalogo admcatalog2_ 
+2019-02-12 21:48:40,672 INFO  [stdout] (default task-113)             on admdetalle1_.id_catalogo=admcatalog2_.id_catalogo 
+2019-02-12 21:48:40,672 INFO  [stdout] (default task-113)     left outer join
+2019-02-12 21:48:40,672 INFO  [stdout] (default task-113)         java.adm_catalogo admcatalog3_ 
+2019-02-12 21:48:40,672 INFO  [stdout] (default task-113)             on admcatalog2_.id_padre_catalogo=admcatalog3_.id_catalogo 
+2019-02-12 21:48:40,672 INFO  [stdout] (default task-113)     left outer join
+2019-02-12 21:48:40,672 INFO  [stdout] (default task-113)         java.adm_tipo_catalogo admtipocat4_ 
+2019-02-12 21:48:40,672 INFO  [stdout] (default task-113)             on admcatalog3_.id_tipo_catalogo=admtipocat4_.id_tipo_catalogo 
+2019-02-12 21:48:40,672 INFO  [stdout] (default task-113)     left outer join
+2019-02-12 21:48:40,672 INFO  [stdout] (default task-113)         java.adm_detalle_catalogo admdetalle5_ 
+2019-02-12 21:48:40,672 INFO  [stdout] (default task-113)             on admdetalle1_.id_detalle_catalogo_padre=admdetalle5_.id_detalle_catalogo 
+2019-02-12 21:48:40,673 INFO  [stdout] (default task-113)     left outer join
+2019-02-12 21:48:40,673 INFO  [stdout] (default task-113)         java.adm_detalle_catalogo admdetalle6_ 
+2019-02-12 21:48:40,673 INFO  [stdout] (default task-113)             on admemplead0_.id_ciudad_dc=admdetalle6_.id_detalle_catalogo 
+2019-02-12 21:48:40,673 INFO  [stdout] (default task-113)     left outer join
+2019-02-12 21:48:40,673 INFO  [stdout] (default task-113)         java.adm_detalle_catalogo admdetalle7_ 
+2019-02-12 21:48:40,673 INFO  [stdout] (default task-113)             on admemplead0_.id_clase_empleado_dc=admdetalle7_.id_detalle_catalogo 
+2019-02-12 21:48:40,673 INFO  [stdout] (default task-113)     left outer join
+2019-02-12 21:48:40,673 INFO  [stdout] (default task-113)         java.adm_detalle_catalogo admdetalle8_ 
+2019-02-12 21:48:40,673 INFO  [stdout] (default task-113)             on admemplead0_.id_departamento_dc=admdetalle8_.id_detalle_catalogo 
+2019-02-12 21:48:40,673 INFO  [stdout] (default task-113)     left outer join
+2019-02-12 21:48:40,673 INFO  [stdout] (default task-113)         java.adm_detalle_catalogo admdetalle9_ 
+2019-02-12 21:48:40,673 INFO  [stdout] (default task-113)             on admemplead0_.id_estado_dc=admdetalle9_.id_detalle_catalogo 
+2019-02-12 21:48:40,673 INFO  [stdout] (default task-113)     left outer join
+2019-02-12 21:48:40,673 INFO  [stdout] (default task-113)         java.adm_detalle_catalogo admdetalle10_ 
+2019-02-12 21:48:40,673 INFO  [stdout] (default task-113)             on admemplead0_.id_linea_negocio_dc=admdetalle10_.id_detalle_catalogo 
+2019-02-12 21:48:40,673 INFO  [stdout] (default task-113)     left outer join
+2019-02-12 21:48:40,673 INFO  [stdout] (default task-113)         java.adm_detalle_catalogo admdetalle11_ 
+2019-02-12 21:48:40,673 INFO  [stdout] (default task-113)             on admemplead0_.id_sexo_dc=admdetalle11_.id_detalle_catalogo 
+2019-02-12 21:48:40,673 INFO  [stdout] (default task-113)     left outer join
+2019-02-12 21:48:40,673 INFO  [stdout] (default task-113)         java.adm_sucursal admsucursa12_ 
+2019-02-12 21:48:40,673 INFO  [stdout] (default task-113)             on admemplead0_.id_sucursal=admsucursa12_.id_sucursal 
+2019-02-12 21:48:40,673 INFO  [stdout] (default task-113)     left outer join
+2019-02-12 21:48:40,673 INFO  [stdout] (default task-113)         java.adm_detalle_catalogo admdetalle13_ 
+2019-02-12 21:48:40,673 INFO  [stdout] (default task-113)             on admsucursa12_.id_ciudad_dc=admdetalle13_.id_detalle_catalogo 
+2019-02-12 21:48:40,673 INFO  [stdout] (default task-113)     left outer join
+2019-02-12 21:48:40,673 INFO  [stdout] (default task-113)         java.adm_detalle_catalogo admdetalle14_ 
+2019-02-12 21:48:40,673 INFO  [stdout] (default task-113)             on admemplead0_.id_tipo_empleado_dc=admdetalle14_.id_detalle_catalogo 
+2019-02-12 21:48:40,673 INFO  [stdout] (default task-113)     where
+2019-02-12 21:48:40,673 INFO  [stdout] (default task-113)         admemplead0_.id_empleado=?
+2019-02-12 21:48:40,815 INFO  [stdout] (default task-113) Hibernate: 
+2019-02-12 21:48:40,815 INFO  [stdout] (default task-113)     select
+2019-02-12 21:48:40,816 INFO  [stdout] (default task-113)         admcatalog0_.id_catalogo as id_catal1_1_0_,
+2019-02-12 21:48:40,816 INFO  [stdout] (default task-113)         admcatalog0_.descripcion as descripc2_1_0_,
+2019-02-12 21:48:40,816 INFO  [stdout] (default task-113)         admcatalog0_.id_padre_catalogo as id_padre4_1_0_,
+2019-02-12 21:48:40,816 INFO  [stdout] (default task-113)         admcatalog0_.id_tipo_catalogo as id_tipo_5_1_0_,
+2019-02-12 21:48:40,816 INFO  [stdout] (default task-113)         admcatalog0_.nombre as nombre3_1_0_,
+2019-02-12 21:48:40,816 INFO  [stdout] (default task-113)         admcatalog1_.id_catalogo as id_catal1_1_1_,
+2019-02-12 21:48:40,816 INFO  [stdout] (default task-113)         admcatalog1_.descripcion as descripc2_1_1_,
+2019-02-12 21:48:40,816 INFO  [stdout] (default task-113)         admcatalog1_.id_padre_catalogo as id_padre4_1_1_,
+2019-02-12 21:48:40,816 INFO  [stdout] (default task-113)         admcatalog1_.id_tipo_catalogo as id_tipo_5_1_1_,
+2019-02-12 21:48:40,816 INFO  [stdout] (default task-113)         admcatalog1_.nombre as nombre3_1_1_,
+2019-02-12 21:48:40,817 INFO  [stdout] (default task-113)         admtipocat2_.id_tipo_catalogo as id_tipo_1_12_2_,
+2019-02-12 21:48:40,817 INFO  [stdout] (default task-113)         admtipocat2_.nombre as nombre2_12_2_ 
+2019-02-12 21:48:40,817 INFO  [stdout] (default task-113)     from
+2019-02-12 21:48:40,817 INFO  [stdout] (default task-113)         java.adm_catalogo admcatalog0_ 
+2019-02-12 21:48:40,817 INFO  [stdout] (default task-113)     left outer join
+2019-02-12 21:48:40,817 INFO  [stdout] (default task-113)         java.adm_catalogo admcatalog1_ 
+2019-02-12 21:48:40,817 INFO  [stdout] (default task-113)             on admcatalog0_.id_padre_catalogo=admcatalog1_.id_catalogo 
+2019-02-12 21:48:40,817 INFO  [stdout] (default task-113)     left outer join
+2019-02-12 21:48:40,817 INFO  [stdout] (default task-113)         java.adm_tipo_catalogo admtipocat2_ 
+2019-02-12 21:48:40,817 INFO  [stdout] (default task-113)             on admcatalog1_.id_tipo_catalogo=admtipocat2_.id_tipo_catalogo 
+2019-02-12 21:48:40,818 INFO  [stdout] (default task-113)     where
+2019-02-12 21:48:40,818 INFO  [stdout] (default task-113)         admcatalog0_.id_catalogo=?
+2019-02-12 21:48:40,821 INFO  [stdout] (default task-113) Hibernate: 
+2019-02-12 21:48:40,821 INFO  [stdout] (default task-113)     select
+2019-02-12 21:48:40,821 INFO  [stdout] (default task-113)         admdetalle0_.id_detalle_catalogo as id_detal1_4_0_,
+2019-02-12 21:48:40,821 INFO  [stdout] (default task-113)         admdetalle0_.descripcion as descripc2_4_0_,
+2019-02-12 21:48:40,821 INFO  [stdout] (default task-113)         admdetalle0_.id_catalogo as id_catal4_4_0_,
+2019-02-12 21:48:40,821 INFO  [stdout] (default task-113)         admdetalle0_.id_detalle_catalogo_padre as id_detal5_4_0_,
+2019-02-12 21:48:40,821 INFO  [stdout] (default task-113)         admdetalle0_.nombre as nombre3_4_0_,
+2019-02-12 21:48:40,821 INFO  [stdout] (default task-113)         admcatalog1_.id_catalogo as id_catal1_1_1_,
+2019-02-12 21:48:40,821 INFO  [stdout] (default task-113)         admcatalog1_.descripcion as descripc2_1_1_,
+2019-02-12 21:48:40,821 INFO  [stdout] (default task-113)         admcatalog1_.id_padre_catalogo as id_padre4_1_1_,
+2019-02-12 21:48:40,821 INFO  [stdout] (default task-113)         admcatalog1_.id_tipo_catalogo as id_tipo_5_1_1_,
+2019-02-12 21:48:40,821 INFO  [stdout] (default task-113)         admcatalog1_.nombre as nombre3_1_1_,
+2019-02-12 21:48:40,821 INFO  [stdout] (default task-113)         admcatalog2_.id_catalogo as id_catal1_1_2_,
+2019-02-12 21:48:40,821 INFO  [stdout] (default task-113)         admcatalog2_.descripcion as descripc2_1_2_,
+2019-02-12 21:48:40,821 INFO  [stdout] (default task-113)         admcatalog2_.id_padre_catalogo as id_padre4_1_2_,
+2019-02-12 21:48:40,821 INFO  [stdout] (default task-113)         admcatalog2_.id_tipo_catalogo as id_tipo_5_1_2_,
+2019-02-12 21:48:40,822 INFO  [stdout] (default task-113)         admcatalog2_.nombre as nombre3_1_2_,
+2019-02-12 21:48:40,822 INFO  [stdout] (default task-113)         admtipocat3_.id_tipo_catalogo as id_tipo_1_12_3_,
+2019-02-12 21:48:40,822 INFO  [stdout] (default task-113)         admtipocat3_.nombre as nombre2_12_3_,
+2019-02-12 21:48:40,822 INFO  [stdout] (default task-113)         admdetalle4_.id_detalle_catalogo as id_detal1_4_4_,
+2019-02-12 21:48:40,822 INFO  [stdout] (default task-113)         admdetalle4_.descripcion as descripc2_4_4_,
+2019-02-12 21:48:40,822 INFO  [stdout] (default task-113)         admdetalle4_.id_catalogo as id_catal4_4_4_,
+2019-02-12 21:48:40,822 INFO  [stdout] (default task-113)         admdetalle4_.id_detalle_catalogo_padre as id_detal5_4_4_,
+2019-02-12 21:48:40,822 INFO  [stdout] (default task-113)         admdetalle4_.nombre as nombre3_4_4_ 
+2019-02-12 21:48:40,822 INFO  [stdout] (default task-113)     from
+2019-02-12 21:48:40,822 INFO  [stdout] (default task-113)         java.adm_detalle_catalogo admdetalle0_ 
+2019-02-12 21:48:40,822 INFO  [stdout] (default task-113)     left outer join
+2019-02-12 21:48:40,822 INFO  [stdout] (default task-113)         java.adm_catalogo admcatalog1_ 
+2019-02-12 21:48:40,822 INFO  [stdout] (default task-113)             on admdetalle0_.id_catalogo=admcatalog1_.id_catalogo 
+2019-02-12 21:48:40,822 INFO  [stdout] (default task-113)     left outer join
+2019-02-12 21:48:40,822 INFO  [stdout] (default task-113)         java.adm_catalogo admcatalog2_ 
+2019-02-12 21:48:40,822 INFO  [stdout] (default task-113)             on admcatalog1_.id_padre_catalogo=admcatalog2_.id_catalogo 
+2019-02-12 21:48:40,822 INFO  [stdout] (default task-113)     left outer join
+2019-02-12 21:48:40,822 INFO  [stdout] (default task-113)         java.adm_tipo_catalogo admtipocat3_ 
+2019-02-12 21:48:40,822 INFO  [stdout] (default task-113)             on admcatalog2_.id_tipo_catalogo=admtipocat3_.id_tipo_catalogo 
+2019-02-12 21:48:40,822 INFO  [stdout] (default task-113)     left outer join
+2019-02-12 21:48:40,822 INFO  [stdout] (default task-113)         java.adm_detalle_catalogo admdetalle4_ 
+2019-02-12 21:48:40,822 INFO  [stdout] (default task-113)             on admdetalle0_.id_detalle_catalogo_padre=admdetalle4_.id_detalle_catalogo 
+2019-02-12 21:48:40,822 INFO  [stdout] (default task-113)     where
+2019-02-12 21:48:40,823 INFO  [stdout] (default task-113)         admdetalle0_.id_detalle_catalogo=?
+2019-02-12 21:48:40,970 INFO  [stdout] (default task-114) Hibernate: 
+2019-02-12 21:48:40,970 INFO  [stdout] (default task-114)     select
+2019-02-12 21:48:40,970 INFO  [stdout] (default task-114)         distinct admmenu1_.id_menu as id_menu1_6_,
+2019-02-12 21:48:40,970 INFO  [stdout] (default task-114)         admmenu1_.icono as icono2_6_,
+2019-02-12 21:48:40,971 INFO  [stdout] (default task-114)         admmenu1_.id_padre as id_padre3_6_,
+2019-02-12 21:48:40,971 INFO  [stdout] (default task-114)         admmenu1_.nombre as nombre4_6_,
+2019-02-12 21:48:40,971 INFO  [stdout] (default task-114)         admmenu1_.url_pagina as url_pagi5_6_ 
+2019-02-12 21:48:40,971 INFO  [stdout] (default task-114)     from
+2019-02-12 21:48:40,971 INFO  [stdout] (default task-114)         java.adm_rol_menu admrolmenu0_ 
+2019-02-12 21:48:40,971 INFO  [stdout] (default task-114)     inner join
+2019-02-12 21:48:40,971 INFO  [stdout] (default task-114)         java.adm_menu admmenu1_ 
+2019-02-12 21:48:40,971 INFO  [stdout] (default task-114)             on admrolmenu0_.id_menu=admmenu1_.id_menu 
+2019-02-12 21:48:40,972 INFO  [stdout] (default task-114)     where
+2019-02-12 21:48:40,972 INFO  [stdout] (default task-114)         admrolmenu0_.id_rol in (
+2019-02-12 21:48:40,972 INFO  [stdout] (default task-114)             select
+2019-02-12 21:48:40,972 INFO  [stdout] (default task-114)                 admrolusua2_.id_rol 
+2019-02-12 21:48:40,972 INFO  [stdout] (default task-114)             from
+2019-02-12 21:48:40,972 INFO  [stdout] (default task-114)                 java.adm_rol_usuario admrolusua2_,
+2019-02-12 21:48:40,972 INFO  [stdout] (default task-114)                 java.adm_rol admrol3_ 
+2019-02-12 21:48:40,972 INFO  [stdout] (default task-114)             where
+2019-02-12 21:48:40,972 INFO  [stdout] (default task-114)                 admrolusua2_.id_rol=admrol3_.id_rol 
+2019-02-12 21:48:40,972 INFO  [stdout] (default task-114)                 and admrolusua2_.id_usuario=1
+2019-02-12 21:48:40,972 INFO  [stdout] (default task-114)         )
+2019-02-12 21:48:44,915 INFO  [stdout] (default task-3) Hibernate: 
+2019-02-12 21:48:44,915 INFO  [stdout] (default task-3)     select
+2019-02-12 21:48:44,916 INFO  [stdout] (default task-3)         distinct admmenu1_.id_menu as id_menu1_6_,
+2019-02-12 21:48:44,916 INFO  [stdout] (default task-3)         admmenu1_.icono as icono2_6_,
+2019-02-12 21:48:44,916 INFO  [stdout] (default task-3)         admmenu1_.id_padre as id_padre3_6_,
+2019-02-12 21:48:44,916 INFO  [stdout] (default task-3)         admmenu1_.nombre as nombre4_6_,
+2019-02-12 21:48:44,916 INFO  [stdout] (default task-3)         admmenu1_.url_pagina as url_pagi5_6_ 
+2019-02-12 21:48:44,916 INFO  [stdout] (default task-3)     from
+2019-02-12 21:48:44,917 INFO  [stdout] (default task-3)         java.adm_rol_menu admrolmenu0_ 
+2019-02-12 21:48:44,917 INFO  [stdout] (default task-3)     inner join
+2019-02-12 21:48:44,917 INFO  [stdout] (default task-3)         java.adm_menu admmenu1_ 
+2019-02-12 21:48:44,917 INFO  [stdout] (default task-3)             on admrolmenu0_.id_menu=admmenu1_.id_menu 
+2019-02-12 21:48:44,917 INFO  [stdout] (default task-3)     where
+2019-02-12 21:48:44,917 INFO  [stdout] (default task-3)         admrolmenu0_.id_rol in (
+2019-02-12 21:48:44,917 INFO  [stdout] (default task-3)             select
+2019-02-12 21:48:44,917 INFO  [stdout] (default task-3)                 admrolusua2_.id_rol 
+2019-02-12 21:48:44,917 INFO  [stdout] (default task-3)             from
+2019-02-12 21:48:44,917 INFO  [stdout] (default task-3)                 java.adm_rol_usuario admrolusua2_,
+2019-02-12 21:48:44,917 INFO  [stdout] (default task-3)                 java.adm_rol admrol3_ 
+2019-02-12 21:48:44,917 INFO  [stdout] (default task-3)             where
+2019-02-12 21:48:44,917 INFO  [stdout] (default task-3)                 admrolusua2_.id_rol=admrol3_.id_rol 
+2019-02-12 21:48:44,917 INFO  [stdout] (default task-3)                 and admrolusua2_.id_usuario=1
+2019-02-12 21:48:44,918 INFO  [stdout] (default task-3)         )
+2019-02-12 21:48:44,925 INFO  [stdout] (default task-3) Hibernate: 
+2019-02-12 21:48:44,926 INFO  [stdout] (default task-3)     select
+2019-02-12 21:48:44,927 INFO  [stdout] (default task-3)         dc.id_detalle_catalogo,
+2019-02-12 21:48:44,927 INFO  [stdout] (default task-3)         dc.nombre 
+2019-02-12 21:48:44,928 INFO  [stdout] (default task-3)     from
+2019-02-12 21:48:44,928 INFO  [stdout] (default task-3)         java.adm_usuario_ciudad as uc 
+2019-02-12 21:48:44,928 INFO  [stdout] (default task-3)     inner join
+2019-02-12 21:48:44,928 INFO  [stdout] (default task-3)         java.adm_detalle_catalogo as dc 
+2019-02-12 21:48:44,928 INFO  [stdout] (default task-3)             on dc.id_detalle_catalogo = uc.id_ciudad_dc 
+2019-02-12 21:48:44,928 INFO  [stdout] (default task-3)     where
+2019-02-12 21:48:44,928 INFO  [stdout] (default task-3)         uc.id_Usuario = 1
+2019-02-12 21:48:44,967 INFO  [stdout] (default task-3) Hibernate: 
+2019-02-12 21:48:44,967 INFO  [stdout] (default task-3)     select
+2019-02-12 21:48:44,968 INFO  [stdout] (default task-3)         e.id_empleado,
+2019-02-12 21:48:44,968 INFO  [stdout] (default task-3)         e.nombres,
+2019-02-12 21:48:44,968 INFO  [stdout] (default task-3)         e.apellidos 
+2019-02-12 21:48:44,968 INFO  [stdout] (default task-3)     from
+2019-02-12 21:48:44,968 INFO  [stdout] (default task-3)         java.adm_rol_usuario as ru 
+2019-02-12 21:48:44,968 INFO  [stdout] (default task-3)     inner join
+2019-02-12 21:48:44,968 INFO  [stdout] (default task-3)         java.adm_usuario as u 
+2019-02-12 21:48:44,968 INFO  [stdout] (default task-3)             on u.id_usuario = ru.id_usuario 
+2019-02-12 21:48:44,969 INFO  [stdout] (default task-3)     inner join
+2019-02-12 21:48:44,969 INFO  [stdout] (default task-3)         java.adm_empleado as e 
+2019-02-12 21:48:44,969 INFO  [stdout] (default task-3)             on e.id_empleado = u.id_empleado 
+2019-02-12 21:48:44,969 INFO  [stdout] (default task-3)     where
+2019-02-12 21:48:44,969 INFO  [stdout] (default task-3)         ru.id_rol = 2  
+2019-02-12 21:48:44,969 INFO  [stdout] (default task-3)         and ru.id_usuario not in (
+2019-02-12 21:48:44,969 INFO  [stdout] (default task-3)             select
+2019-02-12 21:48:44,969 INFO  [stdout] (default task-3)                 q.id_usuario 
+2019-02-12 21:48:44,969 INFO  [stdout] (default task-3)             from
+2019-02-12 21:48:44,969 INFO  [stdout] (default task-3)                 java.adm_usuario q 
+2019-02-12 21:48:44,969 INFO  [stdout] (default task-3)             where
+2019-02-12 21:48:44,969 INFO  [stdout] (default task-3)                 q.id_empleado in (
+2019-02-12 21:48:44,969 INFO  [stdout] (default task-3)                     select
+2019-02-12 21:48:44,969 INFO  [stdout] (default task-3)                         c.id_empleado 
+2019-02-12 21:48:44,969 INFO  [stdout] (default task-3)                     from
+2019-02-12 21:48:44,969 INFO  [stdout] (default task-3)                         java.ope_detalle_tripulacion c 
+2019-02-12 21:48:44,969 INFO  [stdout] (default task-3)                     where
+2019-02-12 21:48:44,969 INFO  [stdout] (default task-3)                         c.id_tripulacion in (
+2019-02-12 21:48:44,969 INFO  [stdout] (default task-3)                             select
+2019-02-12 21:48:44,969 INFO  [stdout] (default task-3)                                 m.id_tripulacion 
+2019-02-12 21:48:44,969 INFO  [stdout] (default task-3)                             from
+2019-02-12 21:48:44,969 INFO  [stdout] (default task-3)                                 java.ope_Tripulacion m  
+2019-02-12 21:48:44,969 INFO  [stdout] (default task-3)                             where
+2019-02-12 21:48:44,969 INFO  [stdout] (default task-3)                                 m.fecha_operacion ='Tue Feb 12 21:48:44 COT 2019'
+2019-02-12 21:48:44,969 INFO  [stdout] (default task-3)                         )
+2019-02-12 21:48:44,970 INFO  [stdout] (default task-3)                     )
+2019-02-12 21:48:44,970 INFO  [stdout] (default task-3)             ) 
+2019-02-12 21:48:44,970 INFO  [stdout] (default task-3)             and e.id_ciudad_dc = 39
+2019-02-12 21:48:44,973 INFO  [stdout] (default task-3) Hibernate: 
+2019-02-12 21:48:44,973 INFO  [stdout] (default task-3)     select
+2019-02-12 21:48:44,973 INFO  [stdout] (default task-3)         id_vehiculo,
+2019-02-12 21:48:44,973 INFO  [stdout] (default task-3)         descripcion 
+2019-02-12 21:48:44,973 INFO  [stdout] (default task-3)     from
+2019-02-12 21:48:44,973 INFO  [stdout] (default task-3)         java.ope_vehiculo   
+2019-02-12 21:48:44,973 INFO  [stdout] (default task-3)     where
+2019-02-12 21:48:44,973 INFO  [stdout] (default task-3)         id_ciudad_dc = 39 
+2019-02-12 21:48:44,973 INFO  [stdout] (default task-3)         and id_Vehiculo not in (
+2019-02-12 21:48:44,973 INFO  [stdout] (default task-3)             select
+2019-02-12 21:48:44,973 INFO  [stdout] (default task-3)                 id_Vehiculo 
+2019-02-12 21:48:44,973 INFO  [stdout] (default task-3)             from
+2019-02-12 21:48:44,973 INFO  [stdout] (default task-3)                 java.Ope_Tripulacion  
+2019-02-12 21:48:44,973 INFO  [stdout] (default task-3)             where
+2019-02-12 21:48:44,973 INFO  [stdout] (default task-3)                 fecha_Operacion ='Tue Feb 12 21:48:44 COT 2019'
+2019-02-12 21:48:44,973 INFO  [stdout] (default task-3)         )
+2019-02-12 21:48:44,976 INFO  [stdout] (default task-3) Hibernate: 
+2019-02-12 21:48:44,978 INFO  [stdout] (default task-3)     select
+2019-02-12 21:48:44,978 INFO  [stdout] (default task-3)         a.id_circuito,
+2019-02-12 21:48:44,978 INFO  [stdout] (default task-3)         a.nombre 
+2019-02-12 21:48:44,978 INFO  [stdout] (default task-3)     from
+2019-02-12 21:48:44,978 INFO  [stdout] (default task-3)         java.ope_circuito a 
+2019-02-12 21:48:44,978 INFO  [stdout] (default task-3)     where
+2019-02-12 21:48:44,978 INFO  [stdout] (default task-3)         a.id_Ciudad_Dc = 39 
+2019-02-12 21:48:44,978 INFO  [stdout] (default task-3)         and a.dia_asociado = 'null' 
+2019-02-12 21:48:44,978 INFO  [stdout] (default task-3)         and a.id_Circuito not in (
+2019-02-12 21:48:44,978 INFO  [stdout] (default task-3)             select
+2019-02-12 21:48:44,978 INFO  [stdout] (default task-3)                 c.id_Circuito 
+2019-02-12 21:48:44,978 INFO  [stdout] (default task-3)             from
+2019-02-12 21:48:44,978 INFO  [stdout] (default task-3)                 java.ope_tripulacion c 
+2019-02-12 21:48:44,978 INFO  [stdout] (default task-3)             where
+2019-02-12 21:48:44,978 INFO  [stdout] (default task-3)                 c.fecha_Operacion ='Tue Feb 12 21:48:44 COT 2019'
+2019-02-12 21:48:44,978 INFO  [stdout] (default task-3)         ) 
+2019-02-12 21:48:45,014 INFO  [stdout] (default task-3) Hibernate: 
+2019-02-12 21:48:45,014 INFO  [stdout] (default task-3)     select
+2019-02-12 21:48:45,014 INFO  [stdout] (default task-3)         a.id_equipo_movil,
+2019-02-12 21:48:45,015 INFO  [stdout] (default task-3)         a.nombre 
+2019-02-12 21:48:45,015 INFO  [stdout] (default task-3)     from
+2019-02-12 21:48:45,015 INFO  [stdout] (default task-3)         java.ope_equipo_movil a 
+2019-02-12 21:48:45,015 INFO  [stdout] (default task-3)     where
+2019-02-12 21:48:45,015 INFO  [stdout] (default task-3)         a.id_ciudad_dc = 39 
+2019-02-12 21:48:45,015 INFO  [stdout] (default task-3)         and a.id_Equipo_Movil not in (
+2019-02-12 21:48:45,015 INFO  [stdout] (default task-3)             select
+2019-02-12 21:48:45,015 INFO  [stdout] (default task-3)                 c.id_equipo_movil 
+2019-02-12 21:48:45,016 INFO  [stdout] (default task-3)             from
+2019-02-12 21:48:45,016 INFO  [stdout] (default task-3)                 java.ope_tripulacion c 
+2019-02-12 21:48:45,016 INFO  [stdout] (default task-3)             where
+2019-02-12 21:48:45,016 INFO  [stdout] (default task-3)                 c.fecha_operacion ='Tue Feb 12 21:48:44 COT 2019'
+2019-02-12 21:48:45,016 INFO  [stdout] (default task-3)         )
+2019-02-12 21:48:45,019 INFO  [stdout] (default task-3) Hibernate: 
+2019-02-12 21:48:45,019 INFO  [stdout] (default task-3)     select
+2019-02-12 21:48:45,019 INFO  [stdout] (default task-3)         tr.id_tripulacion,
+2019-02-12 21:48:45,019 INFO  [stdout] (default task-3)         tr.fecha_operacion,
+2019-02-12 21:48:45,019 INFO  [stdout] (default task-3)         ve.descripcion,
+2019-02-12 21:48:45,019 INFO  [stdout] (default task-3)         ci.nombre,
+2019-02-12 21:48:45,019 INFO  [stdout] (default task-3)         mo.nombre as equipo  
+2019-02-12 21:48:45,019 INFO  [stdout] (default task-3)     from
+2019-02-12 21:48:45,019 INFO  [stdout] (default task-3)         java.ope_tripulacion as tr 
+2019-02-12 21:48:45,019 INFO  [stdout] (default task-3)     inner join
+2019-02-12 21:48:45,020 INFO  [stdout] (default task-3)         java.ope_vehiculo as ve 
+2019-02-12 21:48:45,020 INFO  [stdout] (default task-3)             on ve.id_vehiculo = tr.id_vehiculo 
+2019-02-12 21:48:45,020 INFO  [stdout] (default task-3)     inner join
+2019-02-12 21:48:45,020 INFO  [stdout] (default task-3)         java.ope_circuito as ci 
+2019-02-12 21:48:45,020 INFO  [stdout] (default task-3)             on ci.id_circuito = tr.id_circuito  
+2019-02-12 21:48:45,020 INFO  [stdout] (default task-3)     inner join
+2019-02-12 21:48:45,020 INFO  [stdout] (default task-3)         java.ope_equipo_movil as mo 
+2019-02-12 21:48:45,020 INFO  [stdout] (default task-3)             on mo.id_equipo_movil = tr.id_equipo_movil 
+2019-02-12 21:48:45,020 INFO  [stdout] (default task-3)     where
+2019-02-12 21:48:45,020 INFO  [stdout] (default task-3)         tr.fecha_operacion = 'Tue Feb 12 21:48:44 COT 2019' 
+2019-02-12 21:48:45,020 INFO  [stdout] (default task-3)         and mo.id_Equipo_Movil in  (
+2019-02-12 21:48:45,020 INFO  [stdout] (default task-3)             select
+2019-02-12 21:48:45,020 INFO  [stdout] (default task-3)                 b.id_Equipo_Movil 
+2019-02-12 21:48:45,020 INFO  [stdout] (default task-3)             from
+2019-02-12 21:48:45,020 INFO  [stdout] (default task-3)                 java.ope_equipo_movil b 
+2019-02-12 21:48:45,020 INFO  [stdout] (default task-3)             where
+2019-02-12 21:48:45,020 INFO  [stdout] (default task-3)                 b.id_ciudad_dc = 39
+2019-02-12 21:48:45,020 INFO  [stdout] (default task-3)         )
+2019-02-12 21:48:48,589 INFO  [stdout] (default task-5) diaaaaamartes
+2019-02-12 21:48:48,589 INFO  [stdout] (default task-5) Hibernate: 
+2019-02-12 21:48:48,589 INFO  [stdout] (default task-5)     select
+2019-02-12 21:48:48,589 INFO  [stdout] (default task-5)         e.id_empleado,
+2019-02-12 21:48:48,590 INFO  [stdout] (default task-5)         e.nombres,
+2019-02-12 21:48:48,590 INFO  [stdout] (default task-5)         e.apellidos 
+2019-02-12 21:48:48,590 INFO  [stdout] (default task-5)     from
+2019-02-12 21:48:48,590 INFO  [stdout] (default task-5)         java.adm_rol_usuario as ru 
+2019-02-12 21:48:48,590 INFO  [stdout] (default task-5)     inner join
+2019-02-12 21:48:48,590 INFO  [stdout] (default task-5)         java.adm_usuario as u 
+2019-02-12 21:48:48,590 INFO  [stdout] (default task-5)             on u.id_usuario = ru.id_usuario 
+2019-02-12 21:48:48,590 INFO  [stdout] (default task-5)     inner join
+2019-02-12 21:48:48,590 INFO  [stdout] (default task-5)         java.adm_empleado as e 
+2019-02-12 21:48:48,590 INFO  [stdout] (default task-5)             on e.id_empleado = u.id_empleado 
+2019-02-12 21:48:48,590 INFO  [stdout] (default task-5)     where
+2019-02-12 21:48:48,590 INFO  [stdout] (default task-5)         ru.id_rol = 2  
+2019-02-12 21:48:48,590 INFO  [stdout] (default task-5)         and ru.id_usuario not in (
+2019-02-12 21:48:48,591 INFO  [stdout] (default task-5)             select
+2019-02-12 21:48:48,591 INFO  [stdout] (default task-5)                 q.id_usuario 
+2019-02-12 21:48:48,591 INFO  [stdout] (default task-5)             from
+2019-02-12 21:48:48,591 INFO  [stdout] (default task-5)                 java.adm_usuario q 
+2019-02-12 21:48:48,591 INFO  [stdout] (default task-5)             where
+2019-02-12 21:48:48,591 INFO  [stdout] (default task-5)                 q.id_empleado in (
+2019-02-12 21:48:48,591 INFO  [stdout] (default task-5)                     select
+2019-02-12 21:48:48,591 INFO  [stdout] (default task-5)                         c.id_empleado 
+2019-02-12 21:48:48,591 INFO  [stdout] (default task-5)                     from
+2019-02-12 21:48:48,591 INFO  [stdout] (default task-5)                         java.ope_detalle_tripulacion c 
+2019-02-12 21:48:48,591 INFO  [stdout] (default task-5)                     where
+2019-02-12 21:48:48,591 INFO  [stdout] (default task-5)                         c.id_tripulacion in (
+2019-02-12 21:48:48,591 INFO  [stdout] (default task-5)                             select
+2019-02-12 21:48:48,591 INFO  [stdout] (default task-5)                                 m.id_tripulacion 
+2019-02-12 21:48:48,591 INFO  [stdout] (default task-5)                             from
+2019-02-12 21:48:48,591 INFO  [stdout] (default task-5)                                 java.ope_Tripulacion m  
+2019-02-12 21:48:48,591 INFO  [stdout] (default task-5)                             where
+2019-02-12 21:48:48,591 INFO  [stdout] (default task-5)                                 m.fecha_operacion ='Tue Feb 12 21:48:44 COT 2019'
+2019-02-12 21:48:48,591 INFO  [stdout] (default task-5)                         )
+2019-02-12 21:48:48,591 INFO  [stdout] (default task-5)                     )
+2019-02-12 21:48:48,591 INFO  [stdout] (default task-5)             ) 
+2019-02-12 21:48:48,591 INFO  [stdout] (default task-5)             and e.id_ciudad_dc = 56
+2019-02-12 21:48:48,594 INFO  [stdout] (default task-5) Hibernate: 
+2019-02-12 21:48:48,594 INFO  [stdout] (default task-5)     select
+2019-02-12 21:48:48,594 INFO  [stdout] (default task-5)         id_vehiculo,
+2019-02-12 21:48:48,594 INFO  [stdout] (default task-5)         descripcion 
+2019-02-12 21:48:48,594 INFO  [stdout] (default task-5)     from
+2019-02-12 21:48:48,594 INFO  [stdout] (default task-5)         java.ope_vehiculo   
+2019-02-12 21:48:48,594 INFO  [stdout] (default task-5)     where
+2019-02-12 21:48:48,594 INFO  [stdout] (default task-5)         id_ciudad_dc = 56 
+2019-02-12 21:48:48,594 INFO  [stdout] (default task-5)         and id_Vehiculo not in (
+2019-02-12 21:48:48,594 INFO  [stdout] (default task-5)             select
+2019-02-12 21:48:48,594 INFO  [stdout] (default task-5)                 id_Vehiculo 
+2019-02-12 21:48:48,594 INFO  [stdout] (default task-5)             from
+2019-02-12 21:48:48,595 INFO  [stdout] (default task-5)                 java.Ope_Tripulacion  
+2019-02-12 21:48:48,595 INFO  [stdout] (default task-5)             where
+2019-02-12 21:48:48,595 INFO  [stdout] (default task-5)                 fecha_Operacion ='Tue Feb 12 21:48:44 COT 2019'
+2019-02-12 21:48:48,595 INFO  [stdout] (default task-5)         )
+2019-02-12 21:48:48,597 INFO  [stdout] (default task-5) Hibernate: 
+2019-02-12 21:48:48,597 INFO  [stdout] (default task-5)     select
+2019-02-12 21:48:48,598 INFO  [stdout] (default task-5)         a.id_equipo_movil,
+2019-02-12 21:48:48,599 INFO  [stdout] (default task-5)         a.nombre 
+2019-02-12 21:48:48,599 INFO  [stdout] (default task-5)     from
+2019-02-12 21:48:48,599 INFO  [stdout] (default task-5)         java.ope_equipo_movil a 
+2019-02-12 21:48:48,600 INFO  [stdout] (default task-5)     where
+2019-02-12 21:48:48,600 INFO  [stdout] (default task-5)         a.id_ciudad_dc = 56 
+2019-02-12 21:48:48,600 INFO  [stdout] (default task-5)         and a.id_Equipo_Movil not in (
+2019-02-12 21:48:48,600 INFO  [stdout] (default task-5)             select
+2019-02-12 21:48:48,600 INFO  [stdout] (default task-5)                 c.id_equipo_movil 
+2019-02-12 21:48:48,600 INFO  [stdout] (default task-5)             from
+2019-02-12 21:48:48,600 INFO  [stdout] (default task-5)                 java.ope_tripulacion c 
+2019-02-12 21:48:48,600 INFO  [stdout] (default task-5)             where
+2019-02-12 21:48:48,600 INFO  [stdout] (default task-5)                 c.fecha_operacion ='Tue Feb 12 21:48:44 COT 2019'
+2019-02-12 21:48:48,600 INFO  [stdout] (default task-5)         )
+2019-02-12 21:48:48,602 INFO  [stdout] (default task-5) Hibernate: 
+2019-02-12 21:48:48,602 INFO  [stdout] (default task-5)     select
+2019-02-12 21:48:48,602 INFO  [stdout] (default task-5)         a.id_circuito,
+2019-02-12 21:48:48,602 INFO  [stdout] (default task-5)         a.nombre 
+2019-02-12 21:48:48,602 INFO  [stdout] (default task-5)     from
+2019-02-12 21:48:48,602 INFO  [stdout] (default task-5)         java.ope_circuito a 
+2019-02-12 21:48:48,602 INFO  [stdout] (default task-5)     where
+2019-02-12 21:48:48,603 INFO  [stdout] (default task-5)         a.id_Ciudad_Dc = 56 
+2019-02-12 21:48:48,603 INFO  [stdout] (default task-5)         and a.dia_asociado = 'martes' 
+2019-02-12 21:48:48,603 INFO  [stdout] (default task-5)         and a.id_Circuito not in (
+2019-02-12 21:48:48,603 INFO  [stdout] (default task-5)             select
+2019-02-12 21:48:48,603 INFO  [stdout] (default task-5)                 c.id_Circuito 
+2019-02-12 21:48:48,603 INFO  [stdout] (default task-5)             from
+2019-02-12 21:48:48,603 INFO  [stdout] (default task-5)                 java.ope_tripulacion c 
+2019-02-12 21:48:48,603 INFO  [stdout] (default task-5)             where
+2019-02-12 21:48:48,603 INFO  [stdout] (default task-5)                 c.fecha_Operacion ='Tue Feb 12 21:48:44 COT 2019'
+2019-02-12 21:48:48,603 INFO  [stdout] (default task-5)         ) 
+2019-02-12 21:48:48,605 INFO  [stdout] (default task-5) Hibernate: 
+2019-02-12 21:48:48,605 INFO  [stdout] (default task-5)     select
+2019-02-12 21:48:48,605 INFO  [stdout] (default task-5)         tr.id_tripulacion,
+2019-02-12 21:48:48,605 INFO  [stdout] (default task-5)         tr.fecha_operacion,
+2019-02-12 21:48:48,605 INFO  [stdout] (default task-5)         ve.descripcion,
+2019-02-12 21:48:48,605 INFO  [stdout] (default task-5)         ci.nombre,
+2019-02-12 21:48:48,605 INFO  [stdout] (default task-5)         mo.nombre as equipo  
+2019-02-12 21:48:48,605 INFO  [stdout] (default task-5)     from
+2019-02-12 21:48:48,605 INFO  [stdout] (default task-5)         java.ope_tripulacion as tr 
+2019-02-12 21:48:48,605 INFO  [stdout] (default task-5)     inner join
+2019-02-12 21:48:48,605 INFO  [stdout] (default task-5)         java.ope_vehiculo as ve 
+2019-02-12 21:48:48,605 INFO  [stdout] (default task-5)             on ve.id_vehiculo = tr.id_vehiculo 
+2019-02-12 21:48:48,606 INFO  [stdout] (default task-5)     inner join
+2019-02-12 21:48:48,606 INFO  [stdout] (default task-5)         java.ope_circuito as ci 
+2019-02-12 21:48:48,606 INFO  [stdout] (default task-5)             on ci.id_circuito = tr.id_circuito  
+2019-02-12 21:48:48,606 INFO  [stdout] (default task-5)     inner join
+2019-02-12 21:48:48,606 INFO  [stdout] (default task-5)         java.ope_equipo_movil as mo 
+2019-02-12 21:48:48,606 INFO  [stdout] (default task-5)             on mo.id_equipo_movil = tr.id_equipo_movil 
+2019-02-12 21:48:48,606 INFO  [stdout] (default task-5)     where
+2019-02-12 21:48:48,606 INFO  [stdout] (default task-5)         tr.fecha_operacion = 'Tue Feb 12 21:48:44 COT 2019' 
+2019-02-12 21:48:48,606 INFO  [stdout] (default task-5)         and mo.id_Equipo_Movil in  (
+2019-02-12 21:48:48,606 INFO  [stdout] (default task-5)             select
+2019-02-12 21:48:48,606 INFO  [stdout] (default task-5)                 b.id_Equipo_Movil 
+2019-02-12 21:48:48,606 INFO  [stdout] (default task-5)             from
+2019-02-12 21:48:48,606 INFO  [stdout] (default task-5)                 java.ope_equipo_movil b 
+2019-02-12 21:48:48,606 INFO  [stdout] (default task-5)             where
+2019-02-12 21:48:48,606 INFO  [stdout] (default task-5)                 b.id_ciudad_dc = 56
+2019-02-12 21:48:48,606 INFO  [stdout] (default task-5)         )
+2019-02-12 21:49:01,267 INFO  [stdout] (default task-8) Hibernate: 
+2019-02-12 21:49:01,267 INFO  [stdout] (default task-8)     select
+2019-02-12 21:49:01,268 INFO  [stdout] (default task-8)         max(opetripula0_.id_tripulacion) as col_0_0_ 
+2019-02-12 21:49:01,268 INFO  [stdout] (default task-8)     from
+2019-02-12 21:49:01,268 INFO  [stdout] (default task-8)         java.ope_tripulacion opetripula0_
+2019-02-12 21:49:01,272 INFO  [stdout] (default task-8) Hibernate: 
+2019-02-12 21:49:01,272 INFO  [stdout] (default task-8)     select
+2019-02-12 21:49:01,272 INFO  [stdout] (default task-8)         opecircuit_.id_circuito,
+2019-02-12 21:49:01,272 INFO  [stdout] (default task-8)         opecircuit_.dia_asociado as dia_asoc2_28_,
+2019-02-12 21:49:01,272 INFO  [stdout] (default task-8)         opecircuit_.id_ciudad_dc as id_ciuda4_28_,
+2019-02-12 21:49:01,272 INFO  [stdout] (default task-8)         opecircuit_.nombre as nombre3_28_ 
+2019-02-12 21:49:01,272 INFO  [stdout] (default task-8)     from
+2019-02-12 21:49:01,272 INFO  [stdout] (default task-8)         java.ope_circuito opecircuit_ 
+2019-02-12 21:49:01,272 INFO  [stdout] (default task-8)     where
+2019-02-12 21:49:01,273 INFO  [stdout] (default task-8)         opecircuit_.id_circuito=?
+2019-02-12 21:49:01,275 INFO  [stdout] (default task-8) Hibernate: 
+2019-02-12 21:49:01,275 INFO  [stdout] (default task-8)     select
+2019-02-12 21:49:01,275 INFO  [stdout] (default task-8)         opeequipom_.id_equipo_movil,
+2019-02-12 21:49:01,275 INFO  [stdout] (default task-8)         opeequipom_.id_ciudad_dc as id_ciuda3_33_,
+2019-02-12 21:49:01,275 INFO  [stdout] (default task-8)         opeequipom_.nombre as nombre2_33_ 
+2019-02-12 21:49:01,275 INFO  [stdout] (default task-8)     from
+2019-02-12 21:49:01,275 INFO  [stdout] (default task-8)         java.ope_equipo_movil opeequipom_ 
+2019-02-12 21:49:01,275 INFO  [stdout] (default task-8)     where
+2019-02-12 21:49:01,275 INFO  [stdout] (default task-8)         opeequipom_.id_equipo_movil=?
+2019-02-12 21:49:01,277 INFO  [stdout] (default task-8) Hibernate: 
+2019-02-12 21:49:01,278 INFO  [stdout] (default task-8)     select
+2019-02-12 21:49:01,278 INFO  [stdout] (default task-8)         opevehicul_.id_vehiculo,
+2019-02-12 21:49:01,278 INFO  [stdout] (default task-8)         opevehicul_.cod_vehiculo as cod_vehi2_49_,
+2019-02-12 21:49:01,278 INFO  [stdout] (default task-8)         opevehicul_.descripcion as descripc3_49_,
+2019-02-12 21:49:01,278 INFO  [stdout] (default task-8)         opevehicul_.id_categoria_vehiculo as id_categ5_49_,
+2019-02-12 21:49:01,278 INFO  [stdout] (default task-8)         opevehicul_.id_ciudad_dc as id_ciuda6_49_,
+2019-02-12 21:49:01,278 INFO  [stdout] (default task-8)         opevehicul_.placa as placa4_49_ 
+2019-02-12 21:49:01,278 INFO  [stdout] (default task-8)     from
+2019-02-12 21:49:01,279 INFO  [stdout] (default task-8)         java.ope_vehiculo opevehicul_ 
+2019-02-12 21:49:01,279 INFO  [stdout] (default task-8)     where
+2019-02-12 21:49:01,279 INFO  [stdout] (default task-8)         opevehicul_.id_vehiculo=?
+2019-02-12 21:49:01,281 INFO  [stdout] (default task-8) Hibernate: 
+2019-02-12 21:49:01,281 INFO  [stdout] (default task-8)     insert 
+2019-02-12 21:49:01,281 INFO  [stdout] (default task-8)     into
+2019-02-12 21:49:01,281 INFO  [stdout] (default task-8)         java.ope_tripulacion
+2019-02-12 21:49:01,282 INFO  [stdout] (default task-8)         (dia_operacion, estado, fecha_asignacion, fecha_operacion, id_circuito, id_equipo_movil, id_vehiculo, id_tripulacion) 
+2019-02-12 21:49:01,282 INFO  [stdout] (default task-8)     values
+2019-02-12 21:49:01,282 INFO  [stdout] (default task-8)         (?, ?, ?, ?, ?, ?, ?, ?)
+2019-02-12 21:49:01,302 INFO  [stdout] (default task-8) Hibernate: 
+2019-02-12 21:49:01,302 INFO  [stdout] (default task-8)     select
+2019-02-12 21:49:01,302 INFO  [stdout] (default task-8)         max(opedetalle0_.id_detalle_tripulacion) as col_0_0_ 
+2019-02-12 21:49:01,303 INFO  [stdout] (default task-8)     from
+2019-02-12 21:49:01,303 INFO  [stdout] (default task-8)         java.ope_detalle_tripulacion opedetalle0_
+2019-02-12 21:49:01,305 INFO  [stdout] (default task-8) Hibernate: 
+2019-02-12 21:49:01,305 INFO  [stdout] (default task-8)     select
+2019-02-12 21:49:01,306 INFO  [stdout] (default task-8)         admemplead_.id_empleado,
+2019-02-12 21:49:01,306 INFO  [stdout] (default task-8)         admemplead_.apellidos as apellido2_5_,
+2019-02-12 21:49:01,306 INFO  [stdout] (default task-8)         admemplead_.correo_electronico as correo_e3_5_,
+2019-02-12 21:49:01,306 INFO  [stdout] (default task-8)         admemplead_.direccion as direccio4_5_,
+2019-02-12 21:49:01,306 INFO  [stdout] (default task-8)         admemplead_.fecha_nacimiento as fecha_na5_5_,
+2019-02-12 21:49:01,306 INFO  [stdout] (default task-8)         admemplead_.fecha_registro as fecha_re6_5_,
+2019-02-12 21:49:01,306 INFO  [stdout] (default task-8)         admemplead_.fecha_salida as fecha_sa7_5_,
+2019-02-12 21:49:01,306 INFO  [stdout] (default task-8)         admemplead_.id_cargo_dc as id_carg14_5_,
+2019-02-12 21:49:01,306 INFO  [stdout] (default task-8)         admemplead_.id_ciudad_dc as id_ciud15_5_,
+2019-02-12 21:49:01,306 INFO  [stdout] (default task-8)         admemplead_.id_clase_empleado_dc as id_clas16_5_,
+2019-02-12 21:49:01,306 INFO  [stdout] (default task-8)         admemplead_.id_departamento_dc as id_depa17_5_,
+2019-02-12 21:49:01,307 INFO  [stdout] (default task-8)         admemplead_.id_estado_dc as id_esta18_5_,
+2019-02-12 21:49:01,307 INFO  [stdout] (default task-8)         admemplead_.id_linea_negocio_dc as id_line19_5_,
+2019-02-12 21:49:01,307 INFO  [stdout] (default task-8)         admemplead_.id_sexo_dc as id_sexo20_5_,
+2019-02-12 21:49:01,307 INFO  [stdout] (default task-8)         admemplead_.id_sucursal as id_sucu21_5_,
+2019-02-12 21:49:01,307 INFO  [stdout] (default task-8)         admemplead_.id_tipo_empleado_dc as id_tipo22_5_,
+2019-02-12 21:49:01,307 INFO  [stdout] (default task-8)         admemplead_.identificacion as identifi8_5_,
+2019-02-12 21:49:01,307 INFO  [stdout] (default task-8)         admemplead_.nombres as nombres9_5_,
+2019-02-12 21:49:01,307 INFO  [stdout] (default task-8)         admemplead_.telefono as telefon10_5_,
+2019-02-12 21:49:01,307 INFO  [stdout] (default task-8)         admemplead_.tipo_sanguineo as tipo_sa11_5_,
+2019-02-12 21:49:01,307 INFO  [stdout] (default task-8)         admemplead_.url_firma as url_fir12_5_,
+2019-02-12 21:49:01,307 INFO  [stdout] (default task-8)         admemplead_.url_foto as url_fot13_5_ 
+2019-02-12 21:49:01,307 INFO  [stdout] (default task-8)     from
+2019-02-12 21:49:01,307 INFO  [stdout] (default task-8)         java.adm_empleado admemplead_ 
+2019-02-12 21:49:01,307 INFO  [stdout] (default task-8)     where
+2019-02-12 21:49:01,307 INFO  [stdout] (default task-8)         admemplead_.id_empleado=?
+2019-02-12 21:49:01,310 INFO  [stdout] (default task-8) Hibernate: 
+2019-02-12 21:49:01,310 INFO  [stdout] (default task-8)     select
+2019-02-12 21:49:01,310 INFO  [stdout] (default task-8)         opetripula_.id_tripulacion,
+2019-02-12 21:49:01,310 INFO  [stdout] (default task-8)         opetripula_.dia_operacion as dia_oper2_47_,
+2019-02-12 21:49:01,310 INFO  [stdout] (default task-8)         opetripula_.estado as estado3_47_,
+2019-02-12 21:49:01,310 INFO  [stdout] (default task-8)         opetripula_.fecha_asignacion as fecha_as4_47_,
+2019-02-12 21:49:01,310 INFO  [stdout] (default task-8)         opetripula_.fecha_operacion as fecha_op5_47_,
+2019-02-12 21:49:01,310 INFO  [stdout] (default task-8)         opetripula_.id_circuito as id_circu6_47_,
+2019-02-12 21:49:01,310 INFO  [stdout] (default task-8)         opetripula_.id_equipo_movil as id_equip7_47_,
+2019-02-12 21:49:01,310 INFO  [stdout] (default task-8)         opetripula_.id_vehiculo as id_vehic8_47_ 
+2019-02-12 21:49:01,310 INFO  [stdout] (default task-8)     from
+2019-02-12 21:49:01,310 INFO  [stdout] (default task-8)         java.ope_tripulacion opetripula_ 
+2019-02-12 21:49:01,310 INFO  [stdout] (default task-8)     where
+2019-02-12 21:49:01,310 INFO  [stdout] (default task-8)         opetripula_.id_tripulacion=?
+2019-02-12 21:49:01,312 INFO  [stdout] (default task-8) Hibernate: 
+2019-02-12 21:49:01,313 INFO  [stdout] (default task-8)     insert 
+2019-02-12 21:49:01,313 INFO  [stdout] (default task-8)     into
+2019-02-12 21:49:01,313 INFO  [stdout] (default task-8)         java.ope_detalle_tripulacion
+2019-02-12 21:49:01,313 INFO  [stdout] (default task-8)         (id_empleado, id_tripulacion, id_detalle_tripulacion) 
+2019-02-12 21:49:01,313 INFO  [stdout] (default task-8)     values
+2019-02-12 21:49:01,313 INFO  [stdout] (default task-8)         (?, ?, ?)
+2019-02-12 21:49:01,316 INFO  [stdout] (default task-8) Hibernate: 
+2019-02-12 21:49:01,316 INFO  [stdout] (default task-8)     select
+2019-02-12 21:49:01,316 INFO  [stdout] (default task-8)         max(opedetalle0_.id_detalle_tripulacion) as col_0_0_ 
+2019-02-12 21:49:01,316 INFO  [stdout] (default task-8)     from
+2019-02-12 21:49:01,316 INFO  [stdout] (default task-8)         java.ope_detalle_tripulacion opedetalle0_
+2019-02-12 21:49:01,319 INFO  [stdout] (default task-8) Hibernate: 
+2019-02-12 21:49:01,319 INFO  [stdout] (default task-8)     select
+2019-02-12 21:49:01,319 INFO  [stdout] (default task-8)         admemplead_.id_empleado,
+2019-02-12 21:49:01,319 INFO  [stdout] (default task-8)         admemplead_.apellidos as apellido2_5_,
+2019-02-12 21:49:01,319 INFO  [stdout] (default task-8)         admemplead_.correo_electronico as correo_e3_5_,
+2019-02-12 21:49:01,319 INFO  [stdout] (default task-8)         admemplead_.direccion as direccio4_5_,
+2019-02-12 21:49:01,320 INFO  [stdout] (default task-8)         admemplead_.fecha_nacimiento as fecha_na5_5_,
+2019-02-12 21:49:01,320 INFO  [stdout] (default task-8)         admemplead_.fecha_registro as fecha_re6_5_,
+2019-02-12 21:49:01,320 INFO  [stdout] (default task-8)         admemplead_.fecha_salida as fecha_sa7_5_,
+2019-02-12 21:49:01,320 INFO  [stdout] (default task-8)         admemplead_.id_cargo_dc as id_carg14_5_,
+2019-02-12 21:49:01,320 INFO  [stdout] (default task-8)         admemplead_.id_ciudad_dc as id_ciud15_5_,
+2019-02-12 21:49:01,320 INFO  [stdout] (default task-8)         admemplead_.id_clase_empleado_dc as id_clas16_5_,
+2019-02-12 21:49:01,320 INFO  [stdout] (default task-8)         admemplead_.id_departamento_dc as id_depa17_5_,
+2019-02-12 21:49:01,320 INFO  [stdout] (default task-8)         admemplead_.id_estado_dc as id_esta18_5_,
+2019-02-12 21:49:01,320 INFO  [stdout] (default task-8)         admemplead_.id_linea_negocio_dc as id_line19_5_,
+2019-02-12 21:49:01,320 INFO  [stdout] (default task-8)         admemplead_.id_sexo_dc as id_sexo20_5_,
+2019-02-12 21:49:01,320 INFO  [stdout] (default task-8)         admemplead_.id_sucursal as id_sucu21_5_,
+2019-02-12 21:49:01,320 INFO  [stdout] (default task-8)         admemplead_.id_tipo_empleado_dc as id_tipo22_5_,
+2019-02-12 21:49:01,320 INFO  [stdout] (default task-8)         admemplead_.identificacion as identifi8_5_,
+2019-02-12 21:49:01,320 INFO  [stdout] (default task-8)         admemplead_.nombres as nombres9_5_,
+2019-02-12 21:49:01,320 INFO  [stdout] (default task-8)         admemplead_.telefono as telefon10_5_,
+2019-02-12 21:49:01,320 INFO  [stdout] (default task-8)         admemplead_.tipo_sanguineo as tipo_sa11_5_,
+2019-02-12 21:49:01,321 INFO  [stdout] (default task-8)         admemplead_.url_firma as url_fir12_5_,
+2019-02-12 21:49:01,321 INFO  [stdout] (default task-8)         admemplead_.url_foto as url_fot13_5_ 
+2019-02-12 21:49:01,321 INFO  [stdout] (default task-8)     from
+2019-02-12 21:49:01,321 INFO  [stdout] (default task-8)         java.adm_empleado admemplead_ 
+2019-02-12 21:49:01,321 INFO  [stdout] (default task-8)     where
+2019-02-12 21:49:01,321 INFO  [stdout] (default task-8)         admemplead_.id_empleado=?
+2019-02-12 21:49:01,323 INFO  [stdout] (default task-8) Hibernate: 
+2019-02-12 21:49:01,324 INFO  [stdout] (default task-8)     select
+2019-02-12 21:49:01,324 INFO  [stdout] (default task-8)         opetripula_.id_tripulacion,
+2019-02-12 21:49:01,324 INFO  [stdout] (default task-8)         opetripula_.dia_operacion as dia_oper2_47_,
+2019-02-12 21:49:01,324 INFO  [stdout] (default task-8)         opetripula_.estado as estado3_47_,
+2019-02-12 21:49:01,324 INFO  [stdout] (default task-8)         opetripula_.fecha_asignacion as fecha_as4_47_,
+2019-02-12 21:49:01,324 INFO  [stdout] (default task-8)         opetripula_.fecha_operacion as fecha_op5_47_,
+2019-02-12 21:49:01,324 INFO  [stdout] (default task-8)         opetripula_.id_circuito as id_circu6_47_,
+2019-02-12 21:49:01,324 INFO  [stdout] (default task-8)         opetripula_.id_equipo_movil as id_equip7_47_,
+2019-02-12 21:49:01,324 INFO  [stdout] (default task-8)         opetripula_.id_vehiculo as id_vehic8_47_ 
+2019-02-12 21:49:01,324 INFO  [stdout] (default task-8)     from
+2019-02-12 21:49:01,324 INFO  [stdout] (default task-8)         java.ope_tripulacion opetripula_ 
+2019-02-12 21:49:01,324 INFO  [stdout] (default task-8)     where
+2019-02-12 21:49:01,324 INFO  [stdout] (default task-8)         opetripula_.id_tripulacion=?
+2019-02-12 21:49:01,326 INFO  [stdout] (default task-8) Hibernate: 
+2019-02-12 21:49:01,326 INFO  [stdout] (default task-8)     insert 
+2019-02-12 21:49:01,326 INFO  [stdout] (default task-8)     into
+2019-02-12 21:49:01,326 INFO  [stdout] (default task-8)         java.ope_detalle_tripulacion
+2019-02-12 21:49:01,326 INFO  [stdout] (default task-8)         (id_empleado, id_tripulacion, id_detalle_tripulacion) 
+2019-02-12 21:49:01,326 INFO  [stdout] (default task-8)     values
+2019-02-12 21:49:01,326 INFO  [stdout] (default task-8)         (?, ?, ?)
+2019-02-12 21:49:01,333 INFO  [stdout] (default task-8) Hibernate: 
+2019-02-12 21:49:01,335 INFO  [stdout] (default task-8)     select
+2019-02-12 21:49:01,335 INFO  [stdout] (default task-8)         max(opedetalle0_.id_detalle_tripulacion) as col_0_0_ 
+2019-02-12 21:49:01,335 INFO  [stdout] (default task-8)     from
+2019-02-12 21:49:01,335 INFO  [stdout] (default task-8)         java.ope_detalle_tripulacion opedetalle0_
+2019-02-12 21:49:01,338 INFO  [stdout] (default task-8) Hibernate: 
+2019-02-12 21:49:01,339 INFO  [stdout] (default task-8)     select
+2019-02-12 21:49:01,339 INFO  [stdout] (default task-8)         admemplead_.id_empleado,
+2019-02-12 21:49:01,340 INFO  [stdout] (default task-8)         admemplead_.apellidos as apellido2_5_,
+2019-02-12 21:49:01,340 INFO  [stdout] (default task-8)         admemplead_.correo_electronico as correo_e3_5_,
+2019-02-12 21:49:01,340 INFO  [stdout] (default task-8)         admemplead_.direccion as direccio4_5_,
+2019-02-12 21:49:01,340 INFO  [stdout] (default task-8)         admemplead_.fecha_nacimiento as fecha_na5_5_,
+2019-02-12 21:49:01,340 INFO  [stdout] (default task-8)         admemplead_.fecha_registro as fecha_re6_5_,
+2019-02-12 21:49:01,340 INFO  [stdout] (default task-8)         admemplead_.fecha_salida as fecha_sa7_5_,
+2019-02-12 21:49:01,341 INFO  [stdout] (default task-8)         admemplead_.id_cargo_dc as id_carg14_5_,
+2019-02-12 21:49:01,341 INFO  [stdout] (default task-8)         admemplead_.id_ciudad_dc as id_ciud15_5_,
+2019-02-12 21:49:01,341 INFO  [stdout] (default task-8)         admemplead_.id_clase_empleado_dc as id_clas16_5_,
+2019-02-12 21:49:01,341 INFO  [stdout] (default task-8)         admemplead_.id_departamento_dc as id_depa17_5_,
+2019-02-12 21:49:01,341 INFO  [stdout] (default task-8)         admemplead_.id_estado_dc as id_esta18_5_,
+2019-02-12 21:49:01,341 INFO  [stdout] (default task-8)         admemplead_.id_linea_negocio_dc as id_line19_5_,
+2019-02-12 21:49:01,341 INFO  [stdout] (default task-8)         admemplead_.id_sexo_dc as id_sexo20_5_,
+2019-02-12 21:49:01,342 INFO  [stdout] (default task-8)         admemplead_.id_sucursal as id_sucu21_5_,
+2019-02-12 21:49:01,342 INFO  [stdout] (default task-8)         admemplead_.id_tipo_empleado_dc as id_tipo22_5_,
+2019-02-12 21:49:01,342 INFO  [stdout] (default task-8)         admemplead_.identificacion as identifi8_5_,
+2019-02-12 21:49:01,342 INFO  [stdout] (default task-8)         admemplead_.nombres as nombres9_5_,
+2019-02-12 21:49:01,342 INFO  [stdout] (default task-8)         admemplead_.telefono as telefon10_5_,
+2019-02-12 21:49:01,342 INFO  [stdout] (default task-8)         admemplead_.tipo_sanguineo as tipo_sa11_5_,
+2019-02-12 21:49:01,342 INFO  [stdout] (default task-8)         admemplead_.url_firma as url_fir12_5_,
+2019-02-12 21:49:01,342 INFO  [stdout] (default task-8)         admemplead_.url_foto as url_fot13_5_ 
+2019-02-12 21:49:01,342 INFO  [stdout] (default task-8)     from
+2019-02-12 21:49:01,342 INFO  [stdout] (default task-8)         java.adm_empleado admemplead_ 
+2019-02-12 21:49:01,342 INFO  [stdout] (default task-8)     where
+2019-02-12 21:49:01,342 INFO  [stdout] (default task-8)         admemplead_.id_empleado=?
+2019-02-12 21:49:01,345 INFO  [stdout] (default task-8) Hibernate: 
+2019-02-12 21:49:01,346 INFO  [stdout] (default task-8)     select
+2019-02-12 21:49:01,346 INFO  [stdout] (default task-8)         opetripula_.id_tripulacion,
+2019-02-12 21:49:01,346 INFO  [stdout] (default task-8)         opetripula_.dia_operacion as dia_oper2_47_,
+2019-02-12 21:49:01,346 INFO  [stdout] (default task-8)         opetripula_.estado as estado3_47_,
+2019-02-12 21:49:01,346 INFO  [stdout] (default task-8)         opetripula_.fecha_asignacion as fecha_as4_47_,
+2019-02-12 21:49:01,346 INFO  [stdout] (default task-8)         opetripula_.fecha_operacion as fecha_op5_47_,
+2019-02-12 21:49:01,346 INFO  [stdout] (default task-8)         opetripula_.id_circuito as id_circu6_47_,
+2019-02-12 21:49:01,346 INFO  [stdout] (default task-8)         opetripula_.id_equipo_movil as id_equip7_47_,
+2019-02-12 21:49:01,346 INFO  [stdout] (default task-8)         opetripula_.id_vehiculo as id_vehic8_47_ 
+2019-02-12 21:49:01,346 INFO  [stdout] (default task-8)     from
+2019-02-12 21:49:01,346 INFO  [stdout] (default task-8)         java.ope_tripulacion opetripula_ 
+2019-02-12 21:49:01,346 INFO  [stdout] (default task-8)     where
+2019-02-12 21:49:01,346 INFO  [stdout] (default task-8)         opetripula_.id_tripulacion=?
+2019-02-12 21:49:01,348 INFO  [stdout] (default task-8) Hibernate: 
+2019-02-12 21:49:01,348 INFO  [stdout] (default task-8)     insert 
+2019-02-12 21:49:01,348 INFO  [stdout] (default task-8)     into
+2019-02-12 21:49:01,349 INFO  [stdout] (default task-8)         java.ope_detalle_tripulacion
+2019-02-12 21:49:01,349 INFO  [stdout] (default task-8)         (id_empleado, id_tripulacion, id_detalle_tripulacion) 
+2019-02-12 21:49:01,349 INFO  [stdout] (default task-8)     values
+2019-02-12 21:49:01,349 INFO  [stdout] (default task-8)         (?, ?, ?)
+2019-02-12 21:49:01,351 INFO  [stdout] (default task-8) diaaaaamartes
+2019-02-12 21:49:01,351 INFO  [stdout] (default task-8) Hibernate: 
+2019-02-12 21:49:01,351 INFO  [stdout] (default task-8)     select
+2019-02-12 21:49:01,351 INFO  [stdout] (default task-8)         e.id_empleado,
+2019-02-12 21:49:01,352 INFO  [stdout] (default task-8)         e.nombres,
+2019-02-12 21:49:01,352 INFO  [stdout] (default task-8)         e.apellidos 
+2019-02-12 21:49:01,352 INFO  [stdout] (default task-8)     from
+2019-02-12 21:49:01,352 INFO  [stdout] (default task-8)         java.adm_rol_usuario as ru 
+2019-02-12 21:49:01,352 INFO  [stdout] (default task-8)     inner join
+2019-02-12 21:49:01,352 INFO  [stdout] (default task-8)         java.adm_usuario as u 
+2019-02-12 21:49:01,352 INFO  [stdout] (default task-8)             on u.id_usuario = ru.id_usuario 
+2019-02-12 21:49:01,352 INFO  [stdout] (default task-8)     inner join
+2019-02-12 21:49:01,352 INFO  [stdout] (default task-8)         java.adm_empleado as e 
+2019-02-12 21:49:01,352 INFO  [stdout] (default task-8)             on e.id_empleado = u.id_empleado 
+2019-02-12 21:49:01,352 INFO  [stdout] (default task-8)     where
+2019-02-12 21:49:01,352 INFO  [stdout] (default task-8)         ru.id_rol = 2  
+2019-02-12 21:49:01,352 INFO  [stdout] (default task-8)         and ru.id_usuario not in (
+2019-02-12 21:49:01,352 INFO  [stdout] (default task-8)             select
+2019-02-12 21:49:01,352 INFO  [stdout] (default task-8)                 q.id_usuario 
+2019-02-12 21:49:01,352 INFO  [stdout] (default task-8)             from
+2019-02-12 21:49:01,352 INFO  [stdout] (default task-8)                 java.adm_usuario q 
+2019-02-12 21:49:01,352 INFO  [stdout] (default task-8)             where
+2019-02-12 21:49:01,352 INFO  [stdout] (default task-8)                 q.id_empleado in (
+2019-02-12 21:49:01,353 INFO  [stdout] (default task-8)                     select
+2019-02-12 21:49:01,353 INFO  [stdout] (default task-8)                         c.id_empleado 
+2019-02-12 21:49:01,353 INFO  [stdout] (default task-8)                     from
+2019-02-12 21:49:01,353 INFO  [stdout] (default task-8)                         java.ope_detalle_tripulacion c 
+2019-02-12 21:49:01,353 INFO  [stdout] (default task-8)                     where
+2019-02-12 21:49:01,353 INFO  [stdout] (default task-8)                         c.id_tripulacion in (
+2019-02-12 21:49:01,353 INFO  [stdout] (default task-8)                             select
+2019-02-12 21:49:01,353 INFO  [stdout] (default task-8)                                 m.id_tripulacion 
+2019-02-12 21:49:01,353 INFO  [stdout] (default task-8)                             from
+2019-02-12 21:49:01,353 INFO  [stdout] (default task-8)                                 java.ope_Tripulacion m  
+2019-02-12 21:49:01,353 INFO  [stdout] (default task-8)                             where
+2019-02-12 21:49:01,353 INFO  [stdout] (default task-8)                                 m.fecha_operacion ='Tue Feb 12 00:00:00 COT 2019'
+2019-02-12 21:49:01,353 INFO  [stdout] (default task-8)                         )
+2019-02-12 21:49:01,353 INFO  [stdout] (default task-8)                     )
+2019-02-12 21:49:01,353 INFO  [stdout] (default task-8)             ) 
+2019-02-12 21:49:01,353 INFO  [stdout] (default task-8)             and e.id_ciudad_dc = 56
+2019-02-12 21:49:01,356 INFO  [stdout] (default task-8) Hibernate: 
+2019-02-12 21:49:01,356 INFO  [stdout] (default task-8)     select
+2019-02-12 21:49:01,356 INFO  [stdout] (default task-8)         id_vehiculo,
+2019-02-12 21:49:01,356 INFO  [stdout] (default task-8)         descripcion 
+2019-02-12 21:49:01,356 INFO  [stdout] (default task-8)     from
+2019-02-12 21:49:01,356 INFO  [stdout] (default task-8)         java.ope_vehiculo   
+2019-02-12 21:49:01,356 INFO  [stdout] (default task-8)     where
+2019-02-12 21:49:01,356 INFO  [stdout] (default task-8)         id_ciudad_dc = 56 
+2019-02-12 21:49:01,356 INFO  [stdout] (default task-8)         and id_Vehiculo not in (
+2019-02-12 21:49:01,357 INFO  [stdout] (default task-8)             select
+2019-02-12 21:49:01,357 INFO  [stdout] (default task-8)                 id_Vehiculo 
+2019-02-12 21:49:01,357 INFO  [stdout] (default task-8)             from
+2019-02-12 21:49:01,357 INFO  [stdout] (default task-8)                 java.Ope_Tripulacion  
+2019-02-12 21:49:01,357 INFO  [stdout] (default task-8)             where
+2019-02-12 21:49:01,357 INFO  [stdout] (default task-8)                 fecha_Operacion ='Tue Feb 12 00:00:00 COT 2019'
+2019-02-12 21:49:01,357 INFO  [stdout] (default task-8)         )
+2019-02-12 21:49:01,359 INFO  [stdout] (default task-8) Hibernate: 
+2019-02-12 21:49:01,359 INFO  [stdout] (default task-8)     select
+2019-02-12 21:49:01,359 INFO  [stdout] (default task-8)         a.id_equipo_movil,
+2019-02-12 21:49:01,359 INFO  [stdout] (default task-8)         a.nombre 
+2019-02-12 21:49:01,359 INFO  [stdout] (default task-8)     from
+2019-02-12 21:49:01,360 INFO  [stdout] (default task-8)         java.ope_equipo_movil a 
+2019-02-12 21:49:01,360 INFO  [stdout] (default task-8)     where
+2019-02-12 21:49:01,360 INFO  [stdout] (default task-8)         a.id_ciudad_dc = 56 
+2019-02-12 21:49:01,360 INFO  [stdout] (default task-8)         and a.id_Equipo_Movil not in (
+2019-02-12 21:49:01,360 INFO  [stdout] (default task-8)             select
+2019-02-12 21:49:01,360 INFO  [stdout] (default task-8)                 c.id_equipo_movil 
+2019-02-12 21:49:01,360 INFO  [stdout] (default task-8)             from
+2019-02-12 21:49:01,360 INFO  [stdout] (default task-8)                 java.ope_tripulacion c 
+2019-02-12 21:49:01,360 INFO  [stdout] (default task-8)             where
+2019-02-12 21:49:01,360 INFO  [stdout] (default task-8)                 c.fecha_operacion ='Tue Feb 12 00:00:00 COT 2019'
+2019-02-12 21:49:01,360 INFO  [stdout] (default task-8)         )
+2019-02-12 21:49:01,362 INFO  [stdout] (default task-8) Hibernate: 
+2019-02-12 21:49:01,362 INFO  [stdout] (default task-8)     select
+2019-02-12 21:49:01,362 INFO  [stdout] (default task-8)         a.id_circuito,
+2019-02-12 21:49:01,362 INFO  [stdout] (default task-8)         a.nombre 
+2019-02-12 21:49:01,362 INFO  [stdout] (default task-8)     from
+2019-02-12 21:49:01,362 INFO  [stdout] (default task-8)         java.ope_circuito a 
+2019-02-12 21:49:01,362 INFO  [stdout] (default task-8)     where
+2019-02-12 21:49:01,362 INFO  [stdout] (default task-8)         a.id_Ciudad_Dc = 56 
+2019-02-12 21:49:01,362 INFO  [stdout] (default task-8)         and a.dia_asociado = 'martes' 
+2019-02-12 21:49:01,362 INFO  [stdout] (default task-8)         and a.id_Circuito not in (
+2019-02-12 21:49:01,362 INFO  [stdout] (default task-8)             select
+2019-02-12 21:49:01,363 INFO  [stdout] (default task-8)                 c.id_Circuito 
+2019-02-12 21:49:01,363 INFO  [stdout] (default task-8)             from
+2019-02-12 21:49:01,363 INFO  [stdout] (default task-8)                 java.ope_tripulacion c 
+2019-02-12 21:49:01,363 INFO  [stdout] (default task-8)             where
+2019-02-12 21:49:01,363 INFO  [stdout] (default task-8)                 c.fecha_Operacion ='Tue Feb 12 00:00:00 COT 2019'
+2019-02-12 21:49:01,363 INFO  [stdout] (default task-8)         ) 
+2019-02-12 21:49:01,366 INFO  [stdout] (default task-8) Hibernate: 
+2019-02-12 21:49:01,367 INFO  [stdout] (default task-8)     select
+2019-02-12 21:49:01,367 INFO  [stdout] (default task-8)         tr.id_tripulacion,
+2019-02-12 21:49:01,367 INFO  [stdout] (default task-8)         tr.fecha_operacion,
+2019-02-12 21:49:01,367 INFO  [stdout] (default task-8)         ve.descripcion,
+2019-02-12 21:49:01,367 INFO  [stdout] (default task-8)         ci.nombre,
+2019-02-12 21:49:01,367 INFO  [stdout] (default task-8)         mo.nombre as equipo  
+2019-02-12 21:49:01,367 INFO  [stdout] (default task-8)     from
+2019-02-12 21:49:01,367 INFO  [stdout] (default task-8)         java.ope_tripulacion as tr 
+2019-02-12 21:49:01,367 INFO  [stdout] (default task-8)     inner join
+2019-02-12 21:49:01,367 INFO  [stdout] (default task-8)         java.ope_vehiculo as ve 
+2019-02-12 21:49:01,367 INFO  [stdout] (default task-8)             on ve.id_vehiculo = tr.id_vehiculo 
+2019-02-12 21:49:01,367 INFO  [stdout] (default task-8)     inner join
+2019-02-12 21:49:01,368 INFO  [stdout] (default task-8)         java.ope_circuito as ci 
+2019-02-12 21:49:01,368 INFO  [stdout] (default task-8)             on ci.id_circuito = tr.id_circuito  
+2019-02-12 21:49:01,368 INFO  [stdout] (default task-8)     inner join
+2019-02-12 21:49:01,368 INFO  [stdout] (default task-8)         java.ope_equipo_movil as mo 
+2019-02-12 21:49:01,368 INFO  [stdout] (default task-8)             on mo.id_equipo_movil = tr.id_equipo_movil 
+2019-02-12 21:49:01,368 INFO  [stdout] (default task-8)     where
+2019-02-12 21:49:01,368 INFO  [stdout] (default task-8)         tr.fecha_operacion = 'Tue Feb 12 00:00:00 COT 2019' 
+2019-02-12 21:49:01,368 INFO  [stdout] (default task-8)         and mo.id_Equipo_Movil in  (
+2019-02-12 21:49:01,368 INFO  [stdout] (default task-8)             select
+2019-02-12 21:49:01,368 INFO  [stdout] (default task-8)                 b.id_Equipo_Movil 
+2019-02-12 21:49:01,368 INFO  [stdout] (default task-8)             from
+2019-02-12 21:49:01,368 INFO  [stdout] (default task-8)                 java.ope_equipo_movil b 
+2019-02-12 21:49:01,368 INFO  [stdout] (default task-8)             where
+2019-02-12 21:49:01,368 INFO  [stdout] (default task-8)                 b.id_ciudad_dc = 56
+2019-02-12 21:49:01,368 INFO  [stdout] (default task-8)         )
+2019-02-12 21:49:01,372 INFO  [stdout] (default task-8) Hibernate: 
+2019-02-12 21:49:01,372 INFO  [stdout] (default task-8)     select
+2019-02-12 21:49:01,372 INFO  [stdout] (default task-8)         fv.hora_desde,
+2019-02-12 21:49:01,372 INFO  [stdout] (default task-8)         fv.hora_hasta,
+2019-02-12 21:49:01,372 INFO  [stdout] (default task-8)         ha.id_cliente_origen as clienteoriegen,
+2019-02-12 21:49:01,372 INFO  [stdout] (default task-8)         ha.id_agencia_origen as agenciaorigen,
+2019-02-12 21:49:01,372 INFO  [stdout] (default task-8)         ha.id_cliente_destino as clientedestino,
+2019-02-12 21:49:01,372 INFO  [stdout] (default task-8)         ha.id_agencia_destino as destino 
+2019-02-12 21:49:01,372 INFO  [stdout] (default task-8)     FROM
+2019-02-12 21:49:01,372 INFO  [stdout] (default task-8)         java.ope_frecuencia_visita as fv 
+2019-02-12 21:49:01,372 INFO  [stdout] (default task-8)     inner join
+2019-02-12 21:49:01,372 INFO  [stdout] (default task-8)         java.ope_hoja_alistamiento as ha 
+2019-02-12 21:49:01,372 INFO  [stdout] (default task-8)             on ha.id_hoja_alistamiento = fv.id_hoja_alistamiento 
+2019-02-12 21:49:01,372 INFO  [stdout] (default task-8)     where
+2019-02-12 21:49:01,372 INFO  [stdout] (default task-8)         fv.nombre_dia = 'martes' 
+2019-02-12 21:49:01,372 INFO  [stdout] (default task-8)         and  fv.id_circuito =2 
+2019-02-12 21:49:01,372 INFO  [stdout] (default task-8)         and ha.id_ciudad = 56
+2019-02-12 21:49:01,475 INFO  [stdout] (default task-8) Hibernate: 
+2019-02-12 21:49:01,475 INFO  [stdout] (default task-8)     select
+2019-02-12 21:49:01,476 INFO  [stdout] (default task-8)         max(operutero0_.id_rutero) as col_0_0_ 
+2019-02-12 21:49:01,476 INFO  [stdout] (default task-8)     from
+2019-02-12 21:49:01,476 INFO  [stdout] (default task-8)         java.ope_rutero operutero0_
+2019-02-12 21:49:01,504 INFO  [stdout] (default task-8) Hibernate: 
+2019-02-12 21:49:01,504 INFO  [stdout] (default task-8)     insert 
+2019-02-12 21:49:01,504 INFO  [stdout] (default task-8)     into
+2019-02-12 21:49:01,505 INFO  [stdout] (default task-8)         java.ope_rutero
+2019-02-12 21:49:01,506 INFO  [stdout] (default task-8)         (estado_cliente, fecha_asignacion, fecha_operacion, hora_desde, hora_hasta, id_agencia_destino, id_agencia_origen, id_circuito, id_cliente_destino, id_cliente_factura, id_cliente_origen, id_equipo_movil, sysdelete, id_rutero) 
+2019-02-12 21:49:01,506 INFO  [stdout] (default task-8)     values
+2019-02-12 21:49:01,506 INFO  [stdout] (default task-8)         (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+2019-02-12 21:49:01,509 INFO  [stdout] (default task-8) Hibernate: 
+2019-02-12 21:49:01,510 INFO  [stdout] (default task-8)     select
+2019-02-12 21:49:01,510 INFO  [stdout] (default task-8)         max(operutero0_.id_rutero) as col_0_0_ 
+2019-02-12 21:49:01,510 INFO  [stdout] (default task-8)     from
+2019-02-12 21:49:01,510 INFO  [stdout] (default task-8)         java.ope_rutero operutero0_
+2019-02-12 21:49:01,512 INFO  [stdout] (default task-8) Hibernate: 
+2019-02-12 21:49:01,513 INFO  [stdout] (default task-8)     insert 
+2019-02-12 21:49:01,513 INFO  [stdout] (default task-8)     into
+2019-02-12 21:49:01,513 INFO  [stdout] (default task-8)         java.ope_rutero
+2019-02-12 21:49:01,513 INFO  [stdout] (default task-8)         (estado_cliente, fecha_asignacion, fecha_operacion, hora_desde, hora_hasta, id_agencia_destino, id_agencia_origen, id_circuito, id_cliente_destino, id_cliente_factura, id_cliente_origen, id_equipo_movil, sysdelete, id_rutero) 
+2019-02-12 21:49:01,513 INFO  [stdout] (default task-8)     values
+2019-02-12 21:49:01,513 INFO  [stdout] (default task-8)         (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+2019-02-12 21:49:01,524 INFO  [stdout] (default task-8) Hibernate: 
+2019-02-12 21:49:01,524 INFO  [stdout] (default task-8)     select
+2019-02-12 21:49:01,525 INFO  [stdout] (default task-8)         max(operutero0_.id_rutero) as col_0_0_ 
+2019-02-12 21:49:01,525 INFO  [stdout] (default task-8)     from
+2019-02-12 21:49:01,525 INFO  [stdout] (default task-8)         java.ope_rutero operutero0_
+2019-02-12 21:49:01,528 INFO  [stdout] (default task-8) Hibernate: 
+2019-02-12 21:49:01,528 INFO  [stdout] (default task-8)     insert 
+2019-02-12 21:49:01,528 INFO  [stdout] (default task-8)     into
+2019-02-12 21:49:01,528 INFO  [stdout] (default task-8)         java.ope_rutero
+2019-02-12 21:49:01,528 INFO  [stdout] (default task-8)         (estado_cliente, fecha_asignacion, fecha_operacion, hora_desde, hora_hasta, id_agencia_destino, id_agencia_origen, id_circuito, id_cliente_destino, id_cliente_factura, id_cliente_origen, id_equipo_movil, sysdelete, id_rutero) 
+2019-02-12 21:49:01,528 INFO  [stdout] (default task-8)     values
+2019-02-12 21:49:01,528 INFO  [stdout] (default task-8)         (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+2019-02-12 21:49:01,532 INFO  [stdout] (default task-8) Hibernate: 
+2019-02-12 21:49:01,532 INFO  [stdout] (default task-8)     select
+2019-02-12 21:49:01,532 INFO  [stdout] (default task-8)         max(operutero0_.id_rutero) as col_0_0_ 
+2019-02-12 21:49:01,532 INFO  [stdout] (default task-8)     from
+2019-02-12 21:49:01,532 INFO  [stdout] (default task-8)         java.ope_rutero operutero0_
+2019-02-12 21:49:01,535 INFO  [stdout] (default task-8) Hibernate: 
+2019-02-12 21:49:01,536 INFO  [stdout] (default task-8)     insert 
+2019-02-12 21:49:01,536 INFO  [stdout] (default task-8)     into
+2019-02-12 21:49:01,536 INFO  [stdout] (default task-8)         java.ope_rutero
+2019-02-12 21:49:01,536 INFO  [stdout] (default task-8)         (estado_cliente, fecha_asignacion, fecha_operacion, hora_desde, hora_hasta, id_agencia_destino, id_agencia_origen, id_circuito, id_cliente_destino, id_cliente_factura, id_cliente_origen, id_equipo_movil, sysdelete, id_rutero) 
+2019-02-12 21:49:01,536 INFO  [stdout] (default task-8)     values
+2019-02-12 21:49:01,536 INFO  [stdout] (default task-8)         (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+2019-02-12 21:49:01,541 INFO  [stdout] (default task-8) Hibernate: 
+2019-02-12 21:49:01,542 INFO  [stdout] (default task-8)     select
+2019-02-12 21:49:01,542 INFO  [stdout] (default task-8)         max(operutero0_.id_rutero) as col_0_0_ 
+2019-02-12 21:49:01,542 INFO  [stdout] (default task-8)     from
+2019-02-12 21:49:01,542 INFO  [stdout] (default task-8)         java.ope_rutero operutero0_
+2019-02-12 21:49:01,545 INFO  [stdout] (default task-8) Hibernate: 
+2019-02-12 21:49:01,546 INFO  [stdout] (default task-8)     insert 
+2019-02-12 21:49:01,547 INFO  [stdout] (default task-8)     into
+2019-02-12 21:49:01,547 INFO  [stdout] (default task-8)         java.ope_rutero
+2019-02-12 21:49:01,547 INFO  [stdout] (default task-8)         (estado_cliente, fecha_asignacion, fecha_operacion, hora_desde, hora_hasta, id_agencia_destino, id_agencia_origen, id_circuito, id_cliente_destino, id_cliente_factura, id_cliente_origen, id_equipo_movil, sysdelete, id_rutero) 
+2019-02-12 21:49:01,547 INFO  [stdout] (default task-8)     values
+2019-02-12 21:49:01,547 INFO  [stdout] (default task-8)         (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+2019-02-12 21:49:01,550 INFO  [stdout] (default task-8) Hibernate: 
+2019-02-12 21:49:01,550 INFO  [stdout] (default task-8)     select
+2019-02-12 21:49:01,550 INFO  [stdout] (default task-8)         max(operutero0_.id_rutero) as col_0_0_ 
+2019-02-12 21:49:01,550 INFO  [stdout] (default task-8)     from
+2019-02-12 21:49:01,550 INFO  [stdout] (default task-8)         java.ope_rutero operutero0_
+2019-02-12 21:49:01,553 INFO  [stdout] (default task-8) Hibernate: 
+2019-02-12 21:49:01,553 INFO  [stdout] (default task-8)     insert 
+2019-02-12 21:49:01,554 INFO  [stdout] (default task-8)     into
+2019-02-12 21:49:01,554 INFO  [stdout] (default task-8)         java.ope_rutero
+2019-02-12 21:49:01,554 INFO  [stdout] (default task-8)         (estado_cliente, fecha_asignacion, fecha_operacion, hora_desde, hora_hasta, id_agencia_destino, id_agencia_origen, id_circuito, id_cliente_destino, id_cliente_factura, id_cliente_origen, id_equipo_movil, sysdelete, id_rutero) 
+2019-02-12 21:49:01,554 INFO  [stdout] (default task-8)     values
+2019-02-12 21:49:01,554 INFO  [stdout] (default task-8)         (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+2019-02-12 21:49:01,558 INFO  [stdout] (default task-8) Hibernate: 
+2019-02-12 21:49:01,559 INFO  [stdout] (default task-8)     SELECT
+2019-02-12 21:49:01,559 INFO  [stdout] (default task-8)         id_transaccion,
+2019-02-12 21:49:01,559 INFO  [stdout] (default task-8)         id_agencia_origen 
+2019-02-12 21:49:01,559 INFO  [stdout] (default task-8)     FROM
+2019-02-12 21:49:01,559 INFO  [stdout] (default task-8)         java.ope_transaccion 
+2019-02-12 21:49:01,559 INFO  [stdout] (default task-8)     where
+2019-02-12 21:49:01,560 INFO  [stdout] (default task-8)         estado_transaccion = 10 
+2019-02-12 21:49:01,560 INFO  [stdout] (default task-8)         and id_rutero isnull 
+2019-02-12 21:49:01,560 INFO  [stdout] (default task-8)         and fecha_operacion = 'Tue Feb 12 00:00:00 COT 2019'
+2019-02-12 21:49:01,564 INFO  [stdout] (default task-8) Hibernate: 
+2019-02-12 21:49:01,564 INFO  [stdout] (default task-8)     select
+2019-02-12 21:49:01,564 INFO  [stdout] (default task-8)         ru.id_rutero,
+2019-02-12 21:49:01,564 INFO  [stdout] (default task-8)         ru.id_agencia_origen,
+2019-02-12 21:49:01,564 INFO  [stdout] (default task-8)         ru.id_equipo_movil,
+2019-02-12 21:49:01,564 INFO  [stdout] (default task-8)         ru.id_circuito 
+2019-02-12 21:49:01,564 INFO  [stdout] (default task-8)     from
+2019-02-12 21:49:01,565 INFO  [stdout] (default task-8)         java.ope_rutero as ru  
+2019-02-12 21:49:01,565 INFO  [stdout] (default task-8)     inner join
+2019-02-12 21:49:01,565 INFO  [stdout] (default task-8)         java.adm_agencia as ag 
+2019-02-12 21:49:01,565 INFO  [stdout] (default task-8)             on ag.id_agencia = ru.id_agencia_origen 
+2019-02-12 21:49:01,565 INFO  [stdout] (default task-8)     where
+2019-02-12 21:49:01,565 INFO  [stdout] (default task-8)         fecha_operacion = 'Tue Feb 12 00:00:00 COT 2019' 
+2019-02-12 21:49:01,565 INFO  [stdout] (default task-8)         and ag.id_ciudad_dc = 56

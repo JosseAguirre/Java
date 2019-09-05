@@ -1,0 +1,96 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+       xmlns:p="http://primefaces.org/ui"> 
+
+<ui:composition template="/templates/admin.xhtml">
+	<ui:define name="panel">Producto</ui:define>
+	<ui:define name="contenido">
+		<p:panelGrid id="pnl" columns="2">
+			<h:outputText value="Proveedor:" />
+			<p:selectOneMenu value="#{productoControlador.codigoProveedor}">
+				<f:selectItems value="#{productoControlador.proveedores}" var="item" itemLabel="#{item.nombreprov}" itemValue="#{item.proveedorid}">
+				</f:selectItems>
+			</p:selectOneMenu>
+			<h:outputText value="Categoria:" />
+			<p:selectOneMenu value="#{productoControlador.codigoCategoria}">
+				<f:selectItems value="#{productoControlador.categorias}" var="item" itemLabel="#{item.nombrecat}" itemValue="#{item.categoriaid}">
+				</f:selectItems>
+			</p:selectOneMenu>
+			<h:outputText value="Descripción:" />
+			<p:inputText value="#{productoControlador.producto.descripcion}"></p:inputText>
+			<h:outputText value="Precio:" />
+			<p:inputText value="#{productoControlador.producto.preciounit}"></p:inputText>
+			<h:outputText value="Existencia:" />
+			<p:inputText value="#{productoControlador.producto.existencia}"></p:inputText>
+		</p:panelGrid>
+		<br />
+		<br />
+		<p:commandButton value="Grabar" action="#{productoControlador.grabar()}" update=":frm:tbl :frm:pnl :frm:growl"></p:commandButton>
+		<br />
+		<br />
+		<p:dataTable id="tbl" 
+					var="item" 
+					value="#{productoControlador.productos}" 
+					paginator="true" 
+						 rows="10" 
+						 paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+						 paginatorPosition="bottom"
+						 editable="true"
+						 reflow="true" style="margin-top:20px">
+			
+			<p:ajax event="rowEdit" listener="#{productoControlador.onRowEdit}" update=":frm:tbl :frm:pnl" />
+       		<p:ajax event="rowEditCancel" listener="#{productoControlador.cancelar()}" update=":frm:tbl :frm:pnl" />
+       		
+			<p:column headerText="Proveedor:">
+				<h:outputText value="#{item.proveedore.nombreprov}"/>
+			</p:column>
+			<p:column headerText="Descripción:">
+				<p:cellEditor>
+               		<f:facet name="output"><h:outputText value="#{item.descripcion}" /></f:facet>
+               		<f:facet name="input"><p:inputText value="#{item.descripcion}" /></f:facet>
+           		</p:cellEditor>
+			</p:column>
+			<p:column headerText="Categoria:">
+				<p:cellEditor>
+					<f:facet name="output"><h:outputText value="#{item.categoria.nombrecat}" /> </f:facet>
+					<f:facet name="input">
+						<p:selectOneMenu value="#{productoControlador.codigoCategoria}">
+							<f:selectItems value="#{productoControlador.categorias}" var="item1" itemLabel="#{item1.nombrecat}" itemValue="#{item1.categoriaid}" >
+							</f:selectItems>
+						</p:selectOneMenu>
+					</f:facet>				
+				</p:cellEditor>
+			</p:column>
+			<p:column headerText="Precio:">
+				<p:cellEditor>
+					<f:facet name="output"><h:outputText value="#{item.preciounit}"/></f:facet>
+					<f:facet name="input"><h:inputText value="#{item.preciounit}"/></f:facet>
+				</p:cellEditor>
+			</p:column>
+			<p:column headerText="Existencia:">
+				<p:cellEditor>
+               		<f:facet name="output"><h:outputText value="#{item.existencia}" /></f:facet>
+               		<f:facet name="input"><p:inputText value="#{item.existencia}" /></f:facet>
+           		</p:cellEditor>
+			</p:column>
+			<p:column style="width:32px">
+				<p:commandButton action="#{productoControlador.eliminar()}" icon="ui-icon-closethick" update=":frm:tbl :frm:pnl">
+					<f:setPropertyActionListener value="#{item}" target="#{productoControlador.producto}"></f:setPropertyActionListener>
+					<p:confirm header="Confirmacion" message="Desea eliminar el Registro :( ..?" icon="ui-icon-alert" />
+				</p:commandButton>
+			</p:column>
+			<p:column style="width:32px">
+				<p:commandButton action="#{reporte.prepareReport2()}" ajax="false" icon="ui-icon-print" update=":frm:tbl :frm:pnl">
+					<f:setPropertyActionListener value="#{item}" target="#{productoControlador.producto}"></f:setPropertyActionListener>
+				</p:commandButton>
+			</p:column>
+			<p:column style="width:32px">
+           		<p:rowEditor/>
+       		</p:column>
+		</p:dataTable>
+	</ui:define>
+</ui:composition>
+</html>

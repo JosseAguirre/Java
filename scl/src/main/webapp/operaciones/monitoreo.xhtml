@@ -1,0 +1,663 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+
+<body>
+
+
+	<ui:composition template="/templates/admin.xhtml">
+		<ui:define name="content">
+			<h:form id="frmMonitoreo">
+
+				<p:growl id="growl" showDetail="true" life="3000"
+					rendered="#{not facesContext.validationFailed}" />
+
+				<!-- general form elements -->
+				<div class="box box-primary">
+					<div class="box-header with-border">
+						<h3 class="box-title">Monitoreo</h3>
+					</div>
+
+					<div class="box-body">
+					
+						<p:panelGrid id="pnlgenral" columns="2" layout="grid"
+							styleClass="ui-panelgrid-blank">
+							
+<p:panel id="pn" header="Filtros">
+<p:panelGrid id="pnl1" columns="3" 	styleClass="ui-panelgrid-blank">
+								<p:outputLabel value="Ciudad" for="ciudad" />
+								<p:selectOneMenu id="ciudad" value="#{monitoreoBean.idCiudad}"
+									required="true" filter="true" filterMatchMode="contains">
+									<p:ajax listener="#{monitoreoBean.consultaListaCircuito}"
+										update="pnlgenral :frmMonitoreo:circuit" />
+									<f:selectItem itemLabel="Seleccionar" itemValue="#{null}" />
+									<f:selectItems value="#{monitoreoBean.listaCiudad}" var="item"
+										itemLabel="#{item.nombre}"
+										itemValue="#{item.idDetalleCatalogo}">
+									</f:selectItems>
+								</p:selectOneMenu>
+								<p:message for="ciudad" display="icon" />
+
+
+
+								<p:outputLabel value="Fecha Operacion" for="fecha" />
+								<p:calendar pattern="dd/MM/yyyy" id="fecha"
+									value="#{monitoreoBean.rutero.fechaOperacion}" locale="es"
+									title="Fecha Operacion" showButtonPanel="true" navigator="true"
+									effect="clip" showOn="button" required="true">
+									<p:ajax event="dateSelect"
+										listener="#{monitoreoBean.consultaListaCircuito}"
+										update=" pnlgenral circuit :frmMonitoreo:tblTransaccion" />
+								</p:calendar>
+								<p:message for="fecha" display="icon" />
+
+
+
+								<p:outputLabel for="circuit" value="Circuito" />
+								<p:selectCheckboxMenu id="circuit"
+									value="#{monitoreoBean.circuitosSeleccionados}"
+									label="Circuitos" multiple="true" required="true" filter="true"
+									filterMatchMode="startsWith" panelStyle="width:250px">
+
+									<f:selectItems value="#{monitoreoBean.listaCircuito}"
+										var="item" itemLabel="#{item.nombre}"
+										itemValue="#{item.idCircuito}" />
+								</p:selectCheckboxMenu>
+								<p:message for="circuit" display="icon" />
+</p:panelGrid>
+</p:panel>
+							
+
+
+
+
+							
+
+								<p:panel id="basic" header="Resumen " style="margin-bottom:20px">
+								
+									<h:panelGrid id="pnlTotales"  columns="2" cellpadding="10"
+										style="width: 300px">
+
+										<p:outputLabel value="Total Efectivo en Transito:" />
+										<p:outputLabel value="#{monitoreoBean.sumaEfectivo}"
+											style="float: right !important" >
+											<f:convertNumber maxFractionDigits="2"></f:convertNumber>
+											</p:outputLabel>
+
+										<p:outputLabel value="Total Cheque en Transito:" />
+										<p:outputLabel value="#{monitoreoBean.sumaCheque}"
+											style="float: right !important">
+											<f:convertNumber maxFractionDigits="2" ></f:convertNumber>
+											</p:outputLabel>
+
+										<p:outputLabel value="Total Transacciones en Transito:" />
+										<p:outputLabel value="#{monitoreoBean.sumaTotalTransaccion}"
+											style="float: right !important" >
+											<f:convertNumber maxFractionDigits="2"></f:convertNumber>
+											</p:outputLabel>
+
+
+
+
+
+
+
+
+									</h:panelGrid>
+								</p:panel>
+								
+								
+
+							
+
+
+						</p:panelGrid>
+
+						<p:commandButton
+							actionListener="#{monitoreoBean.consultaListaMonitoreo}"
+							value="Cargar" styleClass="my-button" icon="fa fa-refresh"
+							update=":frmMonitoreo:tblTransaccion pnlTotales " />
+
+						<p:commandButton actionListener="#{monitoreoBean.agregarParada()}"
+							icon="fa fa-plus" value="Agregar Parada" styleClass="my-button"
+							update=":frmMonitoreo:pnlgenral :frmMonitoreo:tblTransaccion :frmCrear" />
+
+						<p:commandButton actionListener="#{monitoreoBean.eliminar}"
+							styleClass="my-button" icon="fa fa-trash" value="Eliminar Parada"
+							update=":frmMonitoreo:growl :frmMonitoreo:tblTransaccion ">
+							<p:ajax process="@this"></p:ajax>
+
+						</p:commandButton>
+
+						<p:commandButton
+							actionListener="#{monitoreoBean.reasignarParada()}"
+							value="Reasignar" styleClass="my-button" icon="fa fa-reply " update=":frmCrear2"
+							 >
+							 <p:ajax process="@this"></p:ajax>
+</p:commandButton>
+
+<p:commandButton actionListener="#{monitoreoBean.verEstadistica}"
+							styleClass="my-button" icon="fa fa-eye" value="Esatdistica" update=":frmCrear3"
+							oncomplete="PF('dlgEstadistica').show();">
+							
+
+						</p:commandButton>
+						<br />
+
+
+
+						<p:dataTable id="tblTransaccion"
+							value="#{monitoreoBean.listaMonitoreo}" var="item"
+							selection="#{monitoreoBean.transaccionSeleccionada}"
+							emptyMessage="No existen registros con ese criterio"
+							styleClass="table" reflow="true"
+							filteredValue="#{monitoreoBean.transaccionFiltrada}"
+							tableStyle="width:auto" widgetVar="tblTransaccion"
+							rowKey="#{item[0]}#{item[3]}"
+							rowStyleClass="#{item[10] eq 10 ? 'recibidodelcliente' : null} #{item[10] eq 11 ? 'recibidodelcliente' : null} #{item[10] eq 20 ? 'entregadoalcliente' : null} #{item[10] eq 12 ? 'entregadoenprovisional' : null}">
+
+							<f:facet name="header">
+								<div class="row row-nomargin">
+									<div class="col-lg-3">
+										<p:inputText id="globalFilter"
+											onkeyup="PF('tblTransaccion').filter()" class="pull-left"
+											style="width: 100%" placeholder="Buscar...." />
+									</div>
+									<div class="col-lg-6">
+										<p:outputLabel value="Transacciones" />
+									</div>
+									
+									<div class="col-lg-3">
+										<div class="pull-right">
+											<h:commandLink>
+												<p:graphicImage name="/images/excel.png" width="24"
+													title="Exportar Excel" />
+												<p:dataExporter type="xls" target="tblTransaccion" fileName="cars"
+													options="#{monitoreoBean.excelOpt}" />
+											</h:commandLink>
+
+											<h:commandLink>
+												<p:graphicImage name="/images/pdf.png" width="24"
+													title="Exportar PDF" />
+												<p:dataExporter type="pdf" target="tblTransaccion" fileName="cars"
+													options="#{monitoreoBean.pdfOpt}" />
+											</h:commandLink>
+
+										</div>
+									</div>
+
+
+
+								</div>
+							</f:facet>
+
+							<p:column selectionMode="multiple"
+								style="width:40px;text-align:left" />
+
+
+							<p:column headerText="Desde">
+								<h:outputText value="#{item[1]}" >
+								
+								</h:outputText>
+							</p:column>
+
+							<p:column headerText="Hasta">
+								<h:outputText value="#{item[2]}" />
+							</p:column>
+
+							<p:column headerText="Recibo" style="width:80px;">
+								<h:outputText value="#{item[3]}" />
+							</p:column>
+
+
+							<p:column headerText="Origen" filterBy="#{item[4]}"
+								filterStyle="display:none">
+								<h:outputText value="#{item[4]}" />
+							</p:column>
+
+							<p:column headerText="Destino">
+								<h:outputText value="#{item[5]}" />
+							</p:column>
+
+							<p:column headerText="Total Efectivo" style="text-align: right; ">
+								<h:outputText value="#{item[6]}" >
+								<f:convertNumber maxFractionDigits="2"></f:convertNumber>
+								</h:outputText>
+							</p:column>
+
+							<p:column headerText="Cheque" style="text-align: right; ">
+								<h:outputText value="#{item[7]}" >
+								<f:convertNumber maxFractionDigits="2"></f:convertNumber>
+								</h:outputText>
+							</p:column>
+
+							<p:column headerText="Total Transaccion"
+								style="text-align: right; ">
+								<h:outputText value="#{item[8]}" >
+								<f:convertNumber maxFractionDigits="2"></f:convertNumber>
+								</h:outputText>
+							</p:column>
+
+							<p:column headerText="Paquetes">
+								<h:outputText value="#{item[9]}" />
+							</p:column>
+
+							<p:column headerText="Estado" style="width:0 auto;">
+								<h:outputText value="#{item[10]}" />
+							</p:column>
+
+						</p:dataTable>
+
+
+
+
+
+
+					</div>
+
+
+
+					<div id="footer" class="box-footer"></div>
+				</div>
+
+
+
+			</h:form>
+
+			<p:dialog id="dlgAgregarParada" widgetVar="dlgAgregarParada"
+				styleClass="my-dialogs" position="top" responsive="true"
+				modal="true" width="90%" closable="false" closeOnEscape="true"
+				appendTo="@(body)">
+
+
+				<!-- general form elements -->
+				<h:form id="frmCrear">
+
+					<p:growl id="growl2" showDetail="true" life="3000"
+						globalOnly="false" />
+
+					<p:messages id="mensaje" autoUpdate="false" />
+					<p:focus context="@form" />
+
+					<p:panelGrid columns="2" styleClass="ui-panelgrid-blank">
+
+
+
+						<p:panelGrid columns="3" styleClass="ui-panelgrid-blank">
+
+
+
+
+							<p:outputLabel value="Equipo Movil" for="movil" />
+							<p:selectOneMenu id="movil"
+								value="#{monitoreoBean.idEquipoMovil}" filter="true"
+								filterMatchMode="contains">
+								<p:ajax listener="#{monitoreoBean.consultaCircuitoPorEquipo}"
+									update=" :frmCrear:circuito" />
+								<f:selectItem itemLabel="Seleccionar" itemValue="#{null}" />
+								<f:selectItems value="#{monitoreoBean.listaEquipoMovil}"
+									var="item" itemLabel="#{item.nombre}"
+									itemValue="#{item.idEquipoMovil}">
+								</f:selectItems>
+							</p:selectOneMenu>
+							<p:message for="movil" display="icon" />
+						</p:panelGrid>
+
+						<p:panelGrid columns="2" styleClass="ui-panelgrid-blank">
+							<p:outputLabel value="Circuito" for="circuito" />
+							<p:selectOneMenu id="circuito"
+								value="#{monitoreoBean.idCircuito}" filter="true"
+								filterMatchMode="contains">
+
+								<f:selectItem itemLabel="Seleccionar" itemValue="#{null}" />
+								<f:selectItems value="#{monitoreoBean.listaCircuitoMovil}"
+									var="item" itemLabel="#{item.nombre}"
+									itemValue="#{item.idCircuito}">
+								</f:selectItems>
+							</p:selectOneMenu>
+							<p:message for="circuito" display="icon" />
+
+						</p:panelGrid>
+
+
+					</p:panelGrid>
+
+
+					<div id="tablas" class="row">
+						<div class="col-sm-6">
+							<div class="box box-primary">
+								<div class="box-body">
+
+									<h:panelGrid columns="2">
+
+										<p:panelGrid columns="2" styleClass="ui-panelgrid-blank">
+											<p:outputLabel value="Ciudad" for="ciudad" />
+											<p:selectOneMenu id="ciudad"
+												value="#{monitoreoBean.idCiudadAO}" filter="true"
+												filterMatchMode="contains">
+
+												<p:ajax listener="#{monitoreoBean.consultaAgenciasOrigen()}"
+													update=" :frmCrear:tblAgenciaOrigen " process="@this" />
+
+												<f:selectItem itemLabel="Seleccionar" itemValue="#{null}" />
+												<f:selectItems value="#{monitoreoBean.listaCiudad}"
+													var="item" itemLabel="#{item.nombre}"
+													itemValue="#{item.idDetalleCatalogo}">
+												</f:selectItems>
+											</p:selectOneMenu>
+											<p:message for="ciudad" display="icon" />
+										</p:panelGrid>
+
+
+										<p:panelGrid columns="2" styleClass="ui-panelgrid-blank">
+
+											<p:outputLabel value="Cliente Origen" for="clienteorigen" />
+											<p:selectOneMenu id="clienteorigen"
+												value="#{monitoreoBean.idClienteOrigen}"
+												style="width: 100% !important">
+												<p:ajax listener="#{monitoreoBean.consultaAgenciasOrigen()}"
+													update=" :frmCrear:tblAgenciaOrigen " />
+												<f:selectItem itemLabel="Seleccionar" itemValue="#{null}" />
+												<f:selectItems value="#{monitoreoBean.listaClienteOrigen}"
+													var="item" itemLabel="#{item.razonSocial}"
+													itemValue="#{item.idCliente}">
+												</f:selectItems>
+											</p:selectOneMenu>
+											<p:message for="clienteorigen" display="icon" />
+
+										</p:panelGrid>
+
+
+									</h:panelGrid>
+
+
+									<p:dataTable id="tblAgenciaOrigen"
+										value="#{monitoreoBean.listaAgenciaOrigen}" var="item"
+										paginator="true" rows="10"
+										paginatorTemplate=" {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown} "
+										paginatorPosition="bottom"
+										selection="#{monitoreoBean.agenciasSeleccionadasO}"
+										emptyMessage="No existen registros con ese criterio"
+										styleClass="table" reflow="true"
+										tableStyle="white-space: nowrap" widgetVar="tblAgenciaOrigen"
+										rowKey="#{item.idAgencia}">
+
+										<f:facet name="header">
+											<div class="row row-nomargin">
+												<div class="col-lg-3">
+													<p:inputText id="globalFilter"
+														onkeyup="PF('tblAgenciaOrigen').filter()"
+														class="pull-left" style="width: 100%"
+														placeholder="Buscar...." />
+												</div>
+												<div class="col-lg-6">
+													<p:outputLabel value="Agencias Origen" />
+												</div>
+
+
+
+											</div>
+										</f:facet>
+
+										<p:column selectionMode="multiple"
+											style="width:40px;text-align:left" />>
+									
+
+
+									<p:column headerText="Agencia" filterBy="#{item.nombre}"
+											filterStyle="display:none">
+											<h:outputText value="#{item.nombre}" />
+										</p:column>
+
+
+
+									</p:dataTable>
+
+
+								</div>
+
+							</div>
+						</div>
+
+
+						<div class="col-sm-6">
+							<div class="box box-primary">
+
+								<div class="box-body">
+
+
+
+
+									<h:panelGrid columns="2">
+
+										<p:panelGrid columns="2" styleClass="ui-panelgrid-blank">
+											<p:outputLabel value="Ciudad" for="ciudadD" />
+											<p:selectOneMenu id="ciudadD"
+												value="#{monitoreoBean.idCiudadAD}" filter="true"
+												filterMatchMode="contains">
+												<p:ajax
+													listener="#{monitoreoBean.consultaAgenciasDestino()}"
+													update=":frmCrear:tblAgenciaDestino" process="@this" />
+												<f:selectItem itemLabel="Seleccionar" itemValue="#{null}" />
+												<f:selectItems value="#{monitoreoBean.listaCiudad}"
+													var="item" itemLabel="#{item.nombre}"
+													itemValue="#{item.idDetalleCatalogo}">
+												</f:selectItems>
+											</p:selectOneMenu>
+											<p:message for="ciudadD" display="icon" />
+										</p:panelGrid>
+
+
+										<p:panelGrid columns="2" styleClass="ui-panelgrid-blank">
+
+
+											<p:outputLabel value="Cliente Destino" for="clientedestino" />
+											<p:selectOneMenu id="clientedestino"
+												value="#{monitoreoBean.idClienteDestino}"
+												style="width: 100% !important">
+												<p:ajax
+													listener="#{monitoreoBean.consultaAgenciasDestino()}"
+													update=":frmCrear:tblAgenciaDestino" />
+												<f:selectItem itemLabel="Seleccionar" itemValue="#{null}" />
+												<f:selectItems value="#{monitoreoBean.listaClienteDestino}"
+													var="item" itemLabel="#{item.razonSocial}"
+													itemValue="#{item.idCliente}">
+												</f:selectItems>
+											</p:selectOneMenu>
+											<p:message for="clientedestino" display="icon" />
+
+										</p:panelGrid>
+
+									</h:panelGrid>
+
+									<p:dataTable id="tblAgenciaDestino"
+										value="#{monitoreoBean.listaAgenciaDestino}" var="item"
+										paginator="true" rows="10"
+										paginatorTemplate=" {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown} "
+										paginatorPosition="bottom"
+										selection="#{monitoreoBean.agenciasSeleccionadasD}"
+										emptyMessage="No existen registros con ese criterio"
+										styleClass="table" reflow="true"
+										tableStyle="white-space: nowrap" widgetVar="tblAgenciaDestino"
+										rowKey="#{item.idAgencia}" rowsPerPageTemplate="5,10,15">
+
+										<f:facet name="header">
+											<div class="row row-nomargin">
+												<div class="col-lg-3">
+													<p:inputText id="globalFilter"
+														onkeyup="PF('tblAgenciaDestino').filter()"
+														class="pull-left" style="width: 100%"
+														placeholder="Buscar...." />
+												</div>
+												<div class="col-lg-6">
+													<p:outputLabel value="Agencias Destino" />
+												</div>
+
+
+
+											</div>
+										</f:facet>
+
+										<p:column selectionMode="multiple"
+											style="width:40px;text-align:left" />
+
+
+										<p:column headerText="Agencia" filterBy="#{item.nombre}"
+											filterStyle="display:none">
+											<h:outputText value="#{item.nombre}" />
+										</p:column>
+
+
+									</p:dataTable>
+
+
+								</div>
+
+							</div>
+						</div>
+
+					</div>
+
+					<p:commandButton actionListener="#{monitoreoBean.guardarParada()}"
+						value="Guardar" icon="fa fa-save" styleClass="my-button"
+						update=":frmCrear:growl2 :frmMonitoreo:tblTransaccion" />
+
+					<p:commandButton value="Cancelar"
+						actionListener="#{hojaAlistamientoBean.cancelar()}"
+						styleClass="my-button" icon="fa fa-close"
+						oncomplete="PF('dlgAgregarParada').hide();" />
+
+
+
+				</h:form>
+			</p:dialog>
+
+
+<p:dialog id="dlgReasignarParada" widgetVar="dlgReasignarParada"
+				  responsive="true"
+				modal="true" width="50%" closable="false" closeOnEscape="true"
+				appendTo="@(body)">
+
+
+				<!-- general form elements -->
+				<h:form id="frmCrear2">
+
+					<p:growl id="growl3" showDetail="true" life="3000"
+						globalOnly="false" />
+
+					<p:messages id="mensaje" autoUpdate="false" />
+					<p:focus context="@form" />
+
+					<p:panelGrid columns="2" styleClass="ui-panelgrid-blank">
+
+
+
+						<p:panelGrid columns="3" styleClass="ui-panelgrid-blank">
+
+
+
+
+							<p:outputLabel value="Equipo Movil" for="movil2" />
+							<p:selectOneMenu id="movil2"
+								value="#{monitoreoBean.idEquipoMovil}" filter="true"
+								filterMatchMode="contains">
+								<p:ajax listener="#{monitoreoBean.consultaCircuitoPorEquipo}"
+									update=" :frmCrear2:circuito2" />
+								<f:selectItem itemLabel="Seleccionar" itemValue="#{null}" />
+								<f:selectItems value="#{monitoreoBean.listaEquipoMovil}"
+									var="item" itemLabel="#{item.nombre}"
+									itemValue="#{item.idEquipoMovil}">
+								</f:selectItems>
+							</p:selectOneMenu>
+							<p:message for="movil2" display="icon" />
+						</p:panelGrid>
+
+						<p:panelGrid columns="2" styleClass="ui-panelgrid-blank">
+							<p:outputLabel value="Circuito" for="circuito2" />
+							<p:selectOneMenu id="circuito2"
+								value="#{monitoreoBean.idCircuito}" filter="true"
+								filterMatchMode="contains">
+
+								<f:selectItem itemLabel="Seleccionar" itemValue="#{null}" />
+								<f:selectItems value="#{monitoreoBean.listaCircuitoMovil}"
+									var="item" itemLabel="#{item.nombre}"
+									itemValue="#{item.idCircuito}">
+								</f:selectItems>
+							</p:selectOneMenu>
+							<p:message for="circuito2" display="icon" />
+
+						</p:panelGrid>
+
+
+					</p:panelGrid>
+
+
+					
+					<p:commandButton actionListener="#{monitoreoBean.guardaReasignarParada()}"
+						value="Guardar" icon="fa fa-save" styleClass="my-button"
+						update=":frmCrear2:growl3 :frmMonitoreo:tblTransaccion" />
+
+					<p:commandButton value="Cancelar"
+						actionListener="#{hojaAlistamientoBean.cancelar()}"
+						styleClass="my-button" icon="fa fa-close"
+						oncomplete="PF('dlgReasignarParada').hide();" />
+
+
+
+				</h:form>
+			</p:dialog>
+			
+			<p:dialog id="dlgEstadistica" widgetVar="dlgEstadistica"
+				  responsive="true"
+				modal="true" width="50%" closable="false" closeOnEscape="true"
+				appendTo="@(body)">
+
+
+				<!-- general form elements -->
+				<h:form id="frmCrear3">
+
+					<p:growl id="growl3" showDetail="true" life="3000"
+						globalOnly="false" />
+
+					<p:messages id="mensaje" autoUpdate="false" />
+					<p:focus context="@form" />
+
+					<p:panelGrid columns="2" styleClass="ui-panelgrid-blank">
+					<p:panel>
+								<p:chart type="pie" model="#{monitoreoBean.pieModel}" style="width:400px;height:300px" />
+								
+								
+								</p:panel>
+					
+					</p:panelGrid>
+
+
+					<p:commandButton value="Cancelar"
+						actionListener="#{hojaAlistamientoBean.cancelar()}"
+						styleClass="my-button" icon="fa fa-close"
+						oncomplete="PF('dlgEstadistica').hide();" />
+
+
+
+				</h:form>
+			</p:dialog>
+
+
+
+
+
+
+
+
+
+
+		</ui:define>
+
+	</ui:composition>
+</body>
+</html>

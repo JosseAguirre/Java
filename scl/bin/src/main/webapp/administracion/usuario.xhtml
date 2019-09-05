@@ -1,0 +1,259 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+ <body>
+    <ui:composition template="/templates/admin.xhtml">
+   
+       
+        <ui:define name="content">
+      <h:form id="frmUsuario" >
+      
+         <p:growl id="growl" showDetail="true" life="3000"  rendered="#{not facesContext.validationFailed}"/>    
+            
+           
+          <!-- general form elements -->
+          <div class="box box-primary">
+            <div class="box-header with-border">
+              <h3 class="box-title">Datos del Usuario</h3>
+            </div>
+            <!-- /.box-header -->
+            <!-- form start -->
+            
+              <div class="box-body">
+              
+                       <!--#### CONTENIDO DE LA TABLA USUARIO -->
+            <p:dataTable id="tbl" 
+            	value="#{admUsuarioBean.listausuario}"
+				var="item" 
+				paginator="true" 
+				rows="10"
+				paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+				paginatorPosition="bottom" 
+				selection="#{admUsuarioBean.usuarioseleccionado}"
+				tableStyle="white-space: nowrap" 
+				widgetVar="tablaUsuario"
+				filteredValue="#{admUsuarioBean.usuariofiltrado}"
+				emptyMessage="No existen registros con ese criterio"
+				styleClass="table"
+				reflow="true"
+				selectionMode="single"
+				rowsPerPageTemplate="5,10,15"
+			    rowKey="#{item.idUsuario}">
+<f:facet name="header">
+								<div class="row row-nomargin">
+									<div class="col-lg-3">
+										<p:inputText id="globalFilter"
+											onkeyup="PF('tablaUsuario').filter()" class="pull-left"
+											style="width: 100%" placeholder="Buscar...." />
+									</div>
+									<div class="col-lg-6">
+										<p:outputLabel value="Lista de Usuarios" />
+									</div>
+
+									<div class="col-lg-3">
+										<div class="pull-right">
+											<h:commandLink >
+												<p:graphicImage name="/images/excel.png" width="24" title="Exportar Excel" />
+												<p:dataExporter type="xls" target="tbl" fileName="cars"
+													options="#{responsableAgenciaBean.excelOpt}" />
+											</h:commandLink>
+
+											<h:commandLink>
+												<p:graphicImage name="/images/pdf.png" width="24" title = "Exportar PDF" />
+												<p:dataExporter type="pdf" target="tbl" fileName="cars"
+													options="#{responsableAgenciaBean.pdfOpt}" />
+											</h:commandLink>
+
+										</div>
+									</div>
+
+
+								</div>
+							</f:facet>
+
+              
+                <p:column headerText="Codigo">
+                    <h:outputText value="#{item.idUsuario}" />
+                </p:column>
+
+                <p:column headerText="Usuario" filterBy="#{item.usuario}"
+                          filterStyle="display:none">
+                    <h:outputText value="#{item.usuario}" />
+                </p:column>
+
+            </p:dataTable>
+            
+            <div id= "footer" class="box-footer">
+
+							<p:commandButton id="btnNuevo"
+								actionListener="#{admUsuarioBean.nuevo()}" value="Nuevo"
+								styleClass="btn btn-primary" icon="fa fa-plus"
+								update=":frmUsuario:growl :frmCrear" />
+
+							<p:commandButton id="btnModificar"
+								actionListener="#{admUsuarioBean.modificar()}"
+								value="Modificar" styleClass="btn btn-warning"
+								icon="fa fa-pencil" update=":frmUsuario:growl :frmCrear" />
+
+							
+
+						</div>
+						
+						<br />
+                      </div>          
+     </div>
+</h:form>
+              
+              
+               
+                
+
+          
+    <!-- DIALOGO NUEVO USUARIO -->
+
+		<p:dialog id="dlgDatosUsuario" widgetVar="dlgDatosUsuario"
+			 responsive="true" modal="true"
+			width="50%"  closable="true"
+			closeOnEscape="true"
+			  appendTo="@(body)">
+		
+ 
+			<!-- general form elements -->
+			<h:form id="frmCrear">
+			
+			<p:messages id="mensaje" autoUpdate="false"/>
+			<p:focus context="@form"/>
+			<div class="box box-primary">
+				<div class="box-header with-border">
+					<h3 class="box-title">Datos del Empleado</h3>
+				</div>
+				<!-- /.box-header -->
+				<div class="box-body">
+				
+				
+				
+				
+                <p:panelGrid id="pnlEmpleado" columns="4" styleClass="ui-panelgrid-blank">
+                    <p:outputLabel value="Empleado" for="empleado" />
+                    <p:inputText id="empleado" 
+                                 value="#{admUsuarioBean.admEmpleado.nombres} #{admUsuarioBean.admEmpleado.apellidos}" required="true"
+                                 requiredMessage="Requerido" disabled="true">
+                    </p:inputText>
+                    <p:message for="empleado" />
+                    <p:commandButton 
+                        action="#{admUsuarioBean.dataEmpleado()}" value="Buscar"
+                        id="btnBuscar" oncomplete="PF('dlgEmpleado').show();"
+                        update="dlgEmpleado" icon="ui-icon-search">
+                    </p:commandButton>
+                </p:panelGrid>
+                
+                
+                
+                
+                
+                <p:panelGrid id="pnl" columns="3" styleClass="ui-panelgrid-blank">
+
+                    <p:outputLabel value="Usuario" for="usuario" />
+                    <p:inputText id="usuario"
+                                 value="#{admUsuarioBean.admUsuario.usuario}" required="true"
+                                 requiredMessage="Requerido">
+                    </p:inputText>
+                    <p:message for="usuario" />
+
+                    <p:outputLabel value="Password" for="password" />
+                    <p:inputText id="password"
+                                 value="#{admUsuarioBean.admUsuario.password}" required="true"
+                                 requiredMessage="password">
+                    </p:inputText>
+                    <p:message for="usuario" />
+
+
+                    <p:outputLabel value="Estado" for="estado" />
+                    <p:selectOneMenu id="estado" value="#{admUsuarioBean.idestado}"
+                                     required="true" requiredMessage="Requerido">
+                        <f:selectItem itemLabel="Seleccionar" itemValue="#{null}" />
+                        <f:selectItems value="#{admUsuarioBean.listaestado}" var="item"
+                                       itemLabel="#{item.nombre}" itemValue="#{item.idDetalleCatalogo}">
+                        </f:selectItems>
+                    </p:selectOneMenu>
+                    <p:message for="estado" />
+
+                </p:panelGrid>
+                <br />
+               
+    
+              </div>
+              
+              <!-- /.box-body -->
+
+            <div id= "footer" class="box-footer">
+					<p:commandButton value="Guardar"
+						action="#{admUsuarioBean.persistir()}"
+						update = ":frmUsuario:tbl :frmCrear:pnl :frmUsuario:growl" styleClass="btn btn-success"	icon="fa fa-save"					
+						oncomplete="if (args &amp;&amp; !args.validationFailed) PF('dlgDatosUsuario').hide(); " />
+						
+					<p:commandButton value="Cancelar"
+						actionListener="#{admUsuarioBean.cancelar()}"	styleClass="btn btn-info"	icon="fa fa-close"			 
+						oncomplete="PF('dlgDatosUsuario').hide();" />
+						
+				</div>
+				
+           	</div>
+			</h:form>
+		</p:dialog>	
+		
+		
+		<!-- DIALOGO SELECCON EMPLEADO -->
+		<p:dialog id="dlgEmpleado" widgetVar="dlgEmpleado" showEffect="explode"
+                          hideEffect="clip" responsive="true" modal="true" width="50%">
+
+                    <p:dataTable id="tble" value="#{admEmpleadoBean.listaempleado}"
+                                 var="item" paginator="true" rows="10"
+                                 paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+                                 paginatorPosition="bottom" editable="true"
+                                 tableStyle="white-space: nowrap" widgetVar="tablaEmpleado"
+                                 filteredValue="#{admEmpleadoBean.empleadofiltrado}"
+                                 emptyMessage="No existen registros con ese criterio"
+                                 selectionMode="single"
+                                 selection="#{admEmpleadoBean.empleadoseleccionado}"
+                                 rowKey="#{item.idEmpleado}" >
+
+                        <f:facet name="header">
+                            <p:outputPanel>
+                                <h:outputText value="Buscar:" />
+                                <p:inputText id="globalFilter" onkeyup="PF('tablaEmpleado').filter()"
+                                             style="width:150px"
+                                             title="Escriba la identificiacion, nombre o apellido " />
+                            </p:outputPanel>
+                        </f:facet>
+
+                        <p:ajax  event="rowSelect" listener="#{admUsuarioBean.onRowSelectEmpleado}"    oncomplete="PF('dlgEmpleado').hide();"/>
+
+                        <p:column headerText="Id" filterBy="#{item.idEmpleado}" filterStyle="display:none">
+                            <h:outputText value="#{item.idEmpleado}" />
+                        </p:column>
+
+                        <p:column headerText="Nombres" filterBy="#{item.nombres}" filterStyle="display:none">
+                            <h:outputText value="#{item.nombres}" />
+                        </p:column>
+
+                        <p:column  headerText="apellidos" filterBy="#{item.apellidos}" filterStyle="display:none">
+                            <h:outputText value="#{item.apellidos}" />
+                        </p:column>
+                    </p:dataTable>
+
+                </p:dialog>
+          
+          
+          
+         
+
+        </ui:define>
+
+    </ui:composition>
+    </body>
+    </html>

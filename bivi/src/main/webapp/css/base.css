@@ -1,0 +1,9 @@
+@CHARSET "ISO-8859-1";
+.ui-widget,
+.ui-widget .ui-widget
+{
+	font-size: 12px;
+}
+.ui-panelgrid > tr td, .ui-panelgrid > tr{
+   border-style: none !important
+ }

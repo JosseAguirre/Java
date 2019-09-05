@@ -1,0 +1,251 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+
+<body>
+
+
+	<ui:composition template="/templates/admin.xhtml">
+		<ui:define name="content">
+			<h:form id="frmReasignacion">
+
+				<p:growl id="growl" showDetail="true" life="3000"
+					rendered="#{not facesContext.validationFailed}" />
+
+				<!-- general form elements -->
+				<div class="box box-primary">
+					<div class="box-header with-border">
+						<h3 class="box-title">Reasignacion</h3>
+					</div>
+
+					<div class="box-body">
+
+						<p:panelGrid id="pnl1" columns="3" styleClass="ui-panelgrid-blank">
+
+							<p:outputLabel value="Ciudad" for="ciudad" />
+							<p:selectOneMenu id="ciudad" value="#{reasignacionBean.idCiudad}"
+								filter="true" filterMatchMode="contains">
+								<p:ajax
+									listener="#{reasignacionBean.consultaListaReasignacion()}"
+									process="@form" update="tblReasignacion" />
+								<f:selectItem itemLabel="Seleccionar" itemValue="#{null}" />
+								<f:selectItems value="#{reasignacionBean.listaCiudad}"
+									var="item" itemLabel="#{item.nombre}"
+									itemValue="#{item.idDetalleCatalogo}">
+								</f:selectItems>
+							</p:selectOneMenu>
+							<p:message for="ciudad" display="icon" />
+
+
+
+
+
+						</p:panelGrid>
+
+
+
+
+
+
+
+
+
+
+
+						<p:dataTable id="tblReasignacion"
+							value="#{reasignacionBean.listaTransaccion}" var="item"
+							selection="#{reasignacionBean.transaccionSeleccionada}"
+							emptyMessage="No existen registros con ese criterio"
+							styleClass="table" reflow="true" tableStyle="white-space: nowrap"
+							widgetVar="tblReasignacion" rowKey="#{item.idTransaccion}"
+							rowStyleClass="#{item.estadoTransaccion eq 12 ? 'entregadoenprovisional' : null}">
+
+							<f:facet name="header">
+								<div class="row row-nomargin">
+									<div class="col-lg-3">
+										<p:inputText id="globalFilter"
+											onkeyup="PF('tblReasignacion').filter()" class="pull-left"
+											style="width: 100%" placeholder="Buscar...." />
+									</div>
+									<div class="col-lg-6">
+										<p:outputLabel value="Transacciones" />
+									</div>
+
+
+
+								</div>
+							</f:facet>
+
+							<p:column selectionMode="multiple"
+								style="width:40px;text-align:left" />
+
+
+							<p:column headerText="Recibo">
+								<h:outputText value="#{item.numeroRecibo}" />
+							</p:column>
+
+							<p:column headerText="Origen">
+								<h:outputText value="#{item.idAgenciaOrigen.nombre}" />
+							</p:column>
+
+							<p:column headerText="Destino">
+								<h:outputText value="#{item.idAgenciaDestino.nombre}" />
+							</p:column>
+
+							<p:column headerText="Total Efectivo">
+								<h:outputText value="#{item.totalEfectivo}" />
+							</p:column>
+
+							<p:column headerText="Total Cheque">
+								<h:outputText value="#{item.totalCheque}" />
+							</p:column>
+
+							<p:column headerText="Total Transaccion">
+								<h:outputText value="#{item.totalTransaccion}" />
+							</p:column>
+
+							<p:column headerText="Total Paquetes">
+								<h:outputText value="#{item.totalPaquetes}" />
+							</p:column>
+
+							<p:column headerText="Estado">
+								<h:outputText value="#{item.estadoTransaccion}" />
+							</p:column>
+
+
+						</p:dataTable>
+
+
+
+
+
+
+					</div>
+
+
+
+					<div id="footer" class="box-footer">
+						<p:commandButton value="Reasigar Transacciones" styleClass="my-button" icon="fa fa-reply "
+							actionListener="#{reasignacionBean.nuevo()}"
+							update=" growl :frmCrear">
+
+
+						</p:commandButton>
+
+
+
+					</div>
+				</div>
+
+
+
+
+
+			</h:form>
+
+			<p:dialog id="dlgReasignar" widgetVar="dlgReasignar"
+				styleClass="my-dialogs" position="top" responsive="true"
+				modal="true" header="Reasignar" width="40%" closable="false"
+				closeOnEscape="true" appendTo="@(body)">
+
+
+
+				<!-- general form elements -->
+				<h:form id="frmCrear">
+
+
+					<p:focus context="@form" />
+
+
+					<p:panelGrid id="pnlD1" columns="3" styleClass="ui-panelgrid-blank">
+
+						<p:outputLabel value="Fecha Operacion" for="fecha" />
+						<p:calendar pattern="dd/MM/yyyy" id="fecha" required="true"
+							value="#{reasignacionBean.transaccion.fechaOperacion}"
+							locale="es" showButtonPanel="true" navigator="true"
+							showOn="button">
+							<f:validateRequired for="movil" />
+							<p:ajax event="dateSelect"
+								listener="#{reasignacionBean.consultaListaMovil}"
+								update=":frmCrear :frmCrear:movil" />
+
+						</p:calendar>
+						<p:message for="fecha" display="icon" />
+
+					</p:panelGrid>
+
+					<p:panelGrid id="pnlD2" columns="3" styleClass="ui-panelgrid-blank">
+
+						<p:outputLabel value="Equipo Movil" for="movil" />
+						<p:selectOneMenu id="movil" required="true"
+							value="#{reasignacionBean.idEquipoMovil}" filter="true"
+							filterMatchMode="contains">
+
+							<p:ajax listener="#{reasignacionBean.consultaCircuitoPorEquipo}"
+								update=":frmCrear :frmCrear:circuit" />
+
+							<f:selectItem itemLabel="Seleccionar" itemValue="#{null}" />
+							<f:selectItems value="#{reasignacionBean.listaEquipoMovil}"
+								var="item" itemLabel="#{item.nombre}"
+								itemValue="#{item.idEquipoMovil}">
+							</f:selectItems>
+						</p:selectOneMenu>
+						<p:message for="movil" display="icon" />
+
+
+
+						<p:outputLabel for="circuit" value="Circuito" />
+						<p:selectOneMenu id="circuit" required="true"
+							value="#{reasignacionBean.idCircuito}" label="Circuitos"
+							multiple="true" filter="true" filterMatchMode="startsWith"
+							panelStyle="width:250px">
+							<p:ajax update=":frmCrear " />
+							<f:selectItem itemLabel="Seleccionar" itemValue="#{null}" />
+							<f:selectItems value="#{reasignacionBean.listaCircuitoMovil}"
+								var="item" itemLabel="#{item.nombre}"
+								itemValue="#{item.idCircuito}" />
+						</p:selectOneMenu>
+
+						<p:message for="circuit" display="icon" />
+
+					</p:panelGrid>
+
+					<p:panelGrid columns="2" styleClass="ui-panelgrid-blank">
+
+						<p:commandButton value="Guardar"
+							actionListener="#{reasignacionBean.reasignarTransaccion()}" styleClass="my-button" icon="fa fa-save "
+							oncomplete="if (args &amp;&amp; !args.validationFailed) PF('dlgReasignar').hide(); "
+							update="frmCrear :frmReasignacion:growl :frmReasignacion:tblReasignacion" />
+
+
+
+						<p:commandButton value="Cancelar"
+							actionListener="#{reasignacionBean.cancelar()}" styleClass="my-button" icon="fa fa-close"
+							oncomplete="PF('dlgReasignar').hide();" />
+
+
+
+					</p:panelGrid>
+
+				</h:form>
+			</p:dialog>
+
+
+
+
+
+
+
+
+
+
+		</ui:define>
+
+	</ui:composition>
+</body>
+</html>

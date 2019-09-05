@@ -1,0 +1,101 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+	<title>Login Page</title>
+	<link type="text/css"
+		href="${facesContext.externalContext.requestContextPath}/resources/css/style.css"
+		rel="stylesheet" />
+	<link type="image/x-icon"
+		href="${facesContext.externalContext.requestContextPath}/resources/images/favicon.ico"
+		rel="shortcut icon" />
+		
+		
+		<style>
+		
+		.contendor{
+		
+		width:100%;
+	background:#ddd;
+		
+		background-color: #A4A4A4;
+		
+		
+		}
+		
+		
+		.exactCenter {
+		width:400px;
+		height:200px;
+		position: fixed;
+		
+		top: 50%;
+		left: 40%;
+		margin-top: -100px;
+		margin-left: -100px;
+	}
+	
+	
+   
+</style>
+		
+		
+		
+		
+		
+</h:head>
+
+<h:body style="background-image: url(./images/fondo2.jpg)" >
+
+
+    
+
+    
+ 
+          
+         
+                <div class="exactCenter">
+               
+                
+               <h:form id="loginForm">
+		<p:growl id="msg" showDetail="true" life="4000" />
+		
+		<p:panel id="loginPnl" header="Login" 	>
+			<p:panelGrid id="loginPanel" columns="2" cellpadding="5" styleClass="ui-panelgrid-blank" >
+				<p:outputLabel value="Username" />
+				<p:inputText id="username" value="#{sesionBean.usuario.usuario}" ></p:inputText>
+				<p:spacer /><p:spacer />	
+				<p:outputLabel value="Password" />
+				<p:password id="password" value="#{sesionBean.usuario.clave}"
+					feedback="false"></p:password>
+				<p:message for="password"></p:message>
+			</p:panelGrid>
+			
+			
+			<p:panelGrid columns="1" cellpadding="10" width="100%" styleClass="ui-panelgrid-blank">
+				 <p:commandButton ajax="false" value="LOGIN" action="#{sesionBean.iniciarSesion()}"  update="growlLogin" 
+                             />
+			</p:panelGrid>
+		</p:panel>
+		
+	</h:form>
+                   
+                </div>
+                
+               
+           
+       
+      
+ 
+
+
+
+
+</h:body>
+</html>
+
+

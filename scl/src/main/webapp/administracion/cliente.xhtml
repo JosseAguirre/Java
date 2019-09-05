@@ -1,0 +1,291 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+<body>
+	<ui:composition template="/templates/admin.xhtml">
+		<ui:define name="content">
+			<h:form id="frmCliente">
+
+				<p:growl id="growl" showDetail="true" life="3000"
+					rendered="#{not facesContext.validationFailed}" />
+
+
+				<div class="box box-primary">
+					<div class="box-header with-border">
+						<h3 class="box-title">Clientes</h3>
+					</div>
+
+					<div class="box-body">
+						<p:dataTable id="tblCliente"
+							value="#{admClienteBean.listaCliente}" var="item"
+							paginator="true" rows="10"
+							paginatorTemplate="    {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown} "
+							paginatorPosition="bottom" tableStyle=" white-space: nowrap"
+							selection="#{admClienteBean.clienteSeleccionado}"
+							emptyMessage="No existen registros con ese criterio"
+							styleClass="table" reflow="true" selectionMode="single"
+							widgetVar="tblCliente" rowKey="#{item.idCliente}"
+							filteredValue="#{admClienteBean.clienteFiltrado}"
+							rowsPerPageTemplate="5,10,15">
+
+							<f:facet name="header">
+								<div class="row row-nomargin">
+									<div class="col-lg-3">
+										<p:inputText id="globalFilter"
+											onkeyup="PF('tblCliente').filter()" class="pull-left"
+											style="width: 100%" placeholder="Buscar...." />
+									</div>
+									<div class="col-lg-6">
+										<p:outputLabel value="Lista de Clientes" />
+									</div>
+
+									<div class="col-lg-3">
+										<div class="pull-right">
+											<h:commandLink>
+												<p:graphicImage name="/images/excel.png" width="24"
+													title="Exportar Excel" />
+												<p:dataExporter type="xls" target="tbl" fileName="cars"
+													options="#{admClienteBean.excelOpt}" />
+											</h:commandLink>
+
+											<h:commandLink>
+												<p:graphicImage name="/images/pdf.png" width="24"
+													title="Exportar PDF" />
+												<p:dataExporter type="pdf" target="tbl" fileName="cars"
+													options="#{admClienteBean.pdfOpt}" />
+											</h:commandLink>
+
+										</div>
+									</div>
+
+
+								</div>
+							</f:facet>
+
+							<p:column headerText="Código" filterBy="#{item.idCliente}"
+								filterStyle="display:none">
+								<h:outputText value="#{item.idCliente}" />
+							</p:column>
+
+							<p:column headerText="Razón Social"
+								filterBy="#{item.razonSocial}" filterStyle="display:none">
+								<h:outputText value="#{item.razonSocial}" />
+							</p:column>
+
+							<p:column headerText="Nombre Comercial"
+								filterBy="#{item.nombreComercial}" filterStyle="display:none">
+								<h:outputText value="#{item.nombreComercial}" />
+							</p:column>
+
+							<p:column headerText="Cliente Padre"
+								filterBy="#{item.idClientePadre.razonSocial}"
+								filterStyle="display:none">
+								<h:outputText value="#{item.idClientePadre.razonSocial}" />
+							</p:column>
+
+							<p:column headerText="RUC" filterBy="#{item.ruc}"
+								filterStyle="display:none">
+								<h:outputText value="#{item.ruc}" />
+							</p:column>
+
+							<p:column headerText="Actividad"
+								filterBy="#{item.idActividadDc.nombre}"
+								filterStyle="display:none">
+								<h:outputText value="#{item.idActividadDc.nombre}" />
+							</p:column>
+
+							<p:column headerText="Tipo Cliente"
+								filterBy="#{item.idTipoClienteDc.nombre}"
+								filterStyle="display:none">
+								<h:outputText value="#{item.idTipoClienteDc.nombre}" />
+							</p:column>
+
+							<p:column headerText="Ciudad"
+								filterBy="#{item.idCiudadDc.nombre}" filterStyle="display:none">
+								<h:outputText value="#{item.idCiudadDc.nombre}" />
+							</p:column>
+
+							<p:column headerText="Estado"
+								filterBy="#{item.idEstadoDc.nombre}" filterStyle="display:none">
+								<h:outputText value="#{item.idEstadoDc.nombre}" />
+							</p:column>
+
+						</p:dataTable>
+					</div>
+
+					<div id="footer" class="box-footer">
+
+						<p:commandButton id="btnNuevo"
+							actionListener="#{admClienteBean.nuevo()}" value="Nuevo"
+							styleClass="my-button" icon="fa fa-plus"
+							update=":frmCliente:growl :frmCrear" />
+
+						<p:commandButton id="btnModificar"
+							actionListener="#{admClienteBean.modificar()}" value="Modificar"
+							styleClass="my-button" icon="fa fa-pencil"
+							update=":frmCliente:growl :frmCrear" />
+
+					
+
+					</div>
+
+
+				</div>
+			</h:form>
+
+
+			<!-- DIALOGO NUEVO CLIENTE -->
+
+			<p:dialog id="dlgDatosCliente" widgetVar="dlgDatosCliente"
+				responsive="true" modal="true" width="50%" closable="true" styleClass="my-dialogs"
+				closeOnEscape="true" appendTo="@(body)">
+
+				<h:form id="frmCrear">
+
+					<p:messages id="mensaje" autoUpdate="false" />
+					<p:focus context="@form" />
+					
+
+							<p:panelGrid id="pnl" columns="3"
+								columnClasses="ui-grid-col-2,ui-grid-col-4" layout="grid"
+								styleClass="ui-panelgrid-blank">
+
+								<p:outputLabel value="Ciudad" for="ciudad" />
+								<p:selectOneMenu id="ciudad" value="#{admClienteBean.idCiudad}"
+									required="true" requiredMessage="Requerido">
+									<f:selectItem itemLabel="Seleccionar" itemValue="#{null}" />
+									<f:selectItems value="#{admClienteBean.listaCiudad}" var="item"
+										itemLabel="#{item.nombre}"
+										itemValue="#{item.idDetalleCatalogo}">
+									</f:selectItems>
+								</p:selectOneMenu>
+								<p:message for="ciudad" />
+
+								<p:outputLabel value="Tipo de CLiente" for=" tipocliente" />
+								<p:selectOneMenu id="tipocliente"
+									value="#{admClienteBean.idTipoCliente}" required="true"
+									requiredMessage="Requerido">
+									<f:selectItem itemLabel="Seleccionar" itemValue="#{null}" />
+									<f:selectItems value="#{admClienteBean.listaTipoCliente}"
+										var="item" itemLabel="#{item.nombre}"
+										itemValue="#{item.idDetalleCatalogo}">
+									</f:selectItems>
+								</p:selectOneMenu>
+								<p:message for="tipocliente" />
+
+								<p:outputLabel value="Cliente Padre" for="clientepadre" />
+								<p:selectOneMenu id="clientepadre"
+									value="#{admClienteBean.idCliente}">
+									<f:selectItem itemLabel="Seleccionar" itemValue="0" />
+									<f:selectItems value="#{admClienteBean.listaClientePadre}"
+										var="item" itemLabel="#{item.razonSocial}"
+										itemValue="#{item.idCliente}">
+									</f:selectItems>
+								</p:selectOneMenu>
+								<p:message for="clientepadre" />
+
+								<p:outputLabel value="Razón Social" for="razonsocial" />
+								<p:inputText id="razonsocial"
+									value="#{admClienteBean.admCliente.razonSocial}"
+									required="true" requiredMessage="Requerido"
+									onkeyup="this.value = this.value.toUpperCase();">
+								</p:inputText>
+								<p:message for="razonsocial" />
+
+								<p:outputLabel value="Nombre Comercial" for="nombrecomercial" />
+								<p:inputText id="nombrecomercial"
+									value="#{admClienteBean.admCliente.nombreComercial}"
+									required="true" requiredMessage="Requerido"
+									onkeyup="this.value = this.value.toUpperCase();">
+								</p:inputText>
+								<p:message for="nombrecomercial" />
+
+								<p:outputLabel value="RUC" for="ruc" />
+								<p:inputText id="ruc" value="#{admClienteBean.admCliente.ruc}"
+									required="true" requiredMessage="Requerido"
+									onkeyup="this.value = this.value.toUpperCase();">
+								</p:inputText>
+								<p:message for="ruc" />
+
+								<p:outputLabel value="Actividad" for="actividad" />
+								<p:selectOneMenu id="actividad"
+									value="#{admClienteBean.idActividad}" required="true"
+									requiredMessage="Requerido">
+									<f:selectItem itemLabel="Seleccionar" itemValue="#{null}" />
+									<f:selectItems value="#{admClienteBean.listaActividad}"
+										var="item" itemLabel="#{item.nombre}"
+										itemValue="#{item.idDetalleCatalogo}">
+									</f:selectItems>
+								</p:selectOneMenu>
+								<p:message for="actividad" />
+
+
+
+								<p:outputLabel value="Dirección" for="direccion" />
+								<p:inputText id="direccion"
+									value="#{admClienteBean.admCliente.direccion}" required="true"
+									requiredMessage="Requerido"
+									onkeyup="this.value = this.value.toUpperCase();">
+								</p:inputText>
+								<p:message for="direccion" />
+
+								<p:outputLabel value="Teléfono" for="telefono" />
+								<p:inputText id="telefono"
+									value="#{admClienteBean.admCliente.telefono}" required="true"
+									requiredMessage="Requerido"
+									onkeyup="this.value = this.value.toUpperCase();">
+								</p:inputText>
+								<p:message for="telefono" />
+
+								<p:outputLabel value="Correo Electrónico"
+									for="correoelectronico" />
+								<p:inputText id="correoelectronico"
+									value="#{admClienteBean.admCliente.correoElectronico}"
+									required="true" requiredMessage="Requerido">
+								</p:inputText>
+								<p:message for="correoelectronico" />
+
+								<p:outputLabel value="Estado" for="estado" />
+								<p:selectOneMenu id="estado" value="#{admClienteBean.idEstado}"
+									required="true" requiredMessage="Requerido">
+									<f:selectItem itemLabel="Seleccionar" itemValue="#{null}" />
+									<f:selectItems value="#{admClienteBean.listaEstado}" var="item"
+										itemLabel="#{item.nombre}"
+										itemValue="#{item.idDetalleCatalogo}">
+									</f:selectItems>
+								</p:selectOneMenu>
+								<p:message for="estado" />
+
+							</p:panelGrid>
+
+							<br />
+
+					
+
+							<p:commandButton value="Guardar"
+								action="#{admClienteBean.persistir()}" styleClass="my-button"
+								oncomplete="if (args &amp;&amp; !args.validationFailed) PF('dlgDatosCliente').hide(); "
+								update = ":frmCliente:tblCliente :frmCrear :frmCliente:growl" 		
+								icon="fa fa-save" >
+								</p:commandButton>
+								
+							<p:commandButton value="Cancelar"
+								actionListener="#{admClienteBean.cancelar()}"
+								 icon="fa fa-close" styleClass="my-button"
+								oncomplete="PF('dlgDatosCliente').hide();">
+							</p:commandButton>
+
+
+
+				</h:form>
+			</p:dialog>
+
+		</ui:define>
+
+
+	</ui:composition>
+</body>
+</html>

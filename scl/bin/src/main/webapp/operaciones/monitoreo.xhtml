@@ -1,0 +1,52 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition template="/templates/admin.xhtml">
+        <ui:define name="panel"></ui:define>
+        <ui:define name="content">
+            <p:messages id="mensaje" autoUpdate="false" />
+            
+          
+          <!-- general form elements -->
+          <div class="box box-primary">
+            <div class="box-header with-border">
+              <h3 class="box-title">Datos del Empleado</h3>
+            </div>
+            <!-- /.box-header -->
+            <!-- form start -->
+            <form role="form">
+              <div class="box-body">
+              
+              
+       
+               
+    
+              </div>
+              
+              <!-- /.box-body -->
+
+              <div class="box-footer">
+                
+                    <p:commandButton value="Guardar"
+                                     action="#{admUsuarioBean.persitir()}" icon="ui-icon-disk"
+                                     update=":frm:pnl :frm:pnlEmpleado :frm:tbl :frm:growl" />
+                
+              </div>
+            </form>
+          
+          
+          </div>
+          
+          
+          
+          
+  
+        </ui:define>
+
+    </ui:composition>
+</html>

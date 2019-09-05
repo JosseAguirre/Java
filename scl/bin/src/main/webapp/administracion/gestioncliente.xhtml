@@ -1,0 +1,510 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+
+
+    <ui:composition template="/templates/menuT.xhtml">
+        <!-- SECCION UNO : CLIENTES -->
+        <ui:define name="content">
+            <p:messages id="mensaje" autoUpdate="false"/>
+            <p:tabView id = "tab">
+                <p:tab id="tab1" title="CLIENTES">
+            <p:panel header="Datos del Cliente">
+                <p:panelGrid id="pnl" columns="3" columnClasses="ui-grid-col-2,ui-grid-col-3" layout="grid"  styleClass="ui-panelgrid-blank">
+                    <p:outputLabel value="Ciudad" for="ciudad" />
+                    <p:selectOneMenu id="ciudad" value="#{admClienteBean.idciudad}"
+                                     required="true" requiredMessage="Requerido">
+                        <f:selectItem itemLabel="Seleccionar" itemValue="#{null}" />
+                        <f:selectItems value="#{admClienteBean.listaciudad}" var="item"
+                                       itemLabel="#{item.nombre}" itemValue="#{item.iddetallecatalogo}">
+                        </f:selectItems>
+                    </p:selectOneMenu>
+                    <p:message for="ciudad" />
+
+                    <p:outputLabel value="Tipo de CLiente" for=" tipocliente"/>
+                    <p:selectOneMenu id="tipocliente" value="#{admClienteBean.idtipocliente}" required="true" requiredMessage="Requerido">
+                        <f:selectItem itemLabel="Seleccionar" itemValue="#{null}"/>
+                        <f:selectItems value="#{admClienteBean.listatipocliente}"
+                                       var="item" itemLabel="#{item.nombre}" 
+                                       itemValue="#{item.iddetallecatalogo}">
+                        </f:selectItems>
+                    </p:selectOneMenu>
+                    <p:message for="tipocliente"/>
+
+                    <p:outputLabel value="Cliente Padre" for="clientepadre"/>
+                    <p:selectOneMenu id="clientepadre" value="#{admClienteBean.idcientepadre}">  
+                        <f:selectItem itemLabel="Seleccionar" itemValue="0"/>
+                        <f:selectItems value="#{admClienteBean.listaclientepadre}" 
+                                       var="item" itemLabel="#{item.razonsocial}"
+                                       itemValue="#{item.idcliente}">
+                        </f:selectItems>
+                    </p:selectOneMenu>
+                    <p:message for="clientepadre"/>
+
+                    <p:outputLabel value="Razón Social" for="razonsocial"/>
+                    <p:inputText id="razonsocial"
+                                 value="#{admClienteBean.admcliente.razonsocial}"
+                                 required="true" requiredMessage="Requerido"
+                                 onkeyup="this.value = this.value.toUpperCase();" >                            				
+                    </p:inputText>
+                    <p:message for="razonsocial" />
+
+                    <p:outputLabel value="Nombre Comercial" for="nombrecomercial"/>
+                    <p:inputText id="nombrecomercial"
+                                 value="#{admClienteBean.admcliente.nombrecomercial}"
+                                 required="true" requiredMessage="Requerido"
+                                 onkeyup="this.value = this.value.toUpperCase();" >                            				
+                    </p:inputText>
+                    <p:message for="nombrecomercial" />
+
+                    <p:outputLabel value="RUC" for="ruc"/>
+                    <p:inputText id="ruc"
+                                 value="#{admClienteBean.admcliente.ruc}"
+                                 required="true" requiredMessage="Requerido"
+                                 onkeyup="this.value = this.value.toUpperCase();" >                            				
+                    </p:inputText>
+                    <p:message for="ruc" />
+
+                    <p:outputLabel value="Actividad" for="actividad" />
+                    <p:selectOneMenu id="actividad" value="#{admClienteBean.idactividad}"
+                                     required="true" requiredMessage="Requerido">
+                        <f:selectItem itemLabel="Seleccionar" itemValue="#{null}" />
+                        <f:selectItems value="#{admClienteBean.listaactividad}" var="item"
+                                       itemLabel="#{item.nombre}" itemValue="#{item.iddetallecatalogo}">
+                        </f:selectItems>
+                    </p:selectOneMenu>
+                    <p:message for="actividad" />
+
+                    <p:outputLabel value="Prioridad" for="prioridad" />
+                    <p:selectOneMenu id="prioridad" value="#{admClienteBean.idprioridad}"
+                                     required="true" requiredMessage="Requerido">
+                        <f:selectItem itemLabel="Seleccionar" itemValue="#{null}" />
+                        <f:selectItems value="#{admClienteBean.listaprioridad}" var="item"
+                                       itemLabel="#{item.nombre}" itemValue="#{item.iddetallecatalogo}">
+                        </f:selectItems>
+                    </p:selectOneMenu>
+                    <p:message for="prioridad" />
+
+                    <p:outputLabel value="Dirección" for="direccion"/>
+                    <p:inputText id="direccion"
+                                 value="#{admClienteBean.admcliente.direccion}"
+                                 required="true" requiredMessage="Requerido"
+                                 onkeyup="this.value = this.value.toUpperCase();" >                            				
+                    </p:inputText>
+                    <p:message for="direccion" />
+
+                    <p:outputLabel value="Teléfono" for="telefono"/>
+                    <p:inputText id="telefono"
+                                 value="#{admClienteBean.admcliente.telefono}"
+                                 required="true" requiredMessage="Requerido"
+                                 onkeyup="this.value = this.value.toUpperCase();" >                            				
+                    </p:inputText>
+                    <p:message for="telefono" />
+
+                    <p:outputLabel value="Correo Electrónico" for="correoelectronico"/>
+                    <p:inputText id="correoelectronico"
+                                 value="#{admClienteBean.admcliente.correoelectronico}"
+                                 required="true" requiredMessage="Requerido" >                            				
+                    </p:inputText>
+                    <p:message for="correoelectronico" />
+
+                    <p:outputLabel value="Estado" for="estado" />
+                    <p:selectOneMenu id="estado" value="#{admClienteBean.idestado}"
+                                     required="true" requiredMessage="Requerido">
+                        <f:selectItem itemLabel="Seleccionar" itemValue="#{null}" />
+                        <f:selectItems value="#{admClienteBean.listaestado}" var="item"
+                                       itemLabel="#{item.nombre}" itemValue="#{item.iddetallecatalogo}">
+                        </f:selectItems>
+                    </p:selectOneMenu>
+                    <p:message for="estado"/>				
+
+                </p:panelGrid>
+
+                <p:commandButton value="Guardar"
+                                 action="#{admClienteBean.persistir()}"
+                                 update=":frm:tab:pnl :frm:growl" icon="ui-icon-disk" oncomplete="PF('dlg').show();">
+                </p:commandButton>
+                <p:dialog header="Modal Dialog" widgetVar="dlg" modal="true" height="100">
+                    <h:outputText value="Cliente ingresado exitosamente"/>
+                </p:dialog>			
+            </p:panel>
+            <br/>
+            <br/> 
+            
+            <p:commandButton value="Ver Tabla de Clientes"
+                             action="#{admClienteBean.verTablaClientes()}"
+                                 update=":frm:tab:tbl">
+                </p:commandButton>
+            
+
+            <p:dataTable id="tbl" value="#{admClienteBean.listacliente}"
+                         var="item" paginator="true" rows="10"
+                         paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+                         paginatorPosition="bottom" editable="true"
+                         widgetVar="tablaCliente" 
+                         filteredValue="#{admClienteBean.clientefiltrado}"
+                         emptyMessage="No existen registros con ese criterio" 
+                         styleClass="table"
+                         reflow="true"
+                         selectionMode="single"
+
+                         rowKey="#{item.idcliente}">
+
+                <f:facet name="header">
+                    <div class="row row-nomargin">
+                        <div class="col-lg-3">
+                            <p:inputText id="globalFilter" onkeyup="PF('tablaCliente').filter()" class="pull-left" style="width: 100%" placeholder="Buscar aqui.." />
+                        </div>
+                        <div class="col-lg-6">
+                            <h:outputText value="Lista de Clientes" />
+                        </div>
+                        <div class="col-lg-3">
+                            <div class="pull-right">
+                                <p:commandButton action="#{admClienteBean.Eliminar}"
+                                                 update="tbl :frm:growl"  value="Eliminar"
+                                                 class="btn-primary" icon="fa fa-list">
+                                    <p:confirm header="Confirmacion" message="Desea eliminar el Registro..?" icon="ui-icon-alert" />
+                                </p:commandButton>
+                            </div>
+                        </div>
+                    </div>
+                </f:facet>
+
+                <p:ajax event="rowSelect" listener="#{admClienteBean.onRowSelect}"	update=":frm:tab:pnl" />
+
+
+                <p:column headerText="Código" filterBy="#{item.idcliente}"
+                          filterStyle="display:none">
+                    <h:outputText value="#{item.idcliente}" />
+                </p:column>
+
+                <p:column headerText="Razón Social" filterBy="#{item.razonsocial}"
+                          filterStyle="display:none">
+                    <h:outputText value="#{item.razonsocial}" />
+                </p:column>
+
+                <p:column headerText="Cliente Padre" filterBy="#{item.idclientepadre.razonsocial}"
+                          filterStyle="display:none">
+                    <h:outputText value="#{item.idclientepadre.razonsocial}" />
+                </p:column>
+
+                <p:column headerText="RUC" filterBy="#{item.ruc}"
+                          filterStyle="display:none">
+                    <h:outputText value="#{item.ruc}" />
+                </p:column>
+
+                <p:column headerText="Ciudad" filterBy="#{item.idciudaddc.nombre}"
+                          filterStyle="display:none">
+                    <h:outputText value="#{item.idciudaddc.nombre}" />
+                </p:column>
+
+                <p:column headerText="Estado" filterBy="#{item.idestadodc.nombre}"
+                          filterStyle="display:none
+                          ">
+                    <h:outputText value="#{item.idestadodc.nombre}" />
+                </p:column>
+
+            </p:dataTable>
+            </p:tab>
+            
+        
+        <!-- SECCION PARA ASIGNACION DEL SISTEMA AL CLIENTE-->
+        <p:tab title="SISTEMA">
+            <p:messages id="mensaje" autoUpdate="false"/>	
+
+            <p:panel header="Asignar Sistema">
+
+
+                <p:panelGrid id="pnl2" columns="3" styleClass="ui-panelgrid-blank" >
+
+                    <p:outputLabel value="Cliente" for="cliente" />
+                    <p:selectOneMenu id="cliente" value="#{admClienteAgenciaSistemaBean.idcliente}"
+                                     required="true" requiredMessage="Requerido">
+                        <f:selectItem itemLabel="Seleccionar" itemValue="#{null}" />
+                        <f:selectItems value="#{admClienteAgenciaSistemaBean.listaCliente}" var="item"
+                                       itemLabel="#{item.nombrecomercial}" itemValue="#{item.idcliente}">
+                        </f:selectItems>
+                    </p:selectOneMenu>
+                    <p:message for="cliente" />
+
+                    <p:outputLabel value="Sistema" for="sistema" />
+                    <p:selectOneMenu id="sistema" value="#{admClienteAgenciaSistemaBean.idsistema}"
+                                     required="true" requiredMessage="Requerido">
+                        <f:selectItem itemLabel="Seleccionar" itemValue="#{null}" />
+                        <f:selectItems value="#{admClienteAgenciaSistemaBean.listasistema}" var="item"
+                                       itemLabel="#{item.nombre}" itemValue="#{item.idsistemas}">
+                        </f:selectItems>
+                    </p:selectOneMenu>
+                    <p:message for="sistema" />
+
+                    <p:outputLabel value="Codigo Sistema" for="codigosistema"/>
+                    <p:inputText id="codigosistema"
+                                 value="#{admClienteAgenciaSistemaBean.admclienteagenciasistema.valor}"
+                                 required="true" requiredMessage="Requerido" >                            				
+                    </p:inputText>
+                    <p:message for="codigosistema" />
+
+                </p:panelGrid>
+
+                <p:commandButton value="Agregar Sistema"
+                                 action="#{admClienteAgenciaSistemaBean.persitirCliente}"
+                                 update=":frm:tab:pnl2 :frm:tab:tbl2 :frm:growl" icon="ui-icon-disk" oncomplete="PF('dlg').show();">
+                </p:commandButton>
+
+
+                <p:dialog header="Modal Dialog" widgetVar="dlg" modal="true" height="100">
+                    <h:outputText value="Sistema asignado exitosamente"/>
+                </p:dialog>			
+            </p:panel>
+        
+
+        
+
+
+
+            <p:dataTable id="tbl2" value="#{admClienteAgenciaSistemaBean.listaClienteSistema}"
+                         var="item2" paginator="true" rows="5"
+                         paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+                         paginatorPosition="bottom" editable="true"
+                          widgetVar="tablaClienteSistemas" 
+                         filteredValue="#{admClienteAgenciaSistemaBean.clienteFiltrado}"
+                         emptyMessage="No existen registros con ese criterio"
+                         styleClass="table"
+                         reflow="true"
+                         selectionMode="single"
+
+                         rowKey="#{item2.idclienteAgenciaSistemas}">
+
+                <f:facet name="header">
+                    <div class="row row-nomargin">
+                        <div class="col-lg-3">
+                            <p:inputText id="globalFilter" onkeyup="PF('tablaClienteSistemas').filter()" class="pull-left" style="width: 100%" placeholder="Buscar aqui.." />
+                        </div>
+                        <div class="col-lg-6">
+                            <h:outputText value="Lista de Clientes y Sistemas" />
+                        </div>
+                        <div class="col-lg-3">
+                            <div class="pull-right">
+                                <p:commandButton action="#{admClienteBean.Eliminar}"
+                                                 update=":frm:tab:tbl2 :frm:growl" title="Eliminar" value="Eliminar"
+                                                 class="btn-primary" icon="fa fa-list">
+                                    <p:confirm header="Confirmacion" message="Desea eliminar el Registro..?" icon="ui-icon-alert" />
+                                </p:commandButton>
+                            </div>
+                        </div>
+                    </div>
+                </f:facet>
+
+                <p:ajax event="rowSelect" listener="#{admClienteAgenciaSistemaBean.onRowSelectCliente}"	update=":frm:tab:pnl2" />
+
+
+                <p:column headerText="Id" filterBy="#{item2.idclienteAgenciaSistemas}"
+                          filterStyle="display:none">
+                    <h:outputText value="#{item2.idclienteAgenciaSistemas}" />
+                </p:column>
+
+                <p:column headerText="Cliente" filterBy="#{item2.idcliente.razonsocial}"
+                          filterStyle="display:none">
+                    <h:outputText value="#{item2.idcliente.razonsocial}" />
+                </p:column>
+
+                <p:column headerText="Sistema" filterBy="#{item2.idsistemas.nombre}"
+                          filterStyle="display:none">
+                    <h:outputText value="#{item2.idsistemas.nombre}" />
+                </p:column>
+
+                <p:column headerText="Valor" filterBy="#{item2.valor}"
+                          filterStyle="display:none">
+                    <h:outputText value="#{item2.valor}" />
+                </p:column>				
+
+
+            </p:dataTable>
+            </p:tab>
+            
+            
+            
+        <p:tab title="AGENCIAS" id="tabAgencia"  >
+            
+            <p:panel header="Crear Agencia" style="width: 40%;">
+			<h:panelGrid id="pnl3" columns="3" border="0" style="width: 50%; ">
+				<p:outputLabel value="Cliente" for="cliente2" />
+				<p:selectOneMenu id="cliente2" value="#{admAgenciaBean.idcliente}"
+					required="false" requiredMessage="Requerido">
+					<f:selectItem itemLabel="Seleccionar" itemValue="#{null}" />
+					<f:selectItems value="#{admAgenciaBean.listacliente}" var="item"
+						itemLabel="#{item.razonsocial}" itemValue="#{item.idcliente}">
+					</f:selectItems>
+				</p:selectOneMenu>
+				<p:message for="cliente2" />
+
+				<p:outputLabel value="Agenciapadre" for="agenciapadre" />
+				<p:selectOneMenu id="agenciapadre"
+					value="#{admAgenciaBean.idagenciapadre}"> 
+					<f:selectItem itemLabel="Seleccionar"
+						itemValue="#{admAgenciaBean.padreagencia}" />
+					<f:selectItems value="#{admAgenciaBean.listaagenciapadre}"
+						var="item" itemLabel="#{item.nombre}"
+						itemValue="#{item.idagencia}">
+					</f:selectItems>
+				</p:selectOneMenu>
+				<p:message for="agenciapadre" />
+
+				<p:outputLabel value="Nombre" for="nombre" />
+				<p:inputText id="nombre" value="#{admAgenciaBean.admagencia.nombre}"
+					required="true" requiredMessage="Requerido">
+				</p:inputText>
+				<p:message for="nombre" />
+
+				<p:outputLabel value="Ciudad" for="ciudad2" />
+				<p:selectOneMenu id="ciudad2" value="#{admAgenciaBean.idciudad}"
+					required="true" requiredMessage="Requerido">
+					<f:selectItem itemLabel="Seleccionar" itemValue="#{null}" />
+					<f:selectItems value="#{admAgenciaBean.listaciudad}" var="item"
+						itemLabel="#{item.nombre}" itemValue="#{item.iddetallecatalogo}"> 
+					</f:selectItems>
+				</p:selectOneMenu>
+				<p:message for="ciudad2" />
+
+				<p:outputLabel value="Dirección" for="direccion2" />
+				<p:inputText id="direccion2"
+					value="#{admAgenciaBean.admagencia.direccion}" required="true"
+					requiredMessage="direccion">
+				</p:inputText>
+				<p:message for="direccion2" />
+
+				<p:outputLabel value="Teléfono" for="telefono2" />
+				<p:inputText id="telefono2"
+					value="#{admAgenciaBean.admagencia.telefono}" required="true"
+					requiredMessage="Requerido">
+				</p:inputText>
+				<p:message for="telefono2" />
+
+				<p:outputLabel value="Nominatvo" for="nominativo" />
+				<p:inputText id="nominativo"
+					value="#{admAgenciaBean.admagencia.nominativo}" required="true"
+					requiredMessage="nominativo">
+				</p:inputText>
+				<p:message for="nominativo" />
+
+				<p:outputLabel value="Estado" for="estado2" />
+				<p:selectOneMenu id="estado2" value="#{admAgenciaBean.idestado}"
+					required="true" requiredMessage="Requerido">
+					<f:selectItem itemLabel="Seleccionar" itemValue="#{null}" />
+					<f:selectItems value="#{admAgenciaBean.listaestado}" var="item"
+						itemLabel="#{item.nombre}" itemValue="#{item.iddetallecatalogo}">
+					</f:selectItems>
+				</p:selectOneMenu>
+				<p:message for="estado2" />
+                                </h:panelGrid>
+			<p:commandButton value="Guardar"
+				action="#{admAgenciaBean.persitir()}"
+				update=":frm:tab:pnl3 :frm:tab:tbl3 :frm:growl" />
+		</p:panel>
+            
+            
+            <p:dataTable id="tbl3" value="#{admAgenciaBean.listaagencia}"
+				var="item1" paginator="true" rows="10"
+				paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+				paginatorPosition="bottom" editable="true"
+				tableStyle="white-space: nowrap" widgetVar="tablaagencia"
+				filteredValue="#{admAgenciaBean.agenciafiltrado}"
+				emptyMessage="No existen registros con ese criterio"
+				styleClass="table" reflow="true" selectionMode="single"
+				rowKey="#{item1.idagencia}">
+
+				<f:facet name="header">
+					<div class="row row-nomargin">
+						<div class="col-lg-3">
+							<p:inputText id="globalFilter"
+								onkeyup="PF('tablaagencia').filter()" class="pull-left"
+								style="width: 100%" placeholder="Escriba aqui.." />
+						</div>
+						<div class="col-lg-6">
+							<h:outputText value="Lista de Agencias" />
+						</div>
+						<div class="col-lg-3">
+							<div class="pull-right">
+								<p:commandButton action="#{admAgenciaBean.eliminar}"
+									update=":frm:tab:tbl3 :frm:growl" title="Eliminar" value="Eliminar"
+									class="btn-primary" icon="fa fa-list">
+									<p:confirm header="Confirmacion"
+										message="Desea eliminar el Registro..?" icon="ui-icon-alert" />
+								</p:commandButton>
+							</div>
+						</div>
+					</div>
+				</f:facet>
+
+				<p:ajax event="rowSelect" listener="#{admAgenciaBean.onRowSelect}"
+					update=":frm:tab:pnl3" />
+
+				<p:column headerText="Codigo">
+					<h:outputText value="#{item1.idagencia}" />
+				</p:column>
+
+
+				<p:column headerText="Cliente" filterBy="#{item1.nombre}"
+					filterStyle="display:none">
+					<h:outputText value="#{item1.nombre}" />
+				</p:column>
+
+				<p:column headerText="Cliente Razón Social"
+					filterBy="#{item1.idcliente.razonsocial}"
+					filterStyle="display:none">
+					<h:outputText value="#{item1.idcliente.razonsocial}" />
+				</p:column>
+
+				<p:column headerText="Agenciapadre"
+					filterBy="#{item1.idagenciapadre.nombre}"
+					filterStyle="display:none">
+					<h:outputText value="#{item1.idagenciapadre.nombre}" />
+				</p:column>
+
+
+
+				<p:column headerText="Agencia" filterBy="#{item1.nombre}"
+					filterStyle="display:none">
+					<h:outputText value="#{item1.nombre}" />
+				</p:column>
+
+				<p:column headerText="Nominativo" filterBy="#{item1.nominativo}"
+					filterStyle="display:none">
+					<h:outputText value="#{item1.nominativo}" />
+				</p:column>
+
+				<p:column headerText="Ciudad" filterBy="#{item1.idciudaddc}"
+					filterStyle="display:none">
+					<h:outputText value="#{item1.idciudaddc.nombre}" />
+				</p:column>
+
+
+				<p:column headerText="Dirección" filterBy="#{item1.direccion}"
+					filterStyle="display:none">
+					<h:outputText value="#{item1.direccion}" />
+				</p:column>
+
+				<p:column headerText="Estado" filterBy="#{item1.idestadodc}"
+					filterStyle="display:none">
+					<h:outputText value="#{item1.idestadodc.nombre}" />
+				</p:column>
+			</p:dataTable>
+                
+                
+            </p:tab>
+        
+        <p:tab title="EMPLEADOS" id="tabEmpleado">
+                
+                
+            </p:tab>
+        
+            </p:tabView>
+            
+        </ui:define>
+
+
+
+    </ui:composition>
+</html>

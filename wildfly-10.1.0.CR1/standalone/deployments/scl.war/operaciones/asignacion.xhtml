@@ -1,0 +1,241 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	
+	>
+<body>
+<ui:composition template="/templates/admin.xhtml">
+		<ui:define name="content">
+		<h:form id="frmAsignacion" >
+   
+   		<p:growl id="growl" showDetail="true" life="3000"  rendered="#{not facesContext.validationFailed}"/> 
+   		
+   		
+   		<div class="box box-primary" >
+        <p:panelGrid id="pnl" columns = "3"  styleClass="ui-panelgrid-blank">
+							<p:outputLabel value="Ciudad" for="ciudad" />
+							<p:selectOneMenu id="ciudad"
+								value="#{asignacionBean.idCiudad}">
+								<p:ajax event="itemSelect" listener = "#{asignacionBean.consultaListas()}" 
+								 update = ":frmAsignacion:tblAsignacion :frmAsignacion:tblVehiculo :frmAsignacion:tblCircuito :frmAsignacion:tblMovil  :frmAsignacion:tblTripulantes"/>
+								
+
+								<f:selectItems value="#{asignacionBean.listaCiudad}"
+									var="item" itemLabel="#{item.nombre}"
+									itemValue="#{item.idDetalleCatalogo}">
+								</f:selectItems>
+							</p:selectOneMenu>
+							<p:message for="ciudad" />
+							
+							<p:outputLabel value="Fecha Operacion" for="fecha" />
+				<p:calendar pattern="dd/MM/yyyy" id="fecha"
+					value="#{asignacionBean.tripulacion.fechaOperacion}" locale="es"
+					title="Fecha Operacion" showButtonPanel="true" navigator="true"
+					effect="clip"  showOn="button" required="true"
+					requiredMessage="Completar Fecha!">
+					 <p:ajax event="dateSelect" listener="#{asignacionBean.consultaListas}" update = "dia :frmAsignacion:tblAsignacion :frmAsignacion:tblVehiculo :frmAsignacion:tblCircuito :frmAsignacion:tblMovil  :frmAsignacion:tblTripulantes"  />
+					 </p:calendar>
+				<p:message for="fecha" display="icon" />
+				
+				<p:outputLabel id="dia" value="#{asignacionBean.dia}"  />
+							
+							
+							
+
+
+						</p:panelGrid>
+						
+						
+					<p:panelGrid id="pnlgenral" columns="4" layout="grid" >
+							
+						<p:panel id="pn1" header="Vehiculos">
+						
+						
+						<p:dataTable id="tblVehiculo"
+									value="#{asignacionBean.listaVehiculo}" var="item"
+									paginator="true" rows="10"
+									paginatorTemplate="{FirstPageLink} {PreviousPageLink}  {NextPageLink} {LastPageLink} "
+									paginatorPosition="bottom" tableStyle=" white-space: nowrap"
+									selection="#{asignacionBean.vehiculoSeleccionado}"
+									emptyMessage="No existen registros con ese criterio"
+									styleClass="table" reflow="true" selectionMode="single"
+									widgetVar="tblVehiculo" rowKey="#{item.idVehiculo}">
+									
+
+
+									<p:column headerText="Nombre" filterBy="#{item.descripcion}"
+										filterMatchMode="contains" sortBy="#{item.descripcion}">
+										<h:outputText value="#{item.descripcion}" />
+									</p:column>
+									
+									
+									
+								</p:dataTable>
+								
+								
+
+						</p:panel>
+						
+						<p:panel id="pn2" header="Tripulantes">
+						<p:dataTable id="tblTripulantes"
+									value="#{asignacionBean.elistatripulante}" var="item"
+									paginator="true"
+									 rows="10"
+									paginatorTemplate="    {FirstPageLink} {PreviousPageLink}  {NextPageLink} {LastPageLink} "
+									paginatorPosition="bottom" 
+									tableStyle=" white-space: nowrap"
+									selection="#{asignacionBean.elistaTripulanteSeleccionado}"
+									emptyMessage="No existen registros con ese criterio"
+									styleClass="table" 
+									reflow="true" 
+									widgetVar="tbltripulante"
+									rowKey="#{item.idEmpleado}">
+
+
+									<p:column selectionMode="multiple"
+										style="width:40px;text-align:left" />
+										
+									<p:column headerText="Nombre"
+										filterBy="#{item.nombres}}"
+										filterMatchMode="contains"
+										sortBy="#{item.nombres}">
+										<h:outputText value="#{item.nombres}#{asignacionBean.espacio}#{item.apellidos}" />
+									</p:column>
+
+									
+								</p:dataTable>
+
+						</p:panel>
+						
+						<p:panel id="pn3" header="Circuitos">
+						<p:dataTable id="tblCircuito"
+									value="#{asignacionBean.listaCircuito}" var="item"
+									paginator="true" rows="10"
+									paginatorTemplate="    {FirstPageLink} {PreviousPageLink}  {NextPageLink} {LastPageLink} "
+									paginatorPosition="bottom" tableStyle=" white-space: nowrap"
+									selection="#{asignacionBean.listaCircuitoSeleccionado}"
+									emptyMessage="No existen registros con ese criterio"
+									styleClass="table" reflow="true" widgetVar="tblcircuito"
+									rowKey="#{item.idCircuito}">
+
+									<p:column selectionMode="multiple"
+										style="width:40px;text-align:left" />
+
+									<p:column headerText="Nombre" filterBy="#{item.nombre}"
+										filterMatchMode="contains" sortBy="#{item.nombre}">
+										<h:outputText value="#{item.nombre}" />
+									</p:column>
+
+								</p:dataTable>
+
+						</p:panel>
+						
+						<p:panel id="pn4" header="Movil">
+						<p:dataTable id="tblMovil"
+									value="#{asignacionBean.listaEquipoMovil}" var="item"
+									paginator="true" rows="10"
+									paginatorTemplate="{FirstPageLink} {PreviousPageLink}  {NextPageLink} {LastPageLink} "
+									paginatorPosition="bottom" tableStyle=" white-space: nowrap"
+									selection="#{asignacionBean.movilSeleccionado}"
+									emptyMessage="No existen registros con ese criterio"
+									styleClass="table" reflow="true" selectionMode="single"
+									widgetVar="tblmovil" rowKey="#{item.idEquipoMovil}">
+
+
+									<p:column headerText="Nombre" filterBy="#{item.nombre}"
+										filterMatchMode="contains" sortBy="#{item.nombre}">
+										<h:outputText value="#{item.nombre}" />
+									</p:column>
+									
+								</p:dataTable>
+
+						</p:panel>
+						
+						
+
+					</p:panelGrid>
+					
+					<p:commandButton value="Guardar" icon="fa fa-save"
+						action="#{asignacionBean.guardar()}"  styleClass="my-button"
+						update = ":frmAsignacion:tblAsignacion  :frmAsignacion:growl :frmAsignacion:tblVehiculo  :frmAsignacion:tblCircuito :frmAsignacion:tblMovil  :frmAsignacion:tblTripulantes"/>
+				
+							 
+
+</div>
+
+				
+				
+						
+					
+						 
+						 <br />
+						 <br />
+
+				<!-- general form elements -->
+				<div class="box box-primary">
+					<div class="box-header with-border">
+						<h3 class="box-title">Asignaciones</h3>
+					</div>
+					<div class="box-body">
+					
+					<!--#### CONTENIDO DE LA TABLA ASIGNACIONES -->
+								<p:dataTable id="tblAsignacion" value="#{asignacionBean.listaTripulacion}"
+									var="item" paginator="true" 
+									paginatorTemplate="    {FirstPageLink} {PreviousPageLink}  {NextPageLink} {LastPageLink} "
+									paginatorPosition="bottom" tableStyle=" white-space: nowrap"
+									selection="#{asignacionBean.listaTripulacionSelecionada}"
+									emptyMessage="No existen registros con ese criterio"
+									styleClass="table" reflow="true"
+									widgetVar="tblTripulacion" rowKey="#{item.idTripulacion}">
+									
+									<p:column selectionMode="multiple"
+										style="width:40px;text-align:left" />
+
+									<p:column headerText="Vehiculo" filterBy="#{item.idVehiculo.descripcion}"
+										filterMatchMode="contains" sortBy="#{item.idVehiculo.descripcion}">
+										<h:outputText value="#{item.idVehiculo.descripcion}" />
+									</p:column>
+									<p:column headerText="Circuito" filterBy="#{item.idCircuito.nombre}"
+										filterMatchMode="contains" sortBy="#{item.idCircuito.nombre}">
+										<h:outputText value="#{item.idCircuito.nombre}" />
+									</p:column>
+									<p:column headerText="Movil" filterBy="#{item.idEquipoMovil.nombre}"
+										filterMatchMode="contains" sortBy="#{item.idEquipoMovil.nombre}">
+										<h:outputText value="#{item.idEquipoMovil.nombre}" />
+									</p:column>
+									<p:column headerText="Fecha Operacion" filterBy="#{item.fechaOperacion}"
+										filterMatchMode="contains" sortBy="#{item.fechaOperacion}">
+										<h:outputText value="#{item.fechaOperacion}" />
+									</p:column>
+									
+									
+									
+
+								</p:dataTable>
+								
+								
+								<p:commandButton value="Eliminar Tripulacion"
+						action="#{asignacionBean.eliminarTripulacion()}"  styleClass="my-button" icon="fa fa-trash"
+						update = ":frmAsignacion:tblAsignacion  :frmAsignacion:growl :frmAsignacion:tblVehiculo  :frmAsignacion:tblCircuito :frmAsignacion:tblMovil  :frmAsignacion:tblTripulantes"/>
+				
+							 
+					
+					
+					
+					
+					
+					</div>
+				</div>
+			</h:form>
+
+
+		
+
+	</ui:define>
+
+</ui:composition>
+</body>
+</html>

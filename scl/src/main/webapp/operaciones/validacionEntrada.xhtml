@@ -1,0 +1,195 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+<body>
+	<ui:composition template="/templates/admin.xhtml">
+		<ui:define name="content">
+			<h:form id="frmValidacionIngreso">
+
+				<p:growl id="growl" showDetail="true" life="3000"
+					rendered="#{not facesContext.validationFailed}" />
+
+				<div class="box box-primary">
+					<div class="box-header with-border">
+						<h3 class="box-title">Validacion de Entrada</h3>
+					</div>
+
+					<div class="box-body">
+
+
+
+						<p:panelGrid id="pnl" columns="3" styleClass="ui-panelgrid-blank">
+							<p:outputLabel value="Ciudad" for="ciudad" />
+							<p:selectOneMenu id="ciudad"
+								value="#{validacionIngresoBean.idCiudad}">
+								<p:ajax listener="#{validacionIngresoBean.consultaNoValidasI}"
+									update=":frmValidacionIngreso:tblValidacionI" />
+								<f:selectItems value="#{validacionIngresoBean.listaCiudad}"
+									var="item" itemLabel="#{item.nombre}"
+									itemValue="#{item.idDetalleCatalogo}">
+								</f:selectItems>
+							</p:selectOneMenu>
+							<p:message for="ciudad" />
+
+							<p:outputLabel value="Fecha Operacion" for="fecha" />
+							<p:calendar pattern="dd/MM/yyyy" id="fecha"
+								value="#{validacionIngresoBean.transaccion.fechaOperacion}"
+								locale="es" title="Fecha Operacion" showButtonPanel="true"
+								navigator="true" effect="clip" showOn="button" required="true"
+								requiredMessage="Completar Fecha!">
+								<p:ajax ignoreAutoUpdate="true" event="dateSelect"
+									listener="#{validacionIngresoBean.consultaNoValidasI}"
+									update=":frmValidacionIngreso:tblValidacionI" />
+							</p:calendar>
+							<p:message for="fecha" display="icon" />
+
+						</p:panelGrid>
+
+						<p:panelGrid id="pnl2" columns="3" styleClass="ui-panelgrid-blank">
+							<p:outputLabel value="Sello" />
+							<p:remoteCommand name="agregarSelloEscaneado"
+								update="tblSelloEscaneado sello"
+								actionListener="#{validacionIngresoBean.agregarSelloEscaneado}" />
+							<p:inputText id="sello"
+								value="#{validacionIngresoBean.detalleTransaccion.sello}"
+								onkeypress="if (event.keyCode == 13){agregarSelloEscaneado(); return false;}">
+
+							</p:inputText>
+
+						</p:panelGrid>
+
+
+
+						<h:panelGrid id="pnl4" columns="2" styleClass="ui-panelgrid-blank">
+
+							<p:panel id="panel41" header="Sellos Escaneados"
+								style="height:500px">
+								<p:commandButton value="Verificar"
+									action="#{validacionIngresoBean.guardarValidacion()}"
+									update=":frmValidacionIngreso:tblValidacionI tblSelloEscaneado" />
+
+								<p:dataTable id="tblSelloEscaneado" scrollRows="10"
+									scrollable="true" scrollHeight="400"
+									value="#{validacionIngresoBean.sellosEscaneados}" var="item">
+
+									<p:column>
+										<h:outputText value="#{item.sello}" />
+									</p:column>
+								</p:dataTable>
+
+							</p:panel>
+
+
+
+							<p:panel id="panel42" header="Sellos Pendientes de Validacion"
+								style="height:500px">
+
+								<p:commandButton value="Validar"  styleClass="my-button" icon="fa fa-check"
+									action="#{validacionIngresoBean.guardarValidacionManual()}"
+									update=":frmValidacionIngreso:tblValidacionI " />
+
+
+
+								<p:outputLabel value="Observacion" />
+								<p:inputText
+									value="#{validacionIngresoBean.validacionM.observacion}">
+
+								</p:inputText>
+
+
+
+								<!-- CONTENIDO DE LA TABLA VALIDACION INGRESO -->
+								<p:dataTable id="tblValidacionI"
+									value="#{validacionIngresoBean.listaNoValidadasI}" var="item"
+									paginator="true"
+									paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+									paginatorPosition="bottom"
+									selection="#{validacionIngresoBean.sellosSeleccionados}"
+									tableStyle="white-space: nowrap" widgetVar="tblValidacionI"
+									styleClass="table" reflow="true"
+									rowKey="#{item.idDetalleTransaccion}">
+
+									<f:facet name="header">
+										<div class="row row-nomargin">
+											<div class="col-lg-3">
+												<p:inputText id="globalFilter"
+													onkeyup="PF('tblValidacionI').filter()" class="pull-left"
+													style="width: 100%" placeholder="Buscar...." />
+											</div>
+											<div class="col-lg-6">
+												<p:outputLabel value="Sellos para Validar su Entrada" />
+											</div>
+
+
+										</div>
+
+
+									</f:facet>
+
+									<p:column selectionMode="multiple"
+										style="width:40px;text-align:left" />
+
+
+									<p:column headerText="Recibo"
+										filterBy="#{item.idTransaccion.numeroRecibo}"
+										filterStyle="display:none">
+										<h:outputText value="#{item.idTransaccion.numeroRecibo}" />
+									</p:column>
+
+									<p:column headerText="Sello" filterBy="#{item.sello}"
+										filterStyle="display:none">
+										<h:outputText value="#{item.sello}" />
+									</p:column>
+
+									<p:column headerText="Tula" filterBy="#{item.tula}"
+										filterStyle="display:none">
+										<h:outputText value="#{item.tula}" />
+									</p:column>
+
+									<p:column headerText="Efectivo" filterBy="#{item.efectivo}"
+										filterStyle="display:none">
+										<h:outputText value="#{item.efectivo}" />
+									</p:column>
+
+									<p:column headerText="Cheque" filterBy="#{item.cheque}"
+										filterStyle="display:none">
+										<h:outputText value="#{item.cheque}" />
+									</p:column>
+
+
+
+
+
+
+
+
+
+
+								</p:dataTable>
+
+							</p:panel>
+
+						</h:panelGrid>
+
+
+
+					</div>
+
+				</div>
+
+
+
+
+			</h:form>
+
+
+
+
+		</ui:define>
+
+	</ui:composition>
+</body>
+</html>

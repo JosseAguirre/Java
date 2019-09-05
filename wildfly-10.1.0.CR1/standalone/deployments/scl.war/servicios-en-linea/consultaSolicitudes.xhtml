@@ -1,0 +1,202 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+
+<body>
+	<ui:composition template="/templates/admin.xhtml">
+
+
+		<ui:define name="content">
+			<h:form id="frmSolicitudBP">
+
+
+				<p:growl id="growl" showDetail="true" life="3000"
+					rendered="#{not facesContext.validationFailed}" />
+
+
+
+
+
+				<!-- general form elements -->
+				<div class="box box-primary">
+					<div class="box-header with-border">
+						<h3 class="box-title">Solicitud de Traslado Bajo Pedido</h3>
+					</div>
+					<!-- /.box-header -->
+					<!-- form start -->
+
+					<div class="box-body">
+
+
+
+						<p:panelGrid id="pnlDatos" columns="2"
+							styleClass="ui-panelgrid-blank">
+
+							<p:outputLabel value="Ciudad" for="ciudad" />
+							<p:selectOneMenu id="ciudad"
+								value="#{consultaSolicitudBean.idCiudad}" filter="true"
+								filterMatchMode="contains">
+								<f:selectItem itemLabel="Seleccionar" itemValue="#{null}" />
+								<p:ajax update=":frmSolicitudBP:origen"
+									listener="#{solicitudBajoPedidoBean.consultaListaAgencia()}" />
+
+								<f:selectItems value="#{solicitudBajoPedidoBean.listaCiudad}"
+									var="item" itemLabel="#{item.nombre}"
+									itemValue="#{item.idDetalleCatalogo}">
+								</f:selectItems>
+							</p:selectOneMenu>
+							
+							<p:outputLabel value="Fecha Inicio" for="fechaInicio" />
+				<p:calendar pattern="dd/MM/yyyy" id="fechaInicio"
+					value="#{transaccionBean.fechaDesde}" locale="es"
+					showButtonPanel="true" navigator="true"
+					effect="clip" mindate="01/01/1960" showOn="button" required="true"
+					requiredMessage="Completar Fecha!" />
+				<p:message for="fechaInicio" display="icon" />
+						
+						
+						
+						<p:outputLabel value="Fecha Fin" for="fechaFin" />
+				<p:calendar pattern="dd/MM/yyyy" id="fechaFin"
+					value="#{transaccionBean.fechaHasta}" locale="es"
+					 showButtonPanel="true" navigator="true"
+					effect="clip" mindate="01/01/1960" showOn="button" required="true"
+					requiredMessage="Completar Fecha!" />
+				<p:message for="fechaFin" display="icon" />
+
+
+
+						
+
+						</p:panelGrid>
+						
+						<p:commandButton actionListener="#{transaccionBean.buscarTransaccion()}" value="Buscar"
+								styleClass="my-button" 
+								update=":frmConsulta:tblSolicitud :frmConsulta:growl" />
+								
+								
+								<!--#### CONTENIDO DE LA TABLA SOLICITUDES -->
+						<p:dataTable id="tblSolicitud"
+							value="#{transaccionBean.listaBusqueda}"
+							var="item"
+							paginator="true" 
+							rows="10" 
+							paginatorTemplate="    {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown} "
+							paginatorPosition="bottom"
+							tableStyle="width:auto"
+							selection="#{transaccionBean.trasaccionSeleccionada}" 
+							emptyMessage="No existen registros con ese criterio" 
+							styleClass="table"
+							reflow="true" 
+							selectionMode="single" 
+							widgetVar="tblSolicitud"
+							rowKey="#{item.idTransaccion}"
+							rowsPerPageTemplate="5,10,15">
+
+							<f:facet name="header">
+								<div class="row row-nomargin">
+									<div class="col-lg-3">
+										<p:inputText id="globalFilter"
+											onkeyup="PF('tblResponsables').filter()" class="pull-left"
+											style="width: 100%" placeholder="Buscar...." />
+									</div>
+									<div class="col-lg-6">
+										<p:outputLabel value="Lista de Orden" />
+									</div>
+
+									<div class="col-lg-3">
+										<div class="pull-right">
+											<h:commandLink >
+												<p:graphicImage name="/images/excel.png" width="24" title="Exportar Excel" />
+												<p:dataExporter type="xls" target="tblSolicitud" fileName="cars"
+													options="#{transaccionBean.excelOpt}" />
+											</h:commandLink>
+
+											<h:commandLink>
+												<p:graphicImage name="/images/pdf.png" width="24" title = "Exportar PDF" />
+												<p:dataExporter type="pdf" target="tblSolicitud" fileName="cars"
+													options="#{transaccionBean.pdfOpt}" />
+											</h:commandLink>
+
+										</div>
+									</div>
+
+
+								</div>
+							</f:facet>
+							
+							
+
+							<p:column style="width:30px">
+								<p:rowToggler />
+							</p:column>
+
+							<p:column headerText="Origen" filterBy="#{item.cedula}" sortBy="#{item.idAgenciaOrigen.nombre}"
+								filterStyle="display:none">
+								<h:outputText value="#{item.idAgenciaOrigen.nombre}" />
+							</p:column>
+
+
+
+							<p:column headerText="Destino" filterBy="#{item.idAgenciaDestino.nombre}" sortBy="#{item.idAgenciaDestino.nombre}"
+								filterStyle="display:none">
+								<h:outputText value="#{item.idAgenciaDestino.nombre}" />
+							</p:column>
+
+							<p:column headerText="Fecha" filterBy="#{item.fechaOperacion}" sortBy="#{item.fechaOperacion}"
+								filterStyle="display:none">
+								<h:outputText value="#{item.fechaOperacion}" />
+							</p:column>
+
+							<p:column headerText="Numero recibo" sortBy="#{item.numeroRecibo}">
+								<h:outputText value="#{item.numeroRecibo}" />
+							</p:column>
+							
+							<p:column headerText="Total Efectivo" sortBy="#{item.totalEfectivo}">
+								<h:outputText value="#{item.totalEfectivo}" />
+							</p:column>
+							
+							<p:column headerText="Total Cheque" sortBy="#{item.totalCheque}">
+								<h:outputText value="#{item.totalCheque}" />
+							</p:column>
+							
+							<p:column headerText="Total Transaccion" sortBy="#{item.totalTransaccion}">
+								<h:outputText value="#{item.totalTransaccion}" />
+							</p:column>
+							
+							<p:column headerText="Paquetes" sortBy="#{item.totalPaquetes}">
+								<h:outputText value="#{item.totalPaquetes}" />
+							
+							</p:column>
+							
+							
+							</p:dataTable>
+
+
+
+					</div>
+				</div>
+
+
+
+
+
+
+			</h:form>
+
+
+
+
+		</ui:define>
+
+	</ui:composition>
+
+
+</body>
+</html>
+

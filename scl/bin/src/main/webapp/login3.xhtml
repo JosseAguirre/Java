@@ -1,0 +1,33 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head></h:head>
+<h:body id="principal">
+	<div id="cuadro">
+
+		<h:form>
+		 <p:panel id="basic"  style="  background: #CEECF5" >
+			<p:messages autoUpdate="true" showDetail="true" />
+<center>
+			<h:panelGrid columns="2">
+				<p:outputLabel for="txtUsuario" value="Usuario" />
+				<p:inputText id="txtUsuario" required="true"
+					value="#{sesionBean.usuario.usuario}" />
+				<p:outputLabel for="txtClave" value="Clave" />
+				<p:password id="txtClave" required="true"
+					value="#{sesionBean.usuario.password}" />
+				<h:column />
+				<p:commandButton icon="ui-icon-key" value="Iniciar Sessión"
+					action="#{sesionBean.iniciarSesion()}" />
+			</h:panelGrid>
+			</center>
+		
+			</p:panel>
+		</h:form>
+	</div>
+</h:body>
+</html>

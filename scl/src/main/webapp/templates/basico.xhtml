@@ -1,0 +1,90 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+	
+	<h:head id = "sss">
+       <h:outputStylesheet library="css"  name="css/style.css"/>
+       <link type="text/css" rel="stylesheet" href="#{request.contextPath}/resources/css/style.css"/>
+        
+        
+        <title><ui:insert name="pageTitle">Page Title</ui:insert></title>
+	<f:event listener="#{controladorPlantilla.verificarSesion()}"	type="preRenderView" />
+	
+	  
+	
+	 
+	 
+    </h:head>
+
+    <h:body>
+   
+    
+    <div id = "wrapper">
+    
+    
+    
+    
+    
+
+        <div id="header">
+            
+        <h:form id="menu">
+        
+		<p:menubar model="#{menuBean.model}">
+			<f:facet name="options">
+				<p:outputLabel
+					value="#{menuBean.mostrarUsuarioLogeado()} " />
+			</f:facet>
+			<f:facet name="options">
+				<p:commandButton icon="ui-icon-power" title="Cerrar Cesion"
+					actionListener="#{menuBean.cerrarSesion}"
+					action="/Index?faces-redirect=true" />
+			</f:facet>
+		</p:menubar>
+	</h:form>
+        </div>
+        
+        
+
+        <div id="content" class="center_content">
+            <ui:insert name="content">Content </ui:insert>
+            <h1>dfhdfhf</h1>
+            <h1>dfhdfhf</h1>
+            <h1>dfhdfhf</h1>
+            <h1>dfhdfhf</h1>
+            <h1>dfhdfhf</h1>
+            <h1>dfhdfhf</h1>
+            
+
+           
+        </div>
+        
+        
+
+        <div id="footer">
+           <p:layout>
+			<p:layoutUnit position="center">
+				<h:panelGrid columns="1">
+					<h:outputLabel value="Autor: Diego Manuel Benitez" />
+					
+					
+				</h:panelGrid>
+			</p:layoutUnit>
+		</p:layout>
+		
+		</div>
+        </div>
+        
+        
+<h:outputScript library="js" name="spanishLocale.js" />
+    </h:body>
+
+<h:head>
+	
+</h:head>
+
+</html>

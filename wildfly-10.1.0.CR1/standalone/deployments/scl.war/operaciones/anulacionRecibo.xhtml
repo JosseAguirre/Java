@@ -1,0 +1,117 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+<body>
+	<ui:composition template="/templates/admin.xhtml">
+		<ui:define name="content">
+			<h:form id="frmAnulacion">
+
+				<p:growl id="growl" showDetail="true" life="3000"
+					rendered="#{not facesContext.validationFailed}" />
+
+				<!-- general form elements -->
+				<div class="box box-primary">
+					<div class="box-header with-border">
+						<h3 class="box-title">Anulacion de Recibos de Remesa</h3>
+					</div>
+
+					<div class="box-body">
+
+						<p:panelGrid id="pnl" columns="2" styleClass="ui-panelgrid-blank">
+
+							<p:outputLabel value="Numero de Recibo:" />
+							<p:inputText id="numero"
+								value="#{anulacionReciboBean.numeroRecibo}">
+							</p:inputText>
+
+							<p:outputLabel value="Observacion:" />
+							<p:inputText id="obs" value="#{anulacionReciboBean.observacion}"
+								style="width:400px">
+							</p:inputText>
+
+
+							<p:commandButton id="btnBuscar"
+								actionListener="#{anulacionReciboBean.consultarRecibo()}" value="Buscar"
+								styleClass="my-button" icon="fa fa-search"
+								 />
+
+
+
+						</p:panelGrid>
+
+
+
+
+						<!-- CONTENIDO DE LA TABLA DE RESULTADOS DE  RECIBOS DE REMESA  -->
+						<p:dataTable id="tblRecibos"
+							value="#{anulacionReciboBean.listaTransaccion}" var="item"
+							selection="#{anulacionReciboBean.transaccionSeleccionada}"
+							tableStyle="white-space: nowrap" widgetVar="tblRecibos"
+							emptyMessage="No existen registros con ese criterio"
+							styleClass="table" reflow="true" selectionMode="single"
+							rowKey="#{item.idTransaccion}">
+
+							<f:facet name="header">
+								<div class="row row-nomargin">
+
+									<div class="col-lg-6">
+										<p:outputLabel value="Transaccion" />
+									</div>
+
+
+
+
+								</div>
+							</f:facet>
+
+
+
+
+
+
+
+							<p:column headerText="Id" filterBy="#{item.idTransaccion}"
+								filterStyle="display:none">
+								<h:outputText value="#{item.idTransaccion}" />
+							</p:column>
+
+							<p:column headerText="Nombre" filterBy="#{item.numeroRecibo}"
+								filterStyle="display:none">
+								<h:outputText value="#{item.numeroRecibo}" />
+							</p:column>
+
+
+
+						</p:dataTable>
+
+						<div id="footer" class="box-footer">
+
+							<p:commandButton id="btnAnular"
+								actionListener="#{anulacionReciboBean.anular()}" value="Anular"
+								styleClass="my-button" icon="fa fa-trash"
+								update=":frmAnulacion:growl" />
+
+
+
+
+
+						</div>
+
+						<br />
+
+					</div>
+				</div>
+			</h:form>
+
+
+
+
+
+		</ui:define>
+
+	</ui:composition>
+</body>
+</html>

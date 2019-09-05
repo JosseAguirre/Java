@@ -1,0 +1,69 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+<body>
+	<ui:composition template="/templates/menuT.xhtml">
+		<ui:define name="contenido">
+
+
+			<h:form id="frmBitacora">
+
+
+				
+					<div class="box-header with-border">
+						<h3 class="box-title">Bitacora</h3>
+					</div>
+					
+
+						<!--#### CONTENIDO DE LA TABLA ASIGNACIONES -->
+						<p:dataTable id="tblBitcora"
+							value="#{bitacoraBean.listaDetalleBitacora}" 
+							var="item"
+							paginator="true"
+							paginatorTemplate="    {FirstPageLink} {PreviousPageLink}  {NextPageLink} {LastPageLink} "
+							paginatorPosition="bottom" 
+							tableStyle=" white-space: nowrap"
+							emptyMessage="No existen registros con ese criterio"
+							
+							editable="true" 
+							 reflow="true" 
+							 widgetVar="tblBitcora"
+							rowKey="#{item.idDetalleBitacora}">
+							
+						<p:column headerText="Nombres">
+					<h:outputText value="#{item.nombres}" />
+				</p:column>
+							
+							
+							
+
+
+						</p:dataTable>
+
+				
+			
+				<br />
+
+
+				
+
+
+			</h:form>
+
+
+
+			
+
+
+
+
+
+
+		</ui:define>
+
+	</ui:composition>
+</body>
+</html>

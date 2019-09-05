@@ -1,0 +1,385 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+
+<body>
+	<ui:composition template="/templates/admin.xhtml">
+
+
+		<ui:define name="content">
+			<h:form id="frmTransaccion">
+
+
+				<p:growl id="growl" showDetail="true" life="3000"
+					rendered="#{not facesContext.validationFailed}" />
+
+
+
+
+
+				<!-- general form elements -->
+				<div class="box box-primary">
+					<div class="box-header with-border">
+						<h3 class="box-title">Creacion de Orden</h3>
+					</div>
+					<!-- /.box-header -->
+					<!-- form start -->
+
+					<div class="box-body">
+
+						<p:panel id="origen-destino" header="Origen y Destino"
+							style="margin-bottom:20px">
+
+							<p:panelGrid id="pnlCliente" columns="2"
+								styleClass="ui-panelgrid-blank">
+
+								<p:outputLabel value="Delegado" />
+								<p:inputText id="nombre" disabled="true"
+									value="#{sesionBean.mostrarUsuarioLogeado()}">
+								</p:inputText>
+
+								<p:outputLabel value="Ciudad" for="ciudad" />
+								<p:selectOneMenu id="ciudad" value="#{transaccionBean.idCiudad}">
+
+									<p:ajax update=":frmTransaccion:origen "
+										listener="#{transaccionBean.consultaListaAgencia()}" />
+									<f:selectItem itemLabel="Seleccionar" itemValue="#{null}" />
+
+									<f:selectItems value="#{transaccionBean.listaCiudad}"
+										var="item" itemLabel="#{item.nombre}"
+										itemValue="#{item.idDetalleCatalogo}">
+									</f:selectItems>
+								</p:selectOneMenu>
+								<p:message for="ciudad" />
+
+							</p:panelGrid>
+
+							<p:panelGrid id="pnlDatos" columns="3"
+								styleClass="ui-panelgrid-blank">
+
+								<p:outputLabel value="Fecha Operacion" for="fecha" />
+								<p:calendar pattern="dd/MM/yyyy" id="fecha"
+									value="#{transaccionBean.transaccion.fechaOperacion}"
+									locale="es" title="Fecha Operacion" showButtonPanel="true"
+									navigator="true" effect="clip" showOn="button" required="true"
+									requiredMessage="Completar Fecha!">
+									<p:ajax ignoreAutoUpdate="true" event="dateSelect"
+										listener="#{circuitoBean.consultaListaCircuito()}"
+										update="origen" />
+								</p:calendar>
+								<p:message for="fecha" display="icon" />
+
+
+
+
+
+
+
+
+								<p:outputLabel value="Origen" for="origen" />
+								<p:selectOneMenu id="origen" required="true"
+									requiredMessage="Requerido"
+									value="#{transaccionBean.idAgenciaOrigen}" filter="true"
+									filterMatchMode="contains">
+									<f:selectItem itemLabel="Seleccionar" itemValue="#{null}" />
+									<p:ajax update=":frmTransaccion:tblPlanificada "
+										listener="#{transaccionBean.consultaPlanificada()}" />
+									<f:selectItems value="#{transaccionBean.listaAgencia}"
+										var="agencia" itemLabel="#{agencia.nombre}"
+										itemValue="#{agencia.idAgencia}">
+									</f:selectItems>
+								</p:selectOneMenu>
+								<p:message for="origen" display="icon" />
+
+
+
+
+
+							</p:panelGrid>
+						</p:panel>
+
+						<p:dataTable id="tblPlanificada"
+							value="#{transaccionBean.listaPlanificada}" var="item"
+							tableStyle="width:auto"
+							emptyMessage="No existen registros con ese criterio"
+							styleClass="table" 
+							reflow="true" widgetVar="tblPlanificada"
+							rowKey="#{item.idFrecuenciaVisita}">
+
+
+
+
+
+							<p:column headerText="Dia" filterStyle="display:none">
+								<h:outputText value="#{item.nombreDia}" />
+							</p:column>
+							<p:column headerText="Desde" filterStyle="display:none">
+								<h:outputText value="#{item.horaDesde}" />
+							</p:column>
+
+
+							<p:column headerText="Hasta" filterStyle="display:none">
+								<h:outputText value="#{item.horaHasta}" />
+							</p:column>
+
+
+
+							<p:column headerText="Agencia Origen" filterStyle="display:none">
+								<h:outputText
+									value="#{item.idHojaAlistamiento.idAgenciaOrigen.nombre}" />
+							</p:column>
+
+
+
+
+
+
+
+							<p:column headerText="Detalle">
+								<p:commandButton value="Asignar"
+									onclick="PF('dlgDetalleTransaccion').show();">
+									<f:setPropertyActionListener value="#{item}"
+										target="#{transaccionBean.registroSeleccionado}"></f:setPropertyActionListener>
+
+								</p:commandButton>
+							</p:column>
+
+
+
+
+						</p:dataTable>
+
+
+
+						<div id="footer" class="box-footer">
+							<h:form>
+
+
+
+
+							</h:form>
+
+
+						</div>
+					</div>
+				</div>
+
+
+
+
+
+
+			</h:form>
+
+
+<p:dialog id="dlgImprimir" widgetVar="dlgImprimir" responsive="true"
+				modal="true" width="20%" closable="true" closeOnEscape="true">
+
+
+				<!-- general form elements -->
+
+				<p:panelGrid id="pnl" styleClass="ui-panelgrid-blank">
+
+					<p:outputLabel value="Desea imprimir el Recibo de Remesa?" />
+
+
+				</p:panelGrid>
+				<br />
+
+
+				<h:form>
+
+					<p:commandButton value="SI" styleClass="my-button"
+						actionListener="#{transaccionBean.imprimirReporte2()}"
+						ajax="false" icon="fa fa-close"
+						onclick="PF('dlgImprimir').hide();" />
+
+					<p:commandButton value="NO" onclick="PF('dlgImprimir').hide();PF('dlgDetalleTransaccion').hide();" styleClass="my-button"
+						icon="fa fa-close" />
+
+				</h:form>
+
+			</p:dialog>
+
+
+<p:dialog id="dlgDetalleTransaccion"  
+				widgetVar="dlgDetalleTransaccion" responsive="true" modal="true"
+				styleClass="my-dialogs" width="50%" closable="true"
+				closeOnEscape="true" appendTo="@(body)">
+
+
+				<!-- general form elements -->
+				<h:form id="frmCrear">
+				
+				<p:growl id="growl2" showDetail="true" life="3000" rendered="#{not facesContext.validationFailed}"
+					 />
+
+					<p:messages id="mensaje" autoUpdate="false" />
+					<p:focus context="@form" />
+
+
+
+
+
+
+					<p:panel id="basic" header="Detalle De Fundas"
+						style="margin-bottom:20px">
+
+						<p:panelGrid id="pnlDetalle" columns="3"
+							columnClasses="ui-grid-col-2,ui-grid-col-4" layout="grid"
+							styleClass="ui-panelgrid-blank">
+
+							<p:outputLabel for="sello" value="Sello" />
+							<p:inputText id="sello" required="true"
+								value="#{transaccionBean.detalleTransaccion.sello}">
+							</p:inputText>
+							<p:message for="sello" display="icon" />
+
+
+							<p:outputLabel for= "tula" value="Tula" />
+							<p:inputText id="tula" required="true"
+								value="#{transaccionBean.detalleTransaccion.tula}">
+							</p:inputText>
+							<p:message for="tula" display="icon" />
+
+							<p:outputLabel for= "efectivo" value="Efectivo" />
+							<p:inputText id="efectivo" required="true"
+								value="#{transaccionBean.detalleTransaccion.efectivo}">
+							</p:inputText>
+							<p:message for="efectivo" display="icon" />
+
+							<p:outputLabel for = "cheque" value="Cheque" />
+							<p:inputText id="cheque" required="true"
+								value="#{transaccionBean.detalleTransaccion.cheque}">
+							</p:inputText>
+							<p:message for="cheque" display="icon" />
+
+							<p:outputLabel for="cantCheque" value="Cant. Cheques" />
+							<p:inputText id="cantCheque" required="true"
+								value="#{transaccionBean.detalleTransaccion.cantidadCheques}">
+							</p:inputText>
+							<p:message for="cantCheque" display="icon" />
+
+
+						</p:panelGrid>
+
+
+
+						<br />
+
+						<p:commandButton
+							actionListener="#{transaccionBean.agregarFunda()}"
+							value="AgregarFunda" icon="fa fa-plus" styleClass="my-button"
+							update=":frmCrear:tblDetalle :frmCrear:pnlDetalle" />
+
+
+					</p:panel>
+
+
+
+
+					<!--#### CONTENIDO DE LA TABLA DETALLE TRANSACCION -->
+					<p:dataTable id="tblDetalle"
+						value="#{transaccionBean.listaDetalleTransaccion}" var="item"
+						emptyMessage="No existen registros con ese criterio">
+
+
+						<p:column headerText="Eliminar">
+							<p:commandButton action="#{transaccionBean.eliminar()}" process="@this"
+								icon="ui-icon-closethick" update=":frmCrear:tblDetalle ">
+								<f:setPropertyActionListener value="#{item}"
+									target="#{transaccionBean.detalleTransaccion}"></f:setPropertyActionListener>
+
+							</p:commandButton>
+						</p:column>
+
+
+
+						<p:column headerText="Sello">
+							<h:outputText value="#{item.sello}" />
+						</p:column>
+
+
+
+						<p:column headerText="Tula">
+							<h:outputText value="#{item.tula}" />
+						</p:column>
+
+						<p:column headerText="Efectivo">
+							<h:outputText value="#{item.efectivo}" />
+						</p:column>
+
+						<p:column headerText="Cheque" style="text-align:right">
+							<h:outputText value="#{item.cheque}" />
+						</p:column>
+
+						<p:column headerText="Cant.Cheque" style="text-align:right">
+							<h:outputText value="#{item.cantidadCheques}" />
+						</p:column>
+
+
+						<p:columnGroup type="footer">
+							<p:row>
+								<p:column colspan="3" style="text-align:right"
+									footerText="Totals:" />
+
+								<p:column footerText="#{transaccionBean.sumarEfectivo()}"
+									style="text-align:right" />
+								<p:column footerText="#{transaccionBean.sumarCheque()}"
+									style="text-align:right" />
+								<p:column footerText="#{transaccionBean.sumarCantidadCheque()}"
+									style="text-align:right" />
+
+							</p:row>
+						</p:columnGroup>
+
+					</p:dataTable>
+
+
+
+
+
+
+
+
+					<br />
+
+					<p:commandButton actionListener="#{transaccionBean.guardar()}"
+						value="Guardar Transaccion" styleClass="my-button" process="@this"
+						icon="fa fa-save"
+						update=":frmCrear:tblDetalle  :frmCrear:growl2">
+
+					</p:commandButton>
+
+
+					<p:commandButton value="Cancelar"
+						actionListener="#{tipoTarifaBean.cancelar()}"
+						styleClass="my-button" icon="fa fa-close"
+						oncomplete="PF('dlgDetalleTransaccion').hide();" />
+
+
+				</h:form>
+			</p:dialog>
+
+
+
+
+
+
+
+
+
+
+		</ui:define>
+
+	</ui:composition>
+
+
+</body>
+</html>
+

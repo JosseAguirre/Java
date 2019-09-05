@@ -1,0 +1,131 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+<ui:composition template="/templates/admin.xhtml">
+
+
+        <ui:define name="content">
+            <p:messages id="mensaje" autoUpdate="false" />
+            <p:panel  header="ROLES">
+                <p:panelGrid id="pnl" columns="3" styleClass="ui-panelgrid-blank">
+                    <p:outputLabel value="Nombre" for="nombre" />
+                    <p:inputText id="nombre"
+                                 value="#{admRolBean.admrol.nombre}" required="true"
+                                 requiredMessage="Requerido"
+                                 onkeyup="this.value = this.value.toUpperCase();">
+                    </p:inputText>
+                    <p:message for="nombre" />
+                    <p:outputLabel value="Descripcion" for="descripcion" />
+                    <p:inputText id="descripcion"
+                                 value="#{admRolBean.admrol.descripcion}" required="false"
+                                 requiredMessage="Requerido"
+                                 onkeyup="this.value = this.value.toUpperCase();">
+                    </p:inputText>
+                    <p:message for="descripcion" />
+                </p:panelGrid>
+                <br/>
+                <p:commandButton value="Guardar"
+                                 action="#{admRolBean.persitir()}"
+                                 update=":frm:pnl :frm:growl :frm:tbl" icon="ui-icon-disk">
+                </p:commandButton>
+            </p:panel>
+            
+            <br/>
+            <br/>
+      
+        <!-- Contenido de la tabla de roles -->
+
+            <p:dataTable id="tbl" value="#{admRolBean.listarol}"
+                         var="item" paginator="true" rows="10"
+                         paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+                         paginatorPosition="bottom" editable="true"
+                         tableStyle="white-space: nowrap" widgetVar="tablarol"
+                         filteredValue="#{admRolBean.rolfiltrado}"
+                         emptyMessage="No existen registros con ese criterio"
+                         styleClass="table"
+                         reflow="true"
+                         selectionMode="single"
+                         rowKey="#{item.idrol}" >
+
+
+
+		<p:dataTable id="tbl" value="#{admRolBean.listarol}" var="item"
+			paginator="true" rows="10"
+			paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+			paginatorPosition="bottom" editable="true"
+			tableStyle="white-space: nowrap" widgetVar="tablarol"
+			filteredValue="#{admRolBean.rolfiltrado}"
+			emptyMessage="No existen registros con ese criterio"
+			styleClass="table" reflow="true" selectionMode="single"
+			rowKey="#{item.idrol}">
+
+			<f:facet name="header">
+				<div class="row row-nomargin">
+					<div class="col-lg-3">
+						<p:inputText id="globalFilter" onkeyup="PF('tablarol').filter()"
+							class="pull-left" style="width: 100%"
+							title="Digite: Codigo o Nombre"
+							placeholder="Escriba aqui lo que busca......." />
+					</div>
+					<div class="col-lg-6">
+						<h:outputText value="LISTA DE ROLES" />
+					</div>
+
+				</div>
+			</f:facet>
+
+                <f:facet name="header">
+                    <div class="row row-nomargin">
+                        <div class="col-lg-3">
+                            <p:inputText id="globalFilter" onkeyup="PF('tablarol').filter()" class="pull-left" style="width: 100%" title="Digite: Codigo o Nombre" placeholder="Buscar aqui..." />
+                        </div>
+                        <div class="col-lg-6">
+                            <h:outputText value="LISTA DE ROLES" />
+                        </div>
+
+			<p:ajax event="rowSelect" listener="#{admRolBean.onRowSelect}"
+				update=":frm:pnl" />
+
+                    </div>
+                </f:facet>
+                <p:ajax event="rowSelect" listener="#{admRolBean.onRowSelect}"	update=":frm:pnl" />
+                <p:column headerText="Codigo" filterBy="#{item.idrol}"
+                          filterStyle="display:none">
+                    <h:outputText value="#{item.idrol}" />
+                </p:column>
+                <p:column headerText="Nombre" filterBy="#{item.nombre}"
+                          filterStyle="display:none">
+                    <h:outputText value="#{item.nombre}" />
+                </p:column>
+                <p:column headerText="Descripcion" filterBy="#{item.descripcion}"
+                          filterStyle="display:none">
+                    <h:outputText value="#{item.descripcion}" />
+                </p:column>
+             </p:dataTable>
+
+			<p:column headerText="Codigo" width="20px" filterBy="#{item.idrol} "
+				filterStyle="display:none">
+				<h:outputText value="#{item.idrol}" />
+			</p:column>
+
+			<p:column headerText="Nombre" filterBy="#{item.nombre}"
+				filterStyle="display:none">
+				<h:outputText value="#{item.nombre}" />
+			</p:column>
+
+			<p:column headerText="Descripcion" filterBy="#{item.descripcion}"
+				filterStyle="display:none">
+				<h:outputText value="#{item.descripcion}" />
+			</p:column>
+
+
+		</p:dataTable>
+	</ui:define>
+
+</ui:composition>
+</html>
+

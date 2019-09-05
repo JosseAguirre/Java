@@ -1,0 +1,134 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"> 
+
+<h:head>
+	<title><ui:insert name="tituloPagina">BITACORA VIRTUAL</ui:insert>
+	</title>
+	
+	<style type="text/css">
+    .ui-row-editor .ui-row-editor-pencil {
+        margin-left:8px;
+    }
+</style>
+	
+	
+	<style>
+    body{
+        font: 12px verdana, sans-serif; 
+        margin: 0px;
+    }
+    .header{
+        padding: 10px 0;
+        background-color: #679BB7; 
+    }
+    .header h1{
+        font-size: 18px; 
+        margin: 10px;
+    }
+    .container{
+        width: 100%;
+        
+            background-color: #FFFFFF;
+    width: 100%;
+    margin: 10px auto 10px auto;
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.35);
+    -moz-box-shadow: 0 0 25px rgba(0, 0, 0, 0.35);
+    -webkit-box-shadow: 0 0 25px rgba(0, 0, 0, 0.35);
+    }
+   
+   body{
+   margin:10px
+   }
+   
+    .content{
+        margin: 0 auto;
+        width: 50%;
+        min-height: 170px;
+    }
+    .content .section{
+        padding: 10px;
+    }
+    
+    .clearfix:after{
+        content: ".";
+        display: block;
+        height: 0;
+        clear: both;
+        visibility: hidden;
+    }
+    .footer{
+        background-color: #679BB7; 
+        padding: 10px 0;
+    }
+    .footer p{
+        text-align: center; 
+        margin: 5px;
+    }
+    
+
+</style>
+</h:head>
+<body>
+    <div class="container">
+        <div class="header">
+        
+        <h:form id="menu">		
+<p:menubar model="#{menuBean.model}">
+<f:facet name="options">
+<p:outputLabel 
+value="#{menuController.user.codigo.nombres} 
+#{menuController.user.codigo.apellidos} " />
+</f:facet> 
+<f:facet name="options">
+<p:commandButton icon="ui-icon-power"
+title="Cerrar Cesion" 
+ actionListener="#{sesionBean.cerrarSesion}"
+/>
+</f:facet>
+</p:menubar>
+</h:form>
+
+        </div>
+        <div class="wrapper clearfix" style="background-color:#F4F4F4">
+          
+            <div class="content" >
+                <div class="section">
+                
+                
+								
+								<ui:insert name="contenido">
+									
+								</ui:insert>
+								
+						       
+							
+                   
+                </div>
+            </div>
+        </div>
+        <div class="footer">
+            <p>copyright &copy; XG4S</p>
+        </div>
+    </div>
+    
+    
+    
+		
+		
+</body>
+
+<h:form id="frmDlg">
+			<p:confirmDialog global="true" showEffect="fade" hideEffect="explode">
+		        <p:commandButton value="Yes" type="button" styleClass="ui-confirmdialog-yes" icon="ui-icon-check" />
+		        <p:commandButton value="No" type="button" styleClass="ui-confirmdialog-no" icon="ui-icon-close" />
+		    </p:confirmDialog>
+		</h:form>
+
+	
+			
+
+</html>

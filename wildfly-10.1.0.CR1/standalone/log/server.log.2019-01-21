@@ -1,0 +1,305 @@
+2019-01-21 16:16:21,634 INFO  [stdout] (default task-117) cifrado es. 3c9909afec25354d551dae21590bb26e38d53f2173b8d3dc3eee4c047e7ab1c1eb8b85103e3be7ba613b31bb5c9c36214dc9f14a42fd7a2fdb84856bca5c44c2
+2019-01-21 16:16:21,637 INFO  [stdout] (default task-117) Hibernate: 
+2019-01-21 16:16:21,637 INFO  [stdout] (default task-117)     select
+2019-01-21 16:16:21,638 INFO  [stdout] (default task-117)         admusuario0_.id_usuario as id_usuar1_14_,
+2019-01-21 16:16:21,638 INFO  [stdout] (default task-117)         admusuario0_.fecha_caducidad as fecha_ca2_14_,
+2019-01-21 16:16:21,638 INFO  [stdout] (default task-117)         admusuario0_.fecha_creacion as fecha_cr3_14_,
+2019-01-21 16:16:21,638 INFO  [stdout] (default task-117)         admusuario0_.fecha_modificacion as fecha_mo4_14_,
+2019-01-21 16:16:21,639 INFO  [stdout] (default task-117)         admusuario0_.fecha_ultimo_acceso as fecha_ul5_14_,
+2019-01-21 16:16:21,639 INFO  [stdout] (default task-117)         admusuario0_.id_empleado as id_emple8_14_,
+2019-01-21 16:16:21,639 INFO  [stdout] (default task-117)         admusuario0_.id_estado_dc as id_estad9_14_,
+2019-01-21 16:16:21,639 INFO  [stdout] (default task-117)         admusuario0_.password as password6_14_,
+2019-01-21 16:16:21,639 INFO  [stdout] (default task-117)         admusuario0_.usuario as usuario7_14_ 
+2019-01-21 16:16:21,639 INFO  [stdout] (default task-117)     from
+2019-01-21 16:16:21,639 INFO  [stdout] (default task-117)         java.adm_usuario admusuario0_ 
+2019-01-21 16:16:21,640 INFO  [stdout] (default task-117)     where
+2019-01-21 16:16:21,640 INFO  [stdout] (default task-117)         admusuario0_.usuario=? 
+2019-01-21 16:16:21,640 INFO  [stdout] (default task-117)         and admusuario0_.password=?
+2019-01-21 16:16:22,479 INFO  [stdout] (default task-117) Hibernate: 
+2019-01-21 16:16:22,479 INFO  [stdout] (default task-117)     select
+2019-01-21 16:16:22,479 INFO  [stdout] (default task-117)         admemplead0_.id_empleado as id_emple1_5_0_,
+2019-01-21 16:16:22,479 INFO  [stdout] (default task-117)         admemplead0_.apellidos as apellido2_5_0_,
+2019-01-21 16:16:22,479 INFO  [stdout] (default task-117)         admemplead0_.correo_electronico as correo_e3_5_0_,
+2019-01-21 16:16:22,480 INFO  [stdout] (default task-117)         admemplead0_.direccion as direccio4_5_0_,
+2019-01-21 16:16:22,480 INFO  [stdout] (default task-117)         admemplead0_.fecha_nacimiento as fecha_na5_5_0_,
+2019-01-21 16:16:22,480 INFO  [stdout] (default task-117)         admemplead0_.fecha_registro as fecha_re6_5_0_,
+2019-01-21 16:16:22,480 INFO  [stdout] (default task-117)         admemplead0_.fecha_salida as fecha_sa7_5_0_,
+2019-01-21 16:16:22,481 INFO  [stdout] (default task-117)         admemplead0_.id_cargo_dc as id_carg14_5_0_,
+2019-01-21 16:16:22,481 INFO  [stdout] (default task-117)         admemplead0_.id_ciudad_dc as id_ciud15_5_0_,
+2019-01-21 16:16:22,481 INFO  [stdout] (default task-117)         admemplead0_.id_clase_empleado_dc as id_clas16_5_0_,
+2019-01-21 16:16:22,481 INFO  [stdout] (default task-117)         admemplead0_.id_departamento_dc as id_depa17_5_0_,
+2019-01-21 16:16:22,481 INFO  [stdout] (default task-117)         admemplead0_.id_estado_dc as id_esta18_5_0_,
+2019-01-21 16:16:22,481 INFO  [stdout] (default task-117)         admemplead0_.id_linea_negocio_dc as id_line19_5_0_,
+2019-01-21 16:16:22,481 INFO  [stdout] (default task-117)         admemplead0_.id_sexo_dc as id_sexo20_5_0_,
+2019-01-21 16:16:22,482 INFO  [stdout] (default task-117)         admemplead0_.id_sucursal as id_sucu21_5_0_,
+2019-01-21 16:16:22,482 INFO  [stdout] (default task-117)         admemplead0_.id_tipo_empleado_dc as id_tipo22_5_0_,
+2019-01-21 16:16:22,482 INFO  [stdout] (default task-117)         admemplead0_.identificacion as identifi8_5_0_,
+2019-01-21 16:16:22,482 INFO  [stdout] (default task-117)         admemplead0_.nombres as nombres9_5_0_,
+2019-01-21 16:16:22,482 INFO  [stdout] (default task-117)         admemplead0_.telefono as telefon10_5_0_,
+2019-01-21 16:16:22,482 INFO  [stdout] (default task-117)         admemplead0_.tipo_sanguineo as tipo_sa11_5_0_,
+2019-01-21 16:16:22,483 INFO  [stdout] (default task-117)         admemplead0_.url_firma as url_fir12_5_0_,
+2019-01-21 16:16:22,483 INFO  [stdout] (default task-117)         admemplead0_.url_foto as url_fot13_5_0_,
+2019-01-21 16:16:22,483 INFO  [stdout] (default task-117)         admdetalle1_.id_detalle_catalogo as id_detal1_4_1_,
+2019-01-21 16:16:22,483 INFO  [stdout] (default task-117)         admdetalle1_.descripcion as descripc2_4_1_,
+2019-01-21 16:16:22,483 INFO  [stdout] (default task-117)         admdetalle1_.id_catalogo as id_catal4_4_1_,
+2019-01-21 16:16:22,483 INFO  [stdout] (default task-117)         admdetalle1_.id_detalle_catalogo_padre as id_detal5_4_1_,
+2019-01-21 16:16:22,483 INFO  [stdout] (default task-117)         admdetalle1_.nombre as nombre3_4_1_,
+2019-01-21 16:16:22,484 INFO  [stdout] (default task-117)         admcatalog2_.id_catalogo as id_catal1_1_2_,
+2019-01-21 16:16:22,484 INFO  [stdout] (default task-117)         admcatalog2_.descripcion as descripc2_1_2_,
+2019-01-21 16:16:22,484 INFO  [stdout] (default task-117)         admcatalog2_.id_padre_catalogo as id_padre4_1_2_,
+2019-01-21 16:16:22,484 INFO  [stdout] (default task-117)         admcatalog2_.id_tipo_catalogo as id_tipo_5_1_2_,
+2019-01-21 16:16:22,484 INFO  [stdout] (default task-117)         admcatalog2_.nombre as nombre3_1_2_,
+2019-01-21 16:16:22,484 INFO  [stdout] (default task-117)         admcatalog3_.id_catalogo as id_catal1_1_3_,
+2019-01-21 16:16:22,484 INFO  [stdout] (default task-117)         admcatalog3_.descripcion as descripc2_1_3_,
+2019-01-21 16:16:22,484 INFO  [stdout] (default task-117)         admcatalog3_.id_padre_catalogo as id_padre4_1_3_,
+2019-01-21 16:16:22,485 INFO  [stdout] (default task-117)         admcatalog3_.id_tipo_catalogo as id_tipo_5_1_3_,
+2019-01-21 16:16:22,485 INFO  [stdout] (default task-117)         admcatalog3_.nombre as nombre3_1_3_,
+2019-01-21 16:16:22,485 INFO  [stdout] (default task-117)         admtipocat4_.id_tipo_catalogo as id_tipo_1_12_4_,
+2019-01-21 16:16:22,485 INFO  [stdout] (default task-117)         admtipocat4_.nombre as nombre2_12_4_,
+2019-01-21 16:16:22,485 INFO  [stdout] (default task-117)         admdetalle5_.id_detalle_catalogo as id_detal1_4_5_,
+2019-01-21 16:16:22,485 INFO  [stdout] (default task-117)         admdetalle5_.descripcion as descripc2_4_5_,
+2019-01-21 16:16:22,486 INFO  [stdout] (default task-117)         admdetalle5_.id_catalogo as id_catal4_4_5_,
+2019-01-21 16:16:22,486 INFO  [stdout] (default task-117)         admdetalle5_.id_detalle_catalogo_padre as id_detal5_4_5_,
+2019-01-21 16:16:22,486 INFO  [stdout] (default task-117)         admdetalle5_.nombre as nombre3_4_5_,
+2019-01-21 16:16:22,486 INFO  [stdout] (default task-117)         admdetalle6_.id_detalle_catalogo as id_detal1_4_6_,
+2019-01-21 16:16:22,486 INFO  [stdout] (default task-117)         admdetalle6_.descripcion as descripc2_4_6_,
+2019-01-21 16:16:22,486 INFO  [stdout] (default task-117)         admdetalle6_.id_catalogo as id_catal4_4_6_,
+2019-01-21 16:16:22,487 INFO  [stdout] (default task-117)         admdetalle6_.id_detalle_catalogo_padre as id_detal5_4_6_,
+2019-01-21 16:16:22,487 INFO  [stdout] (default task-117)         admdetalle6_.nombre as nombre3_4_6_,
+2019-01-21 16:16:22,487 INFO  [stdout] (default task-117)         admdetalle7_.id_detalle_catalogo as id_detal1_4_7_,
+2019-01-21 16:16:22,487 INFO  [stdout] (default task-117)         admdetalle7_.descripcion as descripc2_4_7_,
+2019-01-21 16:16:22,487 INFO  [stdout] (default task-117)         admdetalle7_.id_catalogo as id_catal4_4_7_,
+2019-01-21 16:16:22,487 INFO  [stdout] (default task-117)         admdetalle7_.id_detalle_catalogo_padre as id_detal5_4_7_,
+2019-01-21 16:16:22,487 INFO  [stdout] (default task-117)         admdetalle7_.nombre as nombre3_4_7_,
+2019-01-21 16:16:22,488 INFO  [stdout] (default task-117)         admdetalle8_.id_detalle_catalogo as id_detal1_4_8_,
+2019-01-21 16:16:22,488 INFO  [stdout] (default task-117)         admdetalle8_.descripcion as descripc2_4_8_,
+2019-01-21 16:16:22,488 INFO  [stdout] (default task-117)         admdetalle8_.id_catalogo as id_catal4_4_8_,
+2019-01-21 16:16:22,488 INFO  [stdout] (default task-117)         admdetalle8_.id_detalle_catalogo_padre as id_detal5_4_8_,
+2019-01-21 16:16:22,488 INFO  [stdout] (default task-117)         admdetalle8_.nombre as nombre3_4_8_,
+2019-01-21 16:16:22,488 INFO  [stdout] (default task-117)         admdetalle9_.id_detalle_catalogo as id_detal1_4_9_,
+2019-01-21 16:16:22,489 INFO  [stdout] (default task-117)         admdetalle9_.descripcion as descripc2_4_9_,
+2019-01-21 16:16:22,489 INFO  [stdout] (default task-117)         admdetalle9_.id_catalogo as id_catal4_4_9_,
+2019-01-21 16:16:22,489 INFO  [stdout] (default task-117)         admdetalle9_.id_detalle_catalogo_padre as id_detal5_4_9_,
+2019-01-21 16:16:22,489 INFO  [stdout] (default task-117)         admdetalle9_.nombre as nombre3_4_9_,
+2019-01-21 16:16:22,489 INFO  [stdout] (default task-117)         admdetalle10_.id_detalle_catalogo as id_detal1_4_10_,
+2019-01-21 16:16:22,489 INFO  [stdout] (default task-117)         admdetalle10_.descripcion as descripc2_4_10_,
+2019-01-21 16:16:22,490 INFO  [stdout] (default task-117)         admdetalle10_.id_catalogo as id_catal4_4_10_,
+2019-01-21 16:16:22,490 INFO  [stdout] (default task-117)         admdetalle10_.id_detalle_catalogo_padre as id_detal5_4_10_,
+2019-01-21 16:16:22,490 INFO  [stdout] (default task-117)         admdetalle10_.nombre as nombre3_4_10_,
+2019-01-21 16:16:22,490 INFO  [stdout] (default task-117)         admdetalle11_.id_detalle_catalogo as id_detal1_4_11_,
+2019-01-21 16:16:22,490 INFO  [stdout] (default task-117)         admdetalle11_.descripcion as descripc2_4_11_,
+2019-01-21 16:16:22,490 INFO  [stdout] (default task-117)         admdetalle11_.id_catalogo as id_catal4_4_11_,
+2019-01-21 16:16:22,491 INFO  [stdout] (default task-117)         admdetalle11_.id_detalle_catalogo_padre as id_detal5_4_11_,
+2019-01-21 16:16:22,491 INFO  [stdout] (default task-117)         admdetalle11_.nombre as nombre3_4_11_,
+2019-01-21 16:16:22,491 INFO  [stdout] (default task-117)         admsucursa12_.id_sucursal as id_sucur1_11_12_,
+2019-01-21 16:16:22,491 INFO  [stdout] (default task-117)         admsucursa12_.direccion as direccio2_11_12_,
+2019-01-21 16:16:22,491 INFO  [stdout] (default task-117)         admsucursa12_.id_ciudad_dc as id_ciuda5_11_12_,
+2019-01-21 16:16:22,491 INFO  [stdout] (default task-117)         admsucursa12_.nombre as nombre3_11_12_,
+2019-01-21 16:16:22,492 INFO  [stdout] (default task-117)         admsucursa12_.telefono as telefono4_11_12_,
+2019-01-21 16:16:22,492 INFO  [stdout] (default task-117)         admdetalle13_.id_detalle_catalogo as id_detal1_4_13_,
+2019-01-21 16:16:22,492 INFO  [stdout] (default task-117)         admdetalle13_.descripcion as descripc2_4_13_,
+2019-01-21 16:16:22,492 INFO  [stdout] (default task-117)         admdetalle13_.id_catalogo as id_catal4_4_13_,
+2019-01-21 16:16:22,492 INFO  [stdout] (default task-117)         admdetalle13_.id_detalle_catalogo_padre as id_detal5_4_13_,
+2019-01-21 16:16:22,492 INFO  [stdout] (default task-117)         admdetalle13_.nombre as nombre3_4_13_,
+2019-01-21 16:16:22,493 INFO  [stdout] (default task-117)         admdetalle14_.id_detalle_catalogo as id_detal1_4_14_,
+2019-01-21 16:16:22,493 INFO  [stdout] (default task-117)         admdetalle14_.descripcion as descripc2_4_14_,
+2019-01-21 16:16:22,493 INFO  [stdout] (default task-117)         admdetalle14_.id_catalogo as id_catal4_4_14_,
+2019-01-21 16:16:22,493 INFO  [stdout] (default task-117)         admdetalle14_.id_detalle_catalogo_padre as id_detal5_4_14_,
+2019-01-21 16:16:22,493 INFO  [stdout] (default task-117)         admdetalle14_.nombre as nombre3_4_14_ 
+2019-01-21 16:16:22,493 INFO  [stdout] (default task-117)     from
+2019-01-21 16:16:22,493 INFO  [stdout] (default task-117)         java.adm_empleado admemplead0_ 
+2019-01-21 16:16:22,494 INFO  [stdout] (default task-117)     left outer join
+2019-01-21 16:16:22,494 INFO  [stdout] (default task-117)         java.adm_detalle_catalogo admdetalle1_ 
+2019-01-21 16:16:22,494 INFO  [stdout] (default task-117)             on admemplead0_.id_cargo_dc=admdetalle1_.id_detalle_catalogo 
+2019-01-21 16:16:22,494 INFO  [stdout] (default task-117)     left outer join
+2019-01-21 16:16:22,494 INFO  [stdout] (default task-117)         java.adm_catalogo admcatalog2_ 
+2019-01-21 16:16:22,494 INFO  [stdout] (default task-117)             on admdetalle1_.id_catalogo=admcatalog2_.id_catalogo 
+2019-01-21 16:16:22,495 INFO  [stdout] (default task-117)     left outer join
+2019-01-21 16:16:22,495 INFO  [stdout] (default task-117)         java.adm_catalogo admcatalog3_ 
+2019-01-21 16:16:22,495 INFO  [stdout] (default task-117)             on admcatalog2_.id_padre_catalogo=admcatalog3_.id_catalogo 
+2019-01-21 16:16:22,495 INFO  [stdout] (default task-117)     left outer join
+2019-01-21 16:16:22,495 INFO  [stdout] (default task-117)         java.adm_tipo_catalogo admtipocat4_ 
+2019-01-21 16:16:22,495 INFO  [stdout] (default task-117)             on admcatalog3_.id_tipo_catalogo=admtipocat4_.id_tipo_catalogo 
+2019-01-21 16:16:22,495 INFO  [stdout] (default task-117)     left outer join
+2019-01-21 16:16:22,496 INFO  [stdout] (default task-117)         java.adm_detalle_catalogo admdetalle5_ 
+2019-01-21 16:16:22,496 INFO  [stdout] (default task-117)             on admdetalle1_.id_detalle_catalogo_padre=admdetalle5_.id_detalle_catalogo 
+2019-01-21 16:16:22,496 INFO  [stdout] (default task-117)     left outer join
+2019-01-21 16:16:22,496 INFO  [stdout] (default task-117)         java.adm_detalle_catalogo admdetalle6_ 
+2019-01-21 16:16:22,496 INFO  [stdout] (default task-117)             on admemplead0_.id_ciudad_dc=admdetalle6_.id_detalle_catalogo 
+2019-01-21 16:16:22,496 INFO  [stdout] (default task-117)     left outer join
+2019-01-21 16:16:22,496 INFO  [stdout] (default task-117)         java.adm_detalle_catalogo admdetalle7_ 
+2019-01-21 16:16:22,497 INFO  [stdout] (default task-117)             on admemplead0_.id_clase_empleado_dc=admdetalle7_.id_detalle_catalogo 
+2019-01-21 16:16:22,497 INFO  [stdout] (default task-117)     left outer join
+2019-01-21 16:16:22,497 INFO  [stdout] (default task-117)         java.adm_detalle_catalogo admdetalle8_ 
+2019-01-21 16:16:22,498 INFO  [stdout] (default task-117)             on admemplead0_.id_departamento_dc=admdetalle8_.id_detalle_catalogo 
+2019-01-21 16:16:22,498 INFO  [stdout] (default task-117)     left outer join
+2019-01-21 16:16:22,498 INFO  [stdout] (default task-117)         java.adm_detalle_catalogo admdetalle9_ 
+2019-01-21 16:16:22,498 INFO  [stdout] (default task-117)             on admemplead0_.id_estado_dc=admdetalle9_.id_detalle_catalogo 
+2019-01-21 16:16:22,498 INFO  [stdout] (default task-117)     left outer join
+2019-01-21 16:16:22,498 INFO  [stdout] (default task-117)         java.adm_detalle_catalogo admdetalle10_ 
+2019-01-21 16:16:22,498 INFO  [stdout] (default task-117)             on admemplead0_.id_linea_negocio_dc=admdetalle10_.id_detalle_catalogo 
+2019-01-21 16:16:22,499 INFO  [stdout] (default task-117)     left outer join
+2019-01-21 16:16:22,499 INFO  [stdout] (default task-117)         java.adm_detalle_catalogo admdetalle11_ 
+2019-01-21 16:16:22,499 INFO  [stdout] (default task-117)             on admemplead0_.id_sexo_dc=admdetalle11_.id_detalle_catalogo 
+2019-01-21 16:16:22,499 INFO  [stdout] (default task-117)     left outer join
+2019-01-21 16:16:22,499 INFO  [stdout] (default task-117)         java.adm_sucursal admsucursa12_ 
+2019-01-21 16:16:22,499 INFO  [stdout] (default task-117)             on admemplead0_.id_sucursal=admsucursa12_.id_sucursal 
+2019-01-21 16:16:22,499 INFO  [stdout] (default task-117)     left outer join
+2019-01-21 16:16:22,499 INFO  [stdout] (default task-117)         java.adm_detalle_catalogo admdetalle13_ 
+2019-01-21 16:16:22,500 INFO  [stdout] (default task-117)             on admsucursa12_.id_ciudad_dc=admdetalle13_.id_detalle_catalogo 
+2019-01-21 16:16:22,500 INFO  [stdout] (default task-117)     left outer join
+2019-01-21 16:16:22,500 INFO  [stdout] (default task-117)         java.adm_detalle_catalogo admdetalle14_ 
+2019-01-21 16:16:22,500 INFO  [stdout] (default task-117)             on admemplead0_.id_tipo_empleado_dc=admdetalle14_.id_detalle_catalogo 
+2019-01-21 16:16:22,500 INFO  [stdout] (default task-117)     where
+2019-01-21 16:16:22,500 INFO  [stdout] (default task-117)         admemplead0_.id_empleado=?
+2019-01-21 16:16:22,639 INFO  [stdout] (default task-117) Hibernate: 
+2019-01-21 16:16:22,639 INFO  [stdout] (default task-117)     select
+2019-01-21 16:16:22,640 INFO  [stdout] (default task-117)         admcatalog0_.id_catalogo as id_catal1_1_0_,
+2019-01-21 16:16:22,640 INFO  [stdout] (default task-117)         admcatalog0_.descripcion as descripc2_1_0_,
+2019-01-21 16:16:22,642 INFO  [stdout] (default task-117)         admcatalog0_.id_padre_catalogo as id_padre4_1_0_,
+2019-01-21 16:16:22,642 INFO  [stdout] (default task-117)         admcatalog0_.id_tipo_catalogo as id_tipo_5_1_0_,
+2019-01-21 16:16:22,642 INFO  [stdout] (default task-117)         admcatalog0_.nombre as nombre3_1_0_,
+2019-01-21 16:16:22,642 INFO  [stdout] (default task-117)         admcatalog1_.id_catalogo as id_catal1_1_1_,
+2019-01-21 16:16:22,643 INFO  [stdout] (default task-117)         admcatalog1_.descripcion as descripc2_1_1_,
+2019-01-21 16:16:22,643 INFO  [stdout] (default task-117)         admcatalog1_.id_padre_catalogo as id_padre4_1_1_,
+2019-01-21 16:16:22,643 INFO  [stdout] (default task-117)         admcatalog1_.id_tipo_catalogo as id_tipo_5_1_1_,
+2019-01-21 16:16:22,643 INFO  [stdout] (default task-117)         admcatalog1_.nombre as nombre3_1_1_,
+2019-01-21 16:16:22,643 INFO  [stdout] (default task-117)         admtipocat2_.id_tipo_catalogo as id_tipo_1_12_2_,
+2019-01-21 16:16:22,643 INFO  [stdout] (default task-117)         admtipocat2_.nombre as nombre2_12_2_ 
+2019-01-21 16:16:22,643 INFO  [stdout] (default task-117)     from
+2019-01-21 16:16:22,643 INFO  [stdout] (default task-117)         java.adm_catalogo admcatalog0_ 
+2019-01-21 16:16:22,643 INFO  [stdout] (default task-117)     left outer join
+2019-01-21 16:16:22,644 INFO  [stdout] (default task-117)         java.adm_catalogo admcatalog1_ 
+2019-01-21 16:16:22,644 INFO  [stdout] (default task-117)             on admcatalog0_.id_padre_catalogo=admcatalog1_.id_catalogo 
+2019-01-21 16:16:22,644 INFO  [stdout] (default task-117)     left outer join
+2019-01-21 16:16:22,644 INFO  [stdout] (default task-117)         java.adm_tipo_catalogo admtipocat2_ 
+2019-01-21 16:16:22,644 INFO  [stdout] (default task-117)             on admcatalog1_.id_tipo_catalogo=admtipocat2_.id_tipo_catalogo 
+2019-01-21 16:16:22,644 INFO  [stdout] (default task-117)     where
+2019-01-21 16:16:22,644 INFO  [stdout] (default task-117)         admcatalog0_.id_catalogo=?
+2019-01-21 16:16:22,765 INFO  [stdout] (default task-117) Hibernate: 
+2019-01-21 16:16:22,765 INFO  [stdout] (default task-117)     select
+2019-01-21 16:16:22,766 INFO  [stdout] (default task-117)         admdetalle0_.id_detalle_catalogo as id_detal1_4_0_,
+2019-01-21 16:16:22,766 INFO  [stdout] (default task-117)         admdetalle0_.descripcion as descripc2_4_0_,
+2019-01-21 16:16:22,766 INFO  [stdout] (default task-117)         admdetalle0_.id_catalogo as id_catal4_4_0_,
+2019-01-21 16:16:22,766 INFO  [stdout] (default task-117)         admdetalle0_.id_detalle_catalogo_padre as id_detal5_4_0_,
+2019-01-21 16:16:22,766 INFO  [stdout] (default task-117)         admdetalle0_.nombre as nombre3_4_0_,
+2019-01-21 16:16:22,766 INFO  [stdout] (default task-117)         admcatalog1_.id_catalogo as id_catal1_1_1_,
+2019-01-21 16:16:22,767 INFO  [stdout] (default task-117)         admcatalog1_.descripcion as descripc2_1_1_,
+2019-01-21 16:16:22,767 INFO  [stdout] (default task-117)         admcatalog1_.id_padre_catalogo as id_padre4_1_1_,
+2019-01-21 16:16:22,767 INFO  [stdout] (default task-117)         admcatalog1_.id_tipo_catalogo as id_tipo_5_1_1_,
+2019-01-21 16:16:22,767 INFO  [stdout] (default task-117)         admcatalog1_.nombre as nombre3_1_1_,
+2019-01-21 16:16:22,767 INFO  [stdout] (default task-117)         admcatalog2_.id_catalogo as id_catal1_1_2_,
+2019-01-21 16:16:22,767 INFO  [stdout] (default task-117)         admcatalog2_.descripcion as descripc2_1_2_,
+2019-01-21 16:16:22,768 INFO  [stdout] (default task-117)         admcatalog2_.id_padre_catalogo as id_padre4_1_2_,
+2019-01-21 16:16:22,768 INFO  [stdout] (default task-117)         admcatalog2_.id_tipo_catalogo as id_tipo_5_1_2_,
+2019-01-21 16:16:22,768 INFO  [stdout] (default task-117)         admcatalog2_.nombre as nombre3_1_2_,
+2019-01-21 16:16:22,768 INFO  [stdout] (default task-117)         admtipocat3_.id_tipo_catalogo as id_tipo_1_12_3_,
+2019-01-21 16:16:22,768 INFO  [stdout] (default task-117)         admtipocat3_.nombre as nombre2_12_3_,
+2019-01-21 16:16:22,768 INFO  [stdout] (default task-117)         admdetalle4_.id_detalle_catalogo as id_detal1_4_4_,
+2019-01-21 16:16:22,768 INFO  [stdout] (default task-117)         admdetalle4_.descripcion as descripc2_4_4_,
+2019-01-21 16:16:22,769 INFO  [stdout] (default task-117)         admdetalle4_.id_catalogo as id_catal4_4_4_,
+2019-01-21 16:16:22,769 INFO  [stdout] (default task-117)         admdetalle4_.id_detalle_catalogo_padre as id_detal5_4_4_,
+2019-01-21 16:16:22,769 INFO  [stdout] (default task-117)         admdetalle4_.nombre as nombre3_4_4_ 
+2019-01-21 16:16:22,769 INFO  [stdout] (default task-117)     from
+2019-01-21 16:16:22,769 INFO  [stdout] (default task-117)         java.adm_detalle_catalogo admdetalle0_ 
+2019-01-21 16:16:22,769 INFO  [stdout] (default task-117)     left outer join
+2019-01-21 16:16:22,769 INFO  [stdout] (default task-117)         java.adm_catalogo admcatalog1_ 
+2019-01-21 16:16:22,769 INFO  [stdout] (default task-117)             on admdetalle0_.id_catalogo=admcatalog1_.id_catalogo 
+2019-01-21 16:16:22,770 INFO  [stdout] (default task-117)     left outer join
+2019-01-21 16:16:22,770 INFO  [stdout] (default task-117)         java.adm_catalogo admcatalog2_ 
+2019-01-21 16:16:22,770 INFO  [stdout] (default task-117)             on admcatalog1_.id_padre_catalogo=admcatalog2_.id_catalogo 
+2019-01-21 16:16:22,770 INFO  [stdout] (default task-117)     left outer join
+2019-01-21 16:16:22,770 INFO  [stdout] (default task-117)         java.adm_tipo_catalogo admtipocat3_ 
+2019-01-21 16:16:22,770 INFO  [stdout] (default task-117)             on admcatalog2_.id_tipo_catalogo=admtipocat3_.id_tipo_catalogo 
+2019-01-21 16:16:22,770 INFO  [stdout] (default task-117)     left outer join
+2019-01-21 16:16:22,771 INFO  [stdout] (default task-117)         java.adm_detalle_catalogo admdetalle4_ 
+2019-01-21 16:16:22,771 INFO  [stdout] (default task-117)             on admdetalle0_.id_detalle_catalogo_padre=admdetalle4_.id_detalle_catalogo 
+2019-01-21 16:16:22,771 INFO  [stdout] (default task-117)     where
+2019-01-21 16:16:22,771 INFO  [stdout] (default task-117)         admdetalle0_.id_detalle_catalogo=?
+2019-01-21 16:16:22,959 INFO  [stdout] (default task-118) Hibernate: 
+2019-01-21 16:16:22,966 INFO  [stdout] (default task-118)     select
+2019-01-21 16:16:22,966 INFO  [stdout] (default task-118)         distinct admmenu1_.id_menu as id_menu1_6_,
+2019-01-21 16:16:22,967 INFO  [stdout] (default task-118)         admmenu1_.icono as icono2_6_,
+2019-01-21 16:16:22,967 INFO  [stdout] (default task-118)         admmenu1_.id_padre as id_padre3_6_,
+2019-01-21 16:16:22,967 INFO  [stdout] (default task-118)         admmenu1_.nombre as nombre4_6_,
+2019-01-21 16:16:22,967 INFO  [stdout] (default task-118)         admmenu1_.url_pagina as url_pagi5_6_ 
+2019-01-21 16:16:22,967 INFO  [stdout] (default task-118)     from
+2019-01-21 16:16:22,968 INFO  [stdout] (default task-118)         java.adm_rol_menu admrolmenu0_ 
+2019-01-21 16:16:22,968 INFO  [stdout] (default task-118)     inner join
+2019-01-21 16:16:22,968 INFO  [stdout] (default task-118)         java.adm_menu admmenu1_ 
+2019-01-21 16:16:22,968 INFO  [stdout] (default task-118)             on admrolmenu0_.id_menu=admmenu1_.id_menu 
+2019-01-21 16:16:22,969 INFO  [stdout] (default task-118)     where
+2019-01-21 16:16:22,969 INFO  [stdout] (default task-118)         admrolmenu0_.id_rol in (
+2019-01-21 16:16:22,969 INFO  [stdout] (default task-118)             select
+2019-01-21 16:16:22,969 INFO  [stdout] (default task-118)                 admrolusua2_.id_rol 
+2019-01-21 16:16:22,969 INFO  [stdout] (default task-118)             from
+2019-01-21 16:16:22,970 INFO  [stdout] (default task-118)                 java.adm_rol_usuario admrolusua2_,
+2019-01-21 16:16:22,970 INFO  [stdout] (default task-118)                 java.adm_rol admrol3_ 
+2019-01-21 16:16:22,970 INFO  [stdout] (default task-118)             where
+2019-01-21 16:16:22,970 INFO  [stdout] (default task-118)                 admrolusua2_.id_rol=admrol3_.id_rol 
+2019-01-21 16:16:22,970 INFO  [stdout] (default task-118)                 and admrolusua2_.id_usuario=1
+2019-01-21 16:16:22,971 INFO  [stdout] (default task-118)         )
+2019-01-21 16:16:28,366 INFO  [stdout] (default task-123) Hibernate: 
+2019-01-21 16:16:28,367 INFO  [stdout] (default task-123)     select
+2019-01-21 16:16:28,367 INFO  [stdout] (default task-123)         distinct admmenu1_.id_menu as id_menu1_6_,
+2019-01-21 16:16:28,368 INFO  [stdout] (default task-123)         admmenu1_.icono as icono2_6_,
+2019-01-21 16:16:28,368 INFO  [stdout] (default task-123)         admmenu1_.id_padre as id_padre3_6_,
+2019-01-21 16:16:28,368 INFO  [stdout] (default task-123)         admmenu1_.nombre as nombre4_6_,
+2019-01-21 16:16:28,368 INFO  [stdout] (default task-123)         admmenu1_.url_pagina as url_pagi5_6_ 
+2019-01-21 16:16:28,368 INFO  [stdout] (default task-123)     from
+2019-01-21 16:16:28,369 INFO  [stdout] (default task-123)         java.adm_rol_menu admrolmenu0_ 
+2019-01-21 16:16:28,369 INFO  [stdout] (default task-123)     inner join
+2019-01-21 16:16:28,369 INFO  [stdout] (default task-123)         java.adm_menu admmenu1_ 
+2019-01-21 16:16:28,369 INFO  [stdout] (default task-123)             on admrolmenu0_.id_menu=admmenu1_.id_menu 
+2019-01-21 16:16:28,369 INFO  [stdout] (default task-123)     where
+2019-01-21 16:16:28,369 INFO  [stdout] (default task-123)         admrolmenu0_.id_rol in (
+2019-01-21 16:16:28,369 INFO  [stdout] (default task-123)             select
+2019-01-21 16:16:28,370 INFO  [stdout] (default task-123)                 admrolusua2_.id_rol 
+2019-01-21 16:16:28,370 INFO  [stdout] (default task-123)             from
+2019-01-21 16:16:28,370 INFO  [stdout] (default task-123)                 java.adm_rol_usuario admrolusua2_,
+2019-01-21 16:16:28,370 INFO  [stdout] (default task-123)                 java.adm_rol admrol3_ 
+2019-01-21 16:16:28,370 INFO  [stdout] (default task-123)             where
+2019-01-21 16:16:28,370 INFO  [stdout] (default task-123)                 admrolusua2_.id_rol=admrol3_.id_rol 
+2019-01-21 16:16:28,371 INFO  [stdout] (default task-123)                 and admrolusua2_.id_usuario=1
+2019-01-21 16:16:28,371 INFO  [stdout] (default task-123)         )
+2019-01-21 16:16:28,496 INFO  [stdout] (default task-123) Hibernate: 
+2019-01-21 16:16:28,496 INFO  [stdout] (default task-123)     select
+2019-01-21 16:16:28,497 INFO  [stdout] (default task-123)         dc.id_distribucion_caja,
+2019-01-21 16:16:28,497 INFO  [stdout] (default task-123)         tr.numero_recibo,
+2019-01-21 16:16:28,497 INFO  [stdout] (default task-123)         ag.nombre,
+2019-01-21 16:16:28,497 INFO  [stdout] (default task-123)         tr.id_transaccion,
+2019-01-21 16:16:28,497 INFO  [stdout] (default task-123)         tr.total_efectivo 
+2019-01-21 16:16:28,498 INFO  [stdout] (default task-123)     FROM
+2019-01-21 16:16:28,498 INFO  [stdout] (default task-123)         java.cpc_distribucion_caja as dc 
+2019-01-21 16:16:28,498 INFO  [stdout] (default task-123)     inner join
+2019-01-21 16:16:28,498 INFO  [stdout] (default task-123)         java.ope_transaccion as tr 
+2019-01-21 16:16:28,499 INFO  [stdout] (default task-123)             on tr.id_transaccion = dc.id_transaccion 
+2019-01-21 16:16:28,499 INFO  [stdout] (default task-123)     inner join
+2019-01-21 16:16:28,499 INFO  [stdout] (default task-123)         java.adm_agencia as ag 
+2019-01-21 16:16:28,499 INFO  [stdout] (default task-123)             on ag.id_agencia = tr.id_agencia_origen 
+2019-01-21 16:16:28,500 INFO  [stdout] (default task-123)     inner join
+2019-01-21 16:16:28,500 INFO  [stdout] (default task-123)         java.adm_empleado as em 
+2019-01-21 16:16:28,500 INFO  [stdout] (default task-123)             on em.id_empleado = dc.id_empleado 
+2019-01-21 16:16:28,500 INFO  [stdout] (default task-123)     inner join
+2019-01-21 16:16:28,501 INFO  [stdout] (default task-123)         java.adm_usuario as us 
+2019-01-21 16:16:28,501 INFO  [stdout] (default task-123)             on us.id_empleado = em.id_empleado 
+2019-01-21 16:16:28,501 INFO  [stdout] (default task-123)     where
+2019-01-21 16:16:28,501 INFO  [stdout] (default task-123)         dc.estado = 0 
+2019-01-21 16:16:28,502 INFO  [stdout] (default task-123)         and us.id_usuario = 1 
+2019-01-21 16:16:28,626 INFO  [stdout] (default task-123) Hibernate: 
+2019-01-21 16:16:28,626 INFO  [stdout] (default task-123)     select
+2019-01-21 16:16:28,627 INFO  [stdout] (default task-123)         id_banco,
+2019-01-21 16:16:28,627 INFO  [stdout] (default task-123)         nombre 
+2019-01-21 16:16:28,627 INFO  [stdout] (default task-123)     from
+2019-01-21 16:16:28,627 INFO  [stdout] (default task-123)         java.cpc_banco 
+2019-01-21 16:16:28,753 INFO  [stdout] (default task-123) Hibernate: 
+2019-01-21 16:16:28,753 INFO  [stdout] (default task-123)     select
+2019-01-21 16:16:28,756 INFO  [stdout] (default task-123)         dc.id_detalle_catalogo,
+2019-01-21 16:16:28,756 INFO  [stdout] (default task-123)         dc.nombre 
+2019-01-21 16:16:28,756 INFO  [stdout] (default task-123)     from
+2019-01-21 16:16:28,756 INFO  [stdout] (default task-123)         java.adm_usuario_ciudad as uc 
+2019-01-21 16:16:28,756 INFO  [stdout] (default task-123)     inner join
+2019-01-21 16:16:28,757 INFO  [stdout] (default task-123)         java.adm_detalle_catalogo as dc 
+2019-01-21 16:16:28,757 INFO  [stdout] (default task-123)             on dc.id_detalle_catalogo = uc.id_ciudad_dc 
+2019-01-21 16:16:28,757 INFO  [stdout] (default task-123)     where
+2019-01-21 16:16:28,757 INFO  [stdout] (default task-123)         uc.id_Usuario = 1

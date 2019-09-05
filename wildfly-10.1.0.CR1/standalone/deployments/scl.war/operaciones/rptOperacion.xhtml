@@ -1,0 +1,445 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+<body>
+	<ui:composition template="/templates/admin.xhtml">
+		<ui:define name="content">
+			<h:form id="frmTipoTarifa">
+
+				<p:growl id="growl" showDetail="true" life="3000"
+					rendered="#{not facesContext.validationFailed}" />
+
+				<!-- general form elements -->
+				<div class="box box-primary">
+					<div class="box-header with-border">
+						<h3 class="box-title">Reportes de Operaciones</h3>
+					</div>
+
+					<div class="box-body">
+
+						<p:accordionPanel multiple="true">
+							<p:tab title="Cosulta de Transacciones Oriegn - Destino">
+								
+
+
+
+									<h:outputText
+										value="Permite consultar las transacciones realizas segun el dia de la operacion de todas las agencias de la ciudad seleccionada" />
+										<br/>
+										<br/>
+										<p:panelGrid columns="3" styleClass="ui-panelgrid-blank" >
+
+									<p:outputLabel value="Ciudad" for="ciudad1" />
+									<p:selectOneMenu id="ciudad1" value="#{reportesBean.idCiudad}"
+										required="true" filter="true" filterMatchMode="contains">
+										<f:selectItem itemLabel="Seleccionar" itemValue="#{null}" />
+										<f:selectItems value="#{reportesBean.listaCiudad}" var="item"
+											itemLabel="#{item.nombre}"
+											itemValue="#{item.idDetalleCatalogo}">
+										</f:selectItems>
+									</p:selectOneMenu>
+									<p:message for="ciudad1" display="icon" />
+
+									<p:outputLabel value="Fecha Desde" for="fecha1" />
+									<p:calendar pattern="dd/MM/yyyy" id="fecha1"
+										value="#{reportesBean.transaccion.fechaOperacion}" locale="es"
+										title="Fecha Operacion" showButtonPanel="true"
+										navigator="true" showOn="button">
+									</p:calendar>
+									<p:message for="fecha1" display="icon" />
+
+									<p:outputLabel value="Fecha Hasta" for="fecha2" />
+									<p:calendar pattern="dd/MM/yyyy" id="fecha2"
+										value="#{reportesBean.transaccion.fechaOperacion}" locale="es"
+										title="Fecha Operacion" showButtonPanel="true"
+										navigator="true" showOn="button">
+									</p:calendar>
+									<p:message for="fecha2" display="icon" />
+
+
+								</p:panelGrid>
+								
+										<br/>
+
+								<p:commandButton
+									actionListener="#{reportesBean.consultarTransaccionOD}"
+									ajax="false" value="Ver Online" styleClass="my-button"
+									icon="fa fa-file" update="tblRptTransaccionOD" />
+									
+								<p:commandButton
+									actionListener="#{reportesBean.rptTransaccionOrigendestino}"
+									ajax="false" value="Generar PDF" styleClass="my-button"
+									icon="fa fa-file" />
+									
+									
+									
+						<p:dataTable id="tblRptTransaccionOD" rendered="#{reportesBean.vertblRptTransaccionOD}"
+							value="#{reportesBean.listaTransaccionOD}" var="item"
+							
+							emptyMessage="No existen registros con ese criterio"
+							styleClass="table" reflow="true"
+							
+							tableStyle="width:auto" widgetVar="tblRptTransaccionOD"
+							rowKey="#{item[0]}"
+						>
+
+							<f:facet name="header">
+								<div class="row row-nomargin">
+									<div class="col-lg-3">
+										<p:inputText id="globalFilter"
+											onkeyup="PF('tblRptTransaccionOD').filter()" class="pull-left"
+											style="width: 100%" placeholder="Buscar...." />
+									</div>
+									<div class="col-lg-6">
+										<p:outputLabel value="Transacciones" />
+									</div>
+									
+									<div class="col-lg-3">
+										<div class="pull-right">
+											<h:commandLink>
+												<p:graphicImage name="/images/excel.png" width="24"
+													title="Exportar Excel" />
+												<p:dataExporter type="xls" target="tblTransaccion" fileName="cars"
+													options="#{monitoreoBean.excelOpt}" />
+											</h:commandLink>
+
+											<h:commandLink>
+												<p:graphicImage name="/images/pdf.png" width="24"
+													title="Exportar PDF" />
+												<p:dataExporter type="pdf" target="tblTransaccion" fileName="cars"
+													options="#{monitoreoBean.pdfOpt}" />
+											</h:commandLink>
+
+										</div>
+									</div>
+
+
+
+								</div>
+							</f:facet>
+
+						
+
+							<p:column headerText="Agencia Origen">
+								<h:outputText value="#{item[0]}" >
+								
+								</h:outputText>
+							</p:column>
+
+							<p:column headerText="Agencia Destino">
+								<h:outputText value="#{item[1]}" />
+							</p:column>
+
+							<p:column headerText="Recibo" >
+								<h:outputText value="#{item[2]}" />
+							</p:column>
+
+
+							<p:column headerText="Total Efectivo" 
+								filterStyle="display:none">
+								<h:outputText value="#{item[3]}" />
+							</p:column>
+
+							<p:column headerText="Total Cheque">
+								<h:outputText value="#{item[4]}" />
+							</p:column>
+
+							<p:column headerText="Total Transaccion" style="text-align: right; ">
+								<h:outputText value="#{item[5]}" >
+								<f:convertNumber minFractionDigits="2"></f:convertNumber>
+								</h:outputText>
+							</p:column>
+
+						
+
+						</p:dataTable>
+									
+									
+
+
+							</p:tab>
+							
+							<p:tab title="Consulta de Transacciones por Agencia">
+								
+
+									<h:outputText
+										value="Permite consultar las transacciones de una agencia en particular" />
+										<br/>
+										<br/>
+										<p:panelGrid columns="3" styleClass="ui-panelgrid-blank" >
+										<p:outputLabel value="Ciudad" for="ciudad2" />
+									<p:selectOneMenu id="ciudad2" value="#{reportesBean.idCiudad}"
+										required="true" filter="true" filterMatchMode="contains">
+										<f:selectItem itemLabel="Seleccionar" itemValue="#{null}" />
+										<f:selectItems value="#{reportesBean.listaCiudad}" var="item"
+											itemLabel="#{item.nombre}"
+											itemValue="#{item.idDetalleCatalogo}">
+										</f:selectItems>
+									</p:selectOneMenu>
+									<p:message for="ciudad2" display="icon" />
+
+									<p:outputLabel value="Fecha Desde" for="fecha3" />
+									<p:calendar pattern="dd/MM/yyyy" id="fecha3"
+										value="#{reportesBean.transaccion.fechaOperacion}" locale="es"
+										title="Fecha Operacion" showButtonPanel="true"
+										navigator="true" showOn="button">
+									</p:calendar>
+									<p:message for="fecha3" display="icon" />
+
+									<p:outputLabel value="Fecha Hasta" for="fecha4" />
+									<p:calendar pattern="dd/MM/yyyy" id="fecha4"
+										value="#{reportesBean.transaccion.fechaOperacion}" locale="es"
+										title="Fecha Operacion" showButtonPanel="true"
+										navigator="true" showOn="button">
+									</p:calendar>
+									<p:message for="fecha4" display="icon" />
+									
+									<p:outputLabel value="Agencia" for="agencia" />
+									<p:selectOneMenu id="agencia" value="#{reportesBean.idCiudad}"
+										required="true" filter="true" filterMatchMode="contains">
+										<f:selectItem itemLabel="Seleccionar" itemValue="#{null}" />
+										<f:selectItems value="#{reportesBean.listaCiudad}" var="item"
+											itemLabel="#{item.nombre}"
+											itemValue="#{item.idDetalleCatalogo}">
+										</f:selectItems>
+									</p:selectOneMenu>
+									<p:message for="agencia" display="icon" />
+										
+	
+								</p:panelGrid>
+								<br/>
+
+								<p:commandButton
+									actionListener="#{reportesBean.consultarTransaccionOD}"
+									ajax="false" value="Ver Online" styleClass="my-button"
+									icon="fa fa-file" update="tblRptTransaccionOD" />
+									
+								<p:commandButton
+									actionListener="#{reportesBean.rptTransaccionOrigendestino}"
+									ajax="false" value="Generar PDF" styleClass="my-button"
+									icon="fa fa-file" />
+							</p:tab>
+							
+							<p:tab title="Consulta de Transacciones Fallidas">
+								
+
+									<h:outputText
+										value="Permite consultar las transacciones que no se pudieron realizar por motivos de no gestion. Muestra todas las agencias de la ciudad seleccionada" />
+									
+									    <br/>
+										<br/>
+										<p:panelGrid columns="3" styleClass="ui-panelgrid-blank" >
+										
+									<p:outputLabel value="Ciudad" for="ciudad3" />
+									<p:selectOneMenu id="ciudad3" value="#{reportesBean.idCiudad}"
+										required="true" filter="true" filterMatchMode="contains">
+										<f:selectItem itemLabel="Seleccionar" itemValue="#{null}" />
+										<f:selectItems value="#{reportesBean.listaCiudad}" var="item"
+											itemLabel="#{item.nombre}"
+											itemValue="#{item.idDetalleCatalogo}">
+										</f:selectItems>
+									</p:selectOneMenu>
+									<p:message for="ciudad3" display="icon" />
+
+									<p:outputLabel value="Fecha Desde" for="fecha5" />
+									<p:calendar pattern="dd/MM/yyyy" id="fecha5"
+										value="#{reportesBean.transaccion.fechaOperacion}" locale="es"
+										title="Fecha Operacion" showButtonPanel="true"
+										navigator="true" showOn="button">
+									</p:calendar>
+									<p:message for="fecha5" display="icon" />
+
+									<p:outputLabel value="Fecha Hasta" for="fecha6" />
+									<p:calendar pattern="dd/MM/yyyy" id="fecha6"
+										value="#{reportesBean.transaccion.fechaOperacion}" locale="es"
+										title="Fecha Operacion" showButtonPanel="true"
+										navigator="true" showOn="button">
+									</p:calendar>
+									<p:message for="fecha6" display="icon" />
+								</p:panelGrid>
+								<br/>
+
+								<p:commandButton
+									actionListener="#{reportesBean.consultarTransaccionOD}"
+									ajax="false" value="Ver Online" styleClass="my-button"
+									icon="fa fa-file" update="tblRptTransaccionOD" />
+									
+								<p:commandButton
+									actionListener="#{reportesBean.rptTransaccionOrigendestino}"
+									ajax="false" value="Generar PDF" styleClass="my-button"
+									icon="fa fa-file" />
+							</p:tab>
+							
+							
+							<p:tab title="Consulta de Recibo de Remesa">
+								
+
+									<h:outputText value="Permite consultar la trazabilidad del recibo de remesa" />
+									<br/>
+										<br/>
+										<p:panelGrid columns="2" styleClass="ui-panelgrid-blank" >
+									<p:outputLabel value="Numero de Recibo" for="recibo" />
+									<p:inputText id="recibo"
+									value="#{admUsuarioBean.admUsuario.usuario}" >
+									</p:inputText>
+									<p:message for="recibo" />					
+								</p:panelGrid>
+								<br/>
+
+								<p:commandButton
+									actionListener="#{reportesBean.consultarTransaccionOD}"
+									ajax="false" value="Ver Online" styleClass="my-button"
+									icon="fa fa-file" update="tblRptTransaccionOD" />
+									
+								<p:commandButton
+									actionListener="#{reportesBean.rptTransaccionOrigendestino}"
+									ajax="false" value="Generar PDF" styleClass="my-button"
+									icon="fa fa-file" />
+							</p:tab>
+							
+							<p:tab title="Consulta de Transacciones  Tulas en Transito (Boveda)">
+								
+									<h:outputText
+										value="Permite consultar las tulas ue se encuentran en trasito de la Boveda como destino provisional" />
+									
+										<br/>
+										<br/>
+										<p:panelGrid columns="3" styleClass="ui-panelgrid-blank" ><p:outputLabel value="Ciudad" for="ciudad4" />
+									<p:selectOneMenu id="ciudad4" value="#{reportesBean.idCiudad}"
+										required="true" filter="true" filterMatchMode="contains">
+										<f:selectItem itemLabel="Seleccionar" itemValue="#{null}" />
+										<f:selectItems value="#{reportesBean.listaCiudad}" var="item"
+											itemLabel="#{item.nombre}"
+											itemValue="#{item.idDetalleCatalogo}">
+										</f:selectItems>
+									</p:selectOneMenu>
+									<p:message for="ciudad4" display="icon" />
+
+									<p:outputLabel value="Fecha Desde" for="fecha7" />
+									<p:calendar pattern="dd/MM/yyyy" id="fecha7"
+										value="#{reportesBean.transaccion.fechaOperacion}" locale="es"
+										title="Fecha Operacion" showButtonPanel="true"
+										navigator="true" showOn="button">
+									</p:calendar>
+									<p:message for="fecha7" display="icon" />
+
+									<p:outputLabel value="Fecha Hasta" for="fecha8" />
+									<p:calendar pattern="dd/MM/yyyy" id="fecha8"
+										value="#{reportesBean.transaccion.fechaOperacion}" locale="es"
+										title="Fecha Operacion" showButtonPanel="true"
+										navigator="true" showOn="button">
+									</p:calendar>
+									<p:message for="fecha8" display="icon" />
+								</p:panelGrid>
+								<br/>
+
+								<p:commandButton
+									actionListener="#{reportesBean.consultarTransaccionOD}"
+									ajax="false" value="Ver Online" styleClass="my-button"
+									icon="fa fa-file" update="tblRptTransaccionOD" />
+									
+								<p:commandButton
+									actionListener="#{reportesBean.rptTransaccionOrigendestino}"
+									ajax="false" value="Generar PDF" styleClass="my-button"
+									icon="fa fa-file" />
+							</p:tab>
+							
+							
+							
+							<p:tab title="Consulta de Transacciones Validadas">
+								
+
+									<h:outputText
+										value="Permite consultar el detale de las validadciones de entrada y salida de las fundas" />
+											<br/>
+										<br/>
+										<p:panelGrid columns="3" styleClass="ui-panelgrid-blank" >
+											<p:outputLabel value="Ciudad" for="ciudad5" />
+									<p:selectOneMenu id="ciudad5" value="#{reportesBean.idCiudad}"
+										required="true" filter="true" filterMatchMode="contains">
+										<f:selectItem itemLabel="Seleccionar" itemValue="#{null}" />
+										<f:selectItems value="#{reportesBean.listaCiudad}" var="item"
+											itemLabel="#{item.nombre}"
+											itemValue="#{item.idDetalleCatalogo}">
+										</f:selectItems>
+									</p:selectOneMenu>
+									<p:message for="ciudad5" display="icon" />
+
+									<p:outputLabel value="Fecha Desde" for="fecha9" />
+									<p:calendar pattern="dd/MM/yyyy" id="fecha9"
+										value="#{reportesBean.transaccion.fechaOperacion}" locale="es"
+										title="Fecha Operacion" showButtonPanel="true"
+										navigator="true" showOn="button">
+									</p:calendar>
+									<p:message for="fecha9" display="icon" />
+
+									<p:outputLabel value="Fecha Hasta" for="fecha10" />
+									<p:calendar pattern="dd/MM/yyyy" id="fecha10"
+										value="#{reportesBean.transaccion.fechaOperacion}" locale="es"
+										title="Fecha Operacion" showButtonPanel="true"
+										navigator="true" showOn="button">
+									</p:calendar>
+									<p:message for="fecha10" display="icon" />
+								</p:panelGrid>
+								<br/>
+
+								<p:commandButton
+									actionListener="#{reportesBean.consultarTransaccionOD}"
+									ajax="false" value="Ver Online" styleClass="my-button"
+									icon="fa fa-file" update="tblRptTransaccionOD" />
+									
+								<p:commandButton
+									actionListener="#{reportesBean.rptTransaccionOrigendestino}"
+									ajax="false" value="Generar PDF" styleClass="my-button"
+									icon="fa fa-file" />
+							</p:tab>
+							
+							<p:tab title="Consulta de Funda">
+							<h:outputText
+										value="Permite consultar el detale de una funda en particular" />
+								<br/>
+										<br/>
+										<p:panelGrid columns="2" styleClass="ui-panelgrid-blank" >
+									
+									<p:outputLabel value="Numero de Funda" for="funda" />
+									<p:inputText id="funda"
+									value="#{admUsuarioBean.admUsuario.usuario}" >
+									</p:inputText>
+									<p:message for="funda" />	
+									
+								</p:panelGrid>
+								<br/>
+
+								<p:commandButton
+									actionListener="#{reportesBean.consultarTransaccionOD}"
+									ajax="false" value="Ver Online" styleClass="my-button"
+									icon="fa fa-file" update="tblRptTransaccionOD" />
+									
+								<p:commandButton
+									actionListener="#{reportesBean.rptTransaccionOrigendestino}"
+									ajax="false" value="Generar PDF" styleClass="my-button"
+									icon="fa fa-file" />
+							</p:tab>
+							
+						</p:accordionPanel>
+					</div>
+
+
+				</div>
+
+
+			</h:form>
+
+
+
+
+
+
+		</ui:define>
+
+	</ui:composition>
+</body>
+</html>

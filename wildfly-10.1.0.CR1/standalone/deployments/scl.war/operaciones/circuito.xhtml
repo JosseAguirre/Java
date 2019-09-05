@@ -1,0 +1,226 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+<body>
+	<ui:composition template="/templates/admin.xhtml">
+		<ui:define name="content">
+			<h:form id="frmAsignacion">
+
+				<p:growl id="growl" showDetail="true" life="3000"
+					rendered="#{not facesContext.validationFailed}" />
+
+				<div class="box box-primary">
+					<div class="box-header with-border">
+						<h3 class="box-title">Circuitos</h3>
+					</div>
+
+					<div class="box-body">
+					
+					
+					
+					
+					
+					
+         
+              <p:panelGrid id="pnl1" columns = "3"   styleClass="ui-panelgrid-blank">
+      
+       <p:outputLabel value="Dia" for="dia" />
+						<p:selectOneMenu id="dia"
+							value="#{circuitoBean.dia}" required="true">
+							<f:selectItem itemLabel="Seleccionar" itemValue="#{null}" />
+							<f:selectItem itemLabel="lunes" itemValue="lunes" />
+							<f:selectItem itemLabel="martes" itemValue="martes" />
+							<f:selectItem itemLabel="miercoles" itemValue="miércoles" />
+							<f:selectItem itemLabel="jueves" itemValue="jueves" />
+							<f:selectItem itemLabel="viernes" itemValue="viernes" />
+							<f:selectItem itemLabel="sabado" itemValue="sábado" />
+							<f:selectItem itemLabel="domingo" itemValue="domingo" />	
+							
+							<p:ajax  listener="#{circuitoBean.consultaListaCircuito()}" update="circuito  " ></p:ajax>
+						</p:selectOneMenu>
+						<p:message for="dia" display="icon" />
+						
+						
+							 
+								
+								<p:outputLabel value="Ciudad" for="ciudad" />
+							<p:selectOneMenu id="ciudad" value="#{circuitoBean.idCiudad}" required="true" >
+								<p:ajax 
+									listener="#{circuitoBean.consultaListaCircuito()}" update="circuito  " />
+							<f:selectItem itemLabel="Seleccionar" itemValue="#{null}" />
+								<f:selectItems value="#{circuitoBean.listaCiudad}"
+									var="item" itemLabel="#{item.nombre}"
+									itemValue="#{item.idDetalleCatalogo}">
+								</f:selectItems>
+							</p:selectOneMenu>
+							<p:message for="ciudad" />
+							
+							
+									<p:outputLabel value="Circuito" for="circuito" />
+						<p:selectOneMenu id="circuito"
+							value="#{circuitoBean.idCircuito}" required="true"
+							requiredMessage="Requerido" filter="true" filterMatchMode="contains">
+							<p:ajax listener="#{circuitoBean.consultaListas()}" process="@this" update=" tblNoAsignadas tblSiAsignadas " ></p:ajax>
+							<f:selectItem itemLabel="Seleccionar" itemValue="#{null}" />
+							<f:selectItems value="#{circuitoBean.listaCircuito}"
+								var="item" itemLabel="#{item.nombre}"
+								itemValue="#{item.idCircuito}">
+							</f:selectItems>
+						</p:selectOneMenu>
+						<p:message for="circuito" display="icon" />
+								
+								
+							
+							
+
+						</p:panelGrid>
+						
+						
+						
+							
+				
+       
+  <br/>
+  <br/>
+ 
+    
+  
+
+								<!--#### NO ASIGNADAS A CIRCUITOS -->
+							<h3>	Paradas Pendientes por Asignar a circuito  </h3>
+							
+								<p:dataTable id="tblNoAsignadas"
+									value="#{circuitoBean.listaHojaNA}" var="item"
+									tableStyle=" white-space: nowrap"
+									selection="#{circuitoBean.listaHojaSeleccionadaNA}"
+									emptyMessage="No existen registros con ese criterio"
+									styleClass="table" reflow="true" widgetVar="tblNoAsignadas"
+									rowKey="#{item[0]}">
+
+
+									<p:column selectionMode="multiple"
+										style="width:40px;text-align:left" />
+									
+
+									<p:column headerText="Dia" 
+								filterStyle="display:none">
+								<h:outputText value="#{item[1]}" />
+							</p:column>
+							<p:column headerText="Desde" 
+								filterStyle="display:none">
+								<h:outputText value="#{item[2]}" />
+							</p:column>
+									
+									
+									<p:column headerText="Hasta" 
+								filterStyle="display:none">
+								<h:outputText value="#{item[3]}" />
+							</p:column>
+									
+									
+							
+							<p:column headerText="Agencia Origen" 
+								filterStyle="display:none">
+								<h:outputText value="#{item[4]}" />
+							</p:column>
+
+
+
+							
+							<p:column headerText="Agencia Destino" 
+								filterStyle="display:none">
+								<h:outputText value="#{item[5]}" />
+							</p:column>
+								</p:dataTable>
+								
+								<p:commandButton
+								actionListener="#{circuitoBean.asignaraCircuito()}"
+								value="Asiignar a Circuito"  icon="fa fa-check"  styleClass="my-button"
+								update=":frmAsignacion:tblSiAsignadas :frmAsignacion:tblNoAsignadas :frmAsignacion:growl " />
+
+
+								<!--#### SI ASIGNADAS A CIRCUITOS -->
+							<h3>	Paradas  Asigandas a circuito </h3>
+								
+								<p:dataTable id="tblSiAsignadas"
+									value="#{circuitoBean.listaHojaSA}" var="item"
+									tableStyle=" white-space: nowrap"
+									selection="#{circuitoBean.listaHojaSeleccionadaSA}"
+									emptyMessage="No existen registros con ese criterio"
+									styleClass="table" reflow="true" widgetVar="tblSiAsignadas"
+									rowKey="#{item[0]}">
+
+
+									<p:column selectionMode="multiple"
+										style="width:40px;text-align:left" />>
+									
+
+
+									<p:column headerText="Dia" 
+								filterStyle="display:none">
+								<h:outputText value="#{item[1]}" />
+							</p:column>
+							<p:column headerText="Desde" 
+								filterStyle="display:none">
+								<h:outputText value="#{item[2]}" />
+							</p:column>
+									
+									
+									<p:column headerText="Hasta" 
+								filterStyle="display:none">
+								<h:outputText value="#{item[3]}" />
+							</p:column>
+									
+									
+							
+							<p:column headerText="Agencia Origen" 
+								filterStyle="display:none">
+								<h:outputText value="#{item[4]}" />
+							</p:column>
+
+
+
+							
+							<p:column headerText="Agencia Destino" 
+								filterStyle="display:none">
+								<h:outputText value="#{item[5]}" />
+							</p:column>
+									
+								</p:dataTable>
+								
+								
+								
+								<p:commandButton
+								actionListener="#{circuitoBean.eliminarAsignacion()}"
+								value="Eliminar"  styleClass="my-button" icon="fa fa-trash"
+								update=":frmAsignacion:tblSiAsignadas :frmAsignacion:tblNoAsignadas :frmAsignacion:growl " />
+
+
+
+
+
+
+
+					</div>
+
+
+
+
+					<div id="footer" class="box-footer"></div>
+
+
+				</div>
+			</h:form>
+
+
+
+
+
+
+		</ui:define>
+	</ui:composition>
+</body>
+</html>

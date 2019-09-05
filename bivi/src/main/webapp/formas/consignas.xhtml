@@ -1,0 +1,290 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	
+	>
+<body>
+<ui:composition template="/templates/menuT.xhtml">
+		<ui:define name="contenido">
+	
+
+						
+					<h:panelGrid id="pnlgenral" style="width:800px" columns="3"  styleClass="ui-panelgrid-blank">
+			
+	<p:tabView id="tab" >
+        <p:tab title="Consignas Generales" >
+						<h:form id="formG">
+							<p:dataTable id="tblConsignasG"
+								value="#{consignasBean.listaConsignasG}" var="item"
+								paginator="true" rows="10"
+								paginatorTemplate="    {FirstPageLink} {PreviousPageLink}  {NextPageLink} {LastPageLink} "
+								paginatorPosition="bottom" tableStyle=" white-space: nowrap"
+								emptyMessage="No existen registros con ese criterio"
+								editable="true" widgetVar="tblConsignasG">
+
+								<p:ajax event="rowEdit" listener="#{consignasBean.onRowEditG}" />
+								<p:ajax event="rowEditCancel" listener="#{consignasBean.onRowCancelG}" />
+
+
+
+
+								<p:column headerText="Nombre">
+									<p:cellEditor>
+										<f:facet name="output">	<h:outputText value="#{item.consigna}" /></f:facet>
+										<f:facet name="input"><p:inputText id="modelInput" value="#{item.consigna}" style="width:100%" /></f:facet>		
+									</p:cellEditor>
+								</p:column>
+
+
+								<p:column style="width:35px">
+									<p:rowEditor />
+								</p:column>
+
+
+								<p:column style="width:32px">
+									<p:commandButton action="#{consignasBean.eliminarConsignasG()}"
+										icon="ui-icon-closethick" update="tblConsignasG">
+										<f:setPropertyActionListener value="#{item}"
+											target="#{consignasBean.consignasGenerales}"></f:setPropertyActionListener>
+										<p:confirm header="Confirmacion"
+											message="Desea eliminar el Registro :( ..?"
+											icon="ui-icon-alert" />
+									</p:commandButton>
+
+								</p:column>
+
+
+							</p:dataTable>
+
+						</h:form>
+
+						<br />
+								 <br />
+								
+								
+								<p:commandButton 
+								 value="Nuevo" update=":frmCrearG" oncomplete="PF('dlgConsignaG').show();" />
+
+       
+        
+        
+       
+        
+            
+        </p:tab>
+        <p:tab title="Consignas Especificas">
+        <h:form id="formE">
+            <p:dataTable id="tblConsignasE"
+									value="#{consignasBean.listaConsignasE}" var="item"
+									paginator="true"
+									 rows="10"
+									paginatorTemplate="    {FirstPageLink} {PreviousPageLink}  {NextPageLink} {LastPageLink} "
+									paginatorPosition="bottom" 
+									tableStyle=" white-space: nowrap"
+									
+									emptyMessage="No existen registros con ese criterio"
+									reflow="true" 
+									editable="true"
+									 widgetVar="tblConsignasE">
+									
+									
+								
+
+								<p:ajax event="rowEdit" listener="#{consignasBean.onRowEditE}" />
+								<p:ajax event="rowEditCancel" listener="#{consignasBean.onRowCancelE}" />
+									
+
+
+								    
+								    <p:column headerText="Consigna">
+									<p:cellEditor>
+										<f:facet name="output">	<h:outputText value="#{item.consigna}" /></f:facet>
+										<f:facet name="input"><p:inputText id="modelInputE" value="#{item.consigna}" style="width:100%" /></f:facet>		
+									</p:cellEditor>
+								    </p:column>
+										
+									
+									
+									
+									
+									
+									
+									
+									<p:column headerText="Puesto">		
+									<p:cellEditor>
+					<f:facet name="output"><h:outputText value="#{item.idPuesto.nombrePuesto}" /> </f:facet>
+					<f:facet name="input">
+						<p:selectOneMenu value="#{consignasBean.puestoId}">
+							<f:selectItems value="#{consignasBean.listaPuestos}" var="item1" itemLabel="#{item1.nombrePuesto}" itemValue="#{item1.idPuesto}" >
+							</f:selectItems>
+						</p:selectOneMenu>
+					</f:facet>				
+				</p:cellEditor>
+					</p:column>
+					
+					
+					<p:column headerText="Ubicacion">										
+										<h:outputText value="#{item.idPuesto.ubicacion}" />
+									</p:column>
+									
+				
+									
+																	
+										
+									
+									
+									<p:column style="width:35px">
+									<p:rowEditor />
+								</p:column>
+
+
+								<p:column style="width:32px">
+									<p:commandButton action="#{consignasBean.eliminarConsignasE()}"
+										icon="ui-icon-closethick" update="tblConsignasE">
+										<f:setPropertyActionListener value="#{item}"
+											target="#{consignasBean.consignasEspecificas}"></f:setPropertyActionListener>
+										<p:confirm header="Confirmacion"
+											message="Desea eliminar el Registro :( ..?"
+											icon="ui-icon-alert" />
+									</p:commandButton>
+									
+									</p:column>
+									
+									
+									
+									
+
+									
+								</p:dataTable>
+								
+								</h:form>
+								
+								 <br />
+								 <br />
+								
+								
+								<p:commandButton 
+								 value="Nuevo" update=":frmCrearE" oncomplete="PF('dlgConsignaE').show();" />
+
+							
+       
+        </p:tab>
+       
+    </p:tabView>
+    
+    </h:panelGrid>
+    
+    
+    
+    
+    
+    
+    <p:dialog id="dlgConsignaG" 
+		  widgetVar="dlgConsignaG"
+		  responsive="true" 
+		  modal="true"
+		  width="50%"  
+		  closable="true"
+		  closeOnEscape="true"
+		  
+		 >
+		 
+		  <p:ajax event="close" update="dlgConsignaG"/>
+
+			<h:form id="frmCrearG">
+			
+			<p:messages id="mensaje" autoUpdate="false"/>
+			
+					<p:panelGrid id="pnl" columns="1" 
+						 styleClass="ui-panelgrid-blank">
+
+						<p:inputTextarea value="#{consignasBean.consignasGenerales.consigna}" rows="20" cols="100" />
+					
+			</p:panelGrid>
+
+					<br />
+
+					<p:commandButton value="Guardar"
+						action="#{consignasBean.persistirG()}"   
+						update=" :tab:formG:tblConsignasG"
+						oncomplete="if (args &amp;&amp; !args.validationFailed) PF('dlgConsignaG').hide(); " />
+
+					
+
+
+				</h:form>
+		</p:dialog>	
+					
+    
+    
+					
+					
+						 
+						
+
+ <p:dialog id="dlgConsignaE" 
+		  widgetVar="dlgConsignaE"
+		  responsive="true" 
+		  modal="true"
+		  width="50%"  
+		  closable="true"
+		  closeOnEscape="true"
+		  
+		 >
+		 
+		 <p:ajax event="close" update="dlgConsignaE"/>
+
+			<h:form id="frmCrearE">
+			
+			<p:messages id="mensaje" autoUpdate="false"/>
+			
+			<p:outputLabel value="Puesto" for="puesto" />
+						<p:selectOneMenu id="puesto" value="#{consignasBean.idPuestoA}"
+							filter="true" filterMatchMode="contains">
+							<p:ajax process="@this"></p:ajax>
+							<f:selectItem itemLabel="Seleccionar" itemValue="#{null}" />
+							<f:selectItems value="#{consignasBean.listaPuestos}" var="item"
+								itemLabel="#{item.nombrePuesto}" itemValue="#{item.idPuesto}">
+							</f:selectItems>
+						</p:selectOneMenu>
+						<p:message for="puesto" display="icon" />
+						
+						
+						
+					
+						
+						
+						
+						
+			
+					<p:panelGrid id="pnl2" columns="1" 
+						 styleClass="ui-panelgrid-blank">
+aaaa
+						<p:inputTextarea value="#{consignasBean.consignasEspecificas.consigna}" rows="20" cols="100" />
+					
+			</p:panelGrid>
+
+					<br />
+
+					<p:commandButton value="Guardar"
+						action="#{consignasBean.persistirE()}"   
+						update=" :tab:formE:tblConsignasE"
+						oncomplete="if (args &amp;&amp; !args.validationFailed) PF('dlgConsignaE').hide(); " />
+
+					<p:commandButton value="Cancelar"
+						actionListener="#{consignasBean.cancelar()}"
+						oncomplete="PF('dlgConsignaE').hide();" />
+
+
+				</h:form>
+		</p:dialog>	
+					
+
+	</ui:define>
+
+</ui:composition>
+</body>
+</html>

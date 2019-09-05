@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<jdbcDataAdapter class="net.sf.jasperreports.data.jdbc.JdbcDataAdapterImpl"><name>PostgresCurso</name><driver>org.postgresql.Driver</driver><username>postgres</username><password>123456</password><savePassword>true</savePassword><url>jdbc:postgresql://localhost:5432/curso</url><database></database><serverAddress></serverAddress><classpath>C:\desJava\wildfly-10.1.0.Final\modules\system\layers\base\org\postgresql\main\postgresql-42.0.0.jar</classpath></jdbcDataAdapter>

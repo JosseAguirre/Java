@@ -1,0 +1,21 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"> 
+
+<ui:composition template="/templates/basico.xhtml">
+	<ui:define name="contenido">
+		<h:form>
+			<h:panelGrid columns="2">
+				<h:outputText value="Usuario:" />
+				<h:inputText value="#{usuarioControlador.usuario}" />
+				<h:outputText value="Clave:" />
+				<h:inputText value="#{usuarioControlador.clave}" />
+			</h:panelGrid>
+				<h:commandButton action="#{usuarioControlador.validar()}" value="Validar" />
+				<h:commandButton action="#{usuarioControlador.cancelar()}" value="Cancelar" />
+		</h:form>
+	</ui:define>
+</ui:composition>
+</html>

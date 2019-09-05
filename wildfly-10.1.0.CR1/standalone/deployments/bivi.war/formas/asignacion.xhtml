@@ -1,0 +1,161 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+<body>
+	<ui:composition template="/templates/menuT.xhtml">
+		<ui:define name="contenido">
+
+
+			<h:form id="frmAsignacion">
+
+
+				
+					<div class="box-header with-border">
+						<h3 class="box-title">Asignaciones</h3>
+					</div>
+					
+
+						<!--#### CONTENIDO DE LA TABLA ASIGNACIONES -->
+						<p:dataTable id="tblAsignacion"
+							value="#{asignacionBean.listaAsignacion}" 
+							var="item"
+							paginator="true"
+							paginatorTemplate="    {FirstPageLink} {PreviousPageLink}  {NextPageLink} {LastPageLink} "
+							paginatorPosition="bottom" 
+							tableStyle=" white-space: nowrap"
+							emptyMessage="No existen registros con ese criterio"
+							
+							editable="true" 
+							 reflow="true" 
+							 widgetVar="tblAsignacion"
+							rowKey="#{item.idGuardiaAgencia}">
+							
+							<p:ajax event="rowEdit" listener="#{asignacionBean.onRowEdit}" />
+								<p:ajax event="rowEditCancel" listener="#{asignacionBean.onRowCancel}" />
+
+							
+							
+							<p:column headerText="Guardia"
+								>
+								
+								<p:cellEditor>
+										<f:facet name="output">	<h:outputText value="#{item.idEmpleado.nombres}" /></f:facet>
+										<f:facet name="input"><p:inputText id="modelInputE" value="#{item.idEmpleado.nombres}" style="width:100%" /></f:facet>		
+									</p:cellEditor>
+									
+								
+							</p:column>
+
+							<p:column headerText="Agencia Asignada"
+								filterBy="#{item.idAgencia.nombre}" filterMatchMode="contains"
+								sortBy="#{item.idAgencia.nombre}">
+								<h:outputText value="#{item.idAgencia.nombre}" />
+							</p:column>
+							
+							<p:column style="width:35px">
+									<p:rowEditor />
+								</p:column>
+								
+								<p:column style="width:32px">
+									<p:commandButton action="#{asignacionBean.eliminarAsignacion()}"
+										icon="ui-icon-closethick" update=":frmAsignacion:tblAsignacion">
+										<f:setPropertyActionListener value="#{item}"
+											target="#{asignacionBean.guardiaAgencia}"></f:setPropertyActionListener>
+										<p:confirm header="Confirmacion"
+											message="Desea eliminar el Registro :( ..?"
+											icon="ui-icon-alert" />
+									</p:commandButton>
+									
+									</p:column>
+									
+
+
+						</p:dataTable>
+
+				
+			
+				<br />
+
+
+				<p:commandButton value="Nuevo" update=":frmCrear"
+					oncomplete="PF('dlgEmpleado').show();" />
+
+
+			</h:form>
+
+
+
+			<p:dialog id="dlgEmpleado" widgetVar="dlgEmpleado" responsive="true"
+				modal="true" width="50%" closable="true" closeOnEscape="true">
+
+				<p:ajax event="close" update="dlgEmpleado" />
+
+				<h:form id="frmCrear">
+
+					<p:messages id="mensaje" autoUpdate="false" />
+
+					<p:panelGrid id="pnlgenral" columns="3"
+						styleClass="ui-panelgrid-blank">
+
+
+						<p:outputLabel value="Agencia Origen" for="agencia" />
+						<p:selectOneMenu id="agencia" value="#{asignacionBean.idAgencia}"
+							filter="true" filterMatchMode="contains">
+							<p:ajax process="@this"></p:ajax>
+							<f:selectItem itemLabel="Seleccionar" itemValue="#{null}" />
+							<f:selectItems value="#{asignacionBean.listaAgencia}" var="item"
+								itemLabel="#{item.nombre}" itemValue="#{item.idAgencia}">
+							</f:selectItems>
+						</p:selectOneMenu>
+						<p:message for="agencia" display="icon" />
+
+					</p:panelGrid>
+
+
+
+
+					<p:dataTable id="tblEmpleado"
+						value="#{asignacionBean.listaEmpleado}" var="item"
+						paginator="true" rows="10"
+						paginatorTemplate="    {FirstPageLink} {PreviousPageLink}  {NextPageLink} {LastPageLink} "
+						paginatorPosition="bottom" tableStyle=" white-space: nowrap"
+						selection="#{asignacionBean.listaGuardiasSeleccionados}"
+						emptyMessage="No existen registros con ese criterio"
+						styleClass="table" reflow="true" widgetVar="tblEmpleado"
+						rowKey="#{item.idEmpleado}">
+
+
+						<p:column selectionMode="multiple"
+							style="width:40px;text-align:left" />
+
+						<p:column headerText="Nombre" filterBy="#{item.nombres}}"
+							filterMatchMode="contains" sortBy="#{item.nombres}">
+							<h:outputText value="#{item.nombres}#{item.apellidos}" />
+						</p:column>
+
+
+					</p:dataTable>
+
+
+
+					<p:commandButton value="Guardar"
+						action="#{asignacionBean.guardar()}"
+						oncomplete="if (args &amp;&amp; !args.validationFailed) PF('dlgEmpleado').hide(); "
+						update="frmAsignacion:tblAsignacion" />
+
+				</h:form>
+			</p:dialog>
+
+
+
+
+
+
+		</ui:define>
+
+	</ui:composition>
+</body>
+</html>

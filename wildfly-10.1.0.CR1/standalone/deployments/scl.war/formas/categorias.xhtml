@@ -1,0 +1,80 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui" >   
+
+    <ui:composition template="/templates/admin.xhtml">
+        <ui:define name="panel">CATEGORIAS</ui:define>
+        <ui:define name="contenido">
+
+            <p:panel id="pnlUno" header="Direcciones" toggleable="true" toggleOrientation="vertical">
+                <p:toolbar>
+                    <f:facet name="left">
+                        <p:commandButton id="btnAgregar"  onclick="PF('dlg').show();" icon="ui-icon-plusthick" />
+                    </f:facet>
+                </p:toolbar>
+
+                <p:dialog id="moviePanelDir" widgetVar="dlg" showEffect="explode"
+                          hideEffect="clip" responsive="true">
+
+                    <p:toolbar>
+                        <f:facet name="left">
+                            <p:commandButton value="Grabar" oncomplete="PF('dlg').hide();"
+                                             action="#{categoriaControlador.grabar()}" update=":frm:tbl"
+                                             icon="ui-icon-disk" />
+                        </f:facet>
+                    </p:toolbar>
+                    <p:panelGrid id="pnl" columns="2">
+                        <h:outputText value="Nombre" />
+                        <p:inputText value="#{categoriaControlador.categoria.nombrecat}"></p:inputText>
+                    </p:panelGrid>
+                    <p:toolbar>
+                        <f:facet name="left">
+                            <p:commandButton value="Grabar" oncomplete="PF('dlg').hide();"
+                                             action="#{categoriaControlador.grabar()}" update=":frm:tbl"
+                                             icon="ui-icon-disk" />
+                        </f:facet>
+                    </p:toolbar>
+
+                </p:dialog>
+
+                <p:dataTable id="tbl"
+                             value="#{categoriaControlador.categorias}"
+                             var="item"
+                             paginator="true" 
+                             rows="10" 
+                             paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+                             paginatorPosition="bottom"
+                             editable="true"
+                             reflow="true" style="margin-top:20px" 
+                             >
+
+                    <p:ajax event="rowEdit" listener="#{categoriaControlador.getRow}" update=":frm:tbl" />
+                    <p:ajax event="rowEditCancel" listener="#{categoriaControlador.cancelar()}" update=":frm:tbl" />
+
+                    <p:column headerText="Codigo">
+                        <h:outputText value="#{item.categoriaid}" />
+                    </p:column>
+                    <p:column headerText="Nombre">
+                        <p:cellEditor>
+                            <f:facet name="output"><h:outputText value="#{item.nombrecat}" /></f:facet>
+                            <f:facet name="input"><p:inputText value="#{item.nombrecat}" onkeyup="this.value = this.value.toUpperCase();"></p:inputText></f:facet>
+                        </p:cellEditor>
+                    </p:column>
+                    <p:column style="width:32px" headerText="Editar">
+                        <p:rowEditor />
+                    </p:column>
+                    <p:column style="width:32px">
+                        <p:commandButton icon="ui-icon-trash" action="#{categoriaControlador.eliminar()}" update=":frm:tbl" title="Eliminar">
+                            <f:setPropertyActionListener target="#{categoriaControlador.categoria}" value="#{item}"></f:setPropertyActionListener>
+                            <p:confirm header="Confirmacion" message="Desea eliminar el Registro..?" icon="ui-icon-alert" />
+                        </p:commandButton>
+                    </p:column>
+                </p:dataTable>
+            </p:panel>
+        </ui:define>
+    </ui:composition>
+
+</html>

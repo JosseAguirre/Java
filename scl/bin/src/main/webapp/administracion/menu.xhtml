@@ -1,0 +1,125 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+     xmlns:p="http://primefaces.org/ui">
+
+<ui:composition template="/templates/menuT.xhtml">
+	<ui:define name="panel"></ui:define>
+	<ui:define name="content">
+		<p:messages id="mensaje" autoUpdate="false" />
+		
+	 <p:panel  header="MENUES">
+	 
+			<h:panelGrid id="pnl" columns="3" border="0">
+
+				<p:outputLabel value="Nombre" for="nombre" />
+				<p:inputText id="nombre"
+					value="#{admMenuBean.admmenu.nombre}" required="true"
+					requiredMessage="Requerido"
+					onkeyup="this.value = this.value.toUpperCase();">
+				</p:inputText>
+				<p:message for="nombre" />
+
+		
+				<p:outputLabel value="Padre" for="padre"  />
+				<p:inputText id="padre" required="false" requiredMessage="Requerido" 
+					value="#{admMenuBean.admmenu.idpadre}" 
+					onkeyup="this.value = this.value.toUpperCase();">
+				</p:inputText>
+				<p:message for="padre" />
+				
+				
+				<p:outputLabel value="Url" for="url" />
+				<p:inputText id="url" required="false" requiredMessage="Requerido" style="width:400px"
+					value="#{admMenuBean.admmenu.urlpagina}" 
+					>
+				</p:inputText>
+				<p:message for="url" />
+				
+				
+			</h:panelGrid>
+<br />
+			<p:commandButton value="Guardar"
+				action="#{admMenuBean.persitir()}"
+				update=":frm:pnl :frm2:tbl" icon="ui-icon-disk">
+			</p:commandButton>
+
+</p:panel>
+
+</ui:define>
+
+
+	
+
+<!-- Contenido de la tabla de roles -->
+
+
+
+	<ui:define name="content2">
+		
+		 
+			<p:dataTable id="tbl" value="#{admMenuBean.listamenu}"
+				var="item" paginator="true" rows="10"
+				paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+				paginatorPosition="bottom" editable="true"
+				tableStyle="white-space: nowrap" widgetVar="tablarol"
+				filteredValue="#{admMenuBean.menufiltrado}"
+				emptyMessage="No existen registros con ese criterio"
+				styleClass="table"
+				reflow="true"
+				selectionMode="single"
+			
+			rowKey="#{item.idmenu}"
+				>
+				
+			<f:facet name="header">
+				<div class="row row-nomargin">
+					<div class="col-lg-3">
+						<p:inputText id="globalFilter" onkeyup="PF('tablarol').filter()" class="pull-left" style="width: 100%" title="Digite: Codigo o Nombre" placeholder="Escriba aqui lo que busca......." />
+					</div>
+					<div class="col-lg-6">
+						<h:outputText value="LISTA DE MENU" />
+					</div>
+					
+				</div>
+			</f:facet>
+			
+			<p:ajax event="rowSelect" listener="#{admMenuBean.onRowSelect}"	update=":frm:pnl" />
+
+			
+				
+				
+
+				<p:column headerText="Codigo" filterBy="#{item.idmenu}">
+					<h:outputText value="#{item.idmenu}" />
+				</p:column>
+
+				
+
+				<p:column headerText="Nombre" filterBy="#{item.nombre}">
+					<h:outputText value="#{item.nombre}" />
+				</p:column>
+
+				<p:column headerText="IdPadre" filterBy="#{item.idpadre}">
+					<h:outputText value="#{item.idpadre}" />
+				</p:column>
+				
+				<p:column headerText="Url" filterBy="#{item.urlpagina}"
+					filterStyle="display:none">
+					<h:outputText value="#{item.urlpagina}" />
+				</p:column>
+
+				
+			</p:dataTable>
+		
+
+
+
+	</ui:define>
+
+</ui:composition>
+</html>
+
+     

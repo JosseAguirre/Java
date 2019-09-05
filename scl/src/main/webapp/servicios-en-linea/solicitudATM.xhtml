@@ -1,0 +1,374 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+
+<body>
+	<ui:composition template="/templates/admin.xhtml">
+
+
+		<ui:define name="content">
+			<h:form id="frmSolicitudATM">
+
+
+				<p:growl id="growl" showDetail="true" life="3000"
+					rendered="#{not facesContext.validationFailed}" />
+
+
+
+
+
+				<!-- general form elements -->
+				<div class="box box-primary">
+					<div class="box-header with-border">
+						<h3 class="box-title">Solicitud de Servicio de ATM</h3>
+					</div>
+					<!-- /.box-header -->
+					<!-- form start -->
+
+					<div class="box-body">
+
+
+
+						
+							
+							
+							<p:outputLabel value="Tipo Solicitud" for="tipo" />
+							<p:selectOneMenu id="tipo" value="#{solicitudATMBean.tipoSolicitud}">
+								<f:selectItem itemLabel="Seleccionar" itemValue="#{null}" />
+								<f:selectItem itemLabel="ATM" itemValue="atm" />
+								<f:selectItem itemLabel="Bajo Pedido" itemValue="bajoPedido" />
+								<f:selectItem itemLabel="Intercambios" itemValue="intercambio" />
+								<p:ajax listener="#{solicitudATMBean.mostrar}" update="asd"  />
+							</p:selectOneMenu>
+							
+							
+
+<h:panelGroup id="asd" >
+						<p:panel id="pnlDenominacion" header="Denominaciones" rendered="#{solicitudATMBean.verAtm}">
+						
+						<p:panelGrid id="pnlDatos" columns="2"
+							styleClass="ui-panelgrid-blank">
+							<p:outputLabel value="Ciudad" for="ciudad" />
+							<p:selectOneMenu id="ciudad"
+								value="#{solicitudATMBean.idCiudad}" filter="true"
+								filterMatchMode="contains">
+								<f:selectItem itemLabel="Seleccionar" itemValue="#{null}" />
+								<p:ajax update=":frmSolicitudATM:destino"
+									listener="#{solicitudATMBean.consultaListaAgencia()}" />
+
+								<f:selectItems value="#{solicitudATMBean.listaCiudad}"
+									var="item" itemLabel="#{item.nombre}"
+									itemValue="#{item.idDetalleCatalogo}">
+								</f:selectItems>
+							</p:selectOneMenu>
+
+
+
+
+
+
+							<p:outputLabel value="Destino" for="destino" />
+							<p:selectOneMenu id="destino"
+								value="#{solicitudATMBean.idAgencia}" filter="true"
+								filterMatchMode="contains">
+								<f:selectItem itemLabel="Seleccionar" itemValue="#{null}" />
+
+								<f:selectItems value="#{solicitudATMBean.listaAgencia}"
+									var="agencia" itemLabel="#{agencia.nombre}"
+									itemValue="#{agencia.idAgencia}">
+								</f:selectItems>
+							</p:selectOneMenu>
+
+
+							<p:outputLabel value="Monto" />
+							<p:inputText value="#{solicitudATMBean.solicitud.monto}"
+								style="width: 80px ;  text-align:right ; background-color:#B8F589;" />
+
+						</p:panelGrid>
+
+
+							<p:panelGrid columns="2" styleClass="ui-panelgrid-blank">
+
+								<p:panel header="Billetes" style="width: 220px">
+
+									<h:panelGrid id="pnlBilletes" columns="2"
+										styleClass="ui-panelgrid-blank" layout="grid">
+										<p:panelGrid columns="2" styleClass="ui-panelgrid-blank">
+											<p:outputLabel value="100" />
+											<p:inputText value="#{solicitudATMBean.b100}"
+												style="width:60px;  text-align:right">
+												<p:ajax listener="#{solicitudATMBean.subTotalBillete}"
+													update="b100 pnlTotalBilletes totalDenominacion" />
+
+											</p:inputText>
+
+											<p:outputLabel value="50" />
+											<p:inputText value="#{solicitudATMBean.b50}"
+												style="width:60px;  text-align:right">
+												<p:ajax listener="#{solicitudATMBean.subTotalBillete}"
+													update="b50 pnlTotalBilletes totalDenominacion" />
+											</p:inputText>
+
+											<p:outputLabel value="20" />
+											<p:inputText value="#{solicitudATMBean.b20}"
+												style="width:60px; text-align:right">
+												<p:ajax listener="#{solicitudATMBean.subTotalBillete}"
+													update="b20 pnlTotalBilletes totalDenominacion" />
+											</p:inputText>
+
+											<p:outputLabel value="10" />
+											<p:inputText value="#{solicitudATMBean.b10}"
+												style="width:60px; text-align:right">
+												<p:ajax listener="#{solicitudATMBean.subTotalBillete}"
+													update="b10 pnlTotalBilletes totalDenominacion" />
+											</p:inputText>
+
+											<p:outputLabel value="5" />
+											<p:inputText value="#{solicitudATMBean.b5}"
+												style="width:60px; text-align:right">
+												<p:ajax listener="#{solicitudATMBean.subTotalBillete}"
+													update="b5 pnlTotalBilletes totalDenominacion" />
+											</p:inputText>
+
+											<p:outputLabel value="1" />
+											<p:inputText value="#{solicitudATMBean.b1}"
+												style="width:60px; text-align:right">
+												<p:ajax listener="#{solicitudATMBean.subTotalBillete}"
+													update="b1 pnlTotalBilletes totalDenominacion" />
+											</p:inputText>
+										</p:panelGrid>
+
+										<p:panelGrid columns="1" styleClass="ui-panelgrid-blank">
+											<p:inputText id="b100"
+												value="#{solicitudATMBean.subb100}"
+												style="width:60px; text-align:right ; background-color:#FBF262"
+												readonly="true" />
+											<p:inputText id="b50" value="#{solicitudATMBean.subb50}"
+												style="width:60px; text-align:right ; background-color:#FBF262"
+												readonly="true" />
+											<p:inputText id="b20" value="#{solicitudATMBean.subb20}"
+												style="width:60px; text-align:right  ; background-color:#FBF262"
+												readonly="true" />
+											<p:inputText id="b10" value="#{solicitudATMBean.subb10}"
+												style="width:60px; text-align:right ; background-color:#FBF262"
+												readonly="true" />
+											<p:inputText id="b5" value="#{solicitudATMBean.subb5}"
+												style="width:60px; text-align:right ; background-color:#FBF262"
+												readonly="true" />
+											<p:inputText id="b1" value="#{solicitudATMBean.subb1}"
+												style="width:60px; text-align:right ; background-color:#FBF262"
+												readonly="true" />
+										</p:panelGrid>
+
+
+									</h:panelGrid>
+									<br />
+									<p:panelGrid id="pnlTotalBilletes" columns="2"
+										styleClass="ui-panelgrid-blank">
+										<p:outputLabel value="Total Billetes: " />
+										<p:inputText value="#{solicitudATMBean.totalBillete}"
+											style="width:60px; text-align:right ;border:none; background-color:#FBBCAD"
+											readonly="true" />
+									</p:panelGrid>
+
+
+								</p:panel>
+
+								<h:panelGrid columns="2" styleClass="ui-panelgrid-blank">
+									<p:panel header="Monedas" style="width: 220px">
+
+										<h:panelGrid id="pnlMonedas" columns="2"
+											styleClass="ui-panelgrid-blank" layout="grid">
+											<p:panelGrid columns="2" styleClass="ui-panelgrid-blank">
+
+												<p:outputLabel value="1" style=" text-align:right" />
+												<p:inputText value="#{solicitudATMBean.m1}"
+													style="width:60px; text-align:right">
+													<p:ajax listener="#{solicitudATMBean.subTotalMoneda}"
+														update="m1 pnlTotalMonedas totalDenominacion" />
+												</p:inputText>
+
+												<p:outputLabel value="0.50" style=" text-align:left" />
+												<p:inputText value="#{solicitudATMBean.m50}"
+													style="width:60px; text-align:right">
+													<p:ajax listener="#{solicitudATMBean.subTotalMoneda}"
+														update="m050 pnlTotalMonedas totalDenominacion" />
+												</p:inputText>
+
+												<p:outputLabel value="0.25" style=" text-align:left" />
+												<p:inputText value="#{solicitudATMBean.m25}"
+													style="width:60px; text-align:right">
+													<p:ajax listener="#{solicitudATMBean.subTotalMoneda}"
+														update="m025 pnlTotalMonedas totalDenominacion" />
+												</p:inputText>
+
+												<p:outputLabel value="0.10" style=" text-align:left" />
+												<p:inputText value="#{solicitudATMBean.m10}"
+													style="width:60px; text-align:right">
+													<p:ajax listener="#{solicitudATMBean.subTotalMoneda}"
+														update="m010 pnlTotalMonedas totalDenominacion" />
+												</p:inputText>
+
+												<p:outputLabel value="0.05" style=" text-align:left" />
+												<p:inputText value="#{solicitudATMBean.m5}"
+													style="width:60px; text-align:right">
+													<p:ajax listener="#{solicitudATMBean.subTotalMoneda}"
+														update="m05 pnlTotalMonedas totalDenominacion" />
+												</p:inputText>
+
+												<p:outputLabel value="0.01" style=" text-align:left" />
+												<p:inputText value="#{solicitudATMBean.m1c}"
+													style="width:60px; text-align:right">
+													<p:ajax listener="#{solicitudATMBean.subTotalMoneda}"
+														update="m1c pnlTotalMonedas totalDenominacion" />
+												</p:inputText>
+
+											</p:panelGrid>
+
+											<p:panelGrid columns="1" styleClass="ui-panelgrid-blank">
+												<p:inputText id="m1" value="#{solicitudATMBean.subm1}"
+													style="width:60px; text-align:right ; background-color:#FBF262"
+													readonly="true" />
+												<p:inputText id="m050"
+													value="#{solicitudATMBean.subm50}"
+													style="width:60px; text-align:right ; background-color:#FBF262"
+													readonly="true" />
+												<p:inputText id="m025"
+													value="#{solicitudATMBean.subm25}"
+													style="width:60px; text-align:right ; background-color:#FBF262"
+													readonly="true" />
+												<p:inputText id="m010"
+													value="#{solicitudATMBean.subm10}"
+													style="width:60px; text-align:right ; background-color:#FBF262"
+													readonly="true" />
+												<p:inputText id="m05" value="#{solicitudATMBean.subm5}"
+													style="width:60px; text-align:right ; background-color:#FBF262"
+													readonly="true" />
+												<p:inputText id="m1c"
+													value="#{solicitudATMBean.subm1c}"
+													style="width:60px; text-align:right ; background-color:#FBF262"
+													readonly="true" />
+											</p:panelGrid>
+
+
+										</h:panelGrid>
+										<br />
+										<p:panelGrid id="pnlTotalMonedas" columns="2"
+											styleClass="ui-panelgrid-blank">
+											<p:outputLabel value="Total Monedas: " />
+											<p:inputText value="#{solicitudATMBean.totalMoneda}"
+												style="width:60px;  background-color:#FBBCAD; text-align:right"
+												readonly="true" />
+										</p:panelGrid>
+									</p:panel>
+								</h:panelGrid>
+
+
+							</p:panelGrid>
+
+							<p:panelGrid id="totalDenominacion" columns="2"
+								styleClass="ui-panelgrid-blank">
+
+								<p:outputLabel value="Total Denominaciones: " />
+								<p:inputText value="#{solicitudATMBean.totalDenominacion}"
+									style="width:60px;  background-color:#B8F589; text-align:right"
+									readonly="true" />
+
+
+
+
+
+								<p:commandButton
+									actionListener="#{solicitudATMBean.guardarSolicitud}"
+									value="Guardar" styleClass="my-button" update="growl frmCrear"
+									icon="fa fa-save" />
+
+
+							</p:panelGrid>
+
+
+						</p:panel>
+
+
+
+</h:panelGroup>
+
+
+
+
+
+
+
+					</div>
+				</div>
+
+
+
+
+
+
+			</h:form>
+
+
+			<p:dialog id="dlgMsg" widgetVar="dlgMsg" responsive="true"
+				modal="true" styleClass="my-dialogs" closeOnEscape="true"
+				appendTo="@(body)">
+
+
+				<!-- general form elements -->
+				<h:form id="frmCrear">
+
+					<p:growl id="growl2" showDetail="true" life="3000"
+						rendered="#{not facesContext.validationFailed}" />
+
+					<p:messages id="mensaje" autoUpdate="false" />
+					<p:focus context="@form" />
+
+					<p:outputLabel value="Solicitud generada con el numero  :  " />  #{solicitudATMBean.solicitud.idSolicitudServicio}
+					
+
+					<br />
+
+					<p:commandButton value="Salir"
+						actionListener="#{solicitudATMBean.cancelar()}"
+						styleClass="my-button" icon="fa fa-close"
+						update=":frmSolicitudATM:pnlDenominacion :frmSolicitudATM:pnlDatos"
+						oncomplete="PF('dlgMsg').hide();" />
+
+					<p:commandButton value="Imprimir PDF"
+						actionListener="#{solicitudATMBean.cancelar()}"
+						styleClass="my-button" icon="fa fa-file"
+						update=":frmSolicitudATM:pnlDenominacion :frmSolicitudATM:pnlDatos"
+						oncomplete="PF('dlgMsg').hide();" />
+
+
+				</h:form>
+			</p:dialog>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		</ui:define>
+
+	</ui:composition>
+
+
+</body>
+</html>
+
