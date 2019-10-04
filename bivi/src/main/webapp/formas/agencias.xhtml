@@ -20,7 +20,7 @@
 	                    
 	              <div class="box-body">
 	              
-	              <!-- CONTENIDO DE LA TABLA MOTIVOS DE NO GESTION -->
+	              <!-- CONTENIDO DE LA TABLA AGENCIAS -->
 	              <p:dataTable id="tbl"
 	              	value="#{admAgenciaBean.listaAgencia}"
 					var="item" 
@@ -81,6 +81,8 @@
 	              
 	              </p:dataTable>
 	              
+	              <br /> <br />
+	              
 	              	<div id= "footer" class="box-footer">
 
 						<p:commandButton id="btnNuevo"
@@ -104,7 +106,7 @@
 				</div>
 			</h:form>
 			
-			<!-- DIALOGO NUEVO CLIENTE -->
+			<!-- DIALOGO NUEVA AGENCIA -->
 
 			<p:dialog id="dlgDatosAgencia" widgetVar="dlgDatosAgencia"
 				responsive="true" modal="true" width="50%" closable="true" styleClass="my-dialogs"

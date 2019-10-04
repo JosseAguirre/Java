@@ -1,0 +1,208 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+<body>
+	<ui:composition template="/templates/menuT.xhtml">
+		<ui:define name="contenido">
+
+	         <h:form id="frmResponsableDependencia">
+
+				<p:growl id="growl" showDetail="true" life="3000" rendered="#{not facesContext.validationFailed}" />
+				
+				<!-- general form elements -->        
+	             <div class="box box-primary">
+	          		 <div class="box-header with-border">
+	              		<h3 class="box-title">Responsable Dependencia</h3>
+	            	</div>			
+	                    
+	              <div class="box-body">
+	              
+	              <!-- CONTENIDO DE LA TABLA RESPONSABLE DEPENDENCIA -->
+	              <p:dataTable id="tbl"
+	              	value="#{amdResponsableDependenciaBean.listaResponsableDependencia}"
+					var="item" 
+					paginator="true"
+					rows="10" 
+					paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+					paginatorPosition="bottom" 
+					selection="#{amdResponsableDependenciaBean.responsableDependenciaSeleccionada}"
+					tableStyle="white-space: nowrap" 
+					widgetVar="tablaResponsableDependencia"
+					filteredValue="#{amdResponsableDependenciaBean.responsableDependenciaFiltrada}"
+					emptyMessage="No existen registros con ese criterio"
+					styleClass="table"
+					reflow="true"
+					selectionMode="single"
+				    rowKey="#{item.idResponsableDependencia}">
+				    
+				    <f:facet name="header">
+								<div class="row row-nomargin">
+									<div class="col-lg-3">
+										<p:inputText id="globalFilter"
+											onkeyup="PF('tablaResponsableDependencia').filter()" class="pull-left"
+											style="width: 100%" placeholder="Buscar...." />
+									</div>
+									<div class="col-lg-6">
+										<p:outputLabel value="Lista de Responsables por Dependencia" />
+									</div>
+
+								</div>
+							</f:facet>
+							
+							<p:column headerText="Codigo" filterBy="#{item.idResponsableDependencia}"
+							filterStyle="display:none">
+							<h:outputText value="#{item.idResponsableDependencia}" />
+							</p:column>
+							<p:column headerText="Nombres" filterBy="#{item.nombres}" filterStyle="display:none">
+							<h:outputText value="#{item.nombres}" />
+							</p:column>
+							<p:column headerText="Apellidos" filterBy="#{item.apellidos}" filterStyle="display:none">
+								<h:outputText value="#{item.apellidos}" />
+							</p:column>
+							<p:column headerText="Telefono Fijo" filterBy="#{item.telefonoFijo}" filterStyle="display:none">
+								<h:outputText value="#{item.telefonoFijo}" />
+							</p:column>
+							<p:column headerText="Telefono Celular" filterBy="#{item.telefonoCelular}" filterStyle="display:none">
+								<h:outputText value="#{item.telefonoCelular}" />
+							</p:column>
+							<p:column headerText="Correo Electronico" filterBy="#{item.correoElectronico}" filterStyle="display:none">
+								<h:outputText value="#{item.correoElectronico}" />
+							</p:column>
+							<p:column headerText="Dependencia"
+								filterBy="#{item.idDependencia.nombre}" filterStyle="display:none">
+								<h:outputText value="#{item.idDependencia.nombre}" />
+							</p:column>
+							<p:column headerText="Activo" filterBy="#{item.activo}" filterStyle="display:none">
+								<h:outputText value="#{item.activo}" />
+							</p:column>
+	              
+	              </p:dataTable>
+	              
+	              <br /> <br />
+	              
+	              	<div id= "footer" class="box-footer">
+
+						<p:commandButton id="btnNuevo"
+								actionListener="#{amdResponsableDependenciaBean.nuevo()}" value="Nuevo"
+								 styleClass="my-button" icon="fa fa-plus"
+								update=":frmResponsableDependencia:growl :frmCrear"/>
+
+						<p:commandButton id="btnModificar"
+							actionListener="#{amdResponsableDependenciaBean.modificar()}"
+							value="Modificar"  styleClass="my-button"
+							icon="fa fa-pencil" update=":frmResponsableDependencia:growl :frmCrear"/>
+						
+						<p:commandButton id="btnEliminar"
+								actionListener="#{amdResponsableDependenciaBean.eliminar()}"
+								value="Eliminar" styleClass="my-button" icon="fa fa-trash"
+								update=":frmResponsableDependencia:tbl :frmResponsableDependencia:growl">
+						</p:commandButton>
+					</div>	
+					<br />
+					</div>
+				</div>
+			</h:form>
+			
+			<!-- DIALOGO NUEVO RESPONSABLE DEPENDENCIA -->
+
+			<p:dialog id="dlgDatosResponsableDependencia" widgetVar="dlgDatosResponsableDependencia"
+				responsive="true" modal="true" width="50%" closable="true" styleClass="my-dialogs"
+				closeOnEscape="true" appendTo="@(body)">
+
+				<h:form id="frmCrear">
+
+					<p:messages id="mensaje" autoUpdate="false" />
+					<p:focus context="@form" />
+						<p:panelGrid id="pnl" columns="3" columnClasses="ui-grid-col-2,ui-grid-col-4" layout="grid"
+								styleClass="ui-panelgrid-blank">
+								<p:outputLabel value="Dependencia" for="idDependencia" />
+								<p:selectOneMenu id="idDependencia" value="#{amdResponsableDependenciaBean.idDependencia}"
+									required="true" requiredMessage="Requerido">
+									<f:selectItem itemLabel="Seleccionar" itemValue="#{null}" />
+									<f:selectItems value="#{amdResponsableDependenciaBean.listaDependencia}" var="item"
+										itemLabel="#{item.nombre}"
+										itemValue="#{item.idDependencia}">
+									</f:selectItems>
+								</p:selectOneMenu>
+								<p:message for="idDependencia" />
+
+								<p:outputLabel value="Nombres" for="nombres" />
+								<p:inputText id="nombres"
+									value="#{amdResponsableDependenciaBean.responsableDependencia.nombres}"
+									required="true" requiredMessage="Requerido"
+									onkeyup="this.value = this.value.toUpperCase();">
+								</p:inputText>
+								<p:message for="nombres" />
+								
+								<p:outputLabel value="Apellidos" for="apellidos" />
+								<p:inputText id="apellidos"
+									value="#{amdResponsableDependenciaBean.responsableDependencia.apellidos}"
+									required="true" requiredMessage="Requerido"
+									onkeyup="this.value = this.value.toUpperCase();">
+								</p:inputText>
+								<p:message for="apellidos" />
+								
+								<p:outputLabel value="Telefono Fijo" for="telefonoFijo" />
+								<p:inputText id="telefonoFijo"
+									value="#{amdResponsableDependenciaBean.responsableDependencia.telefonoFijo}" required="true"
+									requiredMessage="Requerido"
+									onkeyup="this.value = this.value.toUpperCase();">
+								</p:inputText>
+								<p:message for="telefonoFijo" />
+								
+								<p:outputLabel value="Telefono Celular" for="telefonoCelular" />
+								<p:inputText id="telefonoCelular"
+									value="#{amdResponsableDependenciaBean.responsableDependencia.telefonoCelular}" required="true"
+									requiredMessage="Requerido"
+									onkeyup="this.value = this.value.toUpperCase();">
+								</p:inputText>
+								<p:message for="telefonoCelular" />
+								
+								<p:outputLabel value="Correo Electronico" for="correoElectronico" />
+								<p:inputText id="correoElectronico"
+									value="#{amdResponsableDependenciaBean.responsableDependencia.correoElectronico}" required="true"
+									requiredMessage="Requerido">
+								</p:inputText>
+								<p:message for="correoElectronico" />
+								
+								<p:outputLabel value="Activo" for="activo" />
+								<p:selectOneMenu id="activo" value="#{amdResponsableDependenciaBean.responsableDependencia.activo}"
+									required="true" requiredMessage="Requerido">
+									<f:selectItem itemLabel="Selecciona" itemValue="#{null}" />
+									<f:selectItem itemLabel="Activo" itemValue="1" />
+									<f:selectItem itemLabel="Inactivo" itemValue="0" />
+								</p:selectOneMenu>
+								<p:message for="activo" />
+
+							</p:panelGrid>
+
+							<br />
+
+					
+
+							<p:commandButton value="Guardar"
+								action="#{amdResponsableDependenciaBean.persistir()}" styleClass="my-button"
+								oncomplete="if (args &amp;&amp; !args.validationFailed) PF('dlgDatosResponsableDependencia').hide(); "
+								update = ":frmResponsableDependencia:tbl :frmCrear :frmResponsableDependencia:growl" 		
+								icon="fa fa-save" >
+								</p:commandButton>
+								
+							<p:commandButton value="Cancelar"
+								actionListener="#{amdResponsableDependenciaBean.cancelar()}"
+								 icon="fa fa-close" styleClass="my-button"
+								oncomplete="PF('dlgDatosResponsableDependencia').hide();">
+							</p:commandButton>
+
+
+
+				</h:form>
+			</p:dialog>      
+                      
+		</ui:define>
+
+	</ui:composition>
+</body>
+</html>

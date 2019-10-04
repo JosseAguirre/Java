@@ -74,8 +74,10 @@ public class AdmMenuBean implements  Serializable {
 
 	
 	public void eliminar() {
-		// TODO Auto-generated method stub
-
+		admmenu = menuSeleccionado;
+		serviciomenu.delete(admmenu);
+		FacesContext.getCurrentInstance().addMessage(null,	new FacesMessage(FacesMessage.SEVERITY_INFO, "Aviso", "Se ha eliminado el registro"));
+		cancelar();
 	}
 
 

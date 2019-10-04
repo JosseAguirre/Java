@@ -87,7 +87,7 @@ public class AdmPuestoBean implements  Serializable {
 		listaAgencia = servicioAdmAgencia.findAll();
 	}
 	
-	//Metodo para guardar una nueva agencia
+	//Metodo para guardar una nuevo puesto
 	public void guardar() {
 		AdmDetalleCatalogo idTipoPuestoCatalogo = new AdmDetalleCatalogo();
 		idTipoPuestoCatalogo.setIdDetalleCatalogo(this.idTipoPuestoCatalogo);
@@ -105,7 +105,7 @@ public class AdmPuestoBean implements  Serializable {
 		cancelar();
 	}
 	
-	//Metodo para actualizar una agencia
+	//Metodo para actualizar un puesto
 	public void actualizar() {
 		AdmDetalleCatalogo idTipoPuestoCatalogo = new AdmDetalleCatalogo();
 		idTipoPuestoCatalogo.setIdDetalleCatalogo(this.idTipoPuestoCatalogo);
@@ -122,7 +122,7 @@ public class AdmPuestoBean implements  Serializable {
 		cancelar();
 	}
 	
-	//Metodo para eliminar una agencia
+	//Metodo para eliminar un puesto
 	public void eliminar() {
 		if(puestoSeleccionado == null) {
 			FacesContext.getCurrentInstance().addMessage(null,	new FacesMessage(FacesMessage.SEVERITY_WARN, "Aviso", "Debe selecionar un Registro "));

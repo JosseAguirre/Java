@@ -29,12 +29,9 @@ public class ServicioUsuarioCiudad {
 	}
 	
 	
-	
 	public void eliminarUsuarioCiudad(int idUsuarioCiudad) {
-	 em.createNativeQuery("delete from bivi.adm_usuario_ciudad where id_usuario_ciudad = "+idUsuarioCiudad+" ").executeUpdate();
-		
+	 em.createNativeQuery("delete from bivi.adm_usuario_ciudad where id_usuario_ciudad = "+idUsuarioCiudad+" ").executeUpdate();	
 	}
-
 	
 	@SuppressWarnings("unchecked")
 	public List<AdmUsuarioCiudad> findAll() {
@@ -91,7 +88,5 @@ public class ServicioUsuarioCiudad {
 		Query q = em.createQuery("select c from AdmUsuarioCiudad c where c.idrolmenu = " + codigorolmmenu);
 		return (AdmUsuarioCiudad) q.getSingleResult();
 	}
-	
-	
 
 }

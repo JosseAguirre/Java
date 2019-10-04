@@ -7,151 +7,167 @@
 <body>
 	<ui:composition template="/templates/menuT.xhtml">
 		<ui:define name="contenido">
+		
+		<h:form id="frmAsignacion">
 
-
-			<h:form id="frmAsignacion">
-
-
+				<p:growl id="growl" showDetail="true" life="3000" rendered="#{not facesContext.validationFailed}" />
 				
-					<div class="box-header with-border">
-						<h3 class="box-title">Asignaciones</h3>
-					</div>
-					
+				<!-- general form elements -->        
+	             <div class="box box-primary">
+	          		 <div class="box-header with-border">
+	              		<h3 class="box-title">Asignacion guardia-agencia</h3>
+	            	</div>			
+	                    
+	              <div class="box-body">
+	              
+	              <!-- CONTENIDO DE LA TABLA FIS GUARDIA AGENCIA -->
+	              <p:dataTable id="tbl"
+	              	value="#{asignacionBean.listaGuardiaAgencia}"
+					var="item" 
+					paginator="true"
+					rows="10" 
+					paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+					paginatorPosition="bottom" 
+					selection="#{asignacionBean.guardiaAgenciaSelecionada}"
+					tableStyle="white-space: nowrap" 
+					widgetVar="tablaAsignacion"
+					filteredValue="#{asignacionBean.guardiaAgenciaFiltrada}"
+					emptyMessage="No existen registros con ese criterio"
+					styleClass="table"
+					reflow="true"
+					selectionMode="single"
+				    rowKey="#{item.idGuardiaAgencia}">
+				    
+				    <f:facet name="header">
+								<div class="row row-nomargin">
+									<div class="col-lg-3">
+										<p:inputText id="globalFilter"
+											onkeyup="PF('tablaAsignacion').filter()" class="pull-left"
+											style="width: 100%" placeholder="Buscar...." />
+									</div>
+									<div class="col-lg-6">
+										<p:outputLabel value="Lista de guardias asignados" />
+									</div>
 
-						<!--#### CONTENIDO DE LA TABLA ASIGNACIONES -->
-						<p:dataTable id="tblAsignacion"
-							value="#{asignacionBean.listaAsignacion}" 
-							var="item"
-							paginator="true"
-							paginatorTemplate="    {FirstPageLink} {PreviousPageLink}  {NextPageLink} {LastPageLink} "
-							paginatorPosition="bottom" 
-							tableStyle=" white-space: nowrap"
-							emptyMessage="No existen registros con ese criterio"
+								</div>
+							</f:facet>
 							
-							editable="true" 
-							 reflow="true" 
-							 widgetVar="tblAsignacion"
-							rowKey="#{item.idGuardiaAgencia}">
-							
-							<p:ajax event="rowEdit" listener="#{asignacionBean.onRowEdit}" />
-								<p:ajax event="rowEditCancel" listener="#{asignacionBean.onRowCancel}" />
-
-							
-							
-							<p:column headerText="Guardia"
-								>
-								
-								<p:cellEditor>
-										<f:facet name="output">	<h:outputText value="#{item.idEmpleado.nombres}" /></f:facet>
-										<f:facet name="input"><p:inputText id="modelInputE" value="#{item.idEmpleado.nombres}" style="width:100%" /></f:facet>		
-									</p:cellEditor>
-									
-								
+							<p:column headerText="Codigo" filterBy="#{item.idGuardiaAgencia}"
+							filterStyle="display:none">
+							<h:outputText value="#{item.idGuardiaAgencia}"/>
 							</p:column>
-
-							<p:column headerText="Agencia Asignada"
-								filterBy="#{item.idAgencia.nombre}" filterMatchMode="contains"
-								sortBy="#{item.idAgencia.nombre}">
+							<p:column headerText="Usuario"
+								filterBy="#{item.idUsuario.usuario}" filterStyle="display:none">
+								<h:outputText value="#{item.idUsuario.usuario}" />
+							</p:column>
+							<p:column headerText="Agencia"
+								filterBy="#{item.idAgencia.nombre}" filterStyle="display:none">
 								<h:outputText value="#{item.idAgencia.nombre}" />
 							</p:column>
-							
-							<p:column style="width:35px">
-									<p:rowEditor />
-								</p:column>
-								
-								<p:column style="width:32px">
-									<p:commandButton action="#{asignacionBean.eliminarAsignacion()}"
-										icon="ui-icon-closethick" update=":frmAsignacion:tblAsignacion">
-										<f:setPropertyActionListener value="#{item}"
-											target="#{asignacionBean.guardiaAgencia}"></f:setPropertyActionListener>
-										<p:confirm header="Confirmacion"
-											message="Desea eliminar el Registro :( ..?"
-											icon="ui-icon-alert" />
-									</p:commandButton>
-									
-									</p:column>
-									
+							<p:column headerText="Puesto"
+								filterBy="#{item.idPuesto.nombrePuesto}" filterStyle="display:none">
+								<h:outputText value="#{item.idPuesto.nombrePuesto}" />
+							</p:column>
+	              
+	              </p:dataTable>
+	              
+	              <br /> <br />
+	              
+	              	<div id= "footer" class="box-footer">
 
+						<p:commandButton id="btnNuevo"
+								actionListener="#{asignacionBean.nuevo()}" value="Nuevo"
+								 styleClass="my-button" icon="fa fa-plus"
+								update=":frmAsignacion:growl :frmCrear"/>
 
-						</p:dataTable>
-
-				
-			
-				<br />
-
-
-				<p:commandButton value="Nuevo" update=":frmCrear"
-					oncomplete="PF('dlgEmpleado').show();" />
-
-
+						<p:commandButton id="btnModificar"
+							actionListener="#{asignacionBean.modificar()}"
+							value="Modificar"  styleClass="my-button"
+							icon="fa fa-pencil" update=":frmAsignacion:growl :frmCrear"/>
+						
+						<p:commandButton id="btnEliminar"
+								actionListener="#{asignacionBean.eliminar()}"
+								value="Eliminar" styleClass="my-button" icon="fa fa-trash"
+								update=":frmAsignacion:tbl :frmAsignacion:growl">
+						</p:commandButton>
+					</div>	
+					<br />
+					</div>
+				</div>
 			</h:form>
+			
+			<!-- DIALOGO NUEVA ASIGNACION -->
 
-
-
-			<p:dialog id="dlgEmpleado" widgetVar="dlgEmpleado" responsive="true"
-				modal="true" width="50%" closable="true" closeOnEscape="true">
-
-				<p:ajax event="close" update="dlgEmpleado" />
+			<p:dialog id="dlgDatosAsignacion" widgetVar="dlgDatosAsignacion"
+				responsive="true" modal="true" width="50%" closable="true" styleClass="my-dialogs"
+				closeOnEscape="true" appendTo="@(body)">
 
 				<h:form id="frmCrear">
 
 					<p:messages id="mensaje" autoUpdate="false" />
+					<p:focus context="@form" />
+					
 
-					<p:panelGrid id="pnlgenral" columns="3"
-						styleClass="ui-panelgrid-blank">
+							<p:panelGrid id="pnl" columns="3"
+								columnClasses="ui-grid-col-2,ui-grid-col-4" layout="grid"
+								styleClass="ui-panelgrid-blank">
+
+								<p:outputLabel value="Usuario" for="idUsuario" />
+								<p:selectOneMenu id="idUsuario" value="#{asignacionBean.idUsuario}"
+									required="true" requiredMessage="Requerido">
+									<f:selectItem itemLabel="Seleccionar" itemValue="#{null}" />
+									<f:selectItems value="#{asignacionBean.listaUsuario}" var="item"
+										itemLabel="#{item.usuario}"
+										itemValue="#{item.idUsuario}">
+									</f:selectItems>
+								</p:selectOneMenu>
+								<p:message for="idUsuario" />
+
+								<p:outputLabel value="Agencia" for="idAgencia" />
+								<p:selectOneMenu id="idAgencia" value="#{asignacionBean.idAgencia}"
+									required="true" requiredMessage="Requerido">
+									<f:selectItem itemLabel="Seleccionar" itemValue="#{null}" />
+									<f:selectItems value="#{asignacionBean.listaAgencia}" var="item"
+										itemLabel="#{item.nombre}"
+										itemValue="#{item.idAgencia}">
+									</f:selectItems>
+								</p:selectOneMenu>
+								<p:message for="idAgencia" />
+
+								<p:outputLabel value="Puesto" for="idPuesto" />
+								<p:selectOneMenu id="idPuesto" value="#{asignacionBean.idPuesto}"
+									required="true" requiredMessage="Requerido">
+									<f:selectItem itemLabel="Seleccionar" itemValue="#{null}" />
+									<f:selectItems value="#{asignacionBean.listaPuesto}" var="item"
+										itemLabel="#{item.nombrePuesto}"
+										itemValue="#{item.idPuesto}">
+									</f:selectItems>
+								</p:selectOneMenu>
+								<p:message for="idPuesto" />
+
+							</p:panelGrid>
+
+							<br />
+
+					
+
+							<p:commandButton value="Guardar"
+								action="#{asignacionBean.persistir()}" styleClass="my-button"
+								oncomplete="if (args &amp;&amp; !args.validationFailed) PF('dlgDatosAsignacion').hide(); "
+								update = ":frmAsignacion:tbl :frmCrear :frmAsignacion:growl" 		
+								icon="fa fa-save" >
+								</p:commandButton>
+								
+							<p:commandButton value="Cancelar"
+								actionListener="#{asignacionBean.cancelar()}"
+								 icon="fa fa-close" styleClass="my-button"
+								oncomplete="PF('dlgDatosAsignacion').hide();">
+							</p:commandButton>
 
 
-						<p:outputLabel value="Agencia Origen" for="agencia" />
-						<p:selectOneMenu id="agencia" value="#{asignacionBean.idAgencia}"
-							filter="true" filterMatchMode="contains">
-							<p:ajax process="@this"></p:ajax>
-							<f:selectItem itemLabel="Seleccionar" itemValue="#{null}" />
-							<f:selectItems value="#{asignacionBean.listaAgencia}" var="item"
-								itemLabel="#{item.nombre}" itemValue="#{item.idAgencia}">
-							</f:selectItems>
-						</p:selectOneMenu>
-						<p:message for="agencia" display="icon" />
-
-					</p:panelGrid>
-
-
-
-
-					<p:dataTable id="tblEmpleado"
-						value="#{asignacionBean.listaEmpleado}" var="item"
-						paginator="true" rows="10"
-						paginatorTemplate="    {FirstPageLink} {PreviousPageLink}  {NextPageLink} {LastPageLink} "
-						paginatorPosition="bottom" tableStyle=" white-space: nowrap"
-						selection="#{asignacionBean.listaGuardiasSeleccionados}"
-						emptyMessage="No existen registros con ese criterio"
-						styleClass="table" reflow="true" widgetVar="tblEmpleado"
-						rowKey="#{item.idEmpleado}">
-
-
-						<p:column selectionMode="multiple"
-							style="width:40px;text-align:left" />
-
-						<p:column headerText="Nombre" filterBy="#{item.nombres}}"
-							filterMatchMode="contains" sortBy="#{item.nombres}">
-							<h:outputText value="#{item.nombres}#{item.apellidos}" />
-						</p:column>
-
-
-					</p:dataTable>
-
-
-
-					<p:commandButton value="Guardar"
-						action="#{asignacionBean.guardar()}"
-						oncomplete="if (args &amp;&amp; !args.validationFailed) PF('dlgEmpleado').hide(); "
-						update="frmAsignacion:tblAsignacion" />
 
 				</h:form>
 			</p:dialog>
-
-
-
-
 
 
 		</ui:define>

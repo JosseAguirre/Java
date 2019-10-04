@@ -74,6 +74,8 @@
 				
 			</p:dataTable>
 			
+			<br /> <br />
+			
 			<div id="footer" class="box-footer">
 			<p:commandButton id="btnNuevo"
 								actionListener="#{admMenuBean.nuevo()}" value="Nuevo"
@@ -115,15 +117,13 @@
 					onkeyup="this.value = this.value.toUpperCase();">
 				</p:inputText>
 				<p:message for="nombre" />
-
 		
 				<p:outputLabel value="Padre" for="padre"  />
 				<p:inputText id="padre" required="false" requiredMessage="Requerido" 
 					value="#{admMenuBean.admMenu.idPadre}" 
 					onkeyup="this.value = this.value.toUpperCase();">
 				</p:inputText>
-				<p:message for="padre" />
-				
+				<p:message for="padre" />				
 				
 				<p:outputLabel value="Url" for="url" />
 				<p:inputText id="url" required="false" requiredMessage="Requerido" style="width:400px"

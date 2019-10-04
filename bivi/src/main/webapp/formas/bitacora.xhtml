@@ -8,58 +8,247 @@
 	<ui:composition template="/templates/menuT.xhtml">
 		<ui:define name="contenido">
 
-
 			<h:form id="frmBitacora">
 
-
+				<p:growl id="growl" showDetail="true" life="3000" rendered="#{not facesContext.validationFailed}" />
 				
-					<div class="box-header with-border">
-						<h3 class="box-title">Bitacora</h3>
+				<!-- general form elements -->        
+	             <div class="box box-primary">
+	          		 <div class="box-header with-border">
+	              		<h3 class="box-title">Bitacora</h3>
+	            	</div>			
+	                    
+	              <div class="box-body">
+	              
+	              <!-- CONTENIDO DE LA TABLA BITACORA -->
+	              <p:dataTable id="tbl"
+	              	value="#{bitacoraBean.listaDetalleBitacora}"
+					var="item" 
+					paginator="true"
+					rows="10" 
+					paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+					paginatorPosition="bottom" 
+					selection="#{bitacoraBean.detalleBitacoraSeleccionada}"
+					tableStyle="white-space: nowrap" 
+					widgetVar="tablaBitacora"
+					filteredValue="#{bitacoraBean.detalleBitacoraFiltrada}"
+					emptyMessage="No existen registros con ese criterio"
+					styleClass="table"
+					reflow="true"
+					selectionMode="single"
+				    rowKey="#{item.idDetalleBitacora}">
+				    
+				    <f:facet name="header">
+								<div class="row row-nomargin">
+									<div class="col-lg-3">
+										<p:inputText id="globalFilter"
+											onkeyup="PF('tablaBitacora').filter()" class="pull-left"
+											style="width: 100%" placeholder="Buscar...." />
+									</div>
+									<div class="col-lg-6">
+										<p:outputLabel value="Bitacora" />
+									</div>
+
+								</div>
+							</f:facet>
+							
+							<p:column headerText="Codigo" filterBy="#{item.idDetalleBitacora}"
+							filterStyle="display:none">
+							<h:outputText value="#{item.idDetalleBitacora}" />
+							</p:column>
+			
+							<p:column headerText="Identificacion" filterBy="#{item.identificacion}"
+								filterStyle="display:none">
+								<h:outputText value="#{item.identificacion}" />
+								</p:column>
+							<p:column headerText="Apellidos" filterBy="#{item.apellidos}" filterStyle="display:none">
+								<h:outputText value="#{item.apellidos}" />
+							</p:column>
+							<p:column headerText="Nombres" filterBy="#{item.nombres}" filterStyle="display:none">
+								<h:outputText value="#{item.nombres}" />
+							</p:column>
+							<p:column headerText="Tipo Ingreso" filterBy="#{item.tipoIngreso}" filterStyle="display:none">
+								<h:outputText value="#{item.tipoIngreso}" />
+							</p:column>
+							<p:column headerText="Visita" filterBy="#{item.personaVisitada}" filterStyle="display:none">
+								<h:outputText value="#{item.personaVisitada}" />
+							</p:column>
+							<p:column headerText="Oficina" filterBy="#{item.oficina}" filterStyle="display:none">
+								<h:outputText value="#{item.oficina}" />
+							</p:column>
+	              
+	              </p:dataTable>
+	              
+	              <br /> <br />
+	              
+	              	<div id= "footer" class="box-footer">
+
+						<p:commandButton id="btnNuevo"
+								actionListener="#{bitacoraBean.nuevo()}" value="Nuevo"
+								 styleClass="my-button" icon="fa fa-plus"
+								update=":frmBitacora:growl :frmCrear" />
+
+						<p:commandButton id="btnModificar"
+							actionListener="#{bitacoraBean.modificar()}"
+							value="Modificar"  styleClass="my-button"
+							icon="fa fa-pencil" update=":frmBitacora:growl :frmCrear" />
+						
+						<p:commandButton id="btnEliminar"
+								actionListener="#{bitacoraBean.eliminar()}"
+								value="Eliminar" styleClass="my-button" icon="fa fa-trash"
+								update=":frmBitacora:tbl :frmBitacora:growl">
+						</p:commandButton>
+
+
 					</div>
+						
+						<br />
 					
-
-						<!--#### CONTENIDO DE LA TABLA ASIGNACIONES -->
-						<p:dataTable id="tblBitcora"
-							value="#{bitacoraBean.listaDetalleBitacora}" 
-							var="item"
-							paginator="true"
-							paginatorTemplate="    {FirstPageLink} {PreviousPageLink}  {NextPageLink} {LastPageLink} "
-							paginatorPosition="bottom" 
-							tableStyle=" white-space: nowrap"
-							emptyMessage="No existen registros con ese criterio"
-							
-							editable="true" 
-							 reflow="true" 
-							 widgetVar="tblBitcora"
-							rowKey="#{item.idDetalleBitacora}">
-							
-						<p:column headerText="Nombres">
-					<h:outputText value="#{item.nombres}" />
-				</p:column>
-							
-							
-							
-
-
-						</p:dataTable>
-
-				
-			
-				<br />
-
-
-				
-
-
+					</div>
+				</div>
 			</h:form>
-
-
-
 			
+			
+			<!-- DIALOGO BITACORA -->
 
+		<p:dialog id="dlgDatosBitacora" widgetVar="dlgDatosBitacora"
+			 responsive="true" modal="true"
+			width="50%"  closable="true"
+			closeOnEscape="true"
+			  appendTo="@(body)">
+		
+ 
+			<!-- general form elements -->
+			<h:form id="frmCrear">
+			
+			<p:messages id="mensaje" autoUpdate="false"/>
+			<p:focus context="@form"/>
+	
+					<p:panelGrid id="pnl" columns = "3" columnClasses="ui-grid-col-5" layout="grid" styleClass="ui-panelgrid-blank">
+						
 
+				<p:outputLabel value="Identificación" for="identificacion" />
+				<p:inputText id="identificacion"
+					value="#{bitacoraBean.detalleBitacora.identificacion}" required="true"
+					requiredMessage="Requerido"
+					onkeyup="this.value = this.value.toUpperCase();">
+				</p:inputText>
+				<p:message for="identificacion" display="icon"/>
 
-
+				<p:outputLabel value="Apellidos" for="apellidos" />
+				<p:inputText id="apellidos"
+					value="#{bitacoraBean.detalleBitacora.apellidos}" required="true"
+					requiredMessage="Requerido"
+					onkeyup="this.value = this.value.toUpperCase();">
+				</p:inputText>
+				<p:message for="apellidos" display="icon"/>
+				
+				<p:outputLabel value="Nombres" for="nombres" />
+				<p:inputText id="nombres"
+					value="#{bitacoraBean.detalleBitacora.nombres}" required="true"
+					requiredMessage="Requerido"
+					onkeyup="this.value = this.value.toUpperCase();">
+				</p:inputText>
+				<p:message for="nombres" display="icon"/>
+				
+				<p:outputLabel value="Fecha de ingreso" for="fechaIngreso" />
+				<p:calendar pattern="dd/MM/yyyy" id="fechaIngreso"
+					value="#{bitacoraBean.detalleBitacora.fechaIngreso}"
+					locale="es" title="Fecha de ingreso" showButtonPanel="true"
+					navigator="true" effect="clip" showOn="button" required="true"
+					requiredMessage="Completar Fecha!">
+				</p:calendar>
+				<p:message for="fechaIngreso" display="icon"/>
+				
+				<p:outputLabel value="Fecha de salida" for="fechaSalida" />
+				<p:calendar pattern="dd/MM/yyyy" id="fechaSalida"
+					value="#{bitacoraBean.detalleBitacora.fechaSalida}"
+					locale="es" title="Fecha de salida" showButtonPanel="true"
+					navigator="true" effect="clip" showOn="button" required="true"
+					requiredMessage="Completar Fecha!">
+				</p:calendar>
+				<p:message for="fechaSalida" display="icon"/>
+				
+				<p:outputLabel value="Puesto" for="idPuesto" />
+				<p:selectOneMenu id="idPuesto" value="#{bitacoraBean.idPuesto}"
+					required="true" requiredMessage="Requerido">
+					<f:selectItem itemLabel="Seleccionar" itemValue="#{null}" />
+					<f:selectItems value="#{bitacoraBean.listaPuesto}" var="item"
+						itemLabel="#{item.nombrePuesto}"
+						itemValue="#{item.idPuesto}">
+					</f:selectItems>
+				</p:selectOneMenu>
+				<p:message for="idPuesto" />
+				
+				<p:outputLabel value="Tipo ingreso" for="tipoIngreso" />
+				<p:inputText id="tipoIngreso"
+					value="#{bitacoraBean.detalleBitacora.tipoIngreso}" required="true"
+					requiredMessage="Requerido"
+					onkeyup="this.value = this.value.toUpperCase();">
+				</p:inputText>
+				<p:message for="tipoIngreso" display="icon"/>
+				
+				<p:outputLabel value="Oficina" for="oficina" />
+				<p:inputText id="oficina"
+					value="#{bitacoraBean.detalleBitacora.oficina}" required="true"
+					requiredMessage="Requerido"
+					onkeyup="this.value = this.value.toUpperCase();">
+				</p:inputText>
+				<p:message for="oficina" display="icon"/>
+				
+				<p:outputLabel value="Persona Visitada" for="personaVisitada" />
+				<p:inputText id="personaVisitada"
+					value="#{bitacoraBean.detalleBitacora.personaVisitada}" required="true"
+					requiredMessage="Requerido"
+					onkeyup="this.value = this.value.toUpperCase();">
+				</p:inputText>
+				<p:message for="personaVisitada" display="icon"/>
+				
+				<p:outputLabel value="Placa" for="placa" />
+				<p:inputText id="placa"
+					value="#{bitacoraBean.detalleBitacora.placa}"
+					requiredMessage="Requerido"
+					onkeyup="this.value = this.value.toUpperCase();">
+				</p:inputText>
+				<p:message for="placa" display="icon"/>
+				
+				<p:outputLabel value="Seguimiento" for="seguimiento" />
+				<p:selectOneMenu id="seguimiento" value="#{bitacoraBean.detalleBitacora.seguimiento}"
+					required="true" requiredMessage="Requerido">
+					<f:selectItem itemLabel="Selecciona" itemValue="#{null}" />
+					<f:selectItem itemLabel="SI" itemValue="1" />
+					<f:selectItem itemLabel="NO" itemValue="0" />
+				</p:selectOneMenu>
+				<p:message for="seguimiento" display="icon"/>
+				
+				<p:outputLabel value="Ingreso por Parqueadero" for="ingresoPorParqueadero" />
+				
+				<p:selectOneMenu id="ingresoPorParqueadero" value="#{bitacoraBean.detalleBitacora.ingresoPorParqueadero}"
+					required="true" requiredMessage="Requerido">
+					<f:selectItem itemLabel="Selecciona" itemValue="#{null}" />
+					<f:selectItem itemLabel="SI" itemValue="1" />
+					<f:selectItem itemLabel="NO" itemValue="0" />
+				</p:selectOneMenu>
+				<p:message for="ingresoPorParqueadero" display="icon"/>
+				
+				<p:outputLabel value="Observaciones" for="observaciones" />
+					<p:inputTextarea id="observaciones" value="#{bitacoraBean.detalleBitacora.observaciones}" rows="10" cols="60" />
+				<p:message for="observaciones" display="icon"/> 
+				
+				</p:panelGrid>	
+						
+					<br />
+					<p:commandButton value="Guardar"
+						action="#{bitacoraBean.persistir()}"
+						update = ":frmBitacora:tbl :frmCrear:pnl :frmBitacora:growl"  styleClass="my-button"	icon="fa fa-save"					
+						oncomplete="if (args &amp;&amp; !args.validationFailed) PF('dlgDatosBitacora').hide(); " />
+						
+					<p:commandButton value="Cancelar"
+						actionListener="#{bitacoraBean.cancelar()}"	 styleClass="my-button"	icon="fa fa-close"			 
+						oncomplete="PF('dlgDatosBitacora').hide();" />
+			
+			</h:form>
+		</p:dialog>
 
 
 		</ui:define>

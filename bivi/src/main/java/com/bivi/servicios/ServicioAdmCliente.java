@@ -29,7 +29,7 @@ public class ServicioAdmCliente {
 
 	@SuppressWarnings("unchecked")
 	public List<AdmCliente> findAll() { // Busca todo de la tabla AdmCliente
-		Query q = em.createQuery("select b from AdmCliente b   ");
+		Query q = em.createQuery("select b from AdmCliente b order by b.idCliente ASC");
 		return q.getResultList();
 	}
 	

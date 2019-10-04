@@ -25,10 +25,7 @@ public class ServicioFisDetalleBitacora {
 	}
 	
 	public void update(FisDetalleBitacora detalleBitacora){
-	
 		em.merge(detalleBitacora);
-		
-		
 	}
 	
 
@@ -36,9 +33,7 @@ public class ServicioFisDetalleBitacora {
 	
 	@SuppressWarnings("unchecked")
 	public List<FisDetalleBitacora> buscaBitacora() {
-		Query q = em.createQuery("select a from FisDetalleBitacora a   ");
-
-		
+		Query q = em.createQuery("select a from FisDetalleBitacora a  order by a.idDetalleBitacora ASC ");
 		return q.getResultList();
 	}
 	
@@ -60,10 +55,5 @@ public class ServicioFisDetalleBitacora {
 		Query q = em.createQuery("select c from FisConsignasEspecificasPuesto c where c.idConsignaEspecificaPuesto = " + codigoAdmRol);
 		return (AdmRol) q.getSingleResult();
 	}
-
-
-	
-	
-
 
 }

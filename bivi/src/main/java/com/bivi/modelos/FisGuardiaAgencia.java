@@ -43,15 +43,15 @@ public class FisGuardiaAgencia implements Serializable {
 	@JoinColumn(name="id_puesto")
 	private AdmPuesto idPuesto;
 
-	//uni-directional many-to-one association to AdmEmpleado
+	//uni-directional many-to-one association to AdmUsuario
 	@ManyToOne
 	@JoinColumn(name="id_usuario")
-	private AdmEmpleado idEmpleado;
+	private AdmUsuario idUsuario;
 
 	//uni-directional many-to-one association to AdmUsuario
 	@ManyToOne
 	@JoinColumn(name="id_usuario_asignado_por")
-	private AdmUsuario idUsuario2;
+	private AdmUsuario idUsuarioAsignadoPor;
 
 	public FisGuardiaAgencia() {
 	}
@@ -104,22 +104,20 @@ public class FisGuardiaAgencia implements Serializable {
 		this.idPuesto = idPuesto;
 	}
 
-
-
-	public AdmEmpleado getIdEmpleado() {
-		return idEmpleado;
+	public AdmUsuario getIdUsuario() {
+		return idUsuario;
 	}
 
-	public void setIdEmpleado(AdmEmpleado idEmpleado) {
-		this.idEmpleado = idEmpleado;
+	public void setIdUsuario(AdmUsuario idUsuario) {
+		this.idUsuario = idUsuario;
 	}
 
-	public AdmUsuario getIdUsuario2() {
-		return this.idUsuario2;
+	public AdmUsuario getIdUsuarioAsignadoPor() {
+		return this.idUsuarioAsignadoPor;
 	}
 
-	public void setIdUsuario2(AdmUsuario idUsuario2) {
-		this.idUsuario2 = idUsuario2;
+	public void setIdUsuarioAsignadoPor(AdmUsuario idUsuarioAsignadoPor) {
+		this.idUsuarioAsignadoPor = idUsuarioAsignadoPor;
 	}
 
 }

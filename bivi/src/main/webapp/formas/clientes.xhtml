@@ -61,6 +61,11 @@
 								filterBy="#{item.nombreComercial}" filterStyle="display:none">
 								<h:outputText value="#{item.nombreComercial}" />
 							</p:column>
+							
+							<p:column headerText="Tipo Cliente"
+								filterBy="#{item.idTipoClienteCatalogo.descripcion}" filterStyle="display:none">
+								<h:outputText value="#{item.idTipoClienteCatalogo.descripcion}" />
+							</p:column>
 
 							<p:column headerText="Cliente Padre"
 								filterBy="#{item.idClientePadre.razonSocial}"
@@ -68,7 +73,7 @@
 								<h:outputText value="#{item.idClientePadre.razonSocial}" />
 							</p:column>
 
-							<p:column headerText="Identificacion" filterBy="#{item.identificacion}"
+							<p:column headerText="RUC/ID" filterBy="#{item.identificacion}"
 								filterStyle="display:none">
 								<h:outputText value="#{item.identificacion}" />
 							</p:column>
@@ -97,6 +102,8 @@
 
 						</p:dataTable>
 					</div>
+					
+					<br /> <br />
 
 					<div id="footer" class="box-footer">
 
@@ -145,6 +152,17 @@
 									</f:selectItems>
 								</p:selectOneMenu>
 								<p:message for="idCiudad" />
+								
+								<p:outputLabel value="Tipo Cliente" for="idTipoClienteCatalogo" />
+								<p:selectOneMenu id="idTipoClienteCatalogo" value="#{admClienteBean.idTipoClienteCatalogo}"
+									required="true" requiredMessage="Requerido">
+									<f:selectItem itemLabel="Seleccionar" itemValue="#{null}" />
+									<f:selectItems value="#{admClienteBean.listaTipoCliente}" var="item"
+										itemLabel="#{item.descripcion}"
+										itemValue="#{item.idDetalleCatalogo}">
+									</f:selectItems>
+								</p:selectOneMenu>
+								<p:message for="idTipoClienteCatalogo" />
 
 								<p:outputLabel value="Cliente Padre" for="clientepadre" />
 								<p:selectOneMenu id="clientepadre"
@@ -173,7 +191,7 @@
 								</p:inputText>
 								<p:message for="nombrecomercial" />
 
-								<p:outputLabel value="Identificacion" for="identificacion" />
+								<p:outputLabel value="RUC/ID" for="identificacion" />
 								<p:inputText id="identificacion" value="#{admClienteBean.admCliente.identificacion}"
 									required="true" requiredMessage="Requerido"
 									onkeyup="this.value = this.value.toUpperCase();">

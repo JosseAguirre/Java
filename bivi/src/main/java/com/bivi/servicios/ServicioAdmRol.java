@@ -33,7 +33,7 @@ public class ServicioAdmRol {
 	
 	@SuppressWarnings("unchecked")
 	public List<AdmRol> findAll() { // Busca todo de la tabla AdmRol
-		Query q = em.createQuery("select b from AdmRol b   ");
+		Query q = em.createQuery("select b from AdmRol b order by b.idRol ASC");
 		return q.getResultList();
 	}
 	

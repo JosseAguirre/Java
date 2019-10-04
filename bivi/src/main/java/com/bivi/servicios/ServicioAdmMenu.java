@@ -44,36 +44,33 @@ public class ServicioAdmMenu {
 		return q.getResultList();
 	}
         
-        @SuppressWarnings("unchecked")
-    	public List<AdmMenu> findAllx() {
-        	List <AdmMenu> lista = new ArrayList<>();
-        	
-    		Query q = em.createNativeQuery("select id_menu, nombre, id_padre from java.adm_menu  ");
-    		List<Object[]> rows =  q.getResultList();
-    		for(Object[] row : rows){
-    			
-    			AdmMenu e = new AdmMenu();
-    			e.setIdMenu(Integer.parseInt(row[0].toString()));
-    			e.setNombre(row[1].toString());
-    			if(row[2].toString()==null){
-    				e.setIdPadre(null);
-    			}else{
-    				e.setIdPadre(Integer.parseInt(row[2].toString()));
-    			}
-    			
-    			
-    		
-    			
-    			lista.add(e);
-    			
-    		}
-    		return lista;
-    		
-    	}
+    @SuppressWarnings("unchecked")
+	public List<AdmMenu> findAllx() {
+    	List <AdmMenu> lista = new ArrayList<>();
+    	
+		Query q = em.createNativeQuery("select id_menu, nombre, id_padre from java.adm_menu  ");
+		List<Object[]> rows =  q.getResultList();
+		for(Object[] row : rows){
+			
+			AdmMenu e = new AdmMenu();
+			e.setIdMenu(Integer.parseInt(row[0].toString()));
+			e.setNombre(row[1].toString());
+			if(row[2].toString()==null){
+				e.setIdPadre(null);
+			}else{
+				e.setIdPadre(Integer.parseInt(row[2].toString()));
+			}
+			
+			lista.add(e);
+			
+		}
+		return lista;
+		
+	}
 	
 	@SuppressWarnings("unchecked")
 	public List<AdmMenu> findAll() {
-		Query q = em.createQuery("select c from AdmMenu c ");
+		Query q = em.createQuery("select c from AdmMenu c order by c.idMenu ASC");
 		return q.getResultList();
 	}
 	@SuppressWarnings("unchecked")
@@ -83,14 +80,15 @@ public class ServicioAdmMenu {
 	}
 	
 	
-	@SuppressWarnings({ "unchecked", "unused" })
+	@SuppressWarnings("unchecked")
 	public List<AdmMenu> buscaMenu() { // Busca los menues segun el rol del usuario logueado
 		List <AdmMenu> lista = new ArrayList<>();
 		
 		AdmUsuario us = (AdmUsuario) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("usuario");
-		Query q = em.createNativeQuery("select distinct rm.id_menu as rm, me.id_menu, me.id_padre, me.nombre, me.url_pagina, me.icono, me.orden, me.icono2 from bivi.adm_rol_menu as rm "+ 
-				"inner join bivi.adm_menu as me on me.id_menu = rm.id_menu "+ 
-				"where  rm.id_rol = 1 order by me.orden asc");
+		Query q = em.createNativeQuery("select distinct rm.id_menu as rm, me.id_menu, me.id_padre, me.nombre, me.url_pagina, me.icono, me.orden, me.icono2 from bivi.adm_rol_menu as rm  "+ 
+				"inner join bivi.adm_menu as me on me.id_menu = rm.id_menu "+
+				"inner join bivi.adm_rol_usuario as ru on ru.id_rol = rm.id_rol "+ 
+				"where ru.id_usuario = "+us.getIdUsuario()+" order by me.orden asc");
 		
 		List<Object[]> rows =  q.getResultList();
 		for(Object[] row : rows){
@@ -99,9 +97,7 @@ public class ServicioAdmMenu {
 			c.setIdMenu(Integer.parseInt(row[1].toString()));
 			
 			if(row[2]== null){
-				c.setIdPadre(null);
-				
-				
+				c.setIdPadre(null);	
 			} else {
 				c.setIdPadre(Integer.parseInt(row[2].toString()));
 			}
@@ -109,42 +105,25 @@ public class ServicioAdmMenu {
 			c.setNombre((row[3].toString()));
 			
 			if(row[4] == null){
-				c.setUrlPagina(null);
-				
-				
+				c.setUrlPagina(null);	
 			}else {
 				c.setUrlPagina((row[4].toString()));
-				
 			}
-			
-
 			if(row[5] == null){
-				c.setIcono(null);
-				
-				
+				c.setIcono(null);	
 			}else{
 				c.setIcono((row[5].toString()));
-				
-				
 			}
-			
-			
 			
 			if(row[6] == null){
 				c.setOrden(null);
-				
-				
 			}else{
-			
 			c.setOrden(Integer.parseInt(row[6].toString()));
 			}
 			
 			if(row[7] == null){
-				c.setIcono2(null);
-				
-				
+				c.setIcono2(null);	
 			}else{
-			
 			c.setIcono2(row[7].toString());
 			}
 			
@@ -163,6 +142,7 @@ public class ServicioAdmMenu {
 		
 		return q.getResultList();
 	}
+	
 	public Integer getPK() {
 		Integer codigo = 0;
 		Query q = em.createQuery("select max(id) from AdmMenu ");

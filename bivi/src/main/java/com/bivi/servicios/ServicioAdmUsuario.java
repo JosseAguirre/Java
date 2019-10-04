@@ -1,5 +1,6 @@
 package com.bivi.servicios;
 
+import java.util.ArrayList;
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
@@ -23,16 +24,33 @@ public class ServicioAdmUsuario {
 	}
 	
 	public void update(AdmUsuario admusuario){
-	
-		em.merge(admusuario);
-		
-		
+		em.merge(admusuario);	
 	}
 	
 	@SuppressWarnings("unchecked")
 	public List<AdmUsuario> findAll() { // Busca todo de la tabla AdmUsuario
 		Query q = em.createQuery("select b from AdmUsuario b order by b.idUsuario ASC");
 		return q.getResultList();
+	}
+	
+	@SuppressWarnings("unchecked")
+	public List<AdmUsuario> buscaGuardias() {
+		List <AdmUsuario> lista = new ArrayList<>();
+		
+		Query q = em.createNativeQuery("select us.id_usuario, us.usuario from bivi.adm_rol_usuario as ru "+
+										"inner join bivi.adm_usuario as us on us.id_usuario = ru.id_usuario where ru.id_rol = 2");
+		
+		List<Object[]> rows =  q.getResultList();
+		for(Object[] row : rows){
+			
+			AdmUsuario u = new AdmUsuario();
+			u.setIdUsuario(Integer.parseInt(row[0].toString()));
+			u.setUsuario(row[1].toString());
+			
+			lista.add(u);
+			
+		}
+		return lista;
 	}
 	
 	public Integer getPK() {
@@ -51,9 +69,4 @@ public class ServicioAdmUsuario {
 		Query q = em.createQuery("select a from AdmUsuario a where a.idusuario = " + codigoadmusuario);
 		return (AdmUsuario) q.getSingleResult();
 	}
-
-	
-
-	
-
 }

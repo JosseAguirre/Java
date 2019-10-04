@@ -1,6 +1,8 @@
 package com.bivi.modelos;
 
 import java.io.Serializable;
+import java.util.List;
+
 import javax.persistence.*;
 
 
@@ -38,6 +40,10 @@ public class AdmPuesto implements Serializable {
 	@ManyToOne
 	@JoinColumn(name="id_agencia")
 	private AdmAgencia idAgencia;
+	
+	//bi-directional many-to-one association to FisPuestoTurno
+	@OneToMany(mappedBy="idPuesto")
+	private List<FisPuestoTurno> idPuestoTurnos;
 
 	public AdmPuesto() {
 	}
@@ -96,6 +102,14 @@ public class AdmPuesto implements Serializable {
 
 	public void setIdAgencia(AdmAgencia idAgencia) {
 		this.idAgencia = idAgencia;
+	}
+	
+	public List<FisPuestoTurno> getFisPuestoTurnos() {
+		return this.idPuestoTurnos;
+	}
+
+	public void setFisPuestoTurnos(List<FisPuestoTurno> idPuestoTurnos) {
+		this.idPuestoTurnos = idPuestoTurnos;
 	}
 
 }

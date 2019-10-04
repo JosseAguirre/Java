@@ -37,6 +37,10 @@ public class AdmDetalleCatalogo implements Serializable {
 	@OneToMany(mappedBy="idCiudad")
 	private List<AdmCliente> admClientes1;
 	
+	//bi-directional many-to-one association to AdmCliente
+	@OneToMany(mappedBy="idTipoClienteCatalogo")
+	private List<AdmCliente> admClientes;
+	
 	//bi-directional many-to-one association to AdmAgencia
 	@OneToMany(mappedBy="idCiudad")
 	private List<AdmAgencia> admAgencias1;
@@ -44,6 +48,14 @@ public class AdmDetalleCatalogo implements Serializable {
 	//bi-directional many-to-one association to AdmPuesto
 	@OneToMany(mappedBy="idTipoPuestoCatalogo")
 	private List<AdmPuesto> admPuesto;
+	
+	//bi-directional many-to-one association to admDependencia
+	@OneToMany(mappedBy="idTipoDetalleCatalogo")
+	private List<AdmDependencia> admDependencia;
+	
+	//bi-directional many-to-one association to FisTurnoDia
+	@OneToMany(mappedBy="idDia")
+	private List<FisTurnoDia> fisTurnoDia;
 
 	public AdmDetalleCatalogo() {
 	}
@@ -88,6 +100,14 @@ public class AdmDetalleCatalogo implements Serializable {
 		this.admClientes1 = admClientes1;
 	}
 	
+	public List<AdmCliente> getAdmClientes() {
+		return this.admClientes;
+	}
+
+	public void setAdmClientes(List<AdmCliente> admClientes) {
+		this.admClientes = admClientes;
+	}
+	
 	public List<AdmAgencia> getAdmAgencias1() {
 		return this.admAgencias1;
 	}
@@ -102,6 +122,22 @@ public class AdmDetalleCatalogo implements Serializable {
 
 	public void setAdmPuesto(List<AdmPuesto> admPuesto) {
 		this.admPuesto = admPuesto;
+	}
+	
+	public List<AdmDependencia> getAdmDependencia() {
+		return this.admDependencia;
+	}
+
+	public void setAdmDependencia(List<AdmDependencia> admDependencia) {
+		this.admDependencia = admDependencia;
+	}
+	
+	public List<FisTurnoDia> getFisTurnoDia() {
+		return this.fisTurnoDia;
+	}
+
+	public void setFisTurnoDia(List<FisTurnoDia> fisTurnoDia) {
+		this.fisTurnoDia = fisTurnoDia;
 	}
 
 }

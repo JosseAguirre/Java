@@ -41,10 +41,10 @@ public class AdmRolBean implements  Serializable {
 	private List<AdmMenu> listaMenu;
 	private AdmMenu menu;
 	
-	 List <AdmMenu>obj = new ArrayList<>();
+	List <AdmMenu>obj = new ArrayList<>();
 	 
-	 private List<AdmMenu> menuAgregar;
-	 private List<AdmMenu> menuQuitar;
+	private List<AdmMenu> menuAgregar;
+	private List<AdmMenu> menuQuitar;
 	 
 	
 	@EJB
@@ -200,6 +200,7 @@ public class AdmRolBean implements  Serializable {
 			admrol.setIdRol(servicioRol.getPK());
 			servicioRol.create(admrol);
 			FacesContext.getCurrentInstance().addMessage(null,	new FacesMessage(FacesMessage.SEVERITY_INFO, "Aviso", "Rol Guardado Correctamente "));
+			consultaRoles();
 			cancelar();
 		}
 	}

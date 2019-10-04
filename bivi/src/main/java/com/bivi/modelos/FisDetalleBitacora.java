@@ -1,6 +1,8 @@
 package com.bivi.modelos;
 
 import java.io.Serializable;
+import java.util.Date;
+
 import javax.persistence.*;
 
 
@@ -39,10 +41,15 @@ public class FisDetalleBitacora implements Serializable {
 	private String tipoIngreso;
 	
 	@Column(name="ingreso_por_parqueadero")
-	private String ingresoPorParqueadero;
+	private Integer ingresoPorParqueadero;
 	
-
+	@Temporal(TemporalType.DATE)
+	@Column(name="fecha_ingreso")
+	private Date fechaIngreso;
 	
+	@Temporal(TemporalType.DATE)
+	@Column(name="fecha_salida")
+	private Date fechaSalida;
 
 	@Column(name="url_imagen")
 	private String urlImagen;
@@ -127,8 +134,6 @@ public class FisDetalleBitacora implements Serializable {
 		this.seguimiento = seguimiento;
 	}
 
-
-
 	public String getUrlImagen() {
 		return this.urlImagen;
 	}
@@ -153,15 +158,29 @@ public class FisDetalleBitacora implements Serializable {
 		this.tipoIngreso = tipoIngreso;
 	}
 
-	public String getIngresoPorParqueadero() {
+	public Integer getIngresoPorParqueadero() {
 		return ingresoPorParqueadero;
 	}
 
-	public void setIngresoPorParqueadero(String ingresoPorParqueadero) {
+	public void setIngresoPorParqueadero(Integer ingresoPorParqueadero) {
 		this.ingresoPorParqueadero = ingresoPorParqueadero;
 	}
 	
+	public Date getFechaIngreso() {
+		return this.fechaIngreso;
+	}
+
+	public void setFechaIngreso(Date fechaIngreso) {
+		this.fechaIngreso = fechaIngreso;
+	}
 	
+	public Date getFechaSalida() {
+		return this.fechaSalida;
+	}
+
+	public void setFechaSalida(Date fechaSalida) {
+		this.fechaSalida = fechaSalida;
+	}
 
 
 }

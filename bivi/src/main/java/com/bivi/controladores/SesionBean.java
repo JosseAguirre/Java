@@ -117,7 +117,7 @@ public class SesionBean implements Serializable  {
 		
 		String redireccion = null;
 		try {
-			redireccion = "/login?faces-redirect=true";
+			redireccion = "/index?faces-redirect=true";
 			FacesContext.getCurrentInstance().getExternalContext().invalidateSession();	//invalido la sesion actual
 			
 			

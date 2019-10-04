@@ -32,8 +32,6 @@ public class ServicioUsuarioAgencia {
 		em.createNativeQuery("delete from bivi.adm_usuario_agencia where id_usuario_agencia = "+idUsuarioAgencia+"").executeUpdate();
 	}
 	
-
-	
 	@SuppressWarnings("unchecked") // busca las agencias segun los clientes,ciudad y usuario  metodo usado para buscar las agenciasasignads  a los usuario 
 	public List<AdmUsuarioAgencia> buscaAgenciaCiudadCliente(AdmUsuario us) {
 		
@@ -64,9 +62,7 @@ public class ServicioUsuarioAgencia {
 			lista.add(e);
 			
 		}
-		return lista;
-		
-		
+		return lista;	
 		
 	}
 	

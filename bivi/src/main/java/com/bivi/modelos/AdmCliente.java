@@ -32,6 +32,11 @@ public class AdmCliente implements Serializable {
 	@ManyToOne
 	@JoinColumn(name="id_ciudad")
 	private AdmDetalleCatalogo idCiudad;
+	
+	//bi-directional many-to-one association to AdmDetalleCatalogo
+	@ManyToOne
+	@JoinColumn(name="id_tipo_cliente_catalogo")
+	private AdmDetalleCatalogo idTipoClienteCatalogo;
 
 	//bi-directional many-to-one association to AdmCliente
 	@ManyToOne
@@ -90,6 +95,14 @@ public class AdmCliente implements Serializable {
 
 	public void setIdCiudad(AdmDetalleCatalogo idCiudad) {
 		this.idCiudad = idCiudad;
+	}
+	
+	public AdmDetalleCatalogo getIdTipoClienteCatalogo() {
+		return this.idTipoClienteCatalogo;
+	}
+
+	public void setIdTipoClienteCatalogo(AdmDetalleCatalogo idTipoClienteCatalogo) {
+		this.idTipoClienteCatalogo = idTipoClienteCatalogo;
 	}
 
 	public AdmCliente getIdClientePadre() {

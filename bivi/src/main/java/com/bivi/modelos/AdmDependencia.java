@@ -22,9 +22,11 @@ public class AdmDependencia implements Serializable {
 	private String correoElectronico;
 
 	private String descripcion;
-
-	@Column(name="id_tipo_detalle_catalogo")
-	private Integer idTipoDetalleCatalogo;
+	
+	//bi-directional many-to-one association to AdmDetalleCatalogo
+	@ManyToOne
+	@JoinColumn(name="id_tipo_detalle_catalogo")
+	private AdmDetalleCatalogo idTipoDetalleCatalogo;
 
 	private String nombre;
 
@@ -71,12 +73,12 @@ public class AdmDependencia implements Serializable {
 	public void setDescripcion(String descripcion) {
 		this.descripcion = descripcion;
 	}
-
-	public Integer getIdTipoDetalleCatalogo() {
+	
+	public AdmDetalleCatalogo getIdTipoDetalleCatalogo() {
 		return this.idTipoDetalleCatalogo;
 	}
 
-	public void setIdTipoDetalleCatalogo(Integer idTipoDetalleCatalogo) {
+	public void setIdTipoDetalleCatalogo(AdmDetalleCatalogo idTipoDetalleCatalogo) {
 		this.idTipoDetalleCatalogo = idTipoDetalleCatalogo;
 	}
 

@@ -1,0 +1,277 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+<body>
+	<ui:composition template="/templates/menuT.xhtml">
+		<ui:define name="contenido">
+
+			<h:form id="frmTurno">
+
+				<p:growl id="growl" showDetail="true" life="3000"
+					rendered="#{not facesContext.validationFailed}" />
+
+
+				<!-- general form elements -->
+				<div class="box box-primary">
+					<div class="box-header with-border">
+						<h3 class="box-title">Turnos</h3>
+					</div>
+					<!-- /.box-header -->
+					<!-- form start -->
+
+					<div class="box-body">
+
+						<!--#### CONTENIDO DE LA TABLA FIS TURNO -->
+						<p:dataTable id="tbl" value="#{turnoBean.listaTurno}" var="item"
+							paginator="true" rows="10"
+							paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+							paginatorPosition="bottom"
+							selection="#{turnoBean.turnoSeleccionado}"
+							tableStyle="white-space: nowrap" widgetVar="tablaTurno"
+							filteredValue="#{turnoBean.turnoFiltrado}"
+							emptyMessage="No existen registros con ese criterio"
+							styleClass="table" reflow="true" selectionMode="single"
+							rowsPerPageTemplate="5,10,15" rowKey="#{item.idTurno}">
+
+
+							<f:facet name="header">
+								<div class="row row-nomargin">
+									<div class="col-lg-3">
+										<p:inputText id="globalFilter"
+											onkeyup="PF('tablaTurno').filter()" class="pull-left"
+											style="width: 100%" placeholder="Buscar...." />
+									</div>
+									<div class="col-lg-6">
+										<p:outputLabel value="Lista de Turnos" />
+									</div>
+								</div>
+							</f:facet>
+
+
+							<p:column headerText="Codigo">
+								<h:outputText value="#{item.idTurno}" />
+							</p:column>
+							<p:column headerText="Turno" filterBy="#{item.nombre}"
+								filterStyle="display:none">
+								<h:outputText value="#{item.nombre}" />
+							</p:column>
+							<p:column headerText="Hora inicio" filterBy="#{item.horaDesde}"
+								filterStyle="display:none">
+								<h:outputText value="#{item.horaDesde}" />
+							</p:column>
+							<p:column headerText="Hora fin" filterBy="#{item.horaHasta}"
+								filterStyle="display:none">
+								<h:outputText value="#{item.horaHasta}" />
+							</p:column>
+
+						</p:dataTable>
+
+						<br /> <br />
+
+						<div id="footer" class="box-footer">
+
+							<p:commandButton id="btnNuevo"
+								actionListener="#{turnoBean.nuevo()}" value="Nuevo"
+								styleClass="my-button" icon="fa fa-plus"
+								update=":frmTurno:growl :frmCrear" />
+
+							<p:commandButton id="btnModificar"
+								actionListener="#{turnoBean.modificar()}" value="Modificar"
+								styleClass="my-button" icon="fa fa-pencil"
+								update=":frmTurno:growl :frmCrear" />
+
+
+
+						</div>
+
+						<br />
+					</div>
+				</div>
+			</h:form>
+
+
+
+
+
+
+			<!-- DIALOGO NUEVO USUARIO -->
+
+			<p:dialog id="dlgDatosTurno" widgetVar="dlgDatosTurno"
+				styleClass="my-dialogs" position="top" responsive="true"
+				modal="true" width="50%" appendTo="@(body)">
+
+				<!-- general form elements -->
+				<h:form id="frmCrear">
+
+					<p:messages id="mensaje" autoUpdate="false" />
+					<p:focus context="@form" />
+
+
+					<p:tabView id="tab">
+						<p:tab id="tbUsuario" title="Turno">
+
+							<p:panelGrid id="pnlD" columns="3"
+								styleClass="ui-panelgrid-blank">
+
+								<p:outputLabel value="Nombre del turno" for="nombre" />
+								<p:inputText id="nombre"
+									value="#{turnoBean.turno.nombre}">
+								</p:inputText>
+								<p:message for="nombre" />
+
+								<p:outputLabel value="Hora inicio" for="horaDesde" />
+								<p:inputText id="horaDesde"
+									value="#{turnoBean.turno.horaDesde}">
+								</p:inputText>
+								<p:message for="horaDesde" />
+
+								<p:outputLabel value="Hora Fin" for="horaHasta" />
+								<p:inputText id="horaHasta"
+									value="#{turnoBean.turno.horaHasta}">
+								</p:inputText>
+								<p:message for="horaHasta" />
+
+							</p:panelGrid>
+
+							<p:commandButton value="Guardar"
+								action="#{turnoBean.persistir()}"
+								update=":frmTurno:tbl  :frmTurno:growl" icon="fa fa-save"
+								styleClass="my-button"
+								oncomplete="if (args &amp;&amp; !args.validationFailed) PF('dlgDatosTurno').hide(); " />
+
+							<p:commandButton value="Cancelar" styleClass="my-button"
+								actionListener="#{turnoBean.cancelar()}" icon="fa fa-close"
+								oncomplete="PF('dlgDatosTurno').hide();" />
+
+
+
+
+						</p:tab>
+
+						<p:tab id="tbRolAsignado" title="Asignacion De Dias">
+							<p:panelGrid id="pnlRol" columns="5"
+								styleClass="ui-panelgrid-blank">
+
+								<p:outputLabel value="Dia" for="dia" />
+								<p:selectOneMenu id="dia" value="#{turnoBean.idDia}">
+									<f:selectItem itemLabel="Seleccionar" itemValue="#{null}" />
+									<f:selectItems value="#{turnoBean.listaDias}" var="item"
+										itemLabel="#{item.descripcion}" itemValue="#{item.idDetalleCatalogo}">
+									</f:selectItems>
+								</p:selectOneMenu>
+								<p:message for="dia" />
+
+								<p:commandButton value="Asignar" styleClass="my-button"
+									actionListener="#{turnoBean.asignarDia()}"
+									update="tblRolAsignado" />
+
+								<p:commandButton value="Eliminar" styleClass="my-button"
+									actionListener="#{turnoBean.eliminarDia()}"
+									update="tblRolAsignado" icon="fa fa-trash" />
+
+							</p:panelGrid>
+
+
+
+							<h:panelGrid id="pnlTbl" styleClass="ui-panelgrid-blank">
+								<br />
+								<!--  DIAS ASIGNADOS -->
+								<p:dataTable id="tblRolAsignado"
+									value="#{turnoBean.turnoDiaAsignados}" var="item"
+									paginator="true" rows="10"
+									paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+									paginatorPosition="bottom"
+									selection="#{turnoBean.turnoDiaSeleccionados}"
+									tableStyle="white-space: nowrap" widgetVar="tblValidacionI"
+									emptyMessage="No existen registros con ese criterio"
+									styleClass="table" reflow="true" rowsPerPageTemplate="5,10,15"
+									rowKey="#{item.idTurnoDia}">
+
+
+
+									<p:column selectionMode="multiple"
+										style="width:40px;text-align:left" />
+
+
+									<p:column headerText="Dias Asignados"
+										filterBy="#{item.idDia.descripcion}" filterStyle="display:none">
+										<h:outputText value="#{item.idDia.descripcion}" />
+									</p:column>
+
+
+								</p:dataTable>
+
+
+
+							</h:panelGrid>
+
+						</p:tab>
+
+						<p:tab id="tbAsignacionCiudad" title="Asignacion de Puestos">
+
+							<p:panelGrid columns="5" styleClass="ui-panelgrid-blank">
+
+								<p:outputLabel value="Puesto" for="idPuesto" />
+								<p:selectOneMenu id="idPuesto"
+									value="#{turnoBean.idPuesto}" filter="true"
+									filterMatchMode="contains">
+
+									<f:selectItem itemLabel="Seleccionar" itemValue="#{null}" />
+									<f:selectItems value="#{turnoBean.listaPuesto}" var="item"
+										itemLabel="#{item.nombrePuesto}"
+										itemValue="#{item.idPuesto}">
+									</f:selectItems>
+								</p:selectOneMenu>
+								<p:message for="idPuesto" display="icon" />
+
+
+								<p:commandButton value="Asignar Puesto" styleClass="my-button"
+									actionListener="#{turnoBean.asignarPuesto}"
+									update="tblCiudadAsignada" />
+
+								<p:commandButton value="Eliminar" styleClass="my-button"
+									actionListener="#{turnoBean.eliminarPuesto()}"
+									update="tblCiudadAsignada" icon="fa fa-trash" />
+							</p:panelGrid>
+
+							<!--  CIUDADES ASIGNADAS -->
+							<p:dataTable id="tblCiudadAsignada"
+								value="#{turnoBean.puestoTurnoAsignados}" var="item"
+								paginator="true" rows="10"
+								paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+								paginatorPosition="bottom"
+								selection="#{turnoBean.puestoTurnoSeleccionados}"
+								tableStyle="white-space: nowrap" widgetVar="tblAgenciaAsignada"
+								emptyMessage="No existen registros con ese criterio"
+								styleClass="table" reflow="true" rowsPerPageTemplate="5,10,15"
+								rowKey="#{item.idPuestoTurno}">
+
+
+
+								<p:column selectionMode="multiple"
+									style="width:40px;text-align:left" />
+
+
+								<p:column headerText="Puesto Asignados"
+									filterBy="#{item.idPuesto.nombrePuesto}"
+									filterStyle="display:none">
+									<h:outputText value="#{item.idPuesto.nombrePuesto}" />
+								</p:column>
+
+
+							</p:dataTable>
+						</p:tab>
+					</p:tabView>
+					<br />
+				</h:form>
+
+			</p:dialog>
+
+		</ui:define>
+
+	</ui:composition>
+</body>
+</html>

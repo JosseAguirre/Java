@@ -3,6 +3,9 @@
 	<persistence-unit name="postgresDS" transaction-type="JTA">
 		<jta-data-source>java:jboss/postgresDS</jta-data-source>
 		<class>com.bivi.modelos.FisGuardiaAgencia</class>
+		<class>com.bivi.modelos.FisPuestoTurno</class>
+		<class>com.bivi.modelos.FisTurno</class>
+		<class>com.bivi.modelos.FisTurnoDia</class>
 		<properties>
 			<property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect" />
 			  <property name="hibernate.show_sql" value="true" />

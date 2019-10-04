@@ -1,0 +1,170 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+<body>
+	<ui:composition template="/templates/menuT.xhtml">
+		<ui:define name="contenido">
+		
+		<h:form id="frmCambio">
+
+				<p:growl id="growl" showDetail="true" life="3000" rendered="#{not facesContext.validationFailed}" />
+				
+				<!-- general form elements -->        
+	             <div class="box box-primary">
+	          		 <div class="box-header with-border">
+	              		<h3 class="box-title">Cambio de Turno</h3>
+	            	</div>			
+	                    
+	              <div class="box-body">
+	              
+	              <!-- CONTENIDO DE LA TABLA FIS CAMBIO TURNO -->
+	              <p:dataTable id="tbl"
+	              	value="#{cambioTurnoBean.listaCambioTurno}"
+					var="item" 
+					paginator="true"
+					rows="10" 
+					paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+					paginatorPosition="bottom" 
+					selection="#{cambioTurnoBean.cambioTurnoSeleccionado}"
+					tableStyle="white-space: nowrap" 
+					widgetVar="tablaCambio"
+					filteredValue="#{cambioTurnoBean.cambioTurnoFiltrado}"
+					emptyMessage="No existen registros con ese criterio"
+					styleClass="table"
+					reflow="true"
+					selectionMode="single"
+				    rowKey="#{item.idCambioTurno}">
+				    
+				    <f:facet name="header">
+								<div class="row row-nomargin">
+									<div class="col-lg-3">
+										<p:inputText id="globalFilter"
+											onkeyup="PF('tablaCambio').filter()" class="pull-left"
+											style="width: 100%" placeholder="Buscar...." />
+									</div>
+									<div class="col-lg-6">
+										<p:outputLabel value="Lista de cambios de turnos" />
+									</div>
+
+								</div>
+							</f:facet>
+							
+							<p:column headerText="Codigo" filterBy="#{item.idCambioTurno}"
+							filterStyle="display:none">
+							<h:outputText value="#{item.idCambioTurno}"/>
+							</p:column>
+							<p:column headerText="Usuario Entrega"
+								filterBy="#{item.idUsuarioEntrega.usuario}" filterStyle="display:none">
+								<h:outputText value="#{item.idUsuarioEntrega.usuario}" />
+							</p:column>
+							<p:column headerText="Usuario Recibe"
+								filterBy="#{item.idUsuarioRecibe.usuario}" filterStyle="display:none">
+								<h:outputText value="#{item.idUsuarioRecibe.usuario}" />
+							</p:column>
+							<p:column headerText="Puesto"
+								filterBy="#{item.idPuesto.nombrePuesto}" filterStyle="display:none">
+								<h:outputText value="#{item.idPuesto.nombrePuesto}" />
+							</p:column>
+	              
+	              </p:dataTable>
+	              
+	              <br /> <br />
+	              
+	              	<div id= "footer" class="box-footer">
+
+						<p:commandButton id="btnNuevo"
+								actionListener="#{cambioTurnoBean.nuevo()}" value="Nuevo"
+								 styleClass="my-button" icon="fa fa-plus"
+								update=":frmCambio:growl :frmCrear"/>
+
+						<p:commandButton id="btnModificar"
+							actionListener="#{cambioTurnoBean.modificar()}"
+							value="Modificar"  styleClass="my-button"
+							icon="fa fa-pencil" update=":frmCambio:growl :frmCrear"/>
+						
+						<p:commandButton id="btnEliminar"
+								actionListener="#{cambioTurnoBean.eliminar()}"
+								value="Eliminar" styleClass="my-button" icon="fa fa-trash"
+								update=":frmCambio:tbl :frmCambio:growl">
+						</p:commandButton>
+					</div>	
+					<br />
+					</div>
+				</div>
+			</h:form>
+			
+			<!-- DIALOGO NUEVA ASIGNACION -->
+
+			<p:dialog id="dlgDatosCambio" widgetVar="dlgDatosCambio"
+				responsive="true" modal="true" width="50%" closable="true" styleClass="my-dialogs"
+				closeOnEscape="true" appendTo="@(body)">
+
+				<h:form id="frmCrear">
+
+					<p:messages id="mensaje" autoUpdate="false" />
+					<p:focus context="@form" />
+					
+
+							<p:panelGrid id="pnl" columns="3"
+								columnClasses="ui-grid-col-2,ui-grid-col-4" layout="grid"
+								styleClass="ui-panelgrid-blank">
+
+								<p:outputLabel value="Usuario Recibe" for="idUsuarioRecibe" />
+								<p:selectOneMenu id="idUsuarioRecibe" value="#{cambioTurnoBean.idUsuario2}"
+									required="true" requiredMessage="Requerido">
+									<f:selectItem itemLabel="Seleccionar" itemValue="#{null}" />
+									<f:selectItems value="#{cambioTurnoBean.listaGuardiaAgenciaGuardias}" var="item"
+										itemLabel="#{item.idUsuario.usuario}"
+										itemValue="#{item.idUsuario.idUsuario}">
+									</f:selectItems>
+								</p:selectOneMenu>
+								<p:message for="idUsuarioRecibe" />
+
+								<p:outputLabel value="Puesto" for="idPuesto" />
+								<p:selectOneMenu id="idPuesto" value="#{cambioTurnoBean.idPuesto}"
+									required="true" requiredMessage="Requerido">
+									<f:selectItem itemLabel="Seleccionar" itemValue="#{null}" />
+									<f:selectItems value="#{cambioTurnoBean.listaGuardiaAgencia}" var="item"
+										itemLabel="#{item.idPuesto.nombrePuesto}"
+										itemValue="#{item.idPuesto.idPuesto}">
+									</f:selectItems>
+								</p:selectOneMenu>
+								<p:message for="idPuesto" />
+								
+								<p:outputLabel value="Observaciones" for="observaciones" />
+									<p:inputTextarea id="observaciones" value="#{cambioTurnoBean.cambioTurno.observaciones}" rows="10" cols="60" />
+								<p:message for="observaciones" display="icon"/> 
+
+							</p:panelGrid>
+
+							<br />
+
+					
+
+							<p:commandButton value="Guardar"
+								action="#{cambioTurnoBean.persistir()}" styleClass="my-button"
+								oncomplete="if (args &amp;&amp; !args.validationFailed) PF('dlgDatosCambio').hide(); "
+								update = ":frmCambio:tbl :frmCrear :frmCambio:growl" 		
+								icon="fa fa-save" >
+								</p:commandButton>
+								
+							<p:commandButton value="Cancelar"
+								actionListener="#{cambioTurnoBean.cancelar()}"
+								 icon="fa fa-close" styleClass="my-button"
+								oncomplete="PF('dlgDatosCambio').hide();">
+							</p:commandButton>
+
+
+
+				</h:form>
+			</p:dialog>
+
+
+		</ui:define>
+
+	</ui:composition>
+</body>
+</html>

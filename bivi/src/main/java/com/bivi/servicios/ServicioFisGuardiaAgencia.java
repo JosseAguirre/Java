@@ -25,36 +25,23 @@ public class ServicioFisGuardiaAgencia {
 	}
 	
 	public void update(FisGuardiaAgencia guardiaAgencia){
-	
-		em.merge(guardiaAgencia);
-		
-		
+		em.merge(guardiaAgencia);	
 	}
 	
+	
+	private int idPruestoConsulta;
+	
 	@SuppressWarnings("unchecked")
-	public List<AdmRol> findAll() {
-		List <AdmRol> lista = new ArrayList<>();
-		Query q = em.createNativeQuery("select id_rol, nombre from java.adm_rol  ");
-		List<Object[]> rows =  q.getResultList();
-		for(Object[] row : rows){
-			
-			AdmRol e = new AdmRol();
-			e.setIdRol(Integer.parseInt(row[0].toString()));
-			e.setNombre(row[1].toString());
-			
-			lista.add(e);
-			
-		}
-		return lista;
+	public List<FisGuardiaAgencia> findAll() {
+		Query q = em.createQuery("select b from FisGuardiaAgencia b order by b.idGuardiaAgencia ASC");
+		return q.getResultList();
 	}
 	
 	
 	
 	@SuppressWarnings("unchecked")
 	public List<FisGuardiaAgencia> buscaAsigancion() {
-		Query q = em.createQuery("select a from FisGuardiaAgencia a   ");
-
-		
+		Query q = em.createQuery("select a from FisGuardiaAgencia a");	
 		return q.getResultList();
 	}
 	
@@ -72,14 +59,73 @@ public class ServicioFisGuardiaAgencia {
 		return codigo;
 	}
 	
-	public AdmRol findOne(Integer codigoAdmRol){
-		Query q = em.createQuery("select c from AdmRol c where c.idempleado = " + codigoAdmRol);
-		return (AdmRol) q.getSingleResult();
+	public FisGuardiaAgencia findOne(Integer codigoFisGuardiaAgencia){
+		Query q = em.createQuery("select c from FisGuardiaAgencia c where c.idGuardiaAgencia = " + codigoFisGuardiaAgencia);
+		return (FisGuardiaAgencia) q.getSingleResult();
+	}
+	
+	
+	@SuppressWarnings("unchecked")  
+	public List<FisGuardiaAgencia> buscaPuestoUsuario(AdmUsuario u) {
+		
+		List <FisGuardiaAgencia> lista = new ArrayList<>();
+		Query q = em.createNativeQuery("select pu.id_puesto, pu.nombre_puesto from bivi.fis_guardia_agencia as ga "+
+				"inner join bivi.adm_puestos as pu on pu.id_puesto = ga.id_puesto "+
+				"inner join bivi.adm_usuario as us on us.id_usuario = ga.id_usuario "+
+				"where ga.id_usuario = "+u.getIdUsuario()+"");
+		List<Object[]> rows =  q.getResultList();
+		for(Object[] row : rows){
+			
+			AdmPuesto p = new AdmPuesto();
+			p.setIdPuesto(Integer.parseInt(row[0].toString()));
+			p.setNombrePuesto(row[1].toString());
+			
+			
+			FisGuardiaAgencia ga = new FisGuardiaAgencia();		
+			ga.setIdPuesto(p);
+			
+			idPruestoConsulta = p.getIdPuesto();
+			
+			lista.add(ga);
+			
+		}
+		return lista;	
+		
+	}
+	
+	@SuppressWarnings("unchecked")  
+	public List<FisGuardiaAgencia> buscaGuardiasPuesto(Integer idPuesto) {
+		
+		List <FisGuardiaAgencia> lista = new ArrayList<>();
+		Query q = em.createNativeQuery("select us.id_usuario, us.usuario from bivi.fis_guardia_agencia as ga "+
+				"inner join bivi.adm_puestos as p on p.id_puesto = ga.id_puesto "+
+				"inner join bivi.adm_usuario as us on us.id_usuario = ga.id_usuario "+
+				"where p.id_puesto = "+idPuesto+"");
+		List<Object[]> rows =  q.getResultList();
+		for(Object[] row : rows){
+			
+			AdmUsuario us = new AdmUsuario();
+			us.setIdUsuario(Integer.parseInt(row[0].toString()));
+			us.setUsuario(row[1].toString());
+			
+			
+			FisGuardiaAgencia ga = new FisGuardiaAgencia();
+			ga.setIdUsuario(us);
+			
+			
+			lista.add(ga);
+			
+		}
+		return lista;	
+		
 	}
 
+	public int getIdPruestoConsulta() {
+		return idPruestoConsulta;
+	}
 
-	
-	
-
+	public void setIdPruestoConsulta(int idPruestoConsulta) {
+		this.idPruestoConsulta = idPruestoConsulta;
+	}
 
 }

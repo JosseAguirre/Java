@@ -18,8 +18,10 @@ public class FisDotacionCambio implements Serializable {
 	@Column(name="id_dotacion_cambio")
 	private Integer idDotacionCambio;
 
-	@Column(name="id_dotacion")
-	private Integer idDotacion;
+	//uni-directional many-to-one association to FisDotacion
+	@ManyToOne
+	@JoinColumn(name="id_dotacion")
+	private FisDotacion idDotacion;
 
 	//uni-directional many-to-one association to FisCambioTurno
 	@ManyToOne
@@ -37,11 +39,11 @@ public class FisDotacionCambio implements Serializable {
 		this.idDotacionCambio = idDotacionCambio;
 	}
 
-	public Integer getIdDotacion() {
+	public FisDotacion getIdDotacion() {
 		return this.idDotacion;
 	}
 
-	public void setIdDotacion(Integer idDotacion) {
+	public void setIdDotacion(FisDotacion idDotacion) {
 		this.idDotacion = idDotacion;
 	}
 

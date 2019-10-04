@@ -22,6 +22,7 @@ import com.bivi.servicios.*;
 
 
 
+@SuppressWarnings("unused")
 @ManagedBean
 @SessionScoped
 public class MenuBean  implements Serializable {
@@ -57,17 +58,10 @@ public class MenuBean  implements Serializable {
 	
 	@PostConstruct
 	public void init() {
-		
-		 model = new DefaultMenuModel();
-		 
-		 cancelar();
-		 
+		model = new DefaultMenuModel();
+		cancelar(); 
 		establecerPermisos();
-		
-
 	}
-	
-//coment
 	
 	public String mostrarUsuarioLogeado() {
 		AdmUsuario us = (AdmUsuario) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("usuario"); //obtengo el usuario logueado
@@ -78,38 +72,24 @@ public class MenuBean  implements Serializable {
 	public void consultarMenu() {
 
 		listamenuusuario = new ArrayList<>();
-		listamenuusuario = serviciomenu.buscaMenu();
-		
-
-		
+		listamenuusuario = serviciomenu.buscaMenu();	
 	}
 	
 	public void subMenu(int id){
 		for(AdmMenu us : listamenuusuario ){
-			
-				
-			}
-			
-		}
+					
+			}	
+	}
 		
-		
-	
-	
 	public void subItem(){
 		
-		
-		
+			
 	}
-	
-	
 	
 	public void cancelar(){
 		 consultarMenu();
 		
 	}
-	
-
-	
 	
 	public void establecerPermisos() { //MENU DE TRES NIVELES
 		model = new DefaultMenuModel();
@@ -162,95 +142,64 @@ public class MenuBean  implements Serializable {
 	
 
 
-public List<AdmRol> getListarol() {
-	return listarol;
-}
-
-
-
-public void setListarol(List<AdmRol> listarol) {
-	this.listarol = listarol;
-}
-
-
-
-public List<AdmMenu> getListaMenuUsuario() {
-	return listamenuusuario;
-}
-
-
-
-public void setListaMenuUsuario(List<AdmMenu> listamenu) {
-	MenuBean.listamenuusuario = listamenu;
-}
-
-
-
-public List<AdmRolMenu> getListarolmenu() {
-	return listarolmenu;
-}
-
-
-
-public void setListarolmenu(List<AdmRolMenu> listarolmenu) {
-	this.listarolmenu = listarolmenu;
-}
-
-
-
-public List<AdmRolUsuario> getListarolusuario() {
-	return listarolusuario;
-}
-
-
-
-public void setListarolusuario(List<AdmRolUsuario> listarolusuario) {
-	this.listarolusuario = listarolusuario;
-}
-
-
-
-public MenuModel getModel() {
-	return model;
-}
-
-
-
-public void setModel(MenuModel model) {
-	this.model = model;
-}
-
-
-
-
-public AdmUsuario getUser() {
-	return (AdmUsuario) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("usuario");
-}
-
-public List<AdmMenu> getListaSubMenu() {
-	return listaSubMenu;
-}
-
-public void setListaSubMenu(List<AdmMenu> listaSubMenu) {
-	this.listaSubMenu = listaSubMenu;
-}
-
-public List<AdmMenu> getListaSubMenuItem() {
-	return listaSubMenuItem;
-}
-
-public void setListaSubMenuItem(List<AdmMenu> listaSubMenuItem) {
-	this.listaSubMenuItem = listaSubMenuItem;
-}
-
-
-
-
-
-
-
-
-
+	public List<AdmRol> getListarol() {
+		return listarol;
+	}
 	
+	public void setListarol(List<AdmRol> listarol) {
+		this.listarol = listarol;
+	}
+	
+	public List<AdmMenu> getListaMenuUsuario() {
+		return listamenuusuario;
+	}
+	
+	public void setListaMenuUsuario(List<AdmMenu> listamenu) {
+		MenuBean.listamenuusuario = listamenu;
+	}
+	
+	public List<AdmRolMenu> getListarolmenu() {
+		return listarolmenu;
+	}
+	
+	public void setListarolmenu(List<AdmRolMenu> listarolmenu) {
+		this.listarolmenu = listarolmenu;
+	}
+	
+	public List<AdmRolUsuario> getListarolusuario() {
+		return listarolusuario;
+	}
+	
+	public void setListarolusuario(List<AdmRolUsuario> listarolusuario) {
+		this.listarolusuario = listarolusuario;
+	}
+	
+	public MenuModel getModel() {
+		return model;
+	}
+	
+	public void setModel(MenuModel model) {
+		this.model = model;
+	}
+	
+	public AdmUsuario getUser() {
+		return (AdmUsuario) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("usuario");
+	}
+	
+	public List<AdmMenu> getListaSubMenu() {
+		return listaSubMenu;
+	}
+	
+	public void setListaSubMenu(List<AdmMenu> listaSubMenu) {
+		this.listaSubMenu = listaSubMenu;
+	}
+	
+	public List<AdmMenu> getListaSubMenuItem() {
+		return listaSubMenuItem;
+	}
+	
+	public void setListaSubMenuItem(List<AdmMenu> listaSubMenuItem) {
+		this.listaSubMenuItem = listaSubMenuItem;
+	}	
 
 }

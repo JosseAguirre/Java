@@ -29,11 +29,14 @@ public class AdmClienteBean implements  Serializable {
 	//Variable de tipo AdmDetalleCatalogo de las listas para la busqueda de los selectOneMenu
 	private List<AdmDetalleCatalogo> listaCiudad;
 	private AdmDetalleCatalogo detalleCatalogo;
+	private List<AdmDetalleCatalogo> listaTipoCliente;
+	private AdmDetalleCatalogo detalleTipoCliente;
 	
 	
 	
 	//Variables que van a ser usadas
 	private int idCiudad;
+	private int idTipoClienteCatalogo;
 	private int idCliente;
 	private int idClientePadre;
 	private boolean bandera ;
@@ -54,9 +57,10 @@ public class AdmClienteBean implements  Serializable {
 	
 	public void cancelar() {
 		admCliente = new AdmCliente();
-		
+		bandera = false;
 		idCiudad = -1; 
 		idCliente = -1;
+		idTipoClienteCatalogo = -1;
 	}
 	
 	public void consultaListaClientes() {
@@ -68,6 +72,9 @@ public class AdmClienteBean implements  Serializable {
 
 		listaCiudad = new ArrayList<>();
 		listaCiudad = servicioDetalleCatalogo.ciudades();
+		
+		listaTipoCliente = new ArrayList<>();
+		listaTipoCliente = servicioDetalleCatalogo.tipocliente();
 		
 		listaClientePadre = new ArrayList<>();
 		listaClientePadre = servicioCliente.buscaClientePadre();
@@ -81,15 +88,18 @@ public class AdmClienteBean implements  Serializable {
 		AdmDetalleCatalogo idCiudad = new AdmDetalleCatalogo();
 		idCiudad.setIdDetalleCatalogo(this.idCiudad);
 		
+		AdmDetalleCatalogo idTipoClienteCatalogo = new AdmDetalleCatalogo();
+		idTipoClienteCatalogo.setIdDetalleCatalogo(this.idTipoClienteCatalogo);
+		
 		AdmCliente clientePadre = new AdmCliente();
 		clientePadre.setIdCliente(this.idCliente);
-		
-		
 		
 
 		admCliente.setIdCliente((int)servicioCliente.getPK());//Setea el Primary key del registro a crear
 		admCliente.setIdCiudad(idCiudad);
+		admCliente.setIdTipoClienteCatalogo(idTipoClienteCatalogo);
 		admCliente.setIdClientePadre(clientePadre);
+		
 		
 		if(clientePadre.getIdCliente() ==0){
     		this.admCliente.setIdClientePadre(null);	
@@ -108,11 +118,19 @@ public class AdmClienteBean implements  Serializable {
 	AdmDetalleCatalogo idCiudad = new AdmDetalleCatalogo();
 	idCiudad.setIdDetalleCatalogo(this.idCiudad);
 	
-	AdmCliente idCliente = new AdmCliente();
-	idCliente.setIdCliente(this.idCliente);
+	AdmDetalleCatalogo idTipoClienteCatalogo = new AdmDetalleCatalogo();
+	idTipoClienteCatalogo.setIdDetalleCatalogo(this.idTipoClienteCatalogo);
+	
+	AdmCliente clientePadre = new AdmCliente();
+	clientePadre.setIdCliente(this.idCliente);
 	
 	this.admCliente.setIdCiudad(idCiudad);
-	this.admCliente.setIdClientePadre(idCliente);
+	this.admCliente.setIdClientePadre(clientePadre);
+	this.admCliente.setIdTipoClienteCatalogo(idTipoClienteCatalogo);
+	
+	if(clientePadre.getIdCliente() ==0){
+		this.admCliente.setIdClientePadre(null);	
+	}
 	
 	
 	servicioCliente.update(admCliente);	
@@ -264,6 +282,30 @@ public class AdmClienteBean implements  Serializable {
 
 	public void setIdCliente(int idCliente) {
 		this.idCliente = idCliente;
+	}
+
+	public List<AdmDetalleCatalogo> getListaTipoCliente() {
+		return listaTipoCliente;
+	}
+
+	public void setListaTipoCliente(List<AdmDetalleCatalogo> listaTipoCliente) {
+		this.listaTipoCliente = listaTipoCliente;
+	}
+
+	public AdmDetalleCatalogo getDetalleTipoCliente() {
+		return detalleTipoCliente;
+	}
+
+	public void setDetalleTipoCliente(AdmDetalleCatalogo detalleTipoCliente) {
+		this.detalleTipoCliente = detalleTipoCliente;
+	}
+
+	public int getIdTipoClienteCatalogo() {
+		return idTipoClienteCatalogo;
+	}
+
+	public void setIdTipoClienteCatalogo(int idTipoClienteCatalogo) {
+		this.idTipoClienteCatalogo = idTipoClienteCatalogo;
 	}
 
 }

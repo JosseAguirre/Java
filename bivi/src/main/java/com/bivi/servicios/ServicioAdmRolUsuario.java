@@ -25,29 +25,20 @@ public class ServicioAdmRolUsuario {
 	}
 	
 	public void update(AdmRolMenu admrolusuario){
-	
-		em.merge(admrolusuario);
-		
-		
+		em.merge(admrolusuario);	
 	}
 	
-	public void eliminarRol(int idRol){
-		
+	public void eliminarRol(int idRol){	
 	 em.createNativeQuery("delete from bivi.adm_rol_usuario where id_rol_usuario ="+idRol+" ").executeUpdate();
 		
-		
 	}
-	
-	
-	
-	
 
 	@SuppressWarnings("unchecked")
 	public List<AdmRolUsuario> rolesAsignados(AdmUsuario us) {
 		List <AdmRolUsuario> lista = new ArrayList<>();
 		Query q = em.createNativeQuery("select ru.id_rol_usuario, r.nombre from bivi.adm_rol_usuario as ru "+
-"inner join bivi.adm_rol as r on r.id_rol = ru.id_rol "+
-"where ru.id_usuario = "+us.getIdUsuario()); 
+					"inner join bivi.adm_rol as r on r.id_rol = ru.id_rol "+
+					"where ru.id_usuario = "+us.getIdUsuario()); 
 		List<Object[]> rows =  q.getResultList();
 		for(Object[] row : rows){
 			
@@ -101,14 +92,5 @@ public class ServicioAdmRolUsuario {
 		Query q = em.createQuery("select a from AdmRolUsuario a where a.idRol = 2 and a.idUsuario not in ( select q.idUsuario from AdmUsuario q where q.idEmpleado in (select c.idEmpleado from OpeDetalleTripulacion c where c.idTripulacion in (select m.idTripulacion from OpeTripulacion m  where m.fechaOperacion ='"+fecha+"'))) and a.idUsuario.idEmpleado.idCiudadDc = "+idCiudad+")");
 		return q.getResultList();
 	}
-	
-	
-	
-	
-	
-	
-	
-
-
 
 }

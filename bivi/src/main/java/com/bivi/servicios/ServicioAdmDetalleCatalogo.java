@@ -97,12 +97,19 @@ public class ServicioAdmDetalleCatalogo {
 		return q.getResultList();
 	}
 	
+	//Metodo para obtener las ciudades de la tabla Admdetallecatálogo
+	@SuppressWarnings("unchecked")
+	public List<AdmDetalleCatalogo> dias() {
+		Query q = em.createQuery("select c from AdmDetalleCatalogo c where c.idCatalogo = 10 ");
+		return q.getResultList();
+	}
+	
 	
 	//no se para es te emetodo
-	//Metodo para obtener os estados de la tabla Admdetallecatálogo --cod 10  esatdoa para cliente/agencias
+	//Metodo para obtener os estados de la tabla Admdetallecatálogo para dependencias
 	@SuppressWarnings("unchecked")
-	public List<AdmDetalleCatalogo> estados() {
-		Query q = em.createQuery("select c from AdmDetalleCatalogo c where c.idCatalogo = 10 ");
+	public List<AdmDetalleCatalogo> dependencias() {
+		Query q = em.createQuery("select c from AdmDetalleCatalogo c where c.idCatalogo = 6 ");
 		return q.getResultList();
 	}
 	
@@ -149,10 +156,17 @@ public class ServicioAdmDetalleCatalogo {
 		Query q = em.createQuery("select c from AdmDetalleCatalogo c where c.idCatalogo = 5 ");
 		return q.getResultList();
 	}
-	//Metodo para obtener las lineas de negocio de la tabla Admdetallecatálogo
+	//Metodo para obtener los tipos de puestos de la tabla Admdetallecatálogo
 	@SuppressWarnings("unchecked")
 	public List<AdmDetalleCatalogo> tipopuesto() {
 		Query q = em.createQuery("select c from AdmDetalleCatalogo c where c.idCatalogo = 7 ");
+		return q.getResultList();
+	}
+	
+	//Metodo para obtener los tipo de clientes de la tabla Admdetallecatálogo
+	@SuppressWarnings("unchecked")
+	public List<AdmDetalleCatalogo> tipocliente() {
+		Query q = em.createQuery("select c from AdmDetalleCatalogo c where c.idCatalogo = 9 ");
 		return q.getResultList();
 	}
 	//Metodo para obtener el tipo empleado de la tabla Admdetallecatálogo

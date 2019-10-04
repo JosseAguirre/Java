@@ -66,6 +66,8 @@
 					</p:dataTable>
 
 				</div>
+				
+				<br /> <br />
 
 				<div id="footer" class="box-footer"></div>
 				<p:commandButton id="btnNuevo"
@@ -117,7 +119,7 @@
 						<br />
 						<p:commandButton value="Guardar" action="#{admRolBean.persistir()}"
 							styleClass="my-button" update=" :frmCrear:tab:pnl :frmRol:tbl"
-							icon="fa fa-save"
+							icon="fa fa-save" oncomplete="if (args &amp;&amp; !args.validationFailed) PF('dlgRol').hide(); " 
 							 >
 						</p:commandButton>
 						
@@ -132,6 +134,7 @@
 						<p:commandButton value="Guardar"
 							action="#{admRolBean.asignarMenu()}" update=":frmCrear:growl2"
 							icon="fa fa-save"  styleClass="my-button"
+							oncomplete="if (args &amp;&amp; !args.validationFailed) PF('dlgRol').hide();"
 							 />
 							
 							<p:commandButton value="Cancelar"

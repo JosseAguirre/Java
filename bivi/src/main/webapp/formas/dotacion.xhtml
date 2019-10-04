@@ -1,0 +1,186 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+<body>
+	<ui:composition template="/templates/menuT.xhtml">
+		<ui:define name="contenido">
+
+			<h:form id="frmDotacion">
+
+				<p:growl id="growl" showDetail="true" life="3000" rendered="#{not facesContext.validationFailed}" />
+				
+				<!-- general form elements -->        
+	             <div class="box box-primary">
+	          		 <div class="box-header with-border">
+	              		<h3 class="box-title">Dotaciones</h3>
+	            	</div>			
+	                    
+	              <div class="box-body">
+	              
+	              <!-- CONTENIDO DE LA TABLA FIS DOTACION -->
+	              <p:dataTable id="tbl"
+	              	value="#{dotacionBean.listaDotacion}"
+					var="item" 
+					paginator="true"
+					rows="10" 
+					paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+					paginatorPosition="bottom" 
+					selection="#{dotacionBean.dotacionSeleccionada}"
+					tableStyle="white-space: nowrap" 
+					widgetVar="tablaDotacion"
+					filteredValue="#{dotacionBean.dotacionFiltrada}"
+					emptyMessage="No existen registros con ese criterio"
+					styleClass="table"
+					reflow="true"
+					selectionMode="single"
+				    rowKey="#{item.idDotacion}">
+				    
+				    <f:facet name="header">
+								<div class="row row-nomargin">
+									<div class="col-lg-3">
+										<p:inputText id="globalFilter"
+											onkeyup="PF('tablaDotacion').filter()" class="pull-left"
+											style="width: 100%" placeholder="Buscar...." />
+									</div>
+									<div class="col-lg-6">
+										<p:outputLabel value="Dotaciones" />
+									</div>
+
+								</div>
+							</f:facet>
+							
+							<p:column headerText="Codigo" filterBy="#{item.idDotacion}"
+							filterStyle="display:none">
+							<h:outputText value="#{item.idDotacion}" />
+							</p:column>
+			
+							<p:column headerText="Descripcion" filterBy="#{item.descripcion}"
+								filterStyle="display:none">
+								<h:outputText value="#{item.descripcion}" />
+								</p:column>
+							<p:column headerText="Cantidad" filterBy="#{item.cantidad}" filterStyle="display:none">
+								<h:outputText value="#{item.cantidad}" />
+							</p:column>
+							<p:column headerText="Estado" filterBy="#{item.estado}" filterStyle="display:none">
+								<h:outputText value="#{item.estado}" />
+							</p:column>
+							<p:column headerText="Observacion" filterBy="#{item.observacion}" filterStyle="display:none">
+								<h:outputText value="#{item.observacion}" />
+							</p:column>
+							<p:column headerText="Puesto" filterBy="#{item.idPuesto.nombrePuesto}" filterStyle="display:none">
+								<h:outputText value="#{item.idPuesto.nombrePuesto}" />
+							</p:column>
+	              
+	              </p:dataTable>
+	              
+	              <br /> <br />
+	              
+	              	<div id= "footer" class="box-footer">
+
+						<p:commandButton id="btnNuevo"
+								actionListener="#{dotacionBean.nuevo()}" value="Nuevo"
+								 styleClass="my-button" icon="fa fa-plus"
+								update=":frmDotacion:growl :frmCrear" />
+
+						<p:commandButton id="btnModificar"
+							actionListener="#{dotacionBean.modificar()}"
+							value="Modificar"  styleClass="my-button"
+							icon="fa fa-pencil" update=":frmDotacion:growl :frmCrear" />
+						
+						<p:commandButton id="btnEliminar"
+								actionListener="#{dotacionBean.eliminar()}"
+								value="Eliminar" styleClass="my-button" icon="fa fa-trash"
+								update=":frmDotacion:tbl :frmDotacion:growl">
+						</p:commandButton>
+
+
+					</div>
+						
+						<br />
+					
+					</div>
+				</div>
+			</h:form>
+			
+			
+			<!-- DIALOGO DOTACION -->
+
+		<p:dialog id="dlgDatosDotacion" widgetVar="dlgDatosDotacion"
+			 responsive="true" modal="true"
+			width="50%"  closable="true"
+			closeOnEscape="true"
+			  appendTo="@(body)">
+		
+ 
+			<!-- general form elements -->
+			<h:form id="frmCrear">
+			
+			<p:messages id="mensaje" autoUpdate="false"/>
+			<p:focus context="@form"/>
+	
+					<p:panelGrid id="pnl" columns = "3" columnClasses="ui-grid-col-5" layout="grid" styleClass="ui-panelgrid-blank">
+						
+
+				<p:outputLabel value="Descripcion" for="descripcion" />
+				<p:inputText id="descripcion"
+					value="#{dotacionBean.dotacion.descripcion}" required="true"
+					requiredMessage="Requerido"
+					onkeyup="this.value = this.value.toUpperCase();">
+				</p:inputText>
+				<p:message for="descripcion" display="icon"/>
+
+				<p:outputLabel value="Cantidad" for="cantidad" />
+				<p:inputText id="cantidad"
+					value="#{dotacionBean.dotacion.cantidad}" required="true"
+					requiredMessage="Requerido"
+					onkeyup="this.value = this.value.toUpperCase();">
+				</p:inputText>
+				<p:message for="cantidad" display="icon"/>
+				
+				<p:outputLabel value="Estado" for="estado" />
+				<p:inputText id="estado"
+					value="#{dotacionBean.dotacion.estado}" required="true"
+					requiredMessage="Requerido"
+					onkeyup="this.value = this.value.toUpperCase();">
+				</p:inputText>
+				<p:message for="estado" display="icon"/>
+				
+				<p:outputLabel value="Puesto" for="idPuesto" />
+				<p:selectOneMenu id="idPuesto" value="#{dotacionBean.idPuesto}"
+					required="true" requiredMessage="Requerido">
+					<f:selectItem itemLabel="Seleccionar" itemValue="#{null}" />
+					<f:selectItems value="#{dotacionBean.listaPuesto}" var="item"
+						itemLabel="#{item.nombrePuesto}"
+						itemValue="#{item.idPuesto}">
+					</f:selectItems>
+				</p:selectOneMenu>
+				<p:message for="idPuesto" />
+				
+				<p:outputLabel value="Observaciones" for="observacion" />
+					<p:inputTextarea id="observacion" value="#{dotacionBean.dotacion.observacion}" rows="10" cols="60" />
+				<p:message for="observacion" display="icon"/> 
+				
+				</p:panelGrid>	
+						
+					<br />
+					<p:commandButton value="Guardar"
+						action="#{dotacionBean.persistir()}"
+						update = ":frmDotacion:tbl :frmCrear:pnl :frmDotacion:growl"  styleClass="my-button"	icon="fa fa-save"					
+						oncomplete="if (args &amp;&amp; !args.validationFailed) PF('dlgDatosDotacion').hide(); " />
+						
+					<p:commandButton value="Cancelar"
+						actionListener="#{dotacionBean.cancelar()}"	 styleClass="my-button"	icon="fa fa-close"			 
+						oncomplete="PF('dlgDatosDotacion').hide();" />
+			
+			</h:form>
+		</p:dialog>
+
+
+		</ui:define>
+
+	</ui:composition>
+</body>
+</html>
