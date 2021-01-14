@@ -33,7 +33,7 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   <dependency>
   <groupId>org.apache.poi</groupId>
   <artifactId>poi</artifactId>
-  <version>3.8-beta3</version>
+  <version>3.17</version>
   <scope>compile</scope>
 </dependency>
 
